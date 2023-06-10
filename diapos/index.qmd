@@ -31,27 +31,30 @@ execute:
 
 ## ¡Buenas!
 
+[**Correo**]{.hl-green}: **<javalv09@ucm.es>**. [**Despacho**]{.hl-green}: 722 (3ª planta). [**Tutorías**]{.hl-green}: lunes (14:30-16:00), martes (12:00-13:00) y viernes (13:00-14:00).
+
 ::: columns
-::: {.column width="37%"}
+::: {.column width="30%"}
 ![](img/me.jpeg)
 :::
 
-::: {.column width="63%"}
+::: {.column width="70%"}
 ::: incremental
--   [**Javier Álvarez Liébana**]{.hl-yellow}, nacido en 1989 en Carabanchel (Bajo).
+-   [**Javier Álvarez Liébana**]{.hl-yellow}, de Carabanchel (Bajo).
 
 -   Licenciado en Matemáticas (UCM). [**Doctorado en estadística**]{.hl-yellow} (UGR).
 
--   Encargado de la [**visualización y análisis de datos covid**]{.hl-yellow} de la Consejería de Salud de Asturias (2021-2022).
+-   Encargado de la [**visualización y análisis de datos covid**]{.hl-yellow} del Principado de Asturias (2021-2022).
 
--   Miembro de la [**Data Visualization Society**]{.hl-yellow}.
+-   Miembro de la [**Sociedad Española de Estadística e IO**]{.hl-yellow}, de la [**Real Sociedad Matemática Española**]{.hl-yellow} y de la [**Data Visualization Society**]{.hl-yellow}.
 :::
 :::
 :::
 
 . . .
 
-Actualmente, soy [**investigador y docente en la Facultad de Estadística de la UCM**]{.hl-purple}. Intentando eso de la divulgación por [**Twitter**](https://twitter.com/dadosdelaplace) e [**Instagram**](https://instagram.com/javieralvarezliebana)
+Actualmente, [**investigador y docente en la Facultad de Estadística de la UCM**]{.hl-yellow}. Divulgando por [**Twitter**](https://twitter.com/dadosdelaplace) e [**Instagram**](https://instagram.com/javieralvarezliebana)
+
 
 ---
 
@@ -85,11 +88,11 @@ Actualmente, soy [**investigador y docente en la Facultad de Estadística de la 
 
 . . .
 
--   [**Evaluación**]{.hl-yellow}. A lo largo del curso se han planteado [**4 entregas individuales**]{.hl-purple} (se realizarán integramente en clase), así como una [**entrega final grupal**]{.hl-purple} (entre 2 y 4 personas) donde se deberá presentar el análisis realizado de un caso real.
+-   [**Evaluación**]{.hl-yellow}. A lo largo del curso se han planteado [**4 entregas individuales**]{.hl-purple}, así como una [**entrega final grupal**]{.hl-purple} (entre 2 y 4 personas) donde se deberá presentar el análisis realizado de un caso real.
 
 . . .
 
--   [**Nota mínima**]{.hl-yellow}. Para no ir al examen final se [**deberá obtener al menos un 4/10**]{.hl-purple} en cada entrega o una [**media superior al 6/10**]{.hl-purple}. Se deberá obtener además en la [**entrega grupal una nota superior a 6-6.5-7/10**]{.hl-purple} (según 2-3-4 personas)
+-   [**Nota mínima**]{.hl-yellow}. Para no ir al examen final se [**deberá obtener al menos un 4/10**]{.hl-purple} en cada entrega o una [**media ponderada superior al 6/10**]{.hl-purple}. Se deberá obtener además en la [**entrega grupal una nota superior a 6-6.5-7/10**]{.hl-purple} (según 2-3-4 personas)
 
 . . .
 
@@ -101,16 +104,32 @@ Actualmente, soy [**investigador y docente en la Facultad de Estadística de la 
 
 ::: column-screen-inset-right
 ::: {style="font-size:20px"}
-|                 CLASE                 | SEMANA | FECHAS |                         TOPIC                          | SCRIPTS |                       EJ.                       |     CASO PRÁCTICO      | ENTREGA |     |     |
-|:------:|--------|--------|:------:|:------:|:------:|:------:|:------:|:------:|:------:|
-|     [1](#clase-1-primeros-pasos)      | S1     | 11 sep |                  Primeros pasos en R                   | [📝]()  |                 [💻](#tu-turno)                 |                        |         |     |     |
-|     [2](#clase-2-primeros-datos)      | S1     | 13 sep |                 Tipos básicos de datos                 | [📝]()  |       [💻](#tu-turno-1) [💻](#tu-turno-2)       |  [🐣](#caso-práctico)  |         |     |     |
-| [3](#clase-3-primeras-bases-de-datos) | S2     | 18 sep |                Primeras bases de datos                 | [📝]()  | [💻](#tu-turno-matrices) [💻](#tu-turno-tibble) | [🐣](#caso-práctico-1) |         |     |     |
-|   [4](#clase-4-r-base-vs-tidyverse)   | S2     | 20 sep |                  R base vs Tidyverse                   | [📝]()  |                [💻](#tu-turno-3)                |         [🐣](#caso-práctico-2)         |         |     |     |
-|   [5](#clase-5-importexport-comunicar)   | S3     | 25 sep |         Importar/exportar e intro a Quarto/rmd         | [📝]()  |                [💻](#tu-turno-4)                |         [🐣](#caso-práctico-3)         |         |     |     |
-|   [6](#clase-6-entrega-i)   | S3     | 27 sep |                       Entrega I                        |         |  [💻](#clase-6-entrega-i)                                                |                        |  🎯10%  |     |     |
+|  CLASE | SEMANA | FECHAS | TOPIC | SCRIPTS | EJ. | CASO PRÁCTICO | ENTREGA | 
+|:------:|:--------:|:--------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|
+|     [1](#clase-1-primeros-pasos)      | S1     | 11 sep |                  Primeros pasos en R                   | [📝]()  |                 [💻](#tu-turno)                 |                        |         | 
+|     [2](#clase-2-primeros-datos)      | S1     | 13 sep |                 Tipos básicos de datos                 | [📝]()  |       [💻](#tu-turno-1) [💻](#tu-turno-2)       |  [🐣](#caso-práctico)  |         |     
+| [3](#clase-3-primeras-bases-de-datos) | S2     | 18 sep |                Primeras bases de datos                 | [📝]()  | [💻](#tu-turno-matrices) [💻](#tu-turno-tibble) | [🐣](#caso-práctico-1) |         |    
+|   [4](#clase-4-r-base-vs-tidyverse)   | S2     | 20 sep |                  R base vs Tidyverse                   | [📝]()  |                [💻](#tu-turno-3)                |         [🐣](#caso-práctico-2)         |         |    
+|   [5](#clase-5-importexport-comunicar)   | S3     | 25 sep |         Importar/exportar e intro a Quarto/rmd         | [📝]()  |                [💻](#tu-turno-4)                |         [🐣](#caso-práctico-3a)  [🐣](#caso-práctico-3b)         |         | 
+|   [6](#clase-6-entrega-i)   | S3 | 27 sep | Entrega I |  |  [💻](#clase-6-entrega-i)   |  |  🎯10%  |
+|   [7](#clase-7-tidyverse-filas)   | S4   | 2 oct |                       Tidyverse (operaciones por filas)  | [📝]()  |       [💻](#tu-turno-7a) [💻](#tu-turno-7b)      |  [🐣](#caso-práctico-7)  |     | 
 :::
 :::
+
+---
+
+## Materiales
+
+* [**Diapositivas**]{.hl-yellow}: las diapositivas que usaremos en el aula a lo largo del curso, estructuradas por clases, estarán disponibles y actualizadas en **<https://javieralvarezliebana.es/docencia-R-master-bio-2324/diapos>** 
+
+En el menú de las diapositivas (abajo a la izquierda) tienes una [**opción para descargarlas en pdf**]{.hl-yellow} en `Tools` (consejo: no lo hagas hasta el final del curso ya que irán modificándose)
+  
+&nbsp;
+
+* [**Material**]{.hl-yellow}: [**scripts de cada tema**](https://github.com/dadosdelaplace/docencia-R-master-bio-2324/tree/main/material) y materiales extras
+
+* [**Resúmenes de paquetes**]{.hl-yellow}: [**chuletas de los paquetes**](https://github.com/dadosdelaplace/docencia-R-master-bio-2324/tree/main/fichas%20paquetes) en formato .pdf
+
 
 # Clase 1: primeros pasos {#clase-1-primeros-pasos}
 
@@ -1525,19 +1544,19 @@ month <- airquality$Month
 day <- airquality$Day
 ```
 
- 
+1. ¿Qué [**representan los datos**]{.hl-yellow}? ¿Cómo averiguarlo?
 
-1.  ¿Qué [**representan los datos**]{.hl-yellow}? ¿Cómo averiguarlo?
+. . .
 
-2.  ¿Cuántos [**registros tenemos de mayo**]{.hl-yellow}? ¿Y de abril?
+2. ¿Cuántos [**registros tenemos de mayo**]{.hl-yellow}? ¿Y de abril? Construye una nueva variable `date` con la [**fecha**]{.hl-yellow} de cada registro (combinando año, mes y día)
 
-3.  Construye una nueva variable `date` con la [**fecha**]{.hl-yellow} de cada registro
+. . .
 
-4.  Crea una nueva variable `temp_celsius` con la [**temperatura en ºC**]{.hl-yellow}
+3. Crea una nueva variable `temp_celsius` con la [**temperatura en ºC**]{.hl-yellow}
 
-5.  ¿Cuál fue la [**media de temperatura**]{.hl-yellow} del mes de agosto?
+. . .
 
-6.  Extrae los días en los que la [**temperatura superó los 30 grados**]{.hl-yellow} y calcula la cantidad de días en los que lo hizo.
+4. ¿Cuál fue la [**media de temperatura**]{.hl-yellow} del mes de agosto? Extrae los días en los que la [**temperatura superó los 30 grados**]{.hl-yellow} y calcula la cantidad de días en los que lo hizo.
 
 # Clase 3: primeras bases de datos {#clase-3-primeras-bases-de-datos}
 
@@ -2020,17 +2039,26 @@ Del paquete `datasets` usaremos el conjunto de datos `USArrests`
 datasets::USArrests
 ```
 
- 
 
-1.  ¿Qué [**representan**]{.hl-yellow} los datos?
+1. ¿Qué [**representan**]{.hl-yellow} los datos? ¿Qué [**tipo de dato**]{.hl-yellow} es? En caso de que no lo sea, convierte la base de datos a un `tibble` (renombra con `USArrests_tb`)
 
-2.  ¿Qué [**tipo de dato**]{.hl-yellow} es? En caso de que no lo sea, convierte a un `tibble` (renombra con `USArrests_tb`, por ejemplo)
+. . .
 
-3.  ¿Cuántos registros hay? ¿Y variables? ¿De qué tipo es cada una?
+2. ¿Cuántos registros hay? ¿Y variables? ¿De qué tipo es cada una?
 
-4.  Incorpora una [**variable extra con el nombre de cada estado**]{.hl-yellow} (piensa como obtenerlo del dataset original)
+. . .
 
-5.  ¿Dónde hay [**más asesinatos**]{.hl-yellow} (`murder`) en media: en los estados con población urbana superior al 75% o en los de menos del 55%?
+3. Incorpora una [**variable extra con el nombre de cada estado**]{.hl-yellow} (piensa como obtenerlo del dataset original)
+
+. . .
+
+4. ¿Dónde hay [**más asesinatos**]{.hl-yellow} (`murder`) en media: en los estados con población urbana superior al 75% o en los de menos del 55%?
+
+. . .
+
+5. Incorpora una [**variable extra con la fecha**]{.hl-yellow} (asumiendo todas 1 de enero), e incluye otra variable con la diferencia de días desde hoy hasta ese día.
+
+
 
 # Clase 4: R base vs Tidyverse {#clase-4-r-base-vs-tidyverse}
 
@@ -2120,8 +2148,8 @@ También tenemos los paquetes `{purrr}` para el manejo de listas, `{forcast}` pa
 ::: {.column width="55%"}
 -   `{tibble}`: [**optimizando data.frame**]{.hl-yellow}
 -   `{tidyr}`: [**limpieza de datos**]{.hl-yellow}
--   `{readr}`: [**carga datos**]{.hl-yellow} rectangulares (.csv)
--   `{dplyr}`: [**gramática para depurar**]{.hl-yellow}
+-   `{readr}`: carga datos rectangulares (.csv)
+-   `{dplyr}`: gramática para depurar
 -   `{stringr}`: manejo de textos
 -   `{ggplot2}`: visualización de datos
 -   `{tidymodels}`: modelización/predicción
@@ -2500,25 +2528,57 @@ billboard |>
 
 ---
 
-## 💻 Práctica
+## 🐣 Caso práctico {#caso-práctico-2}
 
-En el paquete `{tidyr}` contamos con el datset `who`. Con la menor ayuda posible, debes ser capaz de manera autonónoma de
-
--   buscar la ayuda
--   entender las variables (y conocer sus nombres)
--   entender los tipos de variables
--   eliminar lo que sobra (redundante)
--   convertirlo a tidydata.
+En el paquete `{tidyr}` contamos con el datset `who` (dataset de la Organización Mundial de la Salud)
 
 ```{r}
+#| eval: false
 library(tidyr)
 who
 ```
-:::
+
+
+1. ¿Qué [**significan los datos**]{.hl-yellow}? ¿Cuántas [**variables y observaciones**]{.hl-yellow} tenemos?
+
+. . .
+
+2. ¿Cuántos [**tipos de variables**]{.hl-yellow} tenemos?
+
+. . .
+
+3. ¿Todas las variables son necesarias? [**Elimina la información redundante**]{.hl-yellow}.
+
+. . .
+
+4. [**Convierte a tidydata**]{.hl-yellow} la base de datos.
+
 
 # Clase 5: import/export, comunicar
 
 [**Importar/exportar datos en R. Comunicar resultados: rmd y Quarto**]{style="color:#444442;"}
+
+---
+
+## ¿Qué es tidyverse?
+
+::: columns
+::: {.column width="45%"}
+![](img/tidyverrse_universe.jpg)
+:::
+
+::: {.column width="55%"}
+-   `{tibble}`: [**optimizando data.frame**]{.hl-yellow}
+-   `{tidyr}`: limpieza de datos
+-   `{readr}`: [**carga datos rectangulares (.csv)**]{.hl-yellow}
+-   `{dplyr}`: gramática para depurar
+-   `{stringr}`: manejo de textos
+-   `{ggplot2}`: visualización de datos
+-   `{tidymodels}`: modelización/predicción
+:::
+:::
+
+También tenemos los paquetes `{purrr}` para el manejo de listas, `{forcast}` para cualitativas, `{lubridate}` para fechas, [**`{readxl}` para importar archivos .xls y .xlsx**]{.hl-yellow}, `{rvest}` para web scraping y [**`{rmarkdown}` para comunicar resultados**]{.hl-yellow}.
 
 ---
 
@@ -2880,6 +2940,7 @@ Además de texto y código podemos introducir lo siguiente:
 * [**Listas**]{.hl-yellow}: puedes itemizar elementos poniendo `*`
 
 `* Paso 1: ...`
+
 `* Paso 2: ...`
 
 * [**Cross-references**]{.hl-yellow}: puedes etiquetar partes del documento (la etiqueta se construye con `{#nombre-seccion}`) y llamarlas luego con `[Sección](@nombre-seccion)`
@@ -2888,15 +2949,82 @@ Además de texto y código podemos introducir lo siguiente:
 
 ## Gráficas/imágenes en qmd
 
-Por último, también podemos añadir pies de gráficas o imágenes, como veremos más adelante.
+:::: columns
+::: {.column width="50%"}
+![](img/quarto-fig-qmd.png){width=340}
+![](img/quarto-fig-html.png){width=390}
+:::
 
-&nbsp;
+::: {.column width="50%"}
+Por último, también podemos [**añadir pies de gráficas o imágenes**]{.hl-yellow} añadiendo `#| fig-cap: "..."`
+:::
+::::
 
-Tienes toda la información detallada en **<https://quarto.org/>**
+. . .
+
+:::: columns
+::: {.column width="65%"}
+Fíjate que el [**caption está en el margen**]{.hl-yellow} (por ejemplo). Puedes cambiarlo introduciendo [**ajustes en la cabecera**]{.hl-yellow} (todo lo relativo a figuras empieza por `fig-`, y puedes ver las opciones tabulando). Tienes más información en **<https://quarto.org/>**
+:::
+
+::: {.column width="35%"}
+![](img/quarto-cabecera-desplegable.png){width=400}
+:::
+::::
 
 ---
 
+## Añadir estilos
+
+:::: columns
+::: {.column width="50%"}
+![](img/quarto-estilos-qmd.png){width=400}
+![](img/quarto-estilos-html.png){width=400}
+:::
+
+::: {.column width="50%"}
+Por último puedes añadir un [**tema personalizado**]{.hl-yellow} incluyendo un [**archivo de estilos**]{.hl-yellow} (archivo en formato `.scss` o `.css`). Te he dejado uno en <https://github.com/dadosdelaplace/docencia-R-master-bio-2324/tree/main/material>.
+
+::: callout-important
+## Importante
+
+El archivo de estilos debe estar en la misma carpeta que el archivo `.qmd`
+:::
+:::
+::::
+
+---
+
+## 🐣 Caso práctico {#caso-práctico-3a}
+
+Elabora 3 informes `.qmd` tal que
+
+
+* Crea un archivo por cada uno de los [**3 casos prácticos de los anteriores temas**]{.hl-yellow}, uno por tema
+
+. . .
+
+* En cada uno de ellos haz [**una sección por ejercicio**]{.hl-yellow}
+
+. . .
+
+* [**Detalla todos los pasos**]{.hl-yellow} que consideres mezclando texto, código y salidas
+
+. . .
+
+* Si aparecen medidas estadísticas como la media, [**prueba a meter fórmulas**]{.hl-yellow} con `$$` (busca información de cómo introducir ecuaciones en latex)
+
+. . .
+
+* Investiga las opciones del paquete `{DT}` (con la función `datatable()`) que nos permite [**introducir dentro de los `.qmd` los datos en formato de tabla dinámica**]{.hl-yellow}, permitiendo ordenar y filtrar.
+
+
+---
+
+
 ## Importar/exportar datos
+
+
 
 ---
 
@@ -2905,16 +3033,42 @@ Tienes toda la información detallada en **<https://quarto.org/>**
 
 [**Intenta realizar los siguientes ejercicios sin mirar las soluciones**]{style="color:#444442;"}
 
+---
+
+## 🐣 Caso práctico {#caso-práctico-3b}
+
 
 # Clase 6: entrega I
 
-[**Primera entrega individual (en clase)**]{style="color:#444442;"}
+[**Primera entrega individual en clase**]{style="color:#444442;"}
+
+---
+
+## Ejercicios para practicar
+
+Se actualizarán al menos 14 días antes de la entrega.
 
 ---
 
 ## Entrega I
 
-dasdas
+Se actualizará al inicio de la clase correspondiente.
+
+::: callout-important
+
+## Importante
+
+Esta [**entrega ponderará un 10% en la nota final**]{.hl-green}
+
+Podrás [**usar todo el material del curso e internet**]{.hl-yellow} salvo cualquier aplicación de mensajería o sistema de comunicación: en caso de tener alguna abierta a lo largo de la entrega, aunque no se esté usando, deberás [**abandonar la entrega y contará como un 0**]{.hl-red}.
+
+Contarás con aproximadamente 1 hora y 50 minutos, pero [**deberás realizar la entrega**]{.hl-yellow}, como tarde, a las [**18:00**]{.hl-yellow}. Será [**obligatorio subir tanto el `.qmd` como el `.html`**]{.hl-yellow}: una entrega que no haya podido ser renderizada (es decir, con errores graves) será [**penalizada contando solo un 65% de la nota obtenida**]{.hl-red} (si la entrega es perfecta, la nota máxima será un 6.5 sino se adjunta el `.html` generado).
+
+Te recomiendo practicar bastante y preguntar dudas en clase y/o tutoría ya que [**irás justo de tiempo**]{.hl-yellow}, así que necesitas fluidez en los ejercicios.
+
+Si usas un [**pc de la biblioteca**]{.hl-yellow} asegúrate de tomarlo con suficiente antelación para [**instalar todas las librerías necesarias antes de empezar**]{.hl-yellow} para no perder tiempo.
+
+:::
 
 
 # Clase 7: tidyverse (filas) {#clase-7-tidyverse-filas}
@@ -2923,16 +3077,39 @@ dasdas
 
 ---
 
+## ¿Qué es tidyverse?
+
+::: columns
+::: {.column width="45%"}
+![](img/tidyverrse_universe.jpg)
+:::
+
+::: {.column width="55%"}
+-   `{tibble}`: [**optimizando data.frame**]{.hl-yellow}
+-   `{tidyr}`: limpieza de datos
+-   `{readr}`: carga datos rectangulares (.csv)
+-   `{dplyr}`: [**gramática para depurar**]{.hl-yellow}
+-   `{stringr}`: manejo de textos
+-   `{ggplot2}`: visualización de datos
+-   `{tidymodels}`: modelización/predicción
+:::
+:::
+
+También tenemos los paquetes `{purrr}` para el manejo de listas, `{forcast}` para cualitativas, `{lubridate}` para fechas, `{readxl}` para importar archivos .xls y .xlsx, `{rvest}` para web scraping y `{rmarkdown}` para comunicar resultados.
+
+
+---
+
 ## Preprocesamiento: dplyr
 
 Dentro de `{tidyverse}` usaremos el paquete `{dplyr}` para el [**preprocesamiento y depuración**]{.hl-yellow} de datos de datos.
 
 ::: columns
-::: {.column width="65%"}
-![](img/dplyr.png)
+::: {.column width="60%"}
+![](img/dplyr.png){width=450}
 :::
 
-::: {.column width="35%"}
+::: {.column width="40%"}
 ```{r}
 #| eval: false
 datos |>
@@ -2950,7 +3127,36 @@ datos |>
 :::
 :::
 
+La idea es que el [**código sea legible**]{.hl-yellow}, como si fuese una lista de instrucciones que al leerla nos diga de manera muy evidente lo que está haciendo.
+
 ---
+
+## Hipótesis: tidydata
+
+::: columns
+::: {.column width="50%"}
+Toda la depuración que vamos a realizar es sobre la [**hipótesis de que nuestros datos están en tidydata**]{.hl-yellow}
+:::
+
+::: {.column width="50%"}
+![](img/tidy_def.jpg){width="160%"}
+:::
+::::
+
+Recuerda que en `{tidyverse}` será clave el [**operador pipe (tubería)**]{.hl-yellow} definido como `|>` ([**ctrl+shift+M**]{.hl-purple}): será una [**tubería que recorre los datos**]{.hl-yellow} y los transforma.
+
+. . .
+
+Vamos a practicar con el dataset `starwars` del paquete cargado `{dplyr}`
+
+```{r}
+#| eval: false
+library(tidyverse)
+starwars
+```
+
+---
+
 
 ## Filtrar filas: filter()
 
@@ -2975,11 +3181,11 @@ starwars |>
 Una de las operaciones más comunes es [**filtrar registros**]{.hl-yellow} en base a alguna condición lógica: con `filter()` se seleccionarán solo individuos que cumplan ciertas condiciones.
 
 ::: incremental
--   `==`, `!=`: [**igual**]{.hl-purple} o [**distinto**]{.hl-purple} que
--   `>`, `<`: [**mayor**]{.hl-purple} o [**menor**]{.hl-purple} que
--   `>=`, `<=`: [**mayor o igual**]{.hl-purple} o [**menor o igual**]{.hl-purple} que
--   `%in%`: valores [**pertenencen**]{.hl-purple} a un listado de opciones
--   `between(variable, val1, val2)`: si los valores (normalmente continuos) [**caen dentro de un rango**]{.hl-purple} de valores
+-   `==`, `!=`: [**igual**]{.hl-purple} o [**distinto**]{.hl-yellow} que (`|> filter(variable == "a")`)
+-   `>`, `<`: [**mayor**]{.hl-purple} o [**menor**]{.hl-yellow} que (`|> filter(variable < 3)`)
+-   `>=`, `<=`: [**mayor o igual**]{.hl-yellow} o [**menor o igual**]{.hl-purple} que (`|> filter(variable >= 5)`)
+-   `%in%`: valores [**pertenencen**]{.hl-yellow} a un listado de opciones (`|> filter(variable %in% c("azul", "verde"))`)
+-   `between(variable, val1, val2)`: si los valores (continuos) [**caen dentro de un rango**]{.hl-yellow} de valores (`|> filter(between(variable, 160, 180))`)
 :::
 
 ---
@@ -3004,7 +3210,7 @@ starwars |>
 :::
 :::
 
-¿Cómo harías... [**filtrar**]{.hl-yellow} los personajes de [**ojos marrones**]{.hl-purple}?
+¿Cómo harías para... [**filtrar**]{.hl-yellow} los personajes de [**ojos marrones**]{.hl-purple}?
 
 . . .
 
@@ -3040,7 +3246,7 @@ starwars |>
 :::
 :::
 
-¿Cómo harías... [**filtrar**]{.hl-yellow} los personajes que [**no tienen ojos marrones**]{.hl-purple}?
+¿Cómo harías para... [**filtrar**]{.hl-yellow} los personajes que [**no tienen ojos marrones**]{.hl-purple}?
 
 . . .
 
@@ -3070,7 +3276,7 @@ starwars |>
 :::
 :::
 
-¿Cómo harías... [**filtrar**]{.hl-yellow} los personajes que [**tengan los ojos marrones o azules**]{.hl-purple}?
+¿Cómo harías para ... [**filtrar**]{.hl-yellow} los personajes que [**tengan los ojos marrones o azules**]{.hl-purple}?
 
 . . .
 
@@ -3100,7 +3306,7 @@ starwars |>
 :::
 :::
 
-¿Cómo harías... [**filtrar**]{.hl-yellow} los personajes que [**midan entre 120 y 160 cm**]{.hl-purple}?
+¿Cómo harías para ... [**filtrar**]{.hl-yellow} los personajes que [**midan entre 120 y 160 cm**]{.hl-purple}?
 
 . . .
 
@@ -3198,11 +3404,10 @@ starwars |>
 :::
 :::
 
-Hay un filtro especial que es el de [**retirar los ausentes**]{.hl-yellow}, para lo cual podemos usar `filter(is.na(variable))` o directamente `drop_na()`: si no indicamos variable, elimina registros con ausente en cualquiera de las variables.
+Hay un filtro especial que es el de [**retirar los ausentes**]{.hl-yellow}, para lo cual podemos usar `filter(is.na(variable))` o directamente `drop_na()`: si no indicamos variable, elimina registros con ausente en cualquiera de las variables. Más adelante veremos como [**imputar esos ausentes**]{.hl-yellow} 
 
 . . .
 
- 
 
 ::: columns
 ::: {.column width="50%"}
@@ -3238,11 +3443,12 @@ starwars |>
 
 ---
 
-## 💻 Tu turno {#tu-turno-4}
+## 💻 Tu turno {#tu-turno-7a}
 
 [**Intenta realizar los siguientes ejercicios sin mirar las soluciones**]{style="color:#444442;"}
 
 ::: panel-tabset
+
 ### [**Ejercicio 1**]{.hl-yellow}
 
 📝 Selecciona del conjunto de starwars solo los personajes que sean androides o cuyo valor en `species` sea desconocido
@@ -3442,6 +3648,26 @@ starwars |> slice_max(n = 2, order_by = height) |> select(name:hair_color)
 
 ---
 
+## Rebanadas de datos: slice()
+
+slice_sample()
+
+hacer referencia a los tipos de muestreo
+
+stringr
+
+resumen:
+
+datos %>%
+  filtro(peso < 200 y ojos marrones) %>% 
+  quito_ausentes(estatura y peso) %>%
+  rebanada(7 primeras filas) %>%
+  ordeno(peso, si empate pesados 1º) %>%
+  quito_duplicados(color de piel)
+
+pollito con caso de bio
+---
+
 ## Reordenar filas: arrange()
 
 ::: columns
@@ -3562,7 +3788,7 @@ datos |> bind_rows(tibble("nombre" = c("carlos", NA), "cp" = c(28045, 28019)))
 
 ---
 
-## 💻 Tu turno
+## 💻 Tu turno {#tu-turno-7b}
 
 [**Intenta realizar los siguientes ejercicios sin mirar las soluciones**]{style="color:#444442;"}
 
@@ -3648,6 +3874,10 @@ starwars |>
   arrange(desc(mass))
 ```
 :::
+
+---
+
+## 🐣 Caso práctico {#caso-práctico-7}
 
 # Clase 8: tidyverse (columnas)
 
@@ -4137,6 +4367,18 @@ starwars |>
          .after = name)
 ```
 :::
+
+---
+
+## Imputar ausentes
+
+---
+
+## Detectar e imputar outliers
+
+---
+
+## Dummificar variables
 
 # Clase 10: tidyverse (resúmenes)
 

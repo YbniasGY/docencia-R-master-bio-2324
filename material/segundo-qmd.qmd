@@ -1,7 +1,8 @@
 ---
-title: "prueba"
+title: "prueba con estilos"
 format:
   html:
+    theme: [style.scss]
     toc: true
     toc-location: right
     toc-title: Índice
@@ -56,4 +57,3 @@ Puedes hacer referencia a @sec-quarto
 #| fig-cap: "Visualización cutre de y = x"
 plot(1:100, 1:100)
 ```
-
