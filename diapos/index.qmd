@@ -2560,28 +2560,6 @@ who
 
 ---
 
-## ¿Qué es tidyverse?
-
-::: columns
-::: {.column width="45%"}
-![](img/tidyverrse_universe.jpg)
-:::
-
-::: {.column width="55%"}
--   `{tibble}`: [**optimizando data.frame**]{.hl-yellow}
--   `{tidyr}`: limpieza de datos
--   `{readr}`: [**carga datos rectangulares (.csv)**]{.hl-yellow}
--   `{dplyr}`: gramática para depurar
--   `{stringr}`: manejo de textos
--   `{ggplot2}`: visualización de datos
--   `{tidymodels}`: modelización/predicción
-:::
-:::
-
-También tenemos los paquetes `{purrr}` para el manejo de listas, `{forcast}` para cualitativas, `{lubridate}` para fechas, [**`{readxl}` para importar archivos .xls y .xlsx**]{.hl-yellow}, `{rvest}` para web scraping y [**`{rmarkdown}` para comunicar resultados**]{.hl-yellow}.
-
----
-
 ## Comunicar: rmd y Quarto
 
 Una de las [**principales fortalezas**]{.hl-yellow} de `R` es la [**facilidad para generar informes, libros, webs, apuntes y hasta diapositivas**]{.hl-yellow} (este mismo material por ejemplo). Para ello instalaremos antes
@@ -3016,7 +2994,7 @@ Elabora 3 informes `.qmd` tal que
 
 . . .
 
-* Investiga las opciones del paquete `{DT}` (con la función `datatable()`) que nos permite [**introducir dentro de los `.qmd` los datos en formato de tabla dinámica**]{.hl-yellow}, permitiendo ordenar y filtrar.
+* Para avanzados: investiga las opciones del paquete `{DT}` (con la función `datatable()`) que nos permite [**introducir dentro de los `.qmd` los datos en formato de tabla dinámica**]{.hl-yellow}, permitiendo ordenar y filtrar.
 
 
 ---
@@ -3025,6 +3003,56 @@ Elabora 3 informes `.qmd` tal que
 ## Importar/exportar datos
 
 
+---
+
+## Formatos nativos de R
+
+---
+
+## Datos rectangulares (.csv, .tsv)
+
+---
+
+## Datos sin tabular (.txt)
+
+delim y demás
+
+---
+
+## Datos en excel (.xls, .xlsx)
+
+---
+
+## Desde web
+
+---
+
+## Desde SAS/STATA/SPSS
+
+---
+
+
+## Desde google drive
+
+---
+
+## Desde API (owid)
+
+---
+
+## Desde API (aemet)
+
+---
+
+## Desde API (catastro)
+
+---
+
+## Desde API (spotify)
+
+---
+
+## Desde API (twitter)
 
 ---
 
@@ -4844,6 +4872,41 @@ starwars |>
 ```
 :::
 
+# Clase X: entrega II
+
+[**Segunda entrega individual en clase**]{style="color:#444442;"}
+
+---
+
+## Ejercicios para practicar
+
+Se actualizarán al menos 14 días antes de la entrega.
+
+---
+
+## Entrega II
+
+Se actualizará al inicio de la clase correspondiente.
+
+::: callout-important
+
+## Importante
+
+Esta [**entrega ponderará un 15% en la nota final**]{.hl-green}
+
+Podrás [**usar todo el material del curso e internet**]{.hl-yellow} salvo cualquier aplicación de mensajería o sistema de comunicación: en caso de tener alguna abierta a lo largo de la entrega, aunque no se esté usando, deberás [**abandonar la entrega y contará como un 0**]{.hl-red}.
+
+Contarás en clase con aproximadamente 1 hora y 50 minutos, pero [**podrás realizar la entrega**]{.hl-yellow}, como tarde, hasta las [**23:59**]{.hl-yellow}. Será [**obligatorio subir tanto el `.qmd` como el `.html`**]{.hl-yellow}: una entrega que no haya podido ser renderizada (es decir, con errores graves) será [**penalizada contando solo un 65% de la nota obtenida**]{.hl-red} (si la entrega es perfecta, la nota máxima será un 6.5 sino se adjunta el `.html` generado).
+
+Te recomiendo practicar bastante y preguntar dudas en clase y/o tutoría ya que [**irás justo de tiempo**]{.hl-yellow}, así que necesitas fluidez en los ejercicios.
+
+Si usas un [**pc de la biblioteca**]{.hl-yellow} asegúrate de tomarlo con suficiente antelación para [**instalar todas las librerías necesarias antes de empezar**]{.hl-yellow} para no perder tiempo.
+
+[**Evita copiar**]{.hl-red}: la IA detecta bastante bien el plagio :)
+
+:::
+
+
 # Caso real: datos de encuestas
 
 [**Pongamos en práctica lo aprendido...**]{style="color:#444442;"}
@@ -5786,15 +5849,13 @@ Tras revisar todo y aprobarlo clickaremos en `Confirm merge`, y tras ello podrem
 :::
 :::
 
-# FRIKADAS
+# Recursos extras
 
 [**Algunos paquetes o recursos curiosos**]{style="color:#444442;"}
 
 ---
 
-## Cosicas curiosas
-
-### Paletas de colores
+## Paletas de colores
 
 -   [**{ggthemes}**]{.hl-purple}: [**temas y paletas extras**]{.hl-yellow} para ggplot (por ejemplo para **daltónicos**) <https://jrnold.github.io/ggthemes/> y <https://yutannihilation.github.io/allYourFigureAreBelongToUs/ggthemes/>
 
@@ -5810,9 +5871,7 @@ Tras revisar todo y aprobarlo clickaremos en `Confirm merge`, y tras ello podrem
 
 ---
 
-## Cosicas curiosas
-
-### Dataviz
+## Dataviz
 
 -   [**R Graph Gallery**]{.hl-purple}: colección de dataviz en R <https://www.r-graph-gallery.com/>
 
@@ -5824,9 +5883,7 @@ Tras convertirlo a plotly se puede [**guardar automáticamente en html**]{.hl-ye
 
 ---
 
-## Cosicas curiosas
-
-### Dataviz
+## Dataviz
 
 -   [**{ggiraph}**]{.hl-purple}: gráficas interactivas al [**estilo D3**]{.hl-yellow}. <https://davidgohel.github.io/ggiraph/>
 
@@ -5842,19 +5899,21 @@ Tras convertirlo a plotly se puede [**guardar automáticamente en html**]{.hl-ye
 
 ---
 
-## Cosicas curiosas
-
-### Mapas
+## Mapas
 
 -   [**{mapSpain}**]{.hl-purple}: visualización de [**datos en mapas de España**]{.hl-yellow} en R. De Diego Hernangómez <https://dieghernan.github.io/rpubs/mapSpain_RMadrid/#1>
 
 -   [**{rasterpic}**]{.hl-purple}: visualización de [**mapas con imágenes rasterizados de fondo**]{.hl-yellow}. De Diego Hernangómez. <https://dieghernan.github.io/rasterpic/>
 
+
+### Grafos y redes
+
+-   [**{tidygraph}**]{.hl-purple}: paquete al estilo `{tidyverse}` para [**visualizar y manipular grafos**]{.hl-yellow} <https://tidygraph.data-imaginist.com/index.html>
+
+
 ---
 
-## Cosicas curiosas
-
-### Text mining
+## Text mining
 
 -   [**Manual de text mining**]{.hl-purple}: de Julia Silge y David Robinson. Recurso: <https://tidytextmining.com>
 
@@ -5862,15 +5921,9 @@ Tras convertirlo a plotly se puede [**guardar automáticamente en html**]{.hl-ye
 
 -   [**Análisis de sentimientos de tweets**]{.hl-purple}: de Harshvardhan. Recurso: <https://www.harsh17.in/twitter-sentiments/>
 
-### Grafos y redes
-
--   [**{tidygraph}**]{.hl-purple}: paquete al estilo `{tidyverse}` para [**visualizar y manipular grafos**]{.hl-yellow} <https://tidygraph.data-imaginist.com/index.html>
-
 ---
 
-## Cosicas curiosas
-
-### Datos curiosos
+## Datos curiosos
 
 -   [**{fitbitr}**]{.hl-purple}: API para acceder a [**datos de pulseras fitbit**]{.hl-yellow}. De Matt Kaye <https://mrkaye97.github.io/fitbitr/index.html>
 
@@ -5886,9 +5939,7 @@ Tras convertirlo a plotly se puede [**guardar automáticamente en html**]{.hl-ye
 
 ---
 
-## Cosicas curiosas
-
-### Informes, libros, diapositivas y webs
+## Informes, libros, diapositivas y webs
 
 -   [**Manual de Quarto**]{.hl-purple}: el nuevo rmarkdown, más completo y sencillo para elaborar manuales, diapositivas, informes e incluso webs <https://quarto.org/docs/guide/>
 
@@ -5904,4 +5955,4 @@ Tras convertirlo a plotly se puede [**guardar automáticamente en html**]{.hl-ye
 
 # ¡GRACIAS!
 
-[**Mi mail javalv09\@ucm.es, Twitter [\@dadosdelaplace](https://twitter.com/DadosdeLaplace) e Instagram [\@javieralvarezliebana](https://www.instagram.com/javieralvarezliebana/) para lo que queráis (dudas, cervezas, ...)**]{style="color:#444442;"}
+[**Mi mail javalv09\@ucm.es, Twitter [@dadosdelaplace](https://twitter.com/DadosdeLaplace) e Instagram [@javieralvarezliebana](https://www.instagram.com/javieralvarezliebana/) para lo que queráis**]{style="color:#444442;"}

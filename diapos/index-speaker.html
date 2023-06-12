@@ -1387,7 +1387,7 @@ Máster de Bioestadística • curso 2023-2024
 <div class="cell">
 <div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1"></a><span class="fu">today</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2023-06-11"</code></pre>
+<pre><code>[1] "2023-06-12"</code></pre>
 </div>
 </div>
 <div class="fragment">
@@ -1397,7 +1397,7 @@ Máster de Bioestadística • curso 2023-2024
 <div class="cell">
 <div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1"></a><span class="fu">now</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2023-06-11 00:41:40 CEST"</code></pre>
+<pre><code>[1] "2023-06-12 17:47:30 CEST"</code></pre>
 </div>
 </div>
 </div>
@@ -2071,9 +2071,9 @@ Máster de Bioestadística • curso 2023-2024
 <span id="cb178-3"><a href="#cb178-3"></a><span class="fu">microbenchmark</span>(<span class="fu">sort</span>(x), x[<span class="fu">order</span>(x)], <span class="at">times =</span> <span class="fl">5e2</span>) <span class="co"># 500 veces</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Unit: microseconds
-        expr    min     lq     mean median     uq     max neval
-     sort(x) 66.953 68.019 69.67917 68.880 69.700  99.507   500
- x[order(x)] 55.924 56.990 58.54169 57.728 58.466 106.846   500</code></pre>
+        expr    min     lq     mean median      uq    max neval
+     sort(x) 37.925 39.483 41.20188 40.098 41.1845 68.183   500
+ x[order(x)] 31.570 32.964 34.36981 33.497 34.1940 76.219   500</code></pre>
 </div>
 </div>
 </section>
@@ -3226,25 +3226,6 @@ pesos       63   70   85   95</code></pre>
 <h1>Clase 5: import/export, comunicar</h1>
 <p><span style="color:#444442;"><strong>Importar/exportar datos en R. Comunicar resultados: rmd y Quarto</strong></span></p>
 </section>
-<section id="qué-es-tidyverse-3" class="slide level2">
-<h2>¿Qué es tidyverse?</h2>
-<div class="columns">
-<div class="column" style="width:45%;">
-<p><img data-src="img/tidyverrse_universe.jpg"></p>
-</div><div class="column" style="width:55%;">
-<ul>
-<li><code>{tibble}</code>: <span class="hl-yellow"><strong>optimizando data.frame</strong></span></li>
-<li><code>{tidyr}</code>: limpieza de datos</li>
-<li><code>{readr}</code>: <span class="hl-yellow"><strong>carga datos rectangulares (.csv)</strong></span></li>
-<li><code>{dplyr}</code>: gramática para depurar</li>
-<li><code>{stringr}</code>: manejo de textos</li>
-<li><code>{ggplot2}</code>: visualización de datos</li>
-<li><code>{tidymodels}</code>: modelización/predicción</li>
-</ul>
-</div>
-</div>
-<p>También tenemos los paquetes <code>{purrr}</code> para el manejo de listas, <code>{forcast}</code> para cualitativas, <code>{lubridate}</code> para fechas, <span class="hl-yellow"><strong><code>{readxl}</code> para importar archivos .xls y .xlsx</strong></span>, <code>{rvest}</code> para web scraping y <span class="hl-yellow"><strong><code>{rmarkdown}</code> para comunicar resultados</strong></span>.</p>
-</section>
 <section id="comunicar-rmd-y-quarto" class="slide level2">
 <h2>Comunicar: rmd y Quarto</h2>
 <p>Una de las <span class="hl-yellow"><strong>principales fortalezas</strong></span> de <code>R</code> es la <span class="hl-yellow"><strong>facilidad para generar informes, libros, webs, apuntes y hasta diapositivas</strong></span> (este mismo material por ejemplo). Para ello instalaremos antes</p>
@@ -3573,12 +3554,49 @@ pesos       63   70   85   95</code></pre>
 </div>
 <div class="fragment">
 <ul>
-<li>Investiga las opciones del paquete <code>{DT}</code> (con la función <code>datatable()</code>) que nos permite <span class="hl-yellow"><strong>introducir dentro de los <code>.qmd</code> los datos en formato de tabla dinámica</strong></span>, permitiendo ordenar y filtrar.</li>
+<li>Para avanzados: investiga las opciones del paquete <code>{DT}</code> (con la función <code>datatable()</code>) que nos permite <span class="hl-yellow"><strong>introducir dentro de los <code>.qmd</code> los datos en formato de tabla dinámica</strong></span>, permitiendo ordenar y filtrar.</li>
 </ul>
 </div>
 </section>
 <section id="importarexportar-datos" class="slide level2">
 <h2>Importar/exportar datos</h2>
+</section>
+<section id="formatos-nativos-de-r" class="slide level2">
+<h2>Formatos nativos de R</h2>
+</section>
+<section id="datos-rectangulares-.csv-.tsv" class="slide level2">
+<h2>Datos rectangulares (.csv, .tsv)</h2>
+</section>
+<section id="datos-sin-tabular-.txt" class="slide level2">
+<h2>Datos sin tabular (.txt)</h2>
+<p>delim y demás</p>
+</section>
+<section id="datos-en-excel-.xls-.xlsx" class="slide level2">
+<h2>Datos en excel (.xls, .xlsx)</h2>
+</section>
+<section id="desde-web" class="slide level2">
+<h2>Desde web</h2>
+</section>
+<section id="desde-sasstataspss" class="slide level2">
+<h2>Desde SAS/STATA/SPSS</h2>
+</section>
+<section id="desde-google-drive" class="slide level2">
+<h2>Desde google drive</h2>
+</section>
+<section id="desde-api-owid" class="slide level2">
+<h2>Desde API (owid)</h2>
+</section>
+<section id="desde-api-aemet" class="slide level2">
+<h2>Desde API (aemet)</h2>
+</section>
+<section id="desde-api-catastro" class="slide level2">
+<h2>Desde API (catastro)</h2>
+</section>
+<section id="desde-api-spotify" class="slide level2">
+<h2>Desde API (spotify)</h2>
+</section>
+<section id="desde-api-twitter" class="slide level2">
+<h2>Desde API (twitter)</h2>
 </section>
 <section id="tu-turno-4" class="slide level2">
 <h2>💻 Tu turno</h2>
@@ -3622,7 +3640,7 @@ pesos       63   70   85   95</code></pre>
 <h1>Clase 7: tidyverse (filas)</h1>
 <p><span style="color:#444442;"><strong>Operaciones con filas</strong></span></p>
 </section>
-<section id="qué-es-tidyverse-4" class="slide level2">
+<section id="qué-es-tidyverse-3" class="slide level2">
 <h2>¿Qué es tidyverse?</h2>
 <div class="columns">
 <div class="column" style="width:45%;">
@@ -5569,6 +5587,37 @@ dplyr 1.1.0.
 </div>
 </section></section>
 <section>
+<section id="clase-x-entrega-ii" class="title-slide slide level1 center">
+<h1>Clase X: entrega II</h1>
+<p><span style="color:#444442;"><strong>Segunda entrega individual en clase</strong></span></p>
+</section>
+<section id="ejercicios-para-practicar-1" class="slide level2">
+<h2>Ejercicios para practicar</h2>
+<p>Se actualizarán al menos 14 días antes de la entrega.</p>
+</section>
+<section id="entrega-ii" class="slide level2">
+<h2>Entrega II</h2>
+<p>Se actualizará al inicio de la clase correspondiente.</p>
+<div class="callout callout-important callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Importante</strong></p>
+</div>
+<div class="callout-content">
+<p>Esta <span class="hl-green"><strong>entrega ponderará un 15% en la nota final</strong></span></p>
+<p>Podrás <span class="hl-yellow"><strong>usar todo el material del curso e internet</strong></span> salvo cualquier aplicación de mensajería o sistema de comunicación: en caso de tener alguna abierta a lo largo de la entrega, aunque no se esté usando, deberás <span class="hl-red"><strong>abandonar la entrega y contará como un 0</strong></span>.</p>
+<p>Contarás en clase con aproximadamente 1 hora y 50 minutos, pero <span class="hl-yellow"><strong>podrás realizar la entrega</strong></span>, como tarde, hasta las <span class="hl-yellow"><strong>23:59</strong></span>. Será <span class="hl-yellow"><strong>obligatorio subir tanto el <code>.qmd</code> como el <code>.html</code></strong></span>: una entrega que no haya podido ser renderizada (es decir, con errores graves) será <span class="hl-red"><strong>penalizada contando solo un 65% de la nota obtenida</strong></span> (si la entrega es perfecta, la nota máxima será un 6.5 sino se adjunta el <code>.html</code> generado).</p>
+<p>Te recomiendo practicar bastante y preguntar dudas en clase y/o tutoría ya que <span class="hl-yellow"><strong>irás justo de tiempo</strong></span>, así que necesitas fluidez en los ejercicios.</p>
+<p>Si usas un <span class="hl-yellow"><strong>pc de la biblioteca</strong></span> asegúrate de tomarlo con suficiente antelación para <span class="hl-yellow"><strong>instalar todas las librerías necesarias antes de empezar</strong></span> para no perder tiempo.</p>
+<p><span class="hl-red"><strong>Evita copiar</strong></span>: la IA detecta bastante bien el plagio :)</p>
+</div>
+</div>
+</div>
+</section></section>
+<section>
 <section id="caso-real-datos-de-encuestas" class="title-slide slide level1 center">
 <h1>Caso real: datos de encuestas</h1>
 <p><span style="color:#444442;"><strong>Pongamos en práctica lo aprendido…</strong></span></p>
@@ -6406,13 +6455,12 @@ dplyr 1.1.0.
 </div>
 </section></section>
 <section>
-<section id="frikadas" class="title-slide slide level1 center">
-<h1>FRIKADAS</h1>
+<section id="recursos-extras" class="title-slide slide level1 center">
+<h1>Recursos extras</h1>
 <p><span style="color:#444442;"><strong>Algunos paquetes o recursos curiosos</strong></span></p>
 </section>
-<section id="cosicas-curiosas" class="slide level2">
-<h2>Cosicas curiosas</h2>
-<h3 id="paletas-de-colores">Paletas de colores</h3>
+<section id="paletas-de-colores" class="slide level2">
+<h2>Paletas de colores</h2>
 <ul>
 <li><p><span class="hl-purple"><strong>{ggthemes}</strong></span>: <span class="hl-yellow"><strong>temas y paletas extras</strong></span> para ggplot (por ejemplo para <strong>daltónicos</strong>) <a href="https://jrnold.github.io/ggthemes/" class="uri">https://jrnold.github.io/ggthemes/</a> y <a href="https://yutannihilation.github.io/allYourFigureAreBelongToUs/ggthemes/" class="uri">https://yutannihilation.github.io/allYourFigureAreBelongToUs/ggthemes/</a></p></li>
 <li><p><span class="hl-purple"><strong>{peRReo}</strong></span>: paletas inspiradas en <span class="hl-yellow"><strong>portadas de música urbana y latina</strong></span> <a href="https://github.com/jbgb13/peRReo" class="uri">https://github.com/jbgb13/peRReo</a></p></li>
@@ -6422,9 +6470,8 @@ dplyr 1.1.0.
 <li><p><span class="hl-purple"><strong>{colorblindcheck}</strong></span>: detectar paletas de colores aptas <span class="hl-yellow"><strong>daltónicos/as</strong></span>. De Jakub Nowosad <a href="https://github.com/Nowosad/colorblindcheck" class="uri">https://github.com/Nowosad/colorblindcheck</a></p></li>
 </ul>
 </section>
-<section id="cosicas-curiosas-1" class="slide level2">
-<h2>Cosicas curiosas</h2>
-<h3 id="dataviz">Dataviz</h3>
+<section id="dataviz" class="slide level2">
+<h2>Dataviz</h2>
 <ul>
 <li><p><span class="hl-purple"><strong>R Graph Gallery</strong></span>: colección de dataviz en R <a href="https://www.r-graph-gallery.com/" class="uri">https://www.r-graph-gallery.com/</a></p></li>
 <li><p><span class="hl-purple"><strong>{patchwork}</strong></span>: agregar y <span class="hl-yellow"><strong>componer gráficas</strong></span>. De Thomas Lin Pedersen. <a href="https://patchwork.data-imaginist.com" class="uri">https://patchwork.data-imaginist.com</a></p></li>
@@ -6432,9 +6479,8 @@ dplyr 1.1.0.
 </ul>
 <p>Tras convertirlo a plotly se puede <span class="hl-yellow"><strong>guardar automáticamente en html</strong></span> con <a href="https://plotly-r.com/saving.html" class="uri">https://plotly-r.com/saving.html</a> y generar el <span class="hl-yellow"><strong>código del iframe responsive</strong></span> con <a href="https://bhaskarvk.github.io/widgetframe/articles/Using_widgetframe.html" class="uri">https://bhaskarvk.github.io/widgetframe/articles/Using_widgetframe.html</a></p>
 </section>
-<section id="cosicas-curiosas-2" class="slide level2">
-<h2>Cosicas curiosas</h2>
-<h3 id="dataviz-1">Dataviz</h3>
+<section id="dataviz-1" class="slide level2">
+<h2>Dataviz</h2>
 <ul>
 <li><p><span class="hl-purple"><strong>{ggiraph}</strong></span>: gráficas interactivas al <span class="hl-yellow"><strong>estilo D3</strong></span>. <a href="https://davidgohel.github.io/ggiraph/" class="uri">https://davidgohel.github.io/ggiraph/</a></p></li>
 <li><p><span class="hl-purple"><strong>Aprender a usar {ggiraph}</strong></span>: para gráficas interactivas al <span class="hl-yellow"><strong>estilo D3</strong></span> <a href="https://albert-rapp.de/posts/ggplot2-tips/17_ggiraph/17_ggiraph.html" class="uri">https://albert-rapp.de/posts/ggplot2-tips/17_ggiraph/17_ggiraph.html</a></p></li>
@@ -6444,30 +6490,27 @@ dplyr 1.1.0.
 <li><p><span class="hl-purple"><strong>{ggpattern}</strong></span>: rellenos con <span class="hl-yellow"><strong>patrones geométricos</strong></span> en ggplot2. De coolbutuseless y Trevor L. Davis. <a href="https://github.com/coolbutuseless/ggpattern" class="uri">https://github.com/coolbutuseless/ggpattern</a></p></li>
 </ul>
 </section>
-<section id="cosicas-curiosas-3" class="slide level2">
-<h2>Cosicas curiosas</h2>
-<h3 id="mapas">Mapas</h3>
+<section id="mapas" class="slide level2">
+<h2>Mapas</h2>
 <ul>
 <li><p><span class="hl-purple"><strong>{mapSpain}</strong></span>: visualización de <span class="hl-yellow"><strong>datos en mapas de España</strong></span> en R. De Diego Hernangómez <a href="https://dieghernan.github.io/rpubs/mapSpain_RMadrid/#1" class="uri">https://dieghernan.github.io/rpubs/mapSpain_RMadrid/#1</a></p></li>
 <li><p><span class="hl-purple"><strong>{rasterpic}</strong></span>: visualización de <span class="hl-yellow"><strong>mapas con imágenes rasterizados de fondo</strong></span>. De Diego Hernangómez. <a href="https://dieghernan.github.io/rasterpic/" class="uri">https://dieghernan.github.io/rasterpic/</a></p></li>
-</ul>
-</section>
-<section id="cosicas-curiosas-4" class="slide level2">
-<h2>Cosicas curiosas</h2>
-<h3 id="text-mining">Text mining</h3>
-<ul>
-<li><p><span class="hl-purple"><strong>Manual de text mining</strong></span>: de Julia Silge y David Robinson. Recurso: <a href="https://tidytextmining.com" class="uri">https://tidytextmining.com</a></p></li>
-<li><p><span class="hl-purple"><strong>Descarga de textos libres</strong></span>: de David Robinson. Recurso: <a href="https://github.com/ropensci/gutenbergr" class="uri">https://github.com/ropensci/gutenbergr</a></p></li>
-<li><p><span class="hl-purple"><strong>Análisis de sentimientos de tweets</strong></span>: de Harshvardhan. Recurso: <a href="https://www.harsh17.in/twitter-sentiments/" class="uri">https://www.harsh17.in/twitter-sentiments/</a></p></li>
 </ul>
 <h3 id="grafos-y-redes">Grafos y redes</h3>
 <ul>
 <li><span class="hl-purple"><strong>{tidygraph}</strong></span>: paquete al estilo <code>{tidyverse}</code> para <span class="hl-yellow"><strong>visualizar y manipular grafos</strong></span> <a href="https://tidygraph.data-imaginist.com/index.html" class="uri">https://tidygraph.data-imaginist.com/index.html</a></li>
 </ul>
 </section>
-<section id="cosicas-curiosas-5" class="slide level2">
-<h2>Cosicas curiosas</h2>
-<h3 id="datos-curiosos">Datos curiosos</h3>
+<section id="text-mining" class="slide level2">
+<h2>Text mining</h2>
+<ul>
+<li><p><span class="hl-purple"><strong>Manual de text mining</strong></span>: de Julia Silge y David Robinson. Recurso: <a href="https://tidytextmining.com" class="uri">https://tidytextmining.com</a></p></li>
+<li><p><span class="hl-purple"><strong>Descarga de textos libres</strong></span>: de David Robinson. Recurso: <a href="https://github.com/ropensci/gutenbergr" class="uri">https://github.com/ropensci/gutenbergr</a></p></li>
+<li><p><span class="hl-purple"><strong>Análisis de sentimientos de tweets</strong></span>: de Harshvardhan. Recurso: <a href="https://www.harsh17.in/twitter-sentiments/" class="uri">https://www.harsh17.in/twitter-sentiments/</a></p></li>
+</ul>
+</section>
+<section id="datos-curiosos" class="slide level2">
+<h2>Datos curiosos</h2>
 <ul>
 <li><p><span class="hl-purple"><strong>{fitbitr}</strong></span>: API para acceder a <span class="hl-yellow"><strong>datos de pulseras fitbit</strong></span>. De Matt Kaye <a href="https://mrkaye97.github.io/fitbitr/index.html" class="uri">https://mrkaye97.github.io/fitbitr/index.html</a></p></li>
 <li><p><span class="hl-purple"><strong>{rtweet}</strong></span>: API para acceder (al menos antes) a <span class="hl-yellow"><strong>Twitter</strong></span>. De Michael W. Kearney <a href="https://docs.ropensci.org/rtweet/" class="uri">https://docs.ropensci.org/rtweet/</a></p></li>
@@ -6477,9 +6520,8 @@ dplyr 1.1.0.
 <li><p><span class="hl-purple"><strong>{chessR}</strong></span>: API para acceder a datos de <span class="hl-yellow"><strong>partidas de ajedrez</strong></span>. De Jason Zivkovic <a href="https://github.com/JaseZiv/chessR" class="uri">https://github.com/JaseZiv/chessR</a></p></li>
 </ul>
 </section>
-<section id="cosicas-curiosas-6" class="slide level2">
-<h2>Cosicas curiosas</h2>
-<h3 id="informes-libros-diapositivas-y-webs">Informes, libros, diapositivas y webs</h3>
+<section id="informes-libros-diapositivas-y-webs" class="slide level2">
+<h2>Informes, libros, diapositivas y webs</h2>
 <ul>
 <li><p><span class="hl-purple"><strong>Manual de Quarto</strong></span>: el nuevo rmarkdown, más completo y sencillo para elaborar manuales, diapositivas, informes e incluso webs <a href="https://quarto.org/docs/guide/" class="uri">https://quarto.org/docs/guide/</a></p></li>
 <li><p><span class="hl-purple"><strong>Shiny</strong></span>: webs interactivas con R <a href="https://shiny.rstudio.com/tutorial/written-tutorial/lesson1/" class="uri">https://shiny.rstudio.com/tutorial/written-tutorial/lesson1/</a></p></li>
@@ -6493,7 +6535,7 @@ dplyr 1.1.0.
 </section></section>
 <section id="gracias" class="title-slide slide level1 center">
 <h1>¡GRACIAS!</h1>
-<p><span style="color:#444442;"><strong>Mi mail javalv09@ucm.es, Twitter <a href="https://twitter.com/DadosdeLaplace">@dadosdelaplace</a> e Instagram <a href="https://www.instagram.com/javieralvarezliebana/">@javieralvarezliebana</a> para lo que queráis (dudas, cervezas, …)</strong></span></p>
+<p><span style="color:#444442;"><strong>Mi mail javalv09@ucm.es, Twitter <a href="https://twitter.com/DadosdeLaplace"><span class="citation" data-cites="dadosdelaplace">@dadosdelaplace</span></a> e Instagram <a href="https://www.instagram.com/javieralvarezliebana/"><span class="citation" data-cites="javieralvarezliebana">@javieralvarezliebana</span></a> para lo que queráis</strong></span></p>
 <div class="footer footer-default">
 <p><a href="..."><strong>Javier Álvarez Liébana</strong></a> • Máster de bioestadística (UCM) • curso 2023-2024</p>
 </div>
