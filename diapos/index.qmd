@@ -3331,7 +3331,6 @@ mtcars |> slice(1:5)
  
 Incluso podemos indicar el [**rango de celdas**]{.hl-yellow} a cargar con `range = ...`
 
-
 ```{r}
 iris <- read_xlsx(path = "./datos/datasets.xlsx", sheet = "iris", range = "C1:E4")
 iris
