@@ -3002,35 +3002,373 @@ Elabora 3 informes `.qmd` tal que
 
 ## Importar/exportar datos
 
+Hasta ahora solo hemos usado datos cargados ya en paquetes pero muchas veces [**necesitaremos importar datos de manera externa**]{.hl-yellow}. Una de las principales [**fortalezas**]{.hl-yellow} de `R` es que podemos importar datos de manera muy sencilla en distintos formatos:
+
+
+* [**Formatos nativos de R**]{.hl-yellow}: formatos `.rda`, `.RData` y `.rds`
+
+* [**Datos rectangulares (tabulados)**]{.hl-yellow}: formatos `.csv` y `.tsv`
+
+* [**Datos sin tabular**]{.hl-yellow}: formato `.txt`
+
+* [**Datos en excel**]{.hl-yellow}: formatos `.xls` y `.xlsx`
+
+* [**Datos desde SAS/Stata/SPSS**]{.hl-yellow}: formatos `.sas7bdat`, `.sav` y `.dat`
+
+* [**Datos Google Drive**]{.hl-yellow}
+
+* [**Datos desde API**]{.hl-yellow}: aemet, catastro, twitter, spotify, etc
+
 
 ---
 
 ## Formatos nativos de R
 
+Los [**ficheros más simples**]{.hl-yellow} para importar en `R` (y que suele ocupar menos espacio en disco) son sus propias [**extensiones nativas**]{.hl-yellow}: archivos con formatos `.RData`, `.rda` y `.rds`. Para cargar los primeros simplemente necesitamos [**usar la función nativa**]{.hl-yellow} `load()` indicándole la ruta del archivo.
+
+* Archivo `.RData`: vamos a importar un dataset con las distintas características de los [**viajeros del Titanic**]{.hl-purple}, incluyendo quién sobrevivió y quién murió.
+
+
+```{r}
+#| eval: false
+load("./datos/titanic.RData")
+as_tibble(titanic)
+```
+
+```{r}
+#| echo: false
+library(tidyverse)
+load("./datos/titanic.RData")
+as_tibble(titanic) |> slice(1:5)
+```
+
+
 ---
 
-## Datos rectangulares (.csv, .tsv)
+## Formatos nativos de R
+
+
+* Archivo `.rda`: vamos a importar un dataset con [**datos de cáncer de pecho**]{.hl-purple} de [**Royston and Altman (2013)**](https://bmcmedresmethodol.biomedcentral.com/articles/10.1186/1471-2288-13-33), incluyendo 2982 pacientes y sus características
+
+
+```{r}
+#| eval: false
+load("./datos/rotterdam_breast_cancer.rda")
+as_tibble(rotterdam)
+```
+
+```{r}
+#| echo: false
+library(tidyverse)
+load("./datos/rotterdam_breast_cancer.rda")
+as_tibble(rotterdam) |> slice(1:7)
+```
+
+
+---
+
+## Formatos nativos de R
+
+* Archivo `.rds`: para este tipo debemos usar `readRDS()`, y necesitamos incorporar un [**argumento `file`**]{.hl-yellow} con la ruta. En este caso vamos a importar [**datos de cáncer de pulmón**]{.hl-purple} del North Central Cancer Treatment Group.
+
+```{r}
+#| eval: false
+lung_cancer <-
+  readRDS(file = "./datos/NCCTG_lung_cancer.rds") |> as_tibble()
+```
+
+```{r}
+#| echo: false
+lung_cancer <-
+  readRDS(survival::cancer, file = "./datos/NCCTG_lung_cancer.rds") |> 
+  as_tibble()
+lung_cancer |> slice(1:5)
+```
+
+::: callout-important
+
+## Importante
+
+Las [**rutas**]{.hl-yellow} deben ir siempre [**sin espacios, ni eñes, ni tildes**]{.hl-yellow}. Y fíjate que los archivos cargados con `load()` se cargan automáticamente en el environment (con el nombre guardado originalmente), pero las funciones `read()` solo se carga de manera local (sino se guarda, no existe a futuro)
+
+:::
+
+---
+
+## Datos rectangulares: readr
+
+El paquete `{readr}` dentro del entorno `{tidyverse}` contiene distintas funciones útiles para la [**carga de datos rectangulares (sin formatear)**]{.hl-yellow}.
+
+:::: columns
+::: {.column width="50%"}
+
+* `read_csv()`: archivos `.csv` cuyo [**separador sea la coma**]{.hl-purple}
+* `read_csv2()`: [**punto y coma**]{.hl-purple}
+* `read_tsv()`: [**tabulador**]{.hl-purple}.
+* `read_table()`: [**espacio**]{.hl-purple}.
+* `read_delim()`: función genérica para [**archivos delimitados por caracteres**]{.hl-purple}.
+
+
+:::
+
+::: {.column width="50%"}
+
+![](img/data-import-readr.png)
+:::
+::::
+
+Todos necesitan como **argumento la ruta del archivo** amén de **otros opcionales** (saltar o no cabecera, decimales, etc). Ver más en <https://readr.tidyverse.org/>
+
+---
+
+## Datos tabulados (.csv, .tsv)
+
+La principal ventaja de `{readr}` es que [**automatiza el formateo**]{.hl-yellow} para pasar de un archivo plano (sin formato) a un tibble (en filas y columnas, con formato).
+
+. . .
+
+* Archivo `.csv`: con `read_csv()` cargaremos archivos [**separados por coma**]{.hl-purple}, pasando como [**argumento la ruta**]{.hl-yellow} en `file = ...`. Vamos a importar el dataset `chickens.csv` (sobre pollos de dibujos animados, why not). Si te fijas en la salida nos proporciona el tipo de variables.
+
+```{r}
+library(readr)
+chickens <- read_csv(file = "./datos/chickens.csv")
+chickens
+```
+
+---
+
+## Datos tabulados (.csv, .tsv)
+
+
+El [**formato de las variables**]{.hl-yellow} normalmente lo hará `read_csv()` de forma [**automática**]{.hl-yellow}, y podemos consultarlo con `spec()`
+
+```{r}
+spec(chickens)
+```
+
+---
+
+## Datos tabulados (.csv, .tsv)
+
+Aunque lo haga normalmente bien de forma automática podemos [**especificar el formato explícitamente**]{.hl-yellow} en `col_types = list()` (en formato lista, con `col_xxx()` para cada tipo de variable, por ejemplo una la pondremos como cualitativa o factor). Incluso podemos indicar que [**variables que queremos seleccionar**]{.hl-yellow} (sin ocupar memoria), indicándoselo en `col_select = ...`
+
+
+```{r}
+chickens <-
+  read_csv(file = "./datos/chickens.csv",
+           col_types = list(col_character(), col_factor(), col_double(), col_character()),
+           col_select = c(chicken, sex, eggs_laid))
+chickens
+```
+
+
+
+---
+
+
+## Datos sin tabular (.txt)
+
+¿Qué sucede cuando el [**separador no es el correcto**]{.hl-red}?
+
+. . .
+
+Si usamos `read_csv()` espera que el separador entre columnas sea una coma pero, como puedes ver con el siguiente `.txt`, nos interpreta todo como una sola columna: [**no tiene comas y no sabe por donde separar**]{.hl-yellow}
+
+```{r}
+datos_txt <- read_csv(file = "./datos/massey-rating.txt")
+dim(datos_txt)
+as_tibble(datos_txt)
+```
+
 
 ---
 
 ## Datos sin tabular (.txt)
 
-delim y demás
+Para ello tenemos
+
+* `read_csv2()` cuando el [**separador sea el punto y coma**]{.hl-yellow}, `read_tsv()` cuando el [**sea un tabulador**]{.hl-yellow} y `read_table()` cuando el [**sea un espacio**]{.hl-yellow}
+
+* `read_delim()` en general
+
+```{r}
+datos_txt <- read_table(file = "./datos/massey-rating.txt")
+as_tibble(datos_txt)
+```
+
 
 ---
 
 ## Datos en excel (.xls, .xlsx)
 
+Otro de los paquetes fundamentales de importación será el paquete  `{readxl}` para [**importar datos desde una Excel**]{.hl-yellow}. Tres funciones serán claves:
+
+* `read_xls()` específica para `.xls`, `read_xlsx()` específica para `.xlsx`
+* `read_excel()`: para ambas
+
+. . .
+
+Vamos a importar `deaths.xlsx` con registros de fallecimientos de famosos
+
+```{r}
+#| eval: false
+library(readxl)
+deaths <- read_xlsx(path = "./datos/deaths.xlsx")
+deaths
+```
+
+```{r}
+#| echo: false
+library(readxl)
+deaths <- read_xlsx(path = "./datos/deaths.xlsx")
+deaths |> slice(1:8)
+```
+
 ---
 
-## Desde web
+## Datos en excel (.xls, .xlsx)
+
+
+```{r}
+#| eval: false
+deaths
+```
+
+```{r}
+#| echo: false
+deaths |> slice(1:8)
+```
+
+Algo por [**desgracia muy habitual**]{.hl-yellow} es que haya algún tipo de comentario o texto al inicio del archivo, teniendo que [**saltarnos dichas filas**]{.hl-yellow}.
+
+---
+
+## Datos en excel (.xls, .xlsx)
+
+Podemos [**saltarnos dichas filas**]{.hl-yellow} directamente en la carga con `skip = ...` (indicando el número de filas que nos saltamos)
+
+```{r}
+#| eval: false
+library(readxl)
+deaths <- read_xlsx(path = "./datos/deaths.xlsx", skip = 4)
+deaths
+```
+
+```{r}
+#| echo: false
+library(readxl)
+deaths <- read_xlsx(path = "./datos/deaths.xlsx", skip = 4)
+deaths |> slice(1:5)
+```
+
+---
+
+## Datos en excel (.xls, .xlsx)
+
+Además con `col_names = ...` podemos renombrar ya las columnas en la importación (si [**proporcionamos nombres asume la 1ª línea ya como un dato**]{.hl-yellow})
+
+```{r}
+#| eval: false
+#| code-line-numbers: "3"
+deaths <-
+  read_xlsx(path = "./datos/deaths.xlsx",
+            skip = 5,
+            col_names = c("name", "profession", "age", "kids", "birth", "death"))
+deaths
+```
+
+```{r}
+#| echo: false
+library(readxl)
+deaths <- read_xlsx(path = "./datos/deaths.xlsx", skip = 5,
+                    col_names = c("name", "profession", "age", "kids", "birth", "death"))
+deaths |> slice(1:7)
+```
+        
+---
+
+## Datos en excel (.xls, .xlsx)
+
+
+En ocasiones las [**fechas de Excel están mal formateadas**]{.hl-red} (sorpresa): podemos hacer uso de `convertToDate()` del paquete `{openxlsx}` para convertirlo
+
+
+```{r}
+#| eval: false
+library(openxlsx)
+deaths$death <- convertToDate(deaths$death)
+deaths
+```
+   
+```{r}
+#| echo: false
+library(openxlsx)
+deaths$death <- convertToDate(deaths$death)
+deaths |> slice(1:7)
+```
+
+---
+
+## Datos en excel (.xls, .xlsx)
+
+También podemos [**cargar un Excel con varias hojas**]{.hl-yellow}: para [**indicarle la hoja**]{.hl-yellow} (bien por su nombre bien por su número) usaremos el argumento `sheet = ...`
+
+```{r}
+#| eval: false
+mtcars <- read_xlsx(path = "./datos/datasets.xlsx", sheet = "mtcars")
+mtcars
+```
+
+
+```{r}
+#| echo: false
+mtcars <- read_xlsx(path = "./datos/datasets.xlsx", sheet = "mtcars")
+mtcars |> slice(1:5)
+```
+
+
+. . .
+ 
+Incluso podemos indicar el [**rango de celdas**]{.hl-yellow} a cargar con `range = ...`
+
+
+```{r}
+iris <- read_xlsx(path = "./datos/datasets.xlsx", sheet = "iris", range = "C1:E4")
+iris
+```
+
+
 
 ---
 
 ## Desde SAS/STATA/SPSS
 
+El paquete `{haven}` dentro de la órbita tidyverse nos permitirá [**importar archivos de los 3 software de pago más importantes**]{.hl-yellow}: SAS, SPSS y Stata
+
+```{r}
+library(haven)
+
+# SAS
+iris_sas <- read_sas(data_file = "./datos/iris.sas7bdat")
+
+# SPSS
+iris_spss <- read_sav(file = "./datos/iris.sav")
+
+# Stata
+iris_stata <- read_dta(file = "./datos/iris.dta")
+```
+
 ---
 
+## Exportar
+
+---
+
+## Desde web
+
+isciii covid
+
+---
 
 ## Desde google drive
 
@@ -3060,6 +3398,21 @@ delim y demás
 ## 💻 Tu turno {#tu-turno-4}
 
 [**Intenta realizar los siguientes ejercicios sin mirar las soluciones**]{style="color:#444442;"}
+
+
+::: panel-tabset
+### [**Ejercicio 1**]{.hl-yellow}
+
+📝 dasda
+
+### [**Ejercicio 2**]{.hl-yellow}
+
+📝 dasda
+
+### [**Ejercicio 3**]{.hl-yellow}
+
+📝 dasda
+:::
 
 ---
 
