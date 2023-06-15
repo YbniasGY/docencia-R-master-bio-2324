@@ -3361,35 +3361,174 @@ iris_stata <- read_dta(file = "./datos/iris.dta")
 
 ## Exportar
 
+De la misma manera que podemos importar también podemos [**exportar**]{.hl-yellow}
+
+* exportado en `.RData` (opción recomendada para variables guardadas en `R`). Recuerda que esta extensión [**solo se podrá usar en `R`**]{.hl-yellow}. Para ello nos basta con usar `save(objeto, file = ruta)`
+
+```{r}
+tabla <- tibble("a" = 1:4, "b" = 1:4)
+save(tabla, file = "./datos/tabla_prueba.RData")
+rm(tabla) # eliminar
+load("./datos/tabla_prueba.RData")
+tabla
+```
+
+
+---
+
+## Exportar
+
+De la misma manera que podemos importar también podemos [**exportar**]{.hl-yellow}
+
+* exportado en `.csv`. Para ello nos basta con usar `write_csv(objeto, file = ruta)`
+
+```{r}
+write_csv(tabla, file = "./datos/tabla_prueba.csv")
+read_csv(file = "./datos/tabla_prueba.csv")
+```
+
 ---
 
 ## Desde web
 
-isciii covid
+Una de las principales ventajas de `R` es que podemos hacer uso de todas las funciones anteriores de [**importar pero directamente desde una web**]{.hl-yellow}, sin necesidad de realizar la descarga manual: en lugar de pasarle la ruta local le indicaremos el [**enlace**]{.hl-yellow}. Por ejemplo, vamos a descargar los datos de covid del ISCIII (<https://cnecovid.isciii.es/covid19/#documentaci%C3%B3n-y-datos>)
+
+
+```{r}
+covid_datos <-
+  read_csv(file = "https://cnecovid.isciii.es/covid19/resources/casos_hosp_uci_def_sexo_edad_provres.csv", n_max = 1000)
+covid_datos
+```
 
 ---
 
 ## Desde google drive
 
+Otra opción disponible (sobre todo si trabajamos con otras personas que trabajan) es [**importar desde una hoja de cálculo Google Drive**]{.hl-yellow}, haciendo uso de `read_sheet()` del paquete `{googlesheets4}`
+
+La primera vez te pedirá un permiso de tidyverse para interactuar con vuestro drive
+
+```{r}
+library(googlesheets4)
+google_sheet <-
+  read_sheet("https://docs.google.com/spreadsheets/d/1n_UTbD93-oDJR2r-rsMNff5ro147NL_ZN_vYIA2eJ3Q/edit?usp=sharing")
+google_sheet
+```
+
 ---
 
 ## Desde API (owid)
+
+Una opción también muy interesante es la [**carga de datos desde una API**]{.hl-yellow}: un intermediario entre una app o proveedor datos y nuestro `R`. Por ejemplo, vamos a cargar la librería `{owidR}`, que nos permite la descarga de datos de la web <https://ourworldindata.org/>. La función `owid_covid()` nos carga sin darnos cuenta más de 300 000 registros con más de 50 variables de 238 países
+
+```{r}
+#| eval: false
+library(owidR)
+owid_covid()
+```
+
+```{r}
+#| echo: false
+library(owidR)
+owid_covid() |> slice(1:5)
+```
+
+---
+
+## Desde API (owid)
+
+Este paquete tiene la función `owid_search()` para buscar datasets por palabras clave, por ejemplo, `emissions`, dándonos un dataset con el título de la base de datos y su id para luego usarla.
+
+```{r}
+#| eval: false
+as_tibble(owid_search("emissions"))
+```
+
+```{r}
+#| echo: false
+as_tibble(owid_search("emissions")) |> slice(1:4)
+```
+
+. . .
+
+Vamos a pedirle por ejemplo las [**emisiones de la oecd**]{.hl-yellow}
+
+```{r}
+#| eval: false
+owid("emissions-of-air-pollutants-oecd")
+```
+
+```{r}
+#| echo: false
+owid("emissions-of-air-pollutants-oecd") |> slice(1:5)
+```
 
 ---
 
 ## Desde API (aemet)
 
+En muchas ocasiones para conectar con la API tendremos antes que [**registrarnos y obtener una clave**]{.hl-yellow}, es el caso del paquete `{climaemet}` para acceder a datos meteorológicos (<https://opendata.aemet.es/centrodedescargas/inicio>)
+
+
+Una vez que tenemos la clave de la API la registramos en nuestro RStudio para poder usarla a futuro
+
+
+```{r}
+#| eval: false
+library(climaemet)
+
+# Definir la clave
+apikey <- "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqYXZhbHYwOUB1Y20uZXMiLCJqdGkiOiI4YTU1ODUxMS01MTE3LTQ4MTYtYmM4OS1hYmVkNDhiODBkYzkiLCJpc3MiOiJBRU1FVCIsImlhdCI6MTY2NjQ2OTcxNSwidXNlcklkIjoiOGE1NTg1MTEtNTExNy00ODE2LWJjODktYWJlZDQ4YjgwZGM5Iiwicm9sZSI6IiJ9.HEMR77lZy2ASjmOxJa8ppx2J8Za1IViurMX3p1reVBU"
+
+aemet_api_key(apikey, install = TRUE)
+```
+
+
+```{r}
+#| echo: false
+library(climaemet)
+```
+
+--- 
+
+## Desde API (aemet)
+
+
+Con dicho paquete podemos hacer una [**búsqueda de estaciones**]{.hl-yellow} para conocer tanto su código postal como su código identificador dentro de la red AEMET (por ejemplo, la estación del aeropuerto de El Prat, Barcelona, es el código `"0076"`)
+
+```{r}
+#| eval: false
+stations <- aemet_stations()
+stations
+```
+
+```{r}
+#| echo: false
+stations <- aemet_stations()
+stations |> slice(1:4)
+```
+
+```{r}
+#| eval: false
+aemet_last_obs("0076")
+```
+
+```{r}
+#| echo: false
+aemet_last_obs("0076") |> slice(1:4)
+```
+
 ---
 
 ## Desde API (catastro)
 
----
+También puedes conectar con la [**API del catrastro**]{.hl-yellow} y buscar por ejemplo por coordenadas
 
-## Desde API (spotify)
+```{r}
+library(CatastRo)
+catr_ovc_get_rccoor(lat = 38.61965, lon = -3.45624, srs = "4230")
+```
 
----
-
-## Desde API (twitter)
 
 ---
 
@@ -3416,7 +3555,6 @@ isciii covid
 ---
 
 ## 🐣 Caso práctico {#caso-práctico-3b}
-
 
 # Clase 6: entrega I
 
