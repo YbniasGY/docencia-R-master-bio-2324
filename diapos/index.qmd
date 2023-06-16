@@ -46,7 +46,7 @@ execute:
 
 -   Encargado de la [**visualización y análisis de datos covid**]{.hl-yellow} del Principado de Asturias (2021-2022).
 
--   Miembro de la [**Sociedad Española de Estadística e IO**]{.hl-yellow}, de la [**Real Sociedad Matemática Española**]{.hl-yellow} y de la [**Data Visualization Society**]{.hl-yellow}.
+-   Miembro de la [**Sociedad Española de Estadística e IO**]{.hl-yellow} y la [**Real Sociedad Matemática Española**]{.hl-yellow}.
 :::
 :::
 :::
@@ -3541,20 +3541,80 @@ catr_ovc_get_rccoor(lat = 38.61965, lon = -3.45624, srs = "4230")
 ::: panel-tabset
 ### [**Ejercicio 1**]{.hl-yellow}
 
-📝 dasda
+📝 El dataset `who` que hemos usado en ejercicios anteriores, expórtalo a un formato nativo de `R` en la carpeta `datos` del proyecto
+
+```{r}
+#| code-fold: true
+#| eval: false
+library(tidyr)
+save(who, file = "./datos/who.RData")
+```
 
 ### [**Ejercicio 2**]{.hl-yellow}
 
-📝 dasda
+📝 Carga el dataset `who` pero desde la carpeta de datos (importa el archivo creado en el ejercicio anterior)
+
+```{r}
+#| code-fold: true
+#| eval: false
+load("./datos/who.RData")
+```
 
 ### [**Ejercicio 3**]{.hl-yellow}
 
-📝 dasda
+📝 Repite lo mismo (exportar e importar) en 4 formatos: `.csv`, `.xlsx`, `.sav` (spss) y `.dta` (stata)
+
+```{r}
+#| code-fold: true
+#| eval: false
+
+# csv
+library(readr)
+write_csv(who, file = "./datos/who.csv")
+who_data <- read_csv(file = "./datos/who.csv")
+
+# excel
+library(openxlsx)
+write.xlsx(who, file = "./datos/who.xlsx")
+who_data <- read_xlsx(path = "./datos/who.xlsx")
+
+# sas y stata
+library(haven)
+write_sav(who, path = "./datos/who.sav")
+who_data <- read_spss(path = "./datos/who.sav")
+
+write_dta(who, path = "./datos/who.dta")
+who_data <- read_dta(path = "./datos/who.dta")
+```
+
+### [**Ejercicio 4**]{.hl-yellow}
+
+📝 Repite la carga del `who.csv` pero solo selecciona ya en la carga las 4 primeras columnas
+
+```{r}
+#| code-fold: true
+#| eval: false
+who_select <-
+  read_csv(file = "./datos/who.csv",
+           col_select = c("country", "iso2", "iso3", "year"))
+```
+
+
 :::
 
 ---
 
 ## 🐣 Caso práctico {#caso-práctico-3b}
+
+
+Realiza la importación de los datos de covid del ISCIII  directamente desde la web (archivo `casos_hosp_uci_def_sexo_edad_provres.csv`) incluyendo todas las filas pero cargando solo las columnas `provincia_iso`, `sexo`, `grupo_edad`, `fecha` y `num_casos`. Además
+
+1. Determina el tipo de dato es cada variable importada
+2. ¿Cuántas observaciones tenemos?
+3. Renombra las variables al inglés
+4. ¿Podemos convertir el dataset a matrices? Argumenta e ilustra el por qué
+5. Crea una nueva variable (fuera de la base de datos) que nos diga el número de días que han pasado de cada registro respecto a hoy.
+
 
 # Clase 6: entrega I
 
