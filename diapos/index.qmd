@@ -107,7 +107,7 @@ Actualmente, [**investigador y docente en la Facultad de Estadística de la UCM*
 |  CLASE | SEMANA | FECHAS | TOPIC | SCRIPTS | EJ. | CASO PRÁCTICO | ENTREGA | 
 |:------:|:--------:|:--------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|
 |     [1](#clase-1-primeros-pasos)      | S1     | 11 sep |                  Primeros pasos en R                   | [📝](https://github.com/dadosdelaplace/docencia-R-master-bio-2324/tree/main/material/scripts)  |                 [💻](#tu-turno)                 |                        |         | 
-|     [2](#clase-2-primeros-datos)      | S1     | 13 sep |                 Tipos básicos de datos                 | [📝]()  |       [💻](#tu-turno-1) [💻](#tu-turno-2)       |  [🐣](#caso-práctico)  |         |     
+|     [2](#clase-2-primeros-datos)      | S1     | 13 sep |                 Tipos básicos de datos                 | [📝](https://github.com/dadosdelaplace/docencia-R-master-bio-2324/tree/main/material/scripts)  |       [💻](#tu-turno-1) [💻](#tu-turno-2)       |  [🐣](#caso-práctico)  |         |     
 | [3](#clase-3-primeras-bases-de-datos) | S2     | 18 sep |                Primeras bases de datos                 | [📝]()  | [💻](#tu-turno-matrices) [💻](#tu-turno-tibble) | [🐣](#caso-práctico-1) |         |    
 |   [4](#clase-4-r-base-vs-tidyverse)   | S2     | 20 sep |                  R base vs Tidyverse                   | [📝]()  |                [💻](#tu-turno-3)                |         [🐣](#caso-práctico-2)         |         |    
 |   [5](#clase-5-importexport-comunicar)   | S3     | 25 sep |         Importar/exportar e intro a Quarto/rmd         | [📝]()  |                [💻](#tu-turno-4)                |         [🐣](#caso-práctico-3a)  [🐣](#caso-práctico-3b)         |         | 
@@ -726,7 +726,7 @@ abs(a)
 
 ## Variables de texto
 
-Imagina que además de la edad de una persona queremos guardar su nombre
+Imagina que además de la edad de una persona queremos guardar su nombre: ahora la variable será de tipo `character`
 
 ```{r}
 nombre <- "Javier"
@@ -747,14 +747,14 @@ nombre + 1 # error al sumar número a texto
 ::: callout-warning
 ## Recuerda que...
 
-Las variables de tipo texto (character o string) van[**SIEMPRE entre comillas**]{.hl-orange}: no es lo mismo `TRUE` (valor lógico, binario) que `"TRUE"`
+Las variables de tipo texto (character o string) van [**SIEMPRE entre comillas**]{.hl-orange}: no es lo mismo `TRUE` (valor lógico, binario) que `"TRUE"` (texto).
 :::
 
 ---
 
 ## Primera función: paste
 
-Como hemos comentado, una [**función**]{.hl-yellow} es un trozo de [**código encapsulado**]{.hl-yellow} bajo un nombre que depende de unos argumentos de entrada. Nuestra primera función será `paste()`: dadas dos cadenas de texto nos permite pegarlas.
+En `R` llamaremos [**función**]{.hl-yellow} a un trozo de [**código encapsulado**]{.hl-yellow} bajo un nombre, y que depende de unos [**argumentos**]{.hl-yellow} de entrada. Nuestra primera función será `paste()`: dadas dos cadenas de texto nos permite pegarlas.
 
 ```{r}
 paste("Javier", "Álvarez")
@@ -762,7 +762,7 @@ paste("Javier", "Álvarez")
 
 . . .
 
-Fíjate que [**por defecto**]{.hl-yellow} nos pega las cadenas con un espacio, pero podemos añadir un [**argumento opcional**]{.hl-yellow} para indicarle el separador
+Fíjate que [**por defecto**]{.hl-yellow} nos pega las cadenas con un espacio, pero podemos añadir un [**argumento opcional**]{.hl-yellow} para indicarle el separador (en `sep = ...`).
 
 ```{r}
 paste("Javier", "Álvarez", sep = "*")
@@ -831,16 +831,19 @@ glue("La edad es de {edad * 365} {unidades}")
 
 ## Variables lógicas
 
-Una [**variable lógica o binaria**]{.hl-yellow} es aquella que toma **dos valores**:
+Otro tipo fundamental serán las [**variables lógicas o binarias**]{.hl-yellow} (**dos valores**):
 
 -   `TRUE`: [**verdadero**]{.hl-yellow} guardado internamente como un 1.
 -   `FALSE`: [**falso**]{.hl-yellow} guardado internamente como un 0.
--   `NA`: [**dato ausente**]{.hl-yellow} son las siglas de *not available*.
 
 ```{r}
 soltero <- TRUE # ¿Es soltero? --> SÍ
 class(soltero)
 ```
+
+. . .
+
+Puede tomar un tercer valor, `NA` o [**dato ausente**]{.hl-yellow}, representando las siglas de *not available*.
 
 . . .
 
@@ -909,24 +912,6 @@ edad < 32 # ¿Es la edad menor de 32 años?
 edad >= 38
 ```
 
----
-
-## Condiciones lógicas
-
-Incluso podemos chequear [**si algún elemento del vector está ausente**]{.hl-yellow} haciendo uso de la función `is.na()`
-
-```{r}
-x <- c(1, NA, 2, 3, NA, -6)
-is.na(x)
-```
-
-¿Cómo **seleccionarías los elementos del vector que no sean ausentes** de manera automática?
-
-...
-
-```{r}
-x[!is.na(x)]
-```
 
 ---
 
@@ -997,7 +982,7 @@ month(fecha)
 ::: callout-note
 ## Amplia contenido
 
-Tienes un resumen en pdf de los paquetes más importantes en la [**carpeta «fichas paquetes»**]{.hl-green}
+Tienes un resumen en pdf de los paquetes más importantes en la [**carpeta correspondiente en el campus**]{.hl-green}
 :::
 
 ---
@@ -1201,7 +1186,7 @@ Es importante entender que los valores lógicos en realidad están [**almacenado
 
 ## Operaciones con vectores
 
-Con los vectores numéricos podemos hacer las mismas [**operaciones aritméticas**]{.hl-yellow} que con los números [→ un]{.fragment .fade-in}[**número es un vector**]{.hl-purple} (de longitud uno)
+Con los vectores numéricos podemos hacer las mismas [**operaciones aritméticas**]{.hl-yellow} que con los números → un [**número es un vector**]{.hl-purple} (de longitud uno)
 
 . . .
 
@@ -1560,6 +1545,7 @@ day <- airquality$Day
 . . .
 
 4. ¿Cuál fue la [**media de temperatura**]{.hl-yellow} del mes de agosto? Extrae los días en los que la [**temperatura superó los 30 grados**]{.hl-yellow} y calcula la cantidad de días en los que lo hizo.
+
 
 # Clase 3: primeras bases de datos {#clase-3-primeras-bases-de-datos}
 
