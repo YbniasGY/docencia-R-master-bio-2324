@@ -106,7 +106,7 @@ Actualmente, [**investigador y docente en la Facultad de Estadística de la UCM*
 ::: {style="font-size:20px"}
 |  CLASE | SEMANA | FECHAS | TOPIC | SCRIPTS | EJ. | CASO PRÁCTICO | ENTREGA | 
 |:------:|:--------:|:--------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|
-|     [1](#clase-1-primeros-pasos)      | S1     | 11 sep |                  Primeros pasos en R                   | [📝]()  |                 [💻](#tu-turno)                 |                        |         | 
+|     [1](#clase-1-primeros-pasos)      | S1     | 11 sep |                  Primeros pasos en R                   | [📝](https://github.com/dadosdelaplace/docencia-R-master-bio-2324/tree/main/material/scripts)  |                 [💻](#tu-turno)                 |                        |         | 
 |     [2](#clase-2-primeros-datos)      | S1     | 13 sep |                 Tipos básicos de datos                 | [📝]()  |       [💻](#tu-turno-1) [💻](#tu-turno-2)       |  [🐣](#caso-práctico)  |         |     
 | [3](#clase-3-primeras-bases-de-datos) | S2     | 18 sep |                Primeras bases de datos                 | [📝]()  | [💻](#tu-turno-matrices) [💻](#tu-turno-tibble) | [🐣](#caso-práctico-1) |         |    
 |   [4](#clase-4-r-base-vs-tidyverse)   | S2     | 20 sep |                  R base vs Tidyverse                   | [📝]()  |                [💻](#tu-turno-3)                |         [🐣](#caso-práctico-2)         |         |    
@@ -600,7 +600,9 @@ De la misma manera que en el ordenador solemos trabajar de manera [**ordenada po
 
 ::: columns
 ::: {.column width="60%"}
-Un [**proyecto será una «carpeta»**]{.hl-yellow} dentro de `RStudio`, de manera que nuestro directorio raíz automáticamente será la propia carpeta de proyecto (pudiendo pasar de un proyecto a otro con el menu superior derecho). Podemos crear uno en una carpeta nueva o en una carpeta ya existente.
+Un [**proyecto será una «carpeta»**]{.hl-yellow} dentro de `RStudio`, de manera que nuestro directorio raíz automáticamente será la propia carpeta de proyecto (pudiendo pasar de un proyecto a otro con el menu superior derecho).
+
+Podemos crear uno en una carpeta nueva o en una carpeta ya existente.
 :::
 
 ::: {.column width="40%"}

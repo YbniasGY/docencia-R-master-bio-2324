@@ -492,7 +492,7 @@ Máster de Bioestadística • curso 2023-2024
 <td style="text-align: center;">S1</td>
 <td style="text-align: center;">11 sep</td>
 <td style="text-align: center;">Primeros pasos en R</td>
-<td style="text-align: center;"><a href="">📝</a></td>
+<td style="text-align: center;"><a href="https://github.com/dadosdelaplace/docencia-R-master-bio-2324/tree/main/material/scripts">📝</a></td>
 <td style="text-align: center;"><a href="#/tu-turno">💻</a></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1028,7 +1028,8 @@ Máster de Bioestadística • curso 2023-2024
 <div class="fragment">
 <div class="columns">
 <div class="column" style="width:60%;">
-<p>Un <span class="hl-yellow"><strong>proyecto será una «carpeta»</strong></span> dentro de <code>RStudio</code>, de manera que nuestro directorio raíz automáticamente será la propia carpeta de proyecto (pudiendo pasar de un proyecto a otro con el menu superior derecho). Podemos crear uno en una carpeta nueva o en una carpeta ya existente.</p>
+<p>Un <span class="hl-yellow"><strong>proyecto será una «carpeta»</strong></span> dentro de <code>RStudio</code>, de manera que nuestro directorio raíz automáticamente será la propia carpeta de proyecto (pudiendo pasar de un proyecto a otro con el menu superior derecho).</p>
+<p>Podemos crear uno en una carpeta nueva o en una carpeta ya existente.</p>
 </div><div class="column" style="width:40%;">
 <p><img data-src="img/rstudio_proyectos.png" width="370"></p>
 </div>
@@ -1399,7 +1400,7 @@ Máster de Bioestadística • curso 2023-2024
 <div class="cell">
 <div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1"></a><span class="fu">today</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2023-06-17"</code></pre>
+<pre><code>[1] "2023-08-30"</code></pre>
 </div>
 </div>
 <div class="fragment">
@@ -1409,7 +1410,7 @@ Máster de Bioestadística • curso 2023-2024
 <div class="cell">
 <div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1"></a><span class="fu">now</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2023-06-17 17:39:11 CEST"</code></pre>
+<pre><code>[1] "2023-08-30 13:09:14 CEST"</code></pre>
 </div>
 </div>
 </div>
@@ -1425,7 +1426,7 @@ Máster de Bioestadística • curso 2023-2024
 </div>
 <div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1"></a><span class="fu">month</span>(fecha)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 6</code></pre>
+<pre><code>[1] 8</code></pre>
 </div>
 </div>
 </div>
@@ -2084,8 +2085,8 @@ Máster de Bioestadística • curso 2023-2024
 <div class="cell-output cell-output-stdout">
 <pre><code>Unit: microseconds
         expr    min     lq     mean median      uq     max neval
-     sort(x) 39.483 41.902 45.32197 42.927 44.1365 293.068   500
- x[order(x)] 32.431 34.768 37.23005 35.506 36.4490 177.489   500</code></pre>
+     sort(x) 36.818 38.294 41.25174 39.852 42.2300  87.043   500
+ x[order(x)] 30.832 31.939 34.72282 33.128 35.0755 108.076   500</code></pre>
 </div>
 </div>
 </section>
@@ -4950,8 +4951,8 @@ pesos       63   70   85   95</code></pre>
 <pre><code># A tibble: 2 × 14
   name      height  mass hair_color skin_color eye_color birth_year sex   gender
   &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
-1 Bail Pre…    191    NA black      tan        brown             67 male  mascu…
-2 Watto        137    NA black      blue, grey yellow            NA male  mascu…
+1 Roos Tar…    224    82 none       grey       orange            NA male  mascu…
+2 Mas Amed…    196    NA none       blue       blue              NA male  mascu…
 # ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
 #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 </div>
@@ -4996,10 +4997,10 @@ pesos       63   70   85   95</code></pre>
 <pre><code># A tibble: 4 × 14
   name      height  mass hair_color skin_color eye_color birth_year sex   gender
   &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
-1 Ratts Ty…     79    15 none       grey, blue unknown           NA male  mascu…
-2 C-3PO        167    75 &lt;NA&gt;       gold       yellow           112 none  mascu…
-3 Ratts Ty…     79    15 none       grey, blue unknown           NA male  mascu…
-4 Grievous     216   159 none       brown, wh… green, y…         NA male  mascu…
+1 Palpatine    170    75 grey       pale       yellow            82 male  mascu…
+2 Wat Tamb…    193    48 none       green, gr… unknown           NA male  mascu…
+3 Gregar T…    185    85 black      dark       brown             NA male  mascu…
+4 Dud Bolt      94    45 none       blue, grey yellow            NA male  mascu…
 # ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
 #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 </div>
@@ -5042,8 +5043,8 @@ pesos       63   70   85   95</code></pre>
 <pre><code># A tibble: 2 × 14
   name      height  mass hair_color skin_color eye_color birth_year sex   gender
   &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
-1 Luke Sky…    172    77 blond      fair       blue              19 male  mascu…
-2 C-3PO        167    75 &lt;NA&gt;       gold       yellow           112 none  mascu…
+1 C-3PO        167    75 &lt;NA&gt;       gold       yellow           112 none  mascu…
+2 Luke Sky…    172    77 blond      fair       blue              19 male  mascu…
 # ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
 #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 </div>
