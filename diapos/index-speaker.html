@@ -1393,7 +1393,7 @@ Máster de Bioestadística • curso 2023-2024
 <div class="cell">
 <div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1"></a><span class="fu">now</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2023-09-05 16:40:38 CEST"</code></pre>
+<pre><code>[1] "2023-09-05 16:47:45 CEST"</code></pre>
 </div>
 </div>
 </div>
@@ -2067,9 +2067,9 @@ Máster de Bioestadística • curso 2023-2024
 <span id="cb174-3"><a href="#cb174-3"></a><span class="fu">microbenchmark</span>(<span class="fu">sort</span>(x), x[<span class="fu">order</span>(x)], <span class="at">times =</span> <span class="fl">5e2</span>) <span class="co"># 500 veces</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Unit: microseconds
-        expr    min     lq     mean  median     uq     max neval
-     sort(x) 65.928 67.527 68.87959 68.4700 69.331 125.378   500
- x[order(x)] 54.735 56.334 57.70594 57.2565 58.056  85.116   500</code></pre>
+        expr    min      lq     mean median     uq     max neval
+     sort(x) 66.994 68.3470 69.74731 69.208 70.233 126.854   500
+ x[order(x)] 55.883 57.0105 58.36235 57.974 58.835  95.202   500</code></pre>
 </div>
 </div>
 </section>
@@ -4948,10 +4948,10 @@ pesos       63   70   85   95</code></pre>
 <div class="sourceCode cell-code" id="cb399"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb399-1"><a href="#cb399-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">slice_sample</span>(<span class="at">n =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 14
-  name   height  mass hair_color skin_color  eye_color birth_year sex   gender  
-  &lt;chr&gt;   &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;   
-1 R2-D2      96    32 &lt;NA&gt;       white, blue red               33 none  masculi…
-2 Greedo    173    74 &lt;NA&gt;       green       black             44 male  masculi…
+  name      height  mass hair_color skin_color eye_color birth_year sex   gender
+  &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
+1 Taun We      213    NA none       grey       black             NA fema… femin…
+2 Ben Quad…    163    65 none       grey, gre… orange            NA male  mascu…
 # ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
 #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 </div>
@@ -4996,10 +4996,10 @@ pesos       63   70   85   95</code></pre>
 <pre><code># A tibble: 4 × 14
   name      height  mass hair_color skin_color eye_color birth_year sex   gender
   &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
-1 Nien Nunb    160    68 none       grey       black             NA male  mascu…
-2 Bossk        190   113 none       green      red               53 male  mascu…
-3 Finn          NA    NA black      dark       dark              NA male  mascu…
-4 Eeth Koth    171    NA black      brown      brown             NA male  mascu…
+1 Sebulba      112    40 none       grey, red  orange            NA male  mascu…
+2 Roos Tar…    224    82 none       grey       orange            NA male  mascu…
+3 Bossk        190   113 none       green      red               53 male  mascu…
+4 Poggle t…    183    80 none       green      yellow            NA male  mascu…
 # ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
 #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 </div>
