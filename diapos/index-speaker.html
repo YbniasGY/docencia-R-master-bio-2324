@@ -1393,7 +1393,7 @@ Máster de Bioestadística • curso 2023-2024
 <div class="cell">
 <div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1"></a><span class="fu">now</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2023-09-05 16:47:45 CEST"</code></pre>
+<pre><code>[1] "2023-09-05 16:55:47 CEST"</code></pre>
 </div>
 </div>
 </div>
@@ -2068,8 +2068,8 @@ Máster de Bioestadística • curso 2023-2024
 <div class="cell-output cell-output-stdout">
 <pre><code>Unit: microseconds
         expr    min      lq     mean median     uq     max neval
-     sort(x) 66.994 68.3470 69.74731 69.208 70.233 126.854   500
- x[order(x)] 55.883 57.0105 58.36235 57.974 58.835  95.202   500</code></pre>
+     sort(x) 66.092 67.8345 69.47179 68.716 69.413 130.052   500
+ x[order(x)] 55.555 56.5800 57.94309 57.400 57.974 102.377   500</code></pre>
 </div>
 </div>
 </section>
@@ -3346,7 +3346,7 @@ pesos       63   70   85   95</code></pre>
 <p>Un fichero <code>.qmd</code> se <span class="hl-yellow"><strong>divide básicamente en tres partes</strong></span>:</p>
 <ul>
 <li><p><span class="hl-yellow"><strong>Cabecera</strong></span>: la parte que tienes al inicio entre <code>---</code>.</p></li>
-<li><p><span class="hl-yellow"><strong>Texto</strong></span>: que podremos formatear y mejorar con negritas (escrito como <strong>negritas</strong>, con doble astérisco al inicio y final), cursivas (<em>cursivas</em>, con barra baja al inicio y final) o destacar nombres de funciones o variables de R (con <code>R</code>). Recuerda que puedes añadir además ecuaciones como <span class="math inline">\(x^2\)</span> (he escrito <code>$x^2$</code>, la ecuación entre dólares).</p></li>
+<li><p><span class="hl-yellow"><strong>Texto</strong></span>: que podremos formatear y mejorar con negritas (escrito como <strong>negritas</strong>, con doble astérisco al inicio y final), cursivas (<em>cursivas</em>, con barra baja al inicio y final) o destacar nombres de funciones o variables de R. Puedes añadir ecuaciones como <span class="math inline">\(x^2\)</span> (he escrito <code>$x^2$</code>, entre dólares).</p></li>
 <li><p><span class="hl-yellow"><strong>Código R</strong></span></p></li>
 </ul>
 </div>
@@ -4950,8 +4950,8 @@ pesos       63   70   85   95</code></pre>
 <pre><code># A tibble: 2 × 14
   name      height  mass hair_color skin_color eye_color birth_year sex   gender
   &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
-1 Taun We      213    NA none       grey       black             NA fema… femin…
-2 Ben Quad…    163    65 none       grey, gre… orange            NA male  mascu…
+1 Yarael P…    264    NA none       white      yellow            NA male  mascu…
+2 Palpatine    170    75 grey       pale       yellow            82 male  mascu…
 # ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
 #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 </div>
@@ -4996,10 +4996,10 @@ pesos       63   70   85   95</code></pre>
 <pre><code># A tibble: 4 × 14
   name      height  mass hair_color skin_color eye_color birth_year sex   gender
   &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
-1 Sebulba      112    40 none       grey, red  orange            NA male  mascu…
-2 Roos Tar…    224    82 none       grey       orange            NA male  mascu…
-3 Bossk        190   113 none       green      red               53 male  mascu…
-4 Poggle t…    183    80 none       green      yellow            NA male  mascu…
+1 Arvel Cr…     NA    NA brown      fair       brown             NA male  mascu…
+2 Sly Moore    178    48 none       pale       white             NA &lt;NA&gt;  &lt;NA&gt;  
+3 Eeth Koth    171    NA black      brown      brown             NA male  mascu…
+4 Mon Moth…    150    NA auburn     fair       blue              48 fema… femin…
 # ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
 #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 </div>
@@ -5028,8 +5028,8 @@ pesos       63   70   85   95</code></pre>
 <pre><code># A tibble: 2 × 14
   name      height  mass hair_color skin_color eye_color birth_year sex   gender
   &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
-1 C-3PO        167    75 &lt;NA&gt;       gold       yellow           112 none  mascu…
-2 Luke Sky…    172    77 blond      fair       blue              19 male  mascu…
+1 Luke Sky…    172    77 blond      fair       blue              19 male  mascu…
+2 C-3PO        167    75 &lt;NA&gt;       gold       yellow           112 none  mascu…
 # ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
 #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 </div>
@@ -5042,8 +5042,8 @@ pesos       63   70   85   95</code></pre>
 <pre><code># A tibble: 2 × 14
   name      height  mass hair_color skin_color eye_color birth_year sex   gender
   &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
-1 C-3PO        167    75 &lt;NA&gt;       gold       yellow           112 none  mascu…
-2 Luke Sky…    172    77 blond      fair       blue              19 male  mascu…
+1 Luke Sky…    172    77 blond      fair       blue              19 male  mascu…
+2 C-3PO        167    75 &lt;NA&gt;       gold       yellow           112 none  mascu…
 # ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
 #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 </div>

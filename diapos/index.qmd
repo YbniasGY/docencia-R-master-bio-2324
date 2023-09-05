@@ -2700,7 +2700,7 @@ Un fichero `.qmd` se [**divide básicamente en tres partes**]{.hl-yellow}:
 
 * [**Cabecera**]{.hl-yellow}: la parte que tienes al inicio entre `---`.
 
-* [**Texto**]{.hl-yellow}: que podremos formatear y mejorar con negritas (escrito como **negritas**, con doble astérisco al inicio y final), cursivas (_cursivas_, con barra baja al inicio y final) o destacar nombres de funciones o variables de R (con `R`). Recuerda que puedes añadir además ecuaciones como $x^2$ (he escrito `$x^2$`, la ecuación entre dólares).
+* [**Texto**]{.hl-yellow}: que podremos formatear y mejorar con negritas (escrito como **negritas**, con doble astérisco al inicio y final), cursivas (_cursivas_, con barra baja al inicio y final) o destacar nombres de funciones o variables de R. Puedes añadir ecuaciones como $x^2$ (he escrito `$x^2$`, entre dólares).
 
 * [**Código R**]{.hl-yellow}
 
