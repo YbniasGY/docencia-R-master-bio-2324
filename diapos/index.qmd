@@ -1933,6 +1933,7 @@ apply(x, MARGIN = 2, FUN = "sum") # suma por columnas
 [**Intenta realizar los siguientes ejercicios sin mirar las soluciones**]{style="color:#444442;"}
 
 ::: panel-tabset
+
 ### [**Ejercicio 1**]{.hl-yellow}
 
 📝 Carga del paquete `{datasets}` el conjunto de datos `airquality` (variables de la calidad del aire de Nueva York desde mayo hasta septiembre de 1973). ¿Es el conjunto de datos airquality de tipo tibble? En caso negativo, conviértelo a tibble (busca en la documentación del paquete en <https://tibble.tidyverse.org/index.html>).
@@ -2085,7 +2086,7 @@ Si conoces algún otro lenguaje de programación (o tienes gente cercana que pro
 
 . . .
 
-Y aunque conocer dichas estructuras puede sernos en algún momento interesante, en la [**mayoría de ocasiones vamos a poder evitarlas**]{.hl-red} (en especial los bucles) [→ en lugar de trabajar con lo que se conoce como R Base vamos a vertebrar el curso en torno a]{.fragment .fade-in}[**Tidyverse**]{.hl-yellow}
+Y aunque conocer dichas estructuras puede sernos en algún momento interesante, en la [**mayoría de ocasiones vamos a poder evitarlas**]{.hl-red} (en especial los bucles)
 
 ---
 
@@ -2475,6 +2476,7 @@ table5 |> unite(col = year_completo, century, year, sep = "")
 [**Intenta realizar los siguientes ejercicios sin mirar las soluciones**]{style="color:#444442;"}
 
 ::: panel-tabset
+
 ### [**Ejercicio 1**]{.hl-yellow}
 
 📝 Echa un vistazo a la tabla `table4b` del paquete `{tidyr}`. ¿Es tidydata? En caso negativo, ¿qué falla? ¿Cómo convertirla a tidy data en caso de que no lo sea ya?
@@ -2515,6 +2517,8 @@ billboard |>
                values_drop_na = TRUE)
 ```
 
+:::
+
 ---
 
 ## 🐣 Caso práctico {#caso-práctico-2}
@@ -2540,7 +2544,7 @@ who
 
 . . .
 
-4. [**Convierte a tidydata**]{.hl-yellow} la base de datos.
+4. [**Convierte a tidydata**]{.hl-yellow} la base de datos realizando todas las opciones que consideres (consejo: usa papel y boli para bocetar como debería quedar la base de datos).
 
 
 # Clase 5: import/export, comunicar
@@ -2551,7 +2555,7 @@ who
 
 ## Comunicar: rmd y Quarto
 
-Una de las [**principales fortalezas**]{.hl-yellow} de `R` es la [**facilidad para generar informes, libros, webs, apuntes y hasta diapositivas**]{.hl-yellow} (este mismo material por ejemplo). Para ello instalaremos antes
+Una de las [**principales fortalezas**]{.hl-yellow} de `R` es la [**facilidad para generar informes, libros, webs, apuntes y hasta diapositivas**]{.hl-yellow} (este mismo material por ejemplo). Para ello [**instalaremos**]{.hl-purple} antes
 
 ::: columns
 ::: {.column width="40%"}
@@ -2574,9 +2578,6 @@ install.packages("rmarkdown")
 
 ## Comunicar: rmd y Quarto
 
-[**¿Qué es rmarkdown?**]{.hl-yellow}
-
-
 Hasta ahora solo hemos programado en scripts (archivos `.R`) dentro de proyectos, pero en muchas ocasiones [**no trabajaremos solos**]{.hl-yellow} y necesitaremos [**comunicar los resultados**]{.hl-yellow} en diferentes formatos:
 
 -   apuntes (para nosotros mismos)
@@ -2584,42 +2585,42 @@ Hasta ahora solo hemos programado en scripts (archivos `.R`) dentro de proyectos
 -   web
 -   informes
 
----
-
-## Comunicar: rmd y Quarto
-
-[**¿Qué es rmarkdown?**]{.hl-yellow}
-
-
-Los archivos `.rmd` nos permiten facilmente combinar:
-
--   [**Markdown**]{.hl-yellow}: «lenguaje» que nos permite crear contenido simple (tipo wordpress, con negritas, cursivas, etc) con un diseño legible.
-
 . . .
+ 
+Para todo ello usaremos [**Quarto (nuevo rmarkdown)**]{.hl-yellow}
 
--   [**Matemáticas (latex)**]{.hl-yellow}: lenguaje para escribir notación matemática como $x^2$ o $\sqrt{y}$
-
-. . .
-
--   [**Código y salidas**]{.hl-yellow}: podremos no solo mostrar el paso final sino el código que has ido realizando (no solo en `R`), con [**cajitas de código llamadas chunks**]{.hl-yellow}.
-
-. . .
-
--   Imágenes, gráficas, tablas, estilos (css, js), etc.
 
 ---
 
 ## Comunicar: rmd y Quarto
 
-[**¿Qué es rmarkdown?**]{.hl-yellow}
+Los archivos de extensión `.qmd` (o `.rmd`) nos permitirán fácilmente combinar:
 
-La principal ventaja de realizar este tipo de material en rmarkdown es que, al hacerlo desde `RStudio`, puedes generar un [**informe o una presentación sin salirte del entorno de programación**]{.hl-yellow} en el que estás trabajando
+-   [**Markdown**]{.hl-yellow}: [**lenguaje tipado**]{.hl-purple} que nos permite crear contenido simple (tipo wordpress, con texto, **negritas**, _cursivas_, etc) con un diseño legible.
+
+. . .
+
+-   [**Matemáticas (latex)**]{.hl-yellow}: lenguaje para escribir notación matemática como $x^2$ o $\sqrt{y}$ o $\int_{a}^{b} f(x) dx$
+
+. . .
+
+-   [**Código y salidas**]{.hl-yellow}: podremos no solo mostrar el paso final sino el código que has ido realizando (no solo en `R`), con [**cajitas de código llamadas chunks**]{.hl-purple}.
+
+. . .
+
+-   Imágenes, [**gráficas**]{.hl-yellow}, tablas, estilos (css, js), etc.
+
+---
+
+## Comunicar: rmd y Quarto
+
+La principal ventaja de realizar este tipo de material en Quarto/Rmarkdown es que, al hacerlo desde `RStudio`, puedes generar un [**informe o una presentación sin salirte del entorno de programación**]{.hl-yellow} en el que estás trabajando
 
 De esta forma podrás analizar los datos, resumirlos y a la vez comunicarlos con la misma herramienta.
 
 . . .
 
-Recientemente el equipo de `RStudio` desarrolló [**Quarto**]{.hl-yellow}, una versión mejorada de rmarkdown (archivos `.qmd`), con un formato un poco más estético y simple. Tienes toda la documentación en [**https://quarto.org/**](https://quarto.org/)
+Recientemente el equipo de `RStudio` desarrolló [**Quarto**]{.hl-yellow}, una versión mejorada de Rmarkdown (archivos `.qmd`), con un formato un poco más estético y simple. Tienes toda la documentación y ejemplos en [**https://quarto.org/**](https://quarto.org/)
 
 ---
 
@@ -2655,7 +2656,9 @@ Tras hacerlo nos aparecerán varias [**opciones de formatos de salida**]{.hl-yel
 :::
 ::::
 
-De momento dejaremos marcado el [**formato HTML que viene por defecto**]{.hl-yellow}, y escribiremos el [**título**]{.hl-yellow} de nuestro documento. Tras ello tendremos nuestro archivo .Rmd (ya no es un script .R como los que hemos abierto hasta ahora).
+. . .
+
+De momento dejaremos marcado el [**formato HTML que viene por defecto**]{.hl-yellow}, y escribiremos el [**título**]{.hl-yellow} de nuestro documento. Tras ello tendremos nuestro [**archivo .qmd**]{.hl-yellow} (ya no es un script .R como los que hemos abierto hasta ahora).
 
 ---
 
@@ -2685,6 +2688,14 @@ Deberías haber obtenido una [**salida en html similar a esta**]{.hl-yellow} (y 
 
 ## Nuestro primer informe
 
+:::: columns
+::: {.column width="50%"}
+![](img/quarto-example.png)
+
+:::
+
+::: {.column width="50%"}
+
 Un fichero `.qmd` se [**divide básicamente en tres partes**]{.hl-yellow}:
 
 * [**Cabecera**]{.hl-yellow}: la parte que tienes al inicio entre `---`.
@@ -2692,6 +2703,9 @@ Un fichero `.qmd` se [**divide básicamente en tres partes**]{.hl-yellow}:
 * [**Texto**]{.hl-yellow}: que podremos formatear y mejorar con negritas (escrito como **negritas**, con doble astérisco al inicio y final), cursivas (_cursivas_, con barra baja al inicio y final) o destacar nombres de funciones o variables de R (con `R`). Recuerda que puedes añadir además ecuaciones como $x^2$ (he escrito `$x^2$`, la ecuación entre dólares).
 
 * [**Código R**]{.hl-yellow}
+
+:::
+::::
 
 ---
 
@@ -2877,7 +2891,7 @@ Además podemos [**incluir código R dentro de la línea de texto**]{.hl-yellow}
 
 ## Personalización de chunks
 
-Los [**chunk podemos personalizarlos**]{.hl-yellow} con diferentes opciones al inicio del chunk precedido de `#|`:
+Los [**chunks podemos personalizarlos**]{.hl-yellow} con opciones al inicio del chunk precedido de `#|`:
 
 * `#| echo: false`: [**ejecuta código**]{.hl-green} y se [**muestra resultado**]{.hl-green} pero [**no visualiza código**]{.hl-red} en la salida.
 
@@ -2885,9 +2899,9 @@ Los [**chunk podemos personalizarlos**]{.hl-yellow} con diferentes opciones al i
 
 * `#| eval: false`: [**no ejecuta código**]{.hl-red}, [**no muestra resultado**]{.hl-red} pero [**sí visualiza código**]{.hl-green} en la salida.
 
-* `#| message: false`: [**ejecuta código**]{.hl-green} pero [**no muestra mensajes de salida**]{.hl-red} (de la consola).
+* `#| message: false`: [**ejecuta código**]{.hl-green} pero [**no muestra mensajes de salida**]{.hl-red}.
 
-* `#| warning: false`: [**ejecuta código**]{.hl-green} pero [**no muestra mensajes de warning**]{.hl-red} (de la consola).
+* `#| warning: false`: [**ejecuta código**]{.hl-green} pero [**no muestra mensajes de warning**]{.hl-red}.
 
 * `#| error: true`: [**ejecuta código**]{.hl-green} y [**permite que haya errores**]{.hl-green} mostrando el mensaje de error en la salida.
 

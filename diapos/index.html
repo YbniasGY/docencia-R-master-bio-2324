@@ -1383,7 +1383,7 @@ Máster de Bioestadística • curso 2023-2024
 <div class="cell">
 <div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1"></a><span class="fu">today</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2023-08-30"</code></pre>
+<pre><code>[1] "2023-09-05"</code></pre>
 </div>
 </div>
 <div class="fragment">
@@ -1393,7 +1393,7 @@ Máster de Bioestadística • curso 2023-2024
 <div class="cell">
 <div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1"></a><span class="fu">now</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2023-08-30 15:09:36 CEST"</code></pre>
+<pre><code>[1] "2023-09-05 16:40:38 CEST"</code></pre>
 </div>
 </div>
 </div>
@@ -1409,7 +1409,7 @@ Máster de Bioestadística • curso 2023-2024
 </div>
 <div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1"></a><span class="fu">month</span>(fecha)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 8</code></pre>
+<pre><code>[1] 9</code></pre>
 </div>
 </div>
 </div>
@@ -2067,9 +2067,9 @@ Máster de Bioestadística • curso 2023-2024
 <span id="cb174-3"><a href="#cb174-3"></a><span class="fu">microbenchmark</span>(<span class="fu">sort</span>(x), x[<span class="fu">order</span>(x)], <span class="at">times =</span> <span class="fl">5e2</span>) <span class="co"># 500 veces</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Unit: microseconds
-        expr    min     lq     mean  median     uq    max neval
-     sort(x) 36.982 38.499 40.98721 39.7290 41.943 89.708   500
- x[order(x)] 30.873 32.226 34.21753 33.5175 34.932 62.689   500</code></pre>
+        expr    min     lq     mean  median     uq     max neval
+     sort(x) 65.928 67.527 68.87959 68.4700 69.331 125.378   500
+ x[order(x)] 54.735 56.334 57.70594 57.2565 58.056  85.116   500</code></pre>
 </div>
 </div>
 </section>
@@ -2675,7 +2675,7 @@ pesos       63   70   85   95</code></pre>
 <li><p><span class="hl-yellow"><strong>Estructuras if-else</strong></span>: estructuras de control para decidir por donde camina el código en función del valor de las variables.</p></li>
 </ul>
 <div class="fragment">
-<p>Y aunque conocer dichas estructuras puede sernos en algún momento interesante, en la <span class="hl-red"><strong>mayoría de ocasiones vamos a poder evitarlas</strong></span> (en especial los bucles) <span class="fragment fade-in">→ en lugar de trabajar con lo que se conoce como R Base vamos a vertebrar el curso en torno a</span><span class="hl-yellow"><strong>Tidyverse</strong></span></p>
+<p>Y aunque conocer dichas estructuras puede sernos en algún momento interesante, en la <span class="hl-red"><strong>mayoría de ocasiones vamos a poder evitarlas</strong></span> (en especial los bucles)</p>
 </div>
 </section>
 <section id="qué-es-tidyverse" class="slide level2">
@@ -3156,7 +3156,10 @@ pesos       63   70   85   95</code></pre>
 <section id="tu-turno-3" class="slide level2">
 <h2>💻 Tu turno</h2>
 <p><span style="color:#444442;"><strong>Intenta realizar los siguientes ejercicios sin mirar las soluciones</strong></span></p>
-<p>::: panel-tabset ### <span class="hl-yellow"><strong>Ejercicio 1</strong></span></p>
+<div class="panel-tabset">
+<ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-6-1"><span class="hl-yellow"><strong>Ejercicio 1</strong></span></a></li><li><a href="#tabset-6-2"><span class="hl-yellow"><strong>Ejercicio 2</strong></span></a></li><li><a href="#tabset-6-3"><span class="hl-yellow"><strong>Ejercicio 3</strong></span></a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1">
 <p>📝 Echa un vistazo a la tabla <code>table4b</code> del paquete <code>{tidyr}</code>. ¿Es tidydata? En caso negativo, ¿qué falla? ¿Cómo convertirla a tidy data en caso de que no lo sea ya?</p>
 <div class="cell">
 <details>
@@ -3166,7 +3169,8 @@ pesos       63   70   85   95</code></pre>
 <span id="cb277-3"><a href="#cb277-3"></a>               <span class="at">values_to =</span> <span class="st">"cases"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<h3 id="ejercicio-2-5"><span class="hl-yellow"><strong>Ejercicio 2</strong></span></h3>
+</div>
+<div id="tabset-6-2">
 <p>📝 Echa un vistazo a la tabla <code>relig_income</code> del paquete <code>{tidyr}</code>. ¿Es tidydata? En caso negativo, ¿qué falla? ¿Cómo convertirla a tidy data en caso de que no lo sea ya?</p>
 <div class="cell">
 <details>
@@ -3177,7 +3181,8 @@ pesos       63   70   85   95</code></pre>
 <span id="cb278-4"><a href="#cb278-4"></a>               <span class="at">values_to =</span> <span class="st">"people"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<h3 id="ejercicio-3-5"><span class="hl-yellow"><strong>Ejercicio 3</strong></span></h3>
+</div>
+<div id="tabset-6-3">
 <p>📝 Echa un vistazo a la tabla <code>billboard</code> del paquete <code>{tidyr}</code>. ¿Es tidydata? En caso negativo, ¿qué falla? ¿Cómo convertirla a tidy data en caso de que no lo sea ya?</p>
 <div class="cell">
 <details>
@@ -3189,6 +3194,9 @@ pesos       63   70   85   95</code></pre>
 <span id="cb279-5"><a href="#cb279-5"></a>               <span class="at">values_to =</span> <span class="st">"position"</span>,</span>
 <span id="cb279-6"><a href="#cb279-6"></a>               <span class="at">values_drop_na =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+</div>
+</div>
+</div>
 </div>
 </section>
 <section id="caso-práctico-2" class="slide level2">
@@ -3213,7 +3221,7 @@ pesos       63   70   85   95</code></pre>
 </div>
 <div class="fragment">
 <ol start="4" type="1">
-<li><span class="hl-yellow"><strong>Convierte a tidydata</strong></span> la base de datos.</li>
+<li><span class="hl-yellow"><strong>Convierte a tidydata</strong></span> la base de datos realizando todas las opciones que consideres (consejo: usa papel y boli para bocetar como debería quedar la base de datos).</li>
 </ol>
 </div>
 </section></section>
@@ -3224,7 +3232,7 @@ pesos       63   70   85   95</code></pre>
 </section>
 <section id="comunicar-rmd-y-quarto" class="slide level2">
 <h2>Comunicar: rmd y Quarto</h2>
-<p>Una de las <span class="hl-yellow"><strong>principales fortalezas</strong></span> de <code>R</code> es la <span class="hl-yellow"><strong>facilidad para generar informes, libros, webs, apuntes y hasta diapositivas</strong></span> (este mismo material por ejemplo). Para ello instalaremos antes</p>
+<p>Una de las <span class="hl-yellow"><strong>principales fortalezas</strong></span> de <code>R</code> es la <span class="hl-yellow"><strong>facilidad para generar informes, libros, webs, apuntes y hasta diapositivas</strong></span> (este mismo material por ejemplo). Para ello <span class="hl-purple"><strong>instalaremos</strong></span> antes</p>
 <div class="columns">
 <div class="column" style="width:40%;">
 <ul>
@@ -3243,7 +3251,6 @@ pesos       63   70   85   95</code></pre>
 </section>
 <section id="comunicar-rmd-y-quarto-1" class="slide level2">
 <h2>Comunicar: rmd y Quarto</h2>
-<p><span class="hl-yellow"><strong>¿Qué es rmarkdown?</strong></span></p>
 <p>Hasta ahora solo hemos programado en scripts (archivos <code>.R</code>) dentro de proyectos, pero en muchas ocasiones <span class="hl-yellow"><strong>no trabajaremos solos</strong></span> y necesitaremos <span class="hl-yellow"><strong>comunicar los resultados</strong></span> en diferentes formatos:</p>
 <ul>
 <li>apuntes (para nosotros mismos)</li>
@@ -3251,37 +3258,38 @@ pesos       63   70   85   95</code></pre>
 <li>web</li>
 <li>informes</li>
 </ul>
+<div class="fragment">
+<p>Para todo ello usaremos <span class="hl-yellow"><strong>Quarto (nuevo rmarkdown)</strong></span></p>
+</div>
 </section>
 <section id="comunicar-rmd-y-quarto-2" class="slide level2">
 <h2>Comunicar: rmd y Quarto</h2>
-<p><span class="hl-yellow"><strong>¿Qué es rmarkdown?</strong></span></p>
-<p>Los archivos <code>.rmd</code> nos permiten facilmente combinar:</p>
+<p>Los archivos de extensión <code>.qmd</code> (o <code>.rmd</code>) nos permitirán fácilmente combinar:</p>
 <ul>
-<li><span class="hl-yellow"><strong>Markdown</strong></span>: «lenguaje» que nos permite crear contenido simple (tipo wordpress, con negritas, cursivas, etc) con un diseño legible.</li>
+<li><span class="hl-yellow"><strong>Markdown</strong></span>: <span class="hl-purple"><strong>lenguaje tipado</strong></span> que nos permite crear contenido simple (tipo wordpress, con texto, <strong>negritas</strong>, <em>cursivas</em>, etc) con un diseño legible.</li>
 </ul>
 <div class="fragment">
 <ul>
-<li><span class="hl-yellow"><strong>Matemáticas (latex)</strong></span>: lenguaje para escribir notación matemática como <span class="math inline">\(x^2\)</span> o <span class="math inline">\(\sqrt{y}\)</span></li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li><span class="hl-yellow"><strong>Código y salidas</strong></span>: podremos no solo mostrar el paso final sino el código que has ido realizando (no solo en <code>R</code>), con <span class="hl-yellow"><strong>cajitas de código llamadas chunks</strong></span>.</li>
+<li><span class="hl-yellow"><strong>Matemáticas (latex)</strong></span>: lenguaje para escribir notación matemática como <span class="math inline">\(x^2\)</span> o <span class="math inline">\(\sqrt{y}\)</span> o <span class="math inline">\(\int_{a}^{b} f(x) dx\)</span></li>
 </ul>
 </div>
 <div class="fragment">
 <ul>
-<li>Imágenes, gráficas, tablas, estilos (css, js), etc.</li>
+<li><span class="hl-yellow"><strong>Código y salidas</strong></span>: podremos no solo mostrar el paso final sino el código que has ido realizando (no solo en <code>R</code>), con <span class="hl-purple"><strong>cajitas de código llamadas chunks</strong></span>.</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Imágenes, <span class="hl-yellow"><strong>gráficas</strong></span>, tablas, estilos (css, js), etc.</li>
 </ul>
 </div>
 </section>
 <section id="comunicar-rmd-y-quarto-3" class="slide level2">
 <h2>Comunicar: rmd y Quarto</h2>
-<p><span class="hl-yellow"><strong>¿Qué es rmarkdown?</strong></span></p>
-<p>La principal ventaja de realizar este tipo de material en rmarkdown es que, al hacerlo desde <code>RStudio</code>, puedes generar un <span class="hl-yellow"><strong>informe o una presentación sin salirte del entorno de programación</strong></span> en el que estás trabajando</p>
+<p>La principal ventaja de realizar este tipo de material en Quarto/Rmarkdown es que, al hacerlo desde <code>RStudio</code>, puedes generar un <span class="hl-yellow"><strong>informe o una presentación sin salirte del entorno de programación</strong></span> en el que estás trabajando</p>
 <p>De esta forma podrás analizar los datos, resumirlos y a la vez comunicarlos con la misma herramienta.</p>
 <div class="fragment">
-<p>Recientemente el equipo de <code>RStudio</code> desarrolló <span class="hl-yellow"><strong>Quarto</strong></span>, una versión mejorada de rmarkdown (archivos <code>.qmd</code>), con un formato un poco más estético y simple. Tienes toda la documentación en <a href="https://quarto.org/"><strong>https://quarto.org/</strong></a></p>
+<p>Recientemente el equipo de <code>RStudio</code> desarrolló <span class="hl-yellow"><strong>Quarto</strong></span>, una versión mejorada de Rmarkdown (archivos <code>.qmd</code>), con un formato un poco más estético y simple. Tienes toda la documentación y ejemplos en <a href="https://quarto.org/"><strong>https://quarto.org/</strong></a></p>
 </div>
 </section>
 <section id="nuestro-primer-informe" class="slide level2">
@@ -3309,7 +3317,9 @@ pesos       63   70   85   95</code></pre>
 </ul>
 </div>
 </div>
-<p>De momento dejaremos marcado el <span class="hl-yellow"><strong>formato HTML que viene por defecto</strong></span>, y escribiremos el <span class="hl-yellow"><strong>título</strong></span> de nuestro documento. Tras ello tendremos nuestro archivo .Rmd (ya no es un script .R como los que hemos abierto hasta ahora).</p>
+<div class="fragment">
+<p>De momento dejaremos marcado el <span class="hl-yellow"><strong>formato HTML que viene por defecto</strong></span>, y escribiremos el <span class="hl-yellow"><strong>título</strong></span> de nuestro documento. Tras ello tendremos nuestro <span class="hl-yellow"><strong>archivo .qmd</strong></span> (ya no es un script .R como los que hemos abierto hasta ahora).</p>
+</div>
 </section>
 <section id="nuestro-primer-informe-2" class="slide level2">
 <h2>Nuestro primer informe</h2>
@@ -3329,12 +3339,18 @@ pesos       63   70   85   95</code></pre>
 </section>
 <section id="nuestro-primer-informe-3" class="slide level2">
 <h2>Nuestro primer informe</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="img/quarto-example.png"></p>
+</div><div class="column" style="width:50%;">
 <p>Un fichero <code>.qmd</code> se <span class="hl-yellow"><strong>divide básicamente en tres partes</strong></span>:</p>
 <ul>
 <li><p><span class="hl-yellow"><strong>Cabecera</strong></span>: la parte que tienes al inicio entre <code>---</code>.</p></li>
 <li><p><span class="hl-yellow"><strong>Texto</strong></span>: que podremos formatear y mejorar con negritas (escrito como <strong>negritas</strong>, con doble astérisco al inicio y final), cursivas (<em>cursivas</em>, con barra baja al inicio y final) o destacar nombres de funciones o variables de R (con <code>R</code>). Recuerda que puedes añadir además ecuaciones como <span class="math inline">\(x^2\)</span> (he escrito <code>$x^2$</code>, la ecuación entre dólares).</p></li>
 <li><p><span class="hl-yellow"><strong>Código R</strong></span></p></li>
 </ul>
+</div>
+</div>
 </section>
 <section id="cabecera-de-un-qmd-1" class="slide level2">
 <h2>Cabecera de un qmd</h2>
@@ -3460,13 +3476,13 @@ pesos       63   70   85   95</code></pre>
 </section>
 <section id="personalización-de-chunks" class="slide level2">
 <h2>Personalización de chunks</h2>
-<p>Los <span class="hl-yellow"><strong>chunk podemos personalizarlos</strong></span> con diferentes opciones al inicio del chunk precedido de <code>#|</code>:</p>
+<p>Los <span class="hl-yellow"><strong>chunks podemos personalizarlos</strong></span> con opciones al inicio del chunk precedido de <code>#|</code>:</p>
 <ul>
 <li><p><code>#| echo: false</code>: <span class="hl-green"><strong>ejecuta código</strong></span> y se <span class="hl-green"><strong>muestra resultado</strong></span> pero <span class="hl-red"><strong>no visualiza código</strong></span> en la salida.</p></li>
 <li><p><code>#| include: false</code>: <span class="hl-green"><strong>ejecuta código</strong></span> pero <span class="hl-red"><strong>no muestra resultado</strong></span> y <span class="hl-red"><strong>no visualiza código</strong></span> en la salida.</p></li>
 <li><p><code>#| eval: false</code>: <span class="hl-red"><strong>no ejecuta código</strong></span>, <span class="hl-red"><strong>no muestra resultado</strong></span> pero <span class="hl-green"><strong>sí visualiza código</strong></span> en la salida.</p></li>
-<li><p><code>#| message: false</code>: <span class="hl-green"><strong>ejecuta código</strong></span> pero <span class="hl-red"><strong>no muestra mensajes de salida</strong></span> (de la consola).</p></li>
-<li><p><code>#| warning: false</code>: <span class="hl-green"><strong>ejecuta código</strong></span> pero <span class="hl-red"><strong>no muestra mensajes de warning</strong></span> (de la consola).</p></li>
+<li><p><code>#| message: false</code>: <span class="hl-green"><strong>ejecuta código</strong></span> pero <span class="hl-red"><strong>no muestra mensajes de salida</strong></span>.</p></li>
+<li><p><code>#| warning: false</code>: <span class="hl-green"><strong>ejecuta código</strong></span> pero <span class="hl-red"><strong>no muestra mensajes de warning</strong></span>.</p></li>
 <li><p><code>#| error: true</code>: <span class="hl-green"><strong>ejecuta código</strong></span> y <span class="hl-green"><strong>permite que haya errores</strong></span> mostrando el mensaje de error en la salida.</p></li>
 </ul>
 
@@ -4097,9 +4113,9 @@ pesos       63   70   85   95</code></pre>
 <h2>💻 Tu turno</h2>
 <p><span style="color:#444442;"><strong>Intenta realizar los siguientes ejercicios sin mirar las soluciones</strong></span></p>
 <div class="panel-tabset">
-<ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-6-1"><span class="hl-yellow"><strong>Ejercicio 1</strong></span></a></li><li><a href="#tabset-6-2"><span class="hl-yellow"><strong>Ejercicio 2</strong></span></a></li><li><a href="#tabset-6-3"><span class="hl-yellow"><strong>Ejercicio 3</strong></span></a></li><li><a href="#tabset-6-4"><span class="hl-yellow"><strong>Ejercicio 4</strong></span></a></li></ul>
+<ul id="tabset-7" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-7-1"><span class="hl-yellow"><strong>Ejercicio 1</strong></span></a></li><li><a href="#tabset-7-2"><span class="hl-yellow"><strong>Ejercicio 2</strong></span></a></li><li><a href="#tabset-7-3"><span class="hl-yellow"><strong>Ejercicio 3</strong></span></a></li><li><a href="#tabset-7-4"><span class="hl-yellow"><strong>Ejercicio 4</strong></span></a></li></ul>
 <div class="tab-content">
-<div id="tabset-6-1">
+<div id="tabset-7-1">
 <p>📝 El dataset <code>who</code> que hemos usado en ejercicios anteriores, expórtalo a un formato nativo de <code>R</code> en la carpeta <code>datos</code> del proyecto</p>
 <div class="cell">
 <details>
@@ -4109,7 +4125,7 @@ pesos       63   70   85   95</code></pre>
 </details>
 </div>
 </div>
-<div id="tabset-6-2">
+<div id="tabset-7-2">
 <p>📝 Carga el dataset <code>who</code> pero desde la carpeta de datos (importa el archivo creado en el ejercicio anterior)</p>
 <div class="cell">
 <details>
@@ -4118,7 +4134,7 @@ pesos       63   70   85   95</code></pre>
 </details>
 </div>
 </div>
-<div id="tabset-6-3">
+<div id="tabset-7-3">
 <p>📝 Repite lo mismo (exportar e importar) en 4 formatos: <code>.csv</code>, <code>.xlsx</code>, <code>.sav</code> (spss) y <code>.dta</code> (stata)</p>
 <div class="cell">
 <details>
@@ -4143,7 +4159,7 @@ pesos       63   70   85   95</code></pre>
 </details>
 </div>
 </div>
-<div id="tabset-6-4">
+<div id="tabset-7-4">
 <p>📝 Repite la carga del <code>who.csv</code> pero solo selecciona ya en la carga las 4 primeras columnas</p>
 <div class="cell">
 <details>
@@ -4690,9 +4706,9 @@ pesos       63   70   85   95</code></pre>
 <h2>💻 Tu turno</h2>
 <p><span style="color:#444442;"><strong>Intenta realizar los siguientes ejercicios sin mirar las soluciones</strong></span></p>
 <div class="panel-tabset">
-<ul id="tabset-7" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-7-1"><span class="hl-yellow"><strong>Ejercicio 1</strong></span></a></li><li><a href="#tabset-7-2"><span class="hl-yellow"><strong>Ejercicio 2</strong></span></a></li><li><a href="#tabset-7-3"><span class="hl-yellow"><strong>Ejercicio 3</strong></span></a></li><li><a href="#tabset-7-4"><span class="hl-yellow"><strong>Ejercicio 4</strong></span></a></li><li><a href="#tabset-7-5"><span class="hl-yellow"><strong>Ejercicio 5</strong></span></a></li></ul>
+<ul id="tabset-8" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-8-1"><span class="hl-yellow"><strong>Ejercicio 1</strong></span></a></li><li><a href="#tabset-8-2"><span class="hl-yellow"><strong>Ejercicio 2</strong></span></a></li><li><a href="#tabset-8-3"><span class="hl-yellow"><strong>Ejercicio 3</strong></span></a></li><li><a href="#tabset-8-4"><span class="hl-yellow"><strong>Ejercicio 4</strong></span></a></li><li><a href="#tabset-8-5"><span class="hl-yellow"><strong>Ejercicio 5</strong></span></a></li></ul>
 <div class="tab-content">
-<div id="tabset-7-1">
+<div id="tabset-8-1">
 <p>📝 Selecciona del conjunto de starwars solo los personajes que sean androides o cuyo valor en <code>species</code> sea desconocido</p>
 <div class="cell">
 <details>
@@ -4702,7 +4718,7 @@ pesos       63   70   85   95</code></pre>
 </details>
 </div>
 </div>
-<div id="tabset-7-2">
+<div id="tabset-8-2">
 <p>📝 Selecciona del conjunto de starwars solo los personajes cuyo peso esté entre 65 y 90 kg.</p>
 <div class="cell">
 <details>
@@ -4711,7 +4727,7 @@ pesos       63   70   85   95</code></pre>
 </details>
 </div>
 </div>
-<div id="tabset-7-3">
+<div id="tabset-8-3">
 <p>📝 Tras limpiar de ausentes en todas las variables, selecciona del conjunto de starwars solo los personajes que sean humanos y que vengan de Tatooine</p>
 <div class="cell">
 <details>
@@ -4722,7 +4738,7 @@ pesos       63   70   85   95</code></pre>
 </details>
 </div>
 </div>
-<div id="tabset-7-4">
+<div id="tabset-8-4">
 <p>📝 Selecciona del conjunto original de starwars los personajes no humanos, <code>male</code> en el sexo y que midan entre 120 y 170 cm, o los personajes con ojos marrones o rojos.</p>
 <div class="cell">
 <details>
@@ -4734,7 +4750,7 @@ pesos       63   70   85   95</code></pre>
 </details>
 </div>
 </div>
-<div id="tabset-7-5">
+<div id="tabset-8-5">
 <p>📝 Busca información en la ayuda de la función <code>str_detect()</code> del paquete <code>{stringr}</code> (cargado en <code>{tidyverse}</code>). Consejo: prueba antes las funciones que vayas a usar con algún vector de prueba para poder comprobar su funcionamiento. Tras saber lo que hace, filtra solo aquellos personajes con apellido <code>Skywalker</code></p>
 <div class="cell">
 <details>
@@ -4932,10 +4948,10 @@ pesos       63   70   85   95</code></pre>
 <div class="sourceCode cell-code" id="cb399"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb399-1"><a href="#cb399-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">slice_sample</span>(<span class="at">n =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 14
-  name      height  mass hair_color skin_color eye_color birth_year sex   gender
-  &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
-1 Leia Org…    150    49 brown      light      brown             19 fema… femin…
-2 Bib Fort…    180    NA none       pale       pink              NA male  mascu…
+  name   height  mass hair_color skin_color  eye_color birth_year sex   gender  
+  &lt;chr&gt;   &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;   
+1 R2-D2      96    32 &lt;NA&gt;       white, blue red               33 none  masculi…
+2 Greedo    173    74 &lt;NA&gt;       green       black             44 male  masculi…
 # ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
 #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 </div>
@@ -4980,10 +4996,10 @@ pesos       63   70   85   95</code></pre>
 <pre><code># A tibble: 4 × 14
   name      height  mass hair_color skin_color eye_color birth_year sex   gender
   &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
-1 Roos Tar…    224    82 none       grey       orange            NA male  mascu…
-2 Jek Tono…    180   110 brown      fair       blue              NA male  mascu…
-3 Wedge An…    170    77 brown      fair       hazel             21 male  mascu…
-4 Arvel Cr…     NA    NA brown      fair       brown             NA male  mascu…
+1 Nien Nunb    160    68 none       grey       black             NA male  mascu…
+2 Bossk        190   113 none       green      red               53 male  mascu…
+3 Finn          NA    NA black      dark       dark              NA male  mascu…
+4 Eeth Koth    171    NA black      brown      brown             NA male  mascu…
 # ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
 #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 </div>
@@ -5038,9 +5054,9 @@ pesos       63   70   85   95</code></pre>
 <h2>💻 Tu turno</h2>
 <p><span style="color:#444442;"><strong>Intenta realizar los siguientes ejercicios sin mirar las soluciones</strong></span></p>
 <div class="panel-tabset">
-<ul id="tabset-8" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-8-1"><span class="hl-yellow"><strong>Ejercicio 1</strong></span></a></li><li><a href="#tabset-8-2"><span class="hl-yellow"><strong>Ejercicio 2</strong></span></a></li><li><a href="#tabset-8-3"><span class="hl-yellow"><strong>Ejercicio 3</strong></span></a></li><li><a href="#tabset-8-4"><span class="hl-yellow"><strong>Ejercicio 4</strong></span></a></li><li><a href="#tabset-8-5"><span class="hl-yellow"><strong>Ejercicio 5</strong></span></a></li></ul>
+<ul id="tabset-9" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-9-1"><span class="hl-yellow"><strong>Ejercicio 1</strong></span></a></li><li><a href="#tabset-9-2"><span class="hl-yellow"><strong>Ejercicio 2</strong></span></a></li><li><a href="#tabset-9-3"><span class="hl-yellow"><strong>Ejercicio 3</strong></span></a></li><li><a href="#tabset-9-4"><span class="hl-yellow"><strong>Ejercicio 4</strong></span></a></li><li><a href="#tabset-9-5"><span class="hl-yellow"><strong>Ejercicio 5</strong></span></a></li></ul>
 <div class="tab-content">
-<div id="tabset-8-1">
+<div id="tabset-9-1">
 <p>📝 Selecciona solo los personajes que sean humanos y de ojos marrones, para después ordernarlos en altura descendente y peso ascendente.</p>
 <div class="cell">
 <details>
@@ -5051,7 +5067,7 @@ pesos       63   70   85   95</code></pre>
 </details>
 </div>
 </div>
-<div id="tabset-8-2">
+<div id="tabset-9-2">
 <p>📝 Extrae 3 registros aleatoriamente.</p>
 <div class="cell">
 <details>
@@ -5060,7 +5076,7 @@ pesos       63   70   85   95</code></pre>
 </details>
 </div>
 </div>
-<div id="tabset-8-3">
+<div id="tabset-9-3">
 <p>📝 Extrae el 10% de los registros aleatoriamente.</p>
 <div class="cell">
 <details>
@@ -5069,7 +5085,7 @@ pesos       63   70   85   95</code></pre>
 </details>
 </div>
 </div>
-<div id="tabset-8-4">
+<div id="tabset-9-4">
 <p>📝 Extrae aleatoriamente 10 personajes pero de forma que la probabilidad de que salga cada uno sea proporcional a su peso (más pesados, más probable)</p>
 <div class="cell">
 <details>
@@ -5080,7 +5096,7 @@ pesos       63   70   85   95</code></pre>
 </details>
 </div>
 </div>
-<div id="tabset-8-5">
+<div id="tabset-9-5">
 <p>📝 Selecciona los 3 personajes más mayores.</p>
 <div class="cell">
 <details>
@@ -5251,9 +5267,9 @@ pesos       63   70   85   95</code></pre>
 <h2>💻 Tu turno</h2>
 <p><span style="color:#444442;"><strong>Intenta realizar los siguientes ejercicios sin mirar las soluciones</strong></span></p>
 <div class="panel-tabset">
-<ul id="tabset-9" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-9-1"><span class="hl-yellow"><strong>Ejercicio 1</strong></span></a></li><li><a href="#tabset-9-2"><span class="hl-yellow"><strong>Ejercicio 2</strong></span></a></li></ul>
+<ul id="tabset-10" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-10-1"><span class="hl-yellow"><strong>Ejercicio 1</strong></span></a></li><li><a href="#tabset-10-2"><span class="hl-yellow"><strong>Ejercicio 2</strong></span></a></li></ul>
 <div class="tab-content">
-<div id="tabset-9-1">
+<div id="tabset-10-1">
 <p>📝 Para saber que valores únicos hay en el color de pelo, elimina duplicados de la variable <code>hair_color</code>, eliminando antes los ausentes de dicha variable.</p>
 <div class="cell">
 <details>
@@ -5264,7 +5280,7 @@ pesos       63   70   85   95</code></pre>
 </details>
 </div>
 </div>
-<div id="tabset-9-2">
+<div id="tabset-10-2">
 <p>📝 De los personajes que son humanos y miden más de 160 cm, elimina duplicados en color de ojos, elimina ausentes en peso, selecciona los 3 más altos, y orden de mayor a menor peso. Devuelve la tabla.</p>
 <div class="cell">
 <details>
@@ -5956,9 +5972,9 @@ pesos       63   70   85   95</code></pre>
 <h2>💻 Tu turno</h2>
 <p><span style="color:#444442;"><strong>Intenta realizar los siguientes ejercicios sin mirar las soluciones</strong></span></p>
 <div class="panel-tabset">
-<ul id="tabset-10" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-10-1"><span class="hl-yellow"><strong>Ejercicio 1</strong></span></a></li><li><a href="#tabset-10-2"><span class="hl-yellow"><strong>Ejercicio 2</strong></span></a></li><li><a href="#tabset-10-3"><span class="hl-yellow"><strong>Ejercicio 3</strong></span></a></li><li><a href="#tabset-10-4"><span class="hl-yellow"><strong>Ejercicio 4</strong></span></a></li><li><a href="#tabset-10-5"><span class="hl-yellow"><strong>Ejercicio 5</strong></span></a></li><li><a href="#tabset-10-6"><span class="hl-yellow"><strong>Ejercicio 6</strong></span></a></li><li><a href="#tabset-10-7"><span class="hl-yellow"><strong>Ejercicio 7</strong></span></a></li></ul>
+<ul id="tabset-11" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-11-1"><span class="hl-yellow"><strong>Ejercicio 1</strong></span></a></li><li><a href="#tabset-11-2"><span class="hl-yellow"><strong>Ejercicio 2</strong></span></a></li><li><a href="#tabset-11-3"><span class="hl-yellow"><strong>Ejercicio 3</strong></span></a></li><li><a href="#tabset-11-4"><span class="hl-yellow"><strong>Ejercicio 4</strong></span></a></li><li><a href="#tabset-11-5"><span class="hl-yellow"><strong>Ejercicio 5</strong></span></a></li><li><a href="#tabset-11-6"><span class="hl-yellow"><strong>Ejercicio 6</strong></span></a></li><li><a href="#tabset-11-7"><span class="hl-yellow"><strong>Ejercicio 7</strong></span></a></li></ul>
 <div class="tab-content">
-<div id="tabset-10-1">
+<div id="tabset-11-1">
 <p>📝 Selecciona solo las variables nombre, altura y así como todas aquellas variables relacionadas con el color, a la vez que te quedas solo con aquellos que no tengan ausente en la altura.</p>
 <div class="cell">
 <details>
@@ -5969,7 +5985,7 @@ pesos       63   70   85   95</code></pre>
 </details>
 </div>
 </div>
-<div id="tabset-10-2">
+<div id="tabset-11-2">
 <p>📝 Con los datos obtenidos del ejercicio anterior, traduce el nombre de las columnas a castellano.</p>
 <div class="cell">
 <details>
@@ -5983,7 +5999,7 @@ pesos       63   70   85   95</code></pre>
 </details>
 </div>
 </div>
-<div id="tabset-10-3">
+<div id="tabset-11-3">
 <p>📝 Con los datos obtenidos del ejercicio anterior, coloca la variable de color de pelo justo detrás de la variable de nombres.</p>
 <div class="cell">
 <details>
@@ -5998,7 +6014,7 @@ pesos       63   70   85   95</code></pre>
 </details>
 </div>
 </div>
-<div id="tabset-10-4">
+<div id="tabset-11-4">
 <p>📝 Con los datos originales, comprueba cuántas modalidades únicas hay en la variable de color de pelo.</p>
 <div class="cell">
 <details>
@@ -6009,7 +6025,7 @@ pesos       63   70   85   95</code></pre>
 </details>
 </div>
 </div>
-<div id="tabset-10-5">
+<div id="tabset-11-5">
 <p>📝 Del dataset original, selecciona solo las variables numéricas y de tipo texto. Tras ello define una nueva variable llamada <code>under_18</code> que nos recategorice la variable de edad: <code>TRUE</code> si es menor de edad y <code>FALSE</code> en caso contrario</p>
 <div class="cell">
 <details>
@@ -6020,7 +6036,7 @@ pesos       63   70   85   95</code></pre>
 </details>
 </div>
 </div>
-<div id="tabset-10-6">
+<div id="tabset-11-6">
 <p>📝 Del dataset original, crea una nueva columna llamada <code>auburn</code> (cobrizo/caoba) que nos diga TRUE si el color de pelo contiene dicha palabra y FALSE en caso contrario (reminder <code>str_detect()</code>).</p>
 <div class="cell">
 <details>
@@ -6030,7 +6046,7 @@ pesos       63   70   85   95</code></pre>
 </details>
 </div>
 </div>
-<div id="tabset-10-7">
+<div id="tabset-11-7">
 <p>📝 Del dataset original, incluye una columna que calcule el IMC. Tras ello, crea una nueva variable que valga <code>NA</code> si no es humano, <code>delgadez</code> por debajo de 18, <code>normal</code> entre 18 y 30, <code>sobrepeso</code> por encima de 30.</p>
 <div class="cell">
 <details>
@@ -6510,9 +6526,9 @@ dplyr 1.1.0.
 <h2>💻 Tu turno</h2>
 <p><span style="color:#444442;"><strong>Intenta realizar los siguientes ejercicios sin mirar las soluciones</strong></span></p>
 <div class="panel-tabset">
-<ul id="tabset-11" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-11-1"><span class="hl-yellow"><strong>Ejercicio 1</strong></span></a></li><li><a href="#tabset-11-2"><span class="hl-yellow"><strong>Ejercicio 2</strong></span></a></li><li><a href="#tabset-11-3"><span class="hl-yellow"><strong>Ejercicio 3</strong></span></a></li><li><a href="#tabset-11-4"><span class="hl-yellow"><strong>Ejercicio 4</strong></span></a></li><li><a href="#tabset-11-5"><span class="hl-yellow"><strong>Ejercicio 5</strong></span></a></li></ul>
+<ul id="tabset-12" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-12-1"><span class="hl-yellow"><strong>Ejercicio 1</strong></span></a></li><li><a href="#tabset-12-2"><span class="hl-yellow"><strong>Ejercicio 2</strong></span></a></li><li><a href="#tabset-12-3"><span class="hl-yellow"><strong>Ejercicio 3</strong></span></a></li><li><a href="#tabset-12-4"><span class="hl-yellow"><strong>Ejercicio 4</strong></span></a></li><li><a href="#tabset-12-5"><span class="hl-yellow"><strong>Ejercicio 5</strong></span></a></li></ul>
 <div class="tab-content">
-<div id="tabset-11-1">
+<div id="tabset-12-1">
 <p>📝 Calcula cuántos personajes hay de cada especie, ordenados de más a menor frecuencia.</p>
 <div class="cell">
 <details>
@@ -6521,7 +6537,7 @@ dplyr 1.1.0.
 </details>
 </div>
 </div>
-<div id="tabset-11-2">
+<div id="tabset-12-2">
 <p>📝 Tras eliminar ausentes en las variables de peso y estatura, añade una nueva variable que nos calcule el IMC de cada personaje, y determina el IMC medio de nuestros personajes desagregada por sexo</p>
 <div class="cell">
 <details>
@@ -6533,7 +6549,7 @@ dplyr 1.1.0.
 </details>
 </div>
 </div>
-<div id="tabset-11-3">
+<div id="tabset-12-3">
 <p>📝 Obtén el personaje más joven por cada sexo.</p>
 <div class="cell">
 <details>
@@ -6543,7 +6559,7 @@ dplyr 1.1.0.
 </details>
 </div>
 </div>
-<div id="tabset-11-4">
+<div id="tabset-12-4">
 <p>📝 Obtén la edad del personaje más joven y más viejo de cada sexo.</p>
 <div class="cell">
 <details>
@@ -6554,7 +6570,7 @@ dplyr 1.1.0.
 </details>
 </div>
 </div>
-<div id="tabset-11-5">
+<div id="tabset-12-5">
 <p>📝 Determina la cantidad de personajes en cada década (echa un vistazo a <code>round()</code>, primero sin desagregar y luego desagregado por sexo.</p>
 <div class="cell">
 <details>
