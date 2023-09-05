@@ -1393,7 +1393,7 @@ Máster de Bioestadística • curso 2023-2024
 <div class="cell">
 <div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1"></a><span class="fu">now</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2023-08-30 13:55:44 CEST"</code></pre>
+<pre><code>[1] "2023-08-30 15:09:36 CEST"</code></pre>
 </div>
 </div>
 </div>
@@ -2067,9 +2067,9 @@ Máster de Bioestadística • curso 2023-2024
 <span id="cb174-3"><a href="#cb174-3"></a><span class="fu">microbenchmark</span>(<span class="fu">sort</span>(x), x[<span class="fu">order</span>(x)], <span class="at">times =</span> <span class="fl">5e2</span>) <span class="co"># 500 veces</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Unit: microseconds
-        expr    min      lq     mean  median      uq    max neval
-     sort(x) 37.351 38.5195 41.09602 40.1595 42.1685 78.720   500
- x[order(x)] 31.078 32.0005 34.24689 33.3740 34.9320 91.143   500</code></pre>
+        expr    min     lq     mean  median     uq    max neval
+     sort(x) 36.982 38.499 40.98721 39.7290 41.943 89.708   500
+ x[order(x)] 30.873 32.226 34.21753 33.5175 34.932 62.689   500</code></pre>
 </div>
 </div>
 </section>
@@ -2612,12 +2612,12 @@ pesos       63   70   85   95</code></pre>
 </section>
 <section id="caso-práctico-1" class="slide level2">
 <h2>🐣 Caso práctico</h2>
-<p>Del paquete <code>datasets</code> usaremos el conjunto de datos <code>USArrests</code></p>
+<p>Del paquete <code>Biostatistics</code> usaremos el conunto de datos <code>pinniped</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb244"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb244-1"><a href="#cb244-1"></a>datasets<span class="sc">::</span>USArrests</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb244"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb244-1"><a href="#cb244-1"></a>Biostatistics<span class="sc">::</span>pinniped</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol type="1">
-<li>¿Qué <span class="hl-yellow"><strong>representan</strong></span> los datos? ¿Qué <span class="hl-yellow"><strong>tipo de dato</strong></span> es? En caso de que no lo sea, convierte la base de datos a un <code>tibble</code> (renombra con <code>USArrests_tb</code>)</li>
+<li>¿Qué <span class="hl-yellow"><strong>representan</strong></span> los datos? ¿Qué <span class="hl-yellow"><strong>tipo de dato</strong></span> es? En caso de que no lo sea, convierte la base de datos a un <code>tibble</code> (renombra con <code>pinniped_tb</code>)</li>
 </ol>
 <div class="fragment">
 <ol start="2" type="1">
@@ -2626,17 +2626,17 @@ pesos       63   70   85   95</code></pre>
 </div>
 <div class="fragment">
 <ol start="3" type="1">
-<li>Incorpora una <span class="hl-yellow"><strong>variable extra con el nombre de cada estado</strong></span> (piensa como obtenerlo del dataset original)</li>
+<li>Incorpora una <span class="hl-yellow"><strong>variable extra llamada phoca</strong></span> que sea de tipo lógico y que nos diga si una especie es de la categoría <code>Phoca</code> o no.</li>
 </ol>
 </div>
 <div class="fragment">
 <ol start="4" type="1">
-<li>¿Dónde hay <span class="hl-yellow"><strong>más asesinatos</strong></span> (<code>murder</code>) en media: en los estados con población urbana superior al 75% o en los de menos del 55%?</li>
+<li>¿A qué sexo le <span class="hl-yellow"><strong>pesa más el cerebro</strong></span>: a las hembras o a los machos? ¿A quienes les <span class="hl-yellow"><strong>pesa más el cuerpo</strong></span>: a los monógamos o a los polígamos?</li>
 </ol>
 </div>
 <div class="fragment">
 <ol start="5" type="1">
-<li>Incorpora una <span class="hl-yellow"><strong>variable extra con la fecha</strong></span> (asumiendo todas 1 de enero), e incluye otra variable con la diferencia de días desde hoy hasta ese día.</li>
+<li>Incopora una nueva variable que represente la <span class="hl-yellow"><strong>diferencia entre el peso del cerebro entre machos y hembras</strong></span> (machos - hembras) para cada especie.</li>
 </ol>
 </div>
 </section></section>
@@ -4934,8 +4934,8 @@ pesos       63   70   85   95</code></pre>
 <pre><code># A tibble: 2 × 14
   name      height  mass hair_color skin_color eye_color birth_year sex   gender
   &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
-1 Ackbar       180    83 none       brown mot… orange            41 male  mascu…
-2 Cliegg L…    183    NA brown      fair       blue              82 male  mascu…
+1 Leia Org…    150    49 brown      light      brown             19 fema… femin…
+2 Bib Fort…    180    NA none       pale       pink              NA male  mascu…
 # ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
 #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 </div>
@@ -4980,10 +4980,10 @@ pesos       63   70   85   95</code></pre>
 <pre><code># A tibble: 4 × 14
   name      height  mass hair_color skin_color eye_color birth_year sex   gender
   &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
-1 IG-88        200   140 none       metal      red               15 none  mascu…
-2 Shaak Ti     178    57 none       red, blue… black             NA fema… femin…
-3 Tion Med…    206    80 none       grey       black             NA male  mascu…
-4 Watto        137    NA black      blue, grey yellow            NA male  mascu…
+1 Roos Tar…    224    82 none       grey       orange            NA male  mascu…
+2 Jek Tono…    180   110 brown      fair       blue              NA male  mascu…
+3 Wedge An…    170    77 brown      fair       hazel             21 male  mascu…
+4 Arvel Cr…     NA    NA brown      fair       brown             NA male  mascu…
 # ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
 #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 </div>

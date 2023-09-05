@@ -2021,15 +2021,15 @@ names(airquality_tb) <- c("ozono", "rad_solar", "viento", "temp", "mes", "dia")
 
 ## 🐣 Caso práctico {#caso-práctico-1}
 
-Del paquete `datasets` usaremos el conjunto de datos `USArrests`
+Del paquete `Biostatistics` usaremos el conunto de datos `pinniped`
 
 ```{r}
 #| eval: false
-datasets::USArrests
+Biostatistics::pinniped
 ```
 
 
-1. ¿Qué [**representan**]{.hl-yellow} los datos? ¿Qué [**tipo de dato**]{.hl-yellow} es? En caso de que no lo sea, convierte la base de datos a un `tibble` (renombra con `USArrests_tb`)
+1. ¿Qué [**representan**]{.hl-yellow} los datos? ¿Qué [**tipo de dato**]{.hl-yellow} es? En caso de que no lo sea, convierte la base de datos a un `tibble` (renombra con `pinniped_tb`)
 
 . . .
 
@@ -2037,15 +2037,15 @@ datasets::USArrests
 
 . . .
 
-3. Incorpora una [**variable extra con el nombre de cada estado**]{.hl-yellow} (piensa como obtenerlo del dataset original)
+3. Incorpora una [**variable extra llamada phoca**]{.hl-yellow} que sea de tipo lógico y que nos diga si una especie es de la categoría `Phoca` o no.
 
 . . .
 
-4. ¿Dónde hay [**más asesinatos**]{.hl-yellow} (`murder`) en media: en los estados con población urbana superior al 75% o en los de menos del 55%?
+4. ¿A qué sexo le [**pesa más el cerebro**]{.hl-yellow}: a las hembras o a los machos? ¿A quienes les [**pesa más el cuerpo**]{.hl-yellow}: a los monógamos o a los polígamos?
 
 . . .
 
-5. Incorpora una [**variable extra con la fecha**]{.hl-yellow} (asumiendo todas 1 de enero), e incluye otra variable con la diferencia de días desde hoy hasta ese día.
+5. Incopora una nueva variable que represente la [**diferencia entre el peso del cerebro entre machos y hembras**]{.hl-yellow} (machos - hembras) para cada especie.
 
 
 
