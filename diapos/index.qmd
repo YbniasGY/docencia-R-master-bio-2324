@@ -107,13 +107,11 @@ Actualmente, [**investigador y docente en la Facultad de Estadística de la UCM*
 |  CLASE | SEMANA | FECHAS | TOPIC | SCRIPTS | EJ. | CASO PRÁCTICO | ENTREGA | 
 |:------:|:--------:|:--------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|
 |     [1](#clase-1-primeros-pasos)      | S1     | 11 sep |                  Primeros pasos en R                   | [📝](https://github.com/dadosdelaplace/docencia-R-master-bio-2324/tree/main/material/scripts)  |                 [💻](#tu-turno)                 |                        |         | 
-|     [2](#clase-2-primeros-datos)      | S1     | 13 sep |                 Tipos básicos de datos                 | [📝](https://github.com/dadosdelaplace/docencia-R-master-bio-2324/tree/main/material/scripts)  |       [💻](#tu-turno-1) [💻](#tu-turno-2)       |  [🐣](#caso-práctico)  |         |     
-| [3](#clase-3-primeras-bases-de-datos) | S2     | 18 sep |                Primeras bases de datos                 | [📝]()  | [💻](#tu-turno-matrices) [💻](#tu-turno-tibble) | [🐣](#caso-práctico-1) |         |    
-|   [4](#clase-4-r-base-vs-tidyverse)   | S2     | 20 sep |                  R base vs Tidyverse                   | [📝]()  |                [💻](#tu-turno-3)                |         [🐣](#caso-práctico-2)         |         |    
-|   [5](#clase-5-importexport-comunicar)   | S3     | 25 sep |         Importar/exportar e intro a Quarto/rmd         | [📝]()  |                [💻](#tu-turno-4)                |         [🐣](#caso-práctico-3a)  [🐣](#caso-práctico-3b)         |         | 
-|   [6](#clase-6-entrega-i)   | S3 | 27 sep | Entrega I |  |  [💻](#clase-6-entrega-i)   |  |  🎯10%  |
-|   [7](#clase-7-tidyverse-filas)   | S4   | 2 oct |                       Tidyverse (operaciones por filas)  | [📝]()  |       [💻](#tu-turno-7a) [💻](#tu-turno-7b) [💻](#tu-turno-7c)     |  [🐣](#caso-práctico-7)  |     | 
-|   [8](#clase-8-tidyverse-columnas)   | S4   | 4 oct |                       Tidyverse (operaciones por columnas)  | [📝]()  |       [💻](#tu-turno-8a) [💻](#tu-turno-8b)  |  [🐣](#caso-práctico-8)  |     | 
+|     [2](#clase-2-primeros-datos)      | S1     | 13 sep |                 Tipos básicos de datos                 | [📝](https://github.com/dadosdelaplace/docencia-R-master-bio-2324/tree/main/material/scripts)  |       [💻](#tu-turno-1) [💻](#tu-turno-2)  [💻]{#tu-turno-matrices}     |  [🐣](#caso-práctico)  |         |     
+| [3](#clase-3-primeras-bases-de-datos) | S2     | 18 sep |                Primeras bases de datos. R base vs Tidyverse                   | [📝]()  | [💻](#tu-turno-tibble)  [💻](#tu-turno-3) | [🐣](#caso-práctico-1) [🐣](#caso-práctico-2)  |         |    
+|   [4](#clase-5-importexport-comunicar)   | S2     | 19 sep |                  Importar/exportar e intro a Quarto/rmd                  | [📝]()  |                [💻](#tu-turno-4)                |        [🐣](#caso-práctico-3a)  [🐣](#caso-práctico-3b)             |         |    
+|   [5](#clase-5-entrega-i)   | S3 | 25 sep | Entrega I |  |  [💻](#clase-5-entrega-i)   |  |  🎯10%  |
+
 :::
 :::
 
@@ -1546,12 +1544,8 @@ day <- airquality$Day
 
 4. ¿Cuál fue la [**media de temperatura**]{.hl-yellow} del mes de agosto? Extrae los días en los que la [**temperatura superó los 30 grados**]{.hl-yellow} y calcula la cantidad de días en los que lo hizo.
 
-
-# Clase 3: primeras bases de datos {#clase-3-primeras-bases-de-datos}
-
-[**¿Cómo construimos una tabla? Concatenando variables en matrices, data.frame y tibble**]{style="color:#444442;"}
-
 ---
+
 
 ## Antes de seguir: microbenchmark
 
@@ -1665,6 +1659,72 @@ apply(datos_matriz, MARGIN = 2, FUN = "var")
 . . .
 
 [**No profundizaremos**]{.hl-red} más ya que nuestro objetivo es tener variables de misma longitud pero [**tipos diferentes**]{.hl-yellow} (pero que sepas que existen).
+
+---
+
+## 💻 Tu turno (matrices) {#tu-turno-matrices}
+
+[**Intenta realizar los siguientes ejercicios sin mirar las soluciones**]{style="color:#444442;"}
+
+::: panel-tabset
+### [**Ejercicio 1**]{.hl-yellow}
+
+📝 Modifica el código para definir una matriz `x` de ceros de 3 filas y 7 columnas de unos.
+
+```{r}
+#| eval: false
+x <- matrix(0, nrow = 2, ncol = 3)
+x
+```
+
+```{r}
+#| code-fold: true
+#| eval: false
+x <- matrix(1, nrow = 3, ncol = 7)
+x
+```
+
+### [**Ejercicio 2**]{.hl-yellow}
+
+📝 A la matriz anterior, suma un 1 a cada número de la matriz y divide el resultado entre 5. Tras ello calcula su transpuesta y obtén sus dimensiones
+
+```{r}
+#| code-fold: true
+#| eval: false
+new_matrix <- (x + 1)/5
+t(new_matrix)
+dim(new_matrix)
+```
+
+### [**Ejercicio 3**]{.hl-yellow}
+
+📝 Define la matriz `x <- matrix(1:12, nrow = 4)`. Obtén la primera fila, la tercera columna, y el elemento (4, 1).
+
+```{r}
+#| code-fold: true
+#| eval: false
+x <- matrix(1:12, nrow = 4)
+x[1, ] # primera fila
+x[, 3] # tercera columna
+x[4, 1] # elemento (4, 1)
+```
+
+### [**Ejercicio 4**]{.hl-yellow}
+
+📝 Con la matriz anterior definida como `x <- matrix(1:12, nrow = 4)`, calcula la media de todos los elementos, la media de cada fila y la media de cada columna. Calcula la suma de de cada fila y de cada columna
+
+```{r}
+#| code-fold: true
+#| eval: false
+x <- matrix(1:12, nrow = 4)
+mean(x) # de todos
+apply(x, MARGIN = 1, FUN = "mean") # media por filas
+apply(x, MARGIN = 2, FUN = "mean") # media por columnas
+apply(x, MARGIN = 1, FUN = "sum") # suma por filas
+apply(x, MARGIN = 2, FUN = "sum") # suma por columnas
+
+```
+:::
 
 ---
 
@@ -1787,6 +1847,10 @@ tabla <- data.frame(tabla, "n_hermanos" = hermanos)
 tabla
 ```
 
+# Clase 3: primeras bases de datos. R base vs Tidyverse {#clase-3-primeras-bases-de-datos}
+
+[**Nuestra base de datos: tibble. Tidydata: un multiverso de datos limpios**]{style="color:#444442;"}
+
 ---
 
 ## Intento final: tibble
@@ -1860,71 +1924,6 @@ tribble(~colA, ~colB,
 El paquete `{datapasta}` nos permite [**copiar y pegar**]{.hl-green} tablas de páginas web y documentos sencillos
 :::
 
----
-
-## 💻 Tu turno (matrices) {#tu-turno-matrices}
-
-[**Intenta realizar los siguientes ejercicios sin mirar las soluciones**]{style="color:#444442;"}
-
-::: panel-tabset
-### [**Ejercicio 1**]{.hl-yellow}
-
-📝 Modifica el código para definir una matriz `x` de ceros de 3 filas y 7 columnas de unos.
-
-```{r}
-#| eval: false
-x <- matrix(0, nrow = 2, ncol = 3)
-x
-```
-
-```{r}
-#| code-fold: true
-#| eval: false
-x <- matrix(1, nrow = 3, ncol = 7)
-x
-```
-
-### [**Ejercicio 2**]{.hl-yellow}
-
-📝 A la matriz anterior, suma un 1 a cada número de la matriz y divide el resultado entre 5. Tras ello calcula su transpuesta y obtén sus dimensiones
-
-```{r}
-#| code-fold: true
-#| eval: false
-new_matrix <- (x + 1)/5
-t(new_matrix)
-dim(new_matrix)
-```
-
-### [**Ejercicio 3**]{.hl-yellow}
-
-📝 Define la matriz `x <- matrix(1:12, nrow = 4)`. Obtén la primera fila, la tercera columna, y el elemento (4, 1).
-
-```{r}
-#| code-fold: true
-#| eval: false
-x <- matrix(1:12, nrow = 4)
-x[1, ] # primera fila
-x[, 3] # tercera columna
-x[4, 1] # elemento (4, 1)
-```
-
-### [**Ejercicio 4**]{.hl-yellow}
-
-📝 Con la matriz anterior definida como `x <- matrix(1:12, nrow = 4)`, calcula la media de todos los elementos, la media de cada fila y la media de cada columna. Calcula la suma de de cada fila y de cada columna
-
-```{r}
-#| code-fold: true
-#| eval: false
-x <- matrix(1:12, nrow = 4)
-mean(x) # de todos
-apply(x, MARGIN = 1, FUN = "mean") # media por filas
-apply(x, MARGIN = 2, FUN = "mean") # media por columnas
-apply(x, MARGIN = 1, FUN = "sum") # suma por filas
-apply(x, MARGIN = 2, FUN = "sum") # suma por columnas
-
-```
-:::
 
 ---
 
@@ -2048,29 +2047,6 @@ Biostatistics::pinniped
 
 5. Incopora una nueva variable que represente la [**diferencia entre el peso del cerebro entre machos y hembras**]{.hl-yellow} (machos - hembras) para cada especie.
 
-
-
-# Clase 4: R base vs Tidyverse {#clase-4-r-base-vs-tidyverse}
-
-[**Spoiler: un multiverso de datos limpios**]{style="color:#444442;"}
-
----
-
-## Resumen hasta ahora
-
--   Cada [**celda puede ser de un tipo diverso**]{.hl-yellow}: números, texto, fechas, valores lógicos, etc
-
-. . .
-
--   Un [**vector es una concatenación de celdas**]{.hl-yellow} (las futuras columnas de nuestras tablas) --\> En `R` por defecto las operaciones se hacen [**elemento a elemento**]{.hl-yellow}
-
-. . .
-
--   Una [**matriz**]{.hl-yellow} nos permite concatenar [**variables del MISMO tipo y MISMA longitud**]{.hl-yellow} --\> objeto bidimensional (dos índices)
-
-. . .
-
--   Un [**data.frame**]{.hl-yellow} nos permite concatenar [**variables de DISTINTO tipo y MISMA longitud**]{.hl-yellow} --\> usaremos [**tibble**]{.hl-yellow} como una opción mejorada de base de datos
 
 ---
 
@@ -2523,7 +2499,7 @@ billboard |>
 
 ## 🐣 Caso práctico {#caso-práctico-2}
 
-En el paquete `{tidyr}` contamos con el datset `who` (dataset de la Organización Mundial de la Salud)
+En el paquete `{tidyr}` contamos con el dataset `who` (dataset de la Organización Mundial de la Salud)
 
 ```{r}
 #| eval: false
@@ -2547,7 +2523,7 @@ who
 4. [**Convierte a tidydata**]{.hl-yellow} la base de datos realizando todas las opciones que consideres (consejo: usa papel y boli para bocetar como debería quedar la base de datos).
 
 
-# Clase 5: import/export, comunicar
+# Clase 4: import/export, comunicar
 
 [**Importar/exportar datos en R. Comunicar resultados: rmd y Quarto**]{style="color:#444442;"}
 
@@ -3618,28 +3594,63 @@ who_select <-
 ## 🐣 Caso práctico {#caso-práctico-3b}
 
 
-Realiza la importación de los datos de covid del ISCIII  directamente desde la web (archivo `casos_hosp_uci_def_sexo_edad_provres.csv`) incluyendo todas las filas pero cargando solo las columnas `provincia_iso`, `sexo`, `grupo_edad`, `fecha` y `num_casos`. Además
+En la carpeta de datos tienes el dataset `breast-cancer-wisconsin-data.csv`. Crea un archivo `.qmd` y personalízalo incluyendo lo siguiente:
 
-1. Determina el tipo de dato es cada variable importada
-2. ¿Cuántas observaciones tenemos?
-3. Renombra las variables al inglés
-4. ¿Podemos convertir el dataset a matrices? Argumenta e ilustra el por qué
-5. Crea una nueva variable (fuera de la base de datos) que nos diga el número de días que han pasado de cada registro respecto a hoy.
+1. Importa el archivo csv a un `tibble`. ¿Es tidydata? ¿Cuántos pacientes y variables tenemos?
+
+. . .
 
 
-# Clase 6: entrega I
+2. El dataset representa datos de cáncer de pecho (`id` identificador, `diagnosis` el diagnóstico maligno/benigno y el resto propiedades del tumor). Usando SOLO LO APRENDIDO, ¿qué % tenían un tumor maligno y qué % uno benigno?
+
+. . .
+
+3. ¿Cuál de los dos tipos de tumores tienen, de media, un radio más elevado? 
+
+. . .
+
+4. Busca la ayuda de la función `t.test()`. Dicha función nos permite contrastar si la media de dos distribuciones son o no iguales. ¿Podemos rechazar la hipótesis nula de que la media del radio sea la misma, bajo una significancia de $\alpha = 0.05$?
+
+
+# Clase 5: entrega I {#clase-5-entrega-i}
 
 [**Primera entrega individual en clase**]{style="color:#444442;"}
 
 ---
 
-## Ejercicios para practicar
+## Ejercicios previos
 
-Se actualizarán al menos 14 días antes de la entrega.
+[**Ejercicios recomendables para practicar antes de la práctica**]{.hl-yellow} y conocer el dataset en cuestión.
+
+
+Realiza la importación de los [datos de covid del ISCIII](https://cnecovid.isciii.es/covid19/resources/casos_hosp_uci_def_sexo_edad_provres.csv) directamente desde la web (archivo `casos_hosp_uci_def_sexo_edad_provres.csv`) incluyendo todas las filas pero cargando solo las columnas `provincia_iso`, `sexo`, `grupo_edad`, `fecha` y `num_casos`.
+
+::: panel-tabset
+### [**Ejercicio 1**]{.hl-yellow}
+
+📝 Determina el tipo de dato es cada variable importada
+
+### [**Ejercicio 2**]{.hl-yellow}
+
+📝 ¿Cuántas observaciones tenemos?
+
+### [**Ejercicio 3**]{.hl-yellow}
+
+📝 Renombra el nombre de las variables al inglés
+
+### [**Ejercicio 4**]{.hl-yellow}
+
+📝 ¿Podemos convertir el dataset a una matriz? Argumenta e ilustra el por qué sí o no.
+
+### [**Ejercicio 5**]{.hl-yellow}
+
+📝 Crea una nueva variable (fuera de la base de datos) que nos diga el número de días que han pasado de cada registro respecto a hoy.
+
+:::
 
 ---
 
-## Entrega I
+## Entrega I (27/09/2023)
 
 Se actualizará al inicio de la clase correspondiente.
 
