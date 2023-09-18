@@ -1964,7 +1964,7 @@ nrow(airquality_tb)
 ```{r}
 #| code-fold: true
 #| eval: false
-airquality_tb[Month == 8, ]
+airquality_tb[airquality_tb$Month == 8, ]
 ```
 
 ### [**Ejercicio 4**]{.hl-yellow}
@@ -1974,7 +1974,7 @@ airquality_tb[Month == 8, ]
 ```{r}
 #| code-fold: true
 #| eval: false
-airquality_tb[Month %in% c(7, 8), ]
+airquality_tb[!(airquality_tb$Month %in% c(7, 8)), ]
 ```
 
 ### [**Ejercicio 5**]{.hl-yellow}
@@ -1994,7 +1994,7 @@ airquality_tb[, c("Ozone", "Temp")]
 ```{r}
 #| code-fold: true
 #| eval: false
-airquality_tb[Month == 8, c("Temp", "Wind")]
+airquality_tb[airquality_tb$Month == 8, c("Temp", "Wind")]
 names(airquality_tb) <- c("ozono", "rad_solar", "viento", "temp", "mes", "dia") 
 ```
 :::
