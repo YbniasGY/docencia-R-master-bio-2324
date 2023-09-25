@@ -110,7 +110,8 @@ Actualmente, [**investigador y docente en la Facultad de Estadística de la UCM*
 |     [2](#clase-2-primeros-datos)      | S1     | 13 sep |                 Tipos básicos de datos                 | [📝](https://github.com/dadosdelaplace/docencia-R-master-bio-2324/tree/main/material/scripts)  |       [💻](#tu-turno-1) [💻](#tu-turno-2)  [💻]{#tu-turno-matrices}     |  [🐣](#caso-práctico)  |         |     
 | [3](#clase-3-primeras-bases-de-datos) | S2     | 18 sep |                Primeras bases de datos. R base vs Tidyverse                   | [📝]()  | [💻](#tu-turno-tibble)  [💻](#tu-turno-3) | [🐣](#caso-práctico-1) [🐣](#caso-práctico-2)  |         |    
 |   [4](#clase-5-importexport-comunicar)   | S2     | 19 sep |                  Importar/exportar e intro a Quarto/rmd                  | [📝]()  |                [💻](#tu-turno-4)                |        [🐣](#caso-práctico-3a)  [🐣](#caso-práctico-3b)             |         |    
-|   [5](#clase-5-entrega-i)   | S3 | 25 sep | Entrega I |  |  [💻](#clase-5-entrega-i)   |  |  🎯10%  |
+|   [5](#clase-5-tidyverse-filas)   | S3     | 25 sep |                  Tidyverse (filas)                  | [📝]()  |                [💻](#tu-turno-7a) [💻](#tu-turno-7b)                |        [🐣](#caso-práctico-7)          |         | 
+|   [6](#entrega-i)   | S3 | 27 sep | Entrega I |  |  [💻](#entrega-i)   |  |  🎯 10%  |
 
 :::
 :::
@@ -3612,66 +3613,8 @@ En la carpeta de datos tienes el dataset `breast-cancer-wisconsin-data.csv`. Cre
 4. Busca la ayuda de la función `t.test()`. Dicha función nos permite contrastar si la media de dos distribuciones son o no iguales. ¿Podemos rechazar la hipótesis nula de que la media del radio sea la misma, bajo una significancia de $\alpha = 0.05$?
 
 
-# Clase 5: entrega I {#clase-5-entrega-i}
 
-[**Primera entrega individual en clase**]{style="color:#444442;"}
-
----
-
-## Ejercicios previos
-
-[**Ejercicios recomendables para practicar antes de la práctica**]{.hl-yellow} y conocer el dataset en cuestión.
-
-
-Realiza la importación de los [datos de covid del ISCIII](https://cnecovid.isciii.es/covid19/resources/casos_hosp_uci_def_sexo_edad_provres.csv) directamente desde la web (archivo `casos_hosp_uci_def_sexo_edad_provres.csv`) incluyendo todas las filas pero cargando solo las columnas `provincia_iso`, `sexo`, `grupo_edad`, `fecha` y `num_casos`.
-
-::: panel-tabset
-### [**Ejercicio 1**]{.hl-yellow}
-
-📝 Determina el tipo de dato es cada variable importada
-
-### [**Ejercicio 2**]{.hl-yellow}
-
-📝 ¿Cuántas observaciones tenemos?
-
-### [**Ejercicio 3**]{.hl-yellow}
-
-📝 Renombra el nombre de las variables al inglés
-
-### [**Ejercicio 4**]{.hl-yellow}
-
-📝 ¿Podemos convertir el dataset a una matriz? Argumenta e ilustra el por qué sí o no.
-
-### [**Ejercicio 5**]{.hl-yellow}
-
-📝 Crea una nueva variable (fuera de la base de datos) que nos diga el número de días que han pasado de cada registro respecto a hoy.
-
-:::
-
----
-
-## Entrega I (27/09/2023)
-
-Se actualizará al inicio de la clase correspondiente.
-
-::: callout-important
-
-## Importante
-
-Esta [**entrega ponderará un 10% en la nota final**]{.hl-green}
-
-Podrás [**usar todo el material del curso e internet**]{.hl-yellow} salvo cualquier aplicación de mensajería o sistema de comunicación: en caso de tener alguna abierta a lo largo de la entrega, aunque no se esté usando, deberás [**abandonar la entrega y contará como un 0**]{.hl-red}.
-
-Contarás con aproximadamente 1 hora y 50 minutos, pero [**deberás realizar la entrega**]{.hl-yellow}, como tarde, a las [**18:00**]{.hl-yellow}. Será [**obligatorio subir tanto el `.qmd` como el `.html`**]{.hl-yellow}: una entrega que no haya podido ser renderizada (es decir, con errores graves) será [**penalizada contando solo un 65% de la nota obtenida**]{.hl-red} (si la entrega es perfecta, la nota máxima será un 6.5 sino se adjunta el `.html` generado).
-
-Te recomiendo practicar bastante y preguntar dudas en clase y/o tutoría ya que [**irás justo de tiempo**]{.hl-yellow}, así que necesitas fluidez en los ejercicios.
-
-Si usas un [**pc de la biblioteca**]{.hl-yellow} asegúrate de tomarlo con suficiente antelación para [**instalar todas las librerías necesarias antes de empezar**]{.hl-yellow} para no perder tiempo.
-
-:::
-
-
-# Clase 7: tidyverse (filas) {#clase-7-tidyverse-filas}
+# Clase 5: tidyverse (filas) {#clase-5-tidyverse-filas}
 
 [**Operaciones con filas**]{style="color:#444442;"}
 
@@ -4483,6 +4426,48 @@ starwars |>
 
 ---
 
+## Paréntesis: sample()
+
+La función `slice_sample()` es simplemente una integración de `{tidyverse}` de la función básica de `R` conocida como `sample()` que nos permite [**muestrear elementos**]{.hl-yellow}
+
+. . .
+
+Por ejemplo, vamos a [**muestrear 10 tiradas de un dado**]{.hl-yellow}, indicándole
+
+- [**soporte**]{.hl-purple} de nuestra variable aleatorio (valores permitidos en `x`)
+- [**tamaño**]{.hl-purple} muestral (`size`)
+- [**reemplazamiento**]{.hl-purple} (si `TRUE` entonces pueden salir repetidas, como en el caso del dado)
+
+```{r}
+sample(x = 1:6, size = 10, replace = TRUE)
+```
+
+---
+
+## Paréntesis: sample()
+
+La opción anterior lo que genera son sucesos de una variable aleatoria [**equiprobable**]{.hl-yellow} pero al igual que antes, podemos asignarle un vector de probabilidades o [**función de masa**]{.hl-yellow} concreta con el argumento  `prob = ...`
+
+```{r}
+sample(x = 1:6, size = 50, replace = TRUE,
+       prob = c(0.5, 0.2, 0.1, 0.1, 0.05, 0.05))
+```
+
+---
+
+
+## Paréntesis: sample()
+
+**¿Cómo harías el siguiente enunciado?**
+
+&nbsp;
+
+Supongamos que en una ciudad se han estudiado episodios de gripe estacional. Sean las variables aleatorias $X_m$ y $X_p$ tal que $X_m=1$ si la madre tiene gripe, $X_m=0$ si la madre no tiene gripe, $X_p=1$ si el padre tiene gripe y $X_p=0$ si el padre no tiene gripe. El modelo teórico asociado a este tipo de epidemias indica que la distribución conjunta viene dada por $P(X_m = 1, X_p=1)=0.02$, $P(X_m = 1, X_p=0)=0.08$, $P(X_m = 1, X_p=0)=0.1$ y $P(X_m = 0, X_p=0)=0.8$
+
+**Genera una muestra** de tamaño $n = 1000$ (soporte `"10"`, `"01"`, `"00"` y `"11"`) haciendo uso de `runif()` y haciendo uso de `sample()`
+
+---
+
 ## 💻 Tu turno {#tu-turno-7b}
 
 [**Intenta realizar los siguientes ejercicios sin mirar las soluciones**]{style="color:#444442;"}
@@ -4950,6 +4935,66 @@ Puedes ver la documentación en <https://vincentarelbundock.github.io/Rdatasets/
 . . .
 
 7. Del dataset anterior obtén una [**muestra del 20% de los datos**]{.hl-yellow} (cada registro puede ser elegido con la misma probabilidad), y [**órdenalos**]{.hl-yellow} por de mayor a menor por la variable `V1` y, en caso de empate, de menor a mayor por la variable `V2`
+
+
+
+# Clase 6: entrega I {#entrega-i}
+
+[**Primera entrega individual en clase**]{style="color:#444442;"}
+
+---
+
+## Ejercicios previos
+
+[**Ejercicios recomendables para practicar antes de la práctica**]{.hl-yellow} y conocer el dataset en cuestión.
+
+
+Realiza la importación de los [datos de covid del ISCIII](https://cnecovid.isciii.es/covid19/resources/casos_hosp_uci_def_sexo_edad_provres.csv) directamente desde la web (archivo `casos_hosp_uci_def_sexo_edad_provres.csv`) incluyendo todas las filas pero cargando solo las columnas `provincia_iso`, `sexo`, `grupo_edad`, `fecha` y `num_casos`.
+
+::: panel-tabset
+### [**Ejercicio 1**]{.hl-yellow}
+
+📝 Determina el tipo de dato es cada variable importada
+
+### [**Ejercicio 2**]{.hl-yellow}
+
+📝 ¿Cuántas observaciones tenemos?
+
+### [**Ejercicio 3**]{.hl-yellow}
+
+📝 Renombra el nombre de las variables al inglés
+
+### [**Ejercicio 4**]{.hl-yellow}
+
+📝 ¿Podemos convertir el dataset a una matriz? Argumenta e ilustra el por qué sí o no.
+
+### [**Ejercicio 5**]{.hl-yellow}
+
+📝 Crea una nueva variable (fuera de la base de datos) que nos diga el número de días que han pasado de cada registro respecto a hoy.
+
+:::
+
+---
+
+## Entrega I (27/09/2023)
+
+Se actualizará al inicio de la clase correspondiente.
+
+::: callout-important
+
+## Importante
+
+Esta [**entrega ponderará un 10% en la nota final**]{.hl-green}
+
+Podrás [**usar todo el material del curso e internet**]{.hl-yellow} salvo cualquier aplicación de mensajería o sistema de comunicación: en caso de tener alguna abierta a lo largo de la entrega, aunque no se esté usando, deberás [**abandonar la entrega y contará como un 0**]{.hl-red}.
+
+Contarás con aproximadamente 1 hora y 50 minutos, pero [**deberás realizar la entrega**]{.hl-yellow}, como tarde, a las [**18:00**]{.hl-yellow}. Será [**obligatorio subir tanto el `.qmd` como el `.html`**]{.hl-yellow}: una entrega que no haya podido ser renderizada (es decir, con errores graves) será [**penalizada contando solo un 65% de la nota obtenida**]{.hl-red} (si la entrega es perfecta, la nota máxima será un 6.5 sino se adjunta el `.html` generado).
+
+Te recomiendo practicar bastante y preguntar dudas en clase y/o tutoría ya que [**irás justo de tiempo**]{.hl-yellow}, así que necesitas fluidez en los ejercicios.
+
+Si usas un [**pc de la biblioteca**]{.hl-yellow} asegúrate de tomarlo con suficiente antelación para [**instalar todas las librerías necesarias antes de empezar**]{.hl-yellow} para no perder tiempo.
+
+:::
 
 
 
