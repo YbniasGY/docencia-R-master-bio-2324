@@ -112,7 +112,7 @@ Actualmente, [**investigador y docente en la Facultad de Estadística de la UCM*
 |   [4](#clase-5-importexport-comunicar)   | S2     | 19 sep |                  Importar/exportar e intro a Quarto/rmd                  | [📝]()  |                [💻](#tu-turno-4)                |        [🐣](#caso-práctico-3a)  [🐣](#caso-práctico-3b)             |         |    
 |   [5](#clase-5-tidyverse-filas)   | S3     | 25 sep |                  Tidyverse (filas)                  | [📝]()  |                [💻](#tu-turno-7a) [💻](#tu-turno-7b)                |        [🐣](#caso-práctico-7)          |         | 
 |   [6](#entrega-i)   | S3 | 27 sep | Entrega I |  |  [💻](#entrega-i)   |  |  🎯 10%  |
-
+|   [7](#clase-7-tidyverse-columnas)   | S3     | 2 oct |                  Tidyverse (columnas)                  | [📝]()  |                [💻](#tu-turno-7d) [💻](#tu-turno-7e)                |   [🐣]{#caso-7}
 :::
 :::
 
@@ -4862,7 +4862,6 @@ starwars |>
 
 ## Resumen
 
-
 La clave de `{tidyverse}` es la [**legibilidad**]{.hl-yellow}: es importantísimo que el código se entienda, por nuestro yo el futuro pero también por la [**transparencia algorítmica**]{.hl-yellow} hacia los demás
 
 [**Por ejemplo**]{.hl-purple}: quitaremos ausentes de la variable peso, filtraremos los personajes humanos y altura superior a 140cm, sin duplicados en el color de pelo, extrayendo los 5 más altos y obteniendo 2 personajes aleatorios finalmente.
@@ -4920,7 +4919,7 @@ Puedes ver la documentación en <https://vincentarelbundock.github.io/Rdatasets/
 
 ---
 
-## 🐣 Caso práctico {#caso-práctico-7}
+## 🐣 Caso práctico
 
 4. La variable `ID` en realidad es un identificador (una cualitativa). Repite la carga [**especificando los tipos de datos**]{.hl-yellow}: cualitativa o factor para ID y class, números para el resto de variables)
 
@@ -4998,7 +4997,7 @@ Si usas un [**pc de la biblioteca**]{.hl-yellow} asegúrate de tomarlo con sufic
 
 
 
-# Clase 8: tidyverse (columnas) {#clase-8-tidyverse-columnas}
+# Clase 7: tidyverse (columnas) {#clase-7-tidyverse-columnas}
 
 [**Operaciones con columnas**]{style="color:#444442;"}
 
@@ -5022,10 +5021,10 @@ starwars |> select(var1, var2, ...)
 :::
 :::
 
-La opción más sencilla para [**seleccionar variables por nombre**]{.hl-yellow} es `select()`, dando como argumentos los nombres de columnas sin comillas.
+La opción más sencilla para [**seleccionar variables por nombre**]{.hl-yellow} es `select()`, dando como argumentos los nombres de columnas [**sin comillas**]{.hl-purple}.
 
 ```{r}
-starwars %>% select(name, hair_color)
+starwars |> select(name, hair_color)
 ```
 
 ---
@@ -5048,7 +5047,7 @@ starwars |> select(var1, var2, ...)
 :::
 :::
 
-La función `select()` nos permite seleccionar varias variables a la vez [**concatenando sus nombres como si fuesen índices**]{.hl-yellow}
+La función `select()` nos permite seleccionar varias variables a la vez, incluso [**concatenando sus nombres como si fuesen índices numéricos**]{.hl-yellow}
 
 ```{r}
 #| eval: false
@@ -5062,7 +5061,7 @@ starwars |> select(name:eye_color) |> slice(1:4)
 
 . . .
 
-Y podemos [**deseleccionar columnas**]{.hl-yellow} con `-`
+Y podemos [**deseleccionar columnas**]{.hl-yellow} con `-` delante
 
 ```{r}
 #| eval: false
@@ -5140,7 +5139,7 @@ starwars |> select(var1, var2, ...)
 :::
 :::
 
-Podemos jugar con [**patrones**]{.hl-yellow} en el nombre, aquellas que [**comiencen por un prefijo**]{.hl-purple} (`starts_with()`), [**terminen con un sufijo**]{.hl-purple} (`ends_with()`), [**contengan un texto**]{.hl-purple} (`contains()`) o cumplan una [**expresión regular**]{.hl-purple} (`matches()`).
+También podemos jugar con [**patrones**]{.hl-yellow} en el nombre, aquellas que [**comiencen por un prefijo**]{.hl-purple} (`starts_with()`), [**terminen con un sufijo**]{.hl-purple} (`ends_with()`), [**contengan un texto**]{.hl-purple} (`contains()`) o cumplan una [**expresión regular**]{.hl-purple} (`matches()`).
 
 ```{r}
 # variables cuyo nombre acaba en "color" y contengan sexo o género
@@ -5265,11 +5264,96 @@ A veces también podemos querer [**modificar la «metainformación»**]{.hl-yell
 starwars |> rename(nombre = name, altura = height, peso = mass)
 ```
 
-# Clase 9: tidyverse (modificar variables)
+---
 
-[**Modificar y recateogirzar columnas. Imputación de ausentes y outliers**]{style="color:#444442;"}
+## Extraer columnas: pull()
+
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+datos |> retirar(var)
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| eval: false
+starwars |> pull(var)
+```
+:::
+:::
+
+
+Si observas la salida de los `select()` [**sigue siendo una tabla tibble**]{.hl-yellow}, ya que nos preserva la naturaleza de nuestros datos.
+
+```{r}
+starwars |> select(name)
+```
 
 ---
+
+
+## Extraer columnas: pull()
+
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+datos |> retirar(var)
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| eval: false
+starwars |> pull(var)
+```
+:::
+:::
+
+
+A veces no querremos dicha estructura sino [**extraer literalmente la columna en un vector**]{.hl-yellow}, algo que podemos hacer con `pull()`
+
+```{r}
+starwars |> pull(name)
+```
+
+
+---
+
+
+## 💻 Tu turno {#tu-turno-7d}
+
+[**Intenta realizar los siguientes ejercicios sin mirar las soluciones**]{style="color:#444442;"}
+
+::: panel-tabset
+### [**Ejercicio 1**]{.hl-yellow}
+
+📝 Filtra el conjunto de personajes y quédate solo con aquellos que en la variable `height` no tengan un dato ausente. Con los datos obtenidos del filtro anterior, selecciona solo las variables name, height, así como todas aquellas variables que CONTENGAN la palabra color en su nombre.
+
+### [**Ejercicio 2**]{.hl-yellow}
+
+📝 Con los datos obtenidos del ejercicio anterior, traduce el nombre de las columnas a castellano
+
+### [**Ejercicio 3**]{.hl-yellow}
+
+📝 Con los datos obtenidos del ejercicio anterior, coloca la variable de color de pelo justo detrás de la variable de nombres.
+
+### [**Ejercicio 4**]{.hl-yellow}
+
+📝 Con los datos obtenidos del ejercicio anterior, comprueba cuántas modalidades únicas hay en la variable de color de pelo (sin usar `unique()`).
+
+### [**Ejercicio 5**]{.hl-yellow}
+
+📝 Del conjunto de datos originales, elimina las columnas de tipo lista, y tras ello elimina duplicados en la variable `eye_color`. Tras eliminar duplicados extrae dicha columna en un vector.
+
+:::
+
+---
+
 
 ## Modificar columnas: mutate()
 
@@ -5289,7 +5373,12 @@ starwars |> mutate(nueva = funcion())
 :::
 :::
 
-En muchas ocasiones querremos [**modificar o crear variables**]{.hl-yellow} con `mutate()`. Vamos a crear por ejemplo una nueva variable `height_m` con la altura en metros.
+En muchas ocasiones querremos [**modificar o crear variables**]{.hl-yellow} con `mutate()`. 
+
+
+. . . 
+
+Vamos a crear por ejemplo una nueva variable `height_m` con la altura en metros.
 
 ```{r}
 starwars |> mutate(height_m = height / 100)
@@ -5387,7 +5476,7 @@ starwars |>
 
 ---
 
-## 💻 Tu turno {#tu-turno-6}
+## 💻 Tu turno {#tu-turno-7e}
 
 [**Intenta realizar los siguientes ejercicios sin mirar las soluciones**]{style="color:#444442;"}
 
@@ -5485,9 +5574,46 @@ starwars |>
                                TRUE ~ "sobrepeso"),
          .after = name)
 ```
+
 :::
 
 ---
+
+## 🐣 Caso práctico {#caso-7a}
+
+Haciendo uso de todo lo aprendido, vamos a proceder a [**crear una tabla con datos de bebés**]{.hl-yellow} de tamaño `n = 20` en donde [**simulemos el sexo de los bebés y su peso**]{.hl-yellow}
+
+. . .
+
+1. Crea un `tibble` con dos columnas, una llamada `id_bebe` y otra llamada `sexo`. En el primer caso debe ir de 1 a 20. En el segundo caso, simula su sexo de manera que haya un 0.5 de probabilidad de `chico` y 0.5 de `chica`.
+
+. . .
+
+2. Conocido el sexo, crea una tercera columna llamada `peso` en la que simules dicho valor. Supondremos que para los chicos el peso sigue una distribución $N(\mu = 3.266kg, \sigma = 0.514)$ y que para las chicas sigue una distribución $N(\mu = 3.155kg, \sigma = 0.495)$.
+
+
+# Clase 8: tidyverse (resúmenes) y estructuras {#clase-8-resumen-flow-control}
+
+[**Summarise y group_by(). Contar y resumir: estadísticas desagregadas por factores/grupos. Estructuras de control: for, while, if-else y repeat**]{style="color:#444442;"}
+
+
+---
+
+## ...
+
+# Clase 9: funciones {#clase-9-funciones}
+
+[**¿Qué es una función? ¿Cómo se definen? Variables locales vs globales. Uso con mutate**]{style="color:#444442;"}
+
+---
+
+## ...
+
+# Clase 10: depuración {#clase-9-funciones}
+
+[**Tratamiento de ausentes y outliers. Dummificar variables**]{style="color:#444442;"}
+
+
 
 ## Imputar ausentes
 
