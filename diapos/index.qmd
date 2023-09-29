@@ -112,7 +112,7 @@ Actualmente, [**investigador y docente en la Facultad de Estadística de la UCM*
 |   [4](#clase-5-importexport-comunicar)   | S2     | 19 sep |                  Importar/exportar e intro a Quarto/rmd                  | [📝]()  |                [💻](#tu-turno-4)                |        [🐣](#caso-práctico-4a)  [🐣](#caso-práctico-4b)             |         |    
 |   [5](#clase-5-tidyverse-filas)   | S3     | 25 sep |                  Tidyverse (filas)                  | [📝]()  |                [💻](#tu-turno-7a) [💻](#tu-turno-7b)                |        [🐣](#caso-práctico-5)          |         | 
 |   [6](#entrega-i)   | S3 | 27 sep | Entrega I |  |  [💻](#entrega-i)   |  |  🎯 10%  |
-|   [7](#clase-7-tidyverse-columnas)   | S3     | 2 oct |                  Tidyverse (columnas)                  | [📝]()  |                [💻](#tu-turno-7d) [💻](#tu-turno-7e)                |   [🐣]{#caso-práctico-7}
+|   [7](#clase-7-tidyverse-columnas)   | S3     | 2 oct |                  Tidyverse (columnas)                  | [📝]()  |                [💻](#tu-turno-7d) [💻](#tu-turno-7e)                |   [🐣]{#caso-práctico-7} |
 :::
 :::
 
@@ -1534,6 +1534,7 @@ day <- airquality$Day
 1. ¿Qué [**representan los datos**]{.hl-yellow}? ¿Cómo averiguarlo?
 
 ```{r}
+#| code-fold: true
 #| eval: false
 ? airquality
 ```
@@ -1547,6 +1548,7 @@ Haciendo uso de `? ...` podemos consultar en el panel de ayuda lo que significa 
 2. ¿Cuántos [**registros tenemos de mayo**]{.hl-yellow}? ¿Y de abril? Construye una nueva variable `date` con la [**fecha**]{.hl-yellow} de cada registro (combinando año, mes y día)
 
 ```{r}
+#| code-fold: true
 # Una forma para registros de mayo
 sum(month == 5)
 # Otra forma
@@ -1564,6 +1566,7 @@ dates <- lubridate::as_date(glue("{1973}-{month}-{day}"))
 3. Crea una nueva variable `temp_celsius` con la [**temperatura en ºC**]{.hl-yellow}
 
 ```{r}
+#| code-fold: true
 # Temperatura en celsius
 temp_celsius <- (temperature - 32) * (5/9)
 ```
@@ -1575,6 +1578,7 @@ temp_celsius <- (temperature - 32) * (5/9)
 4. ¿Cuál fue la [**media de temperatura**]{.hl-yellow} del mes de agosto? Extrae los días en los que la [**temperatura superó los 30 grados**]{.hl-yellow} y calcula la cantidad de días en los que lo hizo.
 
 ```{r}
+#| code-fold: true
 # media en agosto
 mean(temperature[month == 8], na.rm = TRUE)
 mean(temp_celsius[month == 8], na.rm = TRUE)
@@ -2074,11 +2078,13 @@ Biostatistics::pinniped
 1. ¿Qué [**representan**]{.hl-yellow} los datos? ¿Qué [**tipo de dato**]{.hl-yellow} es? En caso de que no lo sea, convierte la base de datos a un `tibble` (renombra con `pinniped_tb`)
 
 ```{r}
+#| code-fold: true
 #| eval: false
 ? Biostatistics::pinniped
 ```
 
 ```{r}
+#| code-fold: true
 class(Biostatistics::pinniped) # no es un tibble
 pinniped_tb <- as_tibble(Biostatistics::pinniped)
 ```
@@ -2089,6 +2095,7 @@ pinniped_tb <- as_tibble(Biostatistics::pinniped)
 
 
 ```{r}
+#| code-fold: true
 nrow(pinniped_tb)
 ncol(pinniped_tb)
 ```
@@ -2102,6 +2109,7 @@ ncol(pinniped_tb)
 3. Incorpora una [**variable extra llamada phoca**]{.hl-yellow} que sea de tipo lógico y que nos diga si una especie es de la categoría `Phoca` o no.
 
 ```{r}
+#| code-fold: true
 pinniped_tb$phoca <- pinniped_tb$Species == "Phoca"
 ```
 
@@ -2110,6 +2118,7 @@ pinniped_tb$phoca <- pinniped_tb$Species == "Phoca"
 4. ¿A qué sexo le [**pesa más el cerebro**]{.hl-yellow}: a las hembras o a los machos? ¿A quienes les [**pesa más el cuerpo**]{.hl-yellow}: a los monógamos o a los polígamos?
 
 ```{r}
+#| code-fold: true
 # ¿a quién le pesa más el cerebro?
 mean(pinniped_tb$Male_brain_g, na.rm = TRUE) >
   mean(pinniped_tb$Female_brain_g, na.rm = TRUE)
@@ -2129,6 +2138,7 @@ mean(c(pinniped_tb$Male_mass_Kg[pinniped_tb$Mate_type == "mono"],
 5. Incopora una nueva variable que represente la [**diferencia entre el peso del cerebro entre machos y hembras**]{.hl-yellow} (machos - hembras) para cada especie.
 
 ```{r}
+#| code-fold: true
 pinniped_tb$dif_m_f <- pinniped_tb$Male_brain_g - pinniped_tb$Female_brain_g
 pinniped_tb
 ```
@@ -2596,6 +2606,7 @@ who
 1. ¿Qué [**significan los datos**]{.hl-yellow}? ¿Cuántas [**variables y observaciones**]{.hl-yellow} tenemos?
 
 ```{r}
+#| code-fold: true
 # ? who
 nrow(who)
 ncol(who)
@@ -2611,6 +2622,7 @@ ncol(who)
 3. ¿Todas las variables son necesarias? [**Elimina la información redundante**]{.hl-yellow}.
 
 ```{r}
+#| code-fold: true
 who$iso2 <- NULL
 ```
 
@@ -2625,6 +2637,7 @@ Solo necesitamos uno de los códigos ISO
 Todos empiezan por `new_` (y no hay otro tipo) así que le indicamos al pivotar que los nombres tienen un prefijo a quitar. Además separamos ya entre tipo y sexo-edad (separados por _) y eliminamos ausentes. Tras ello separamos sexo de edad
 
 ```{r}
+#| code-fold: true
 who |>
   pivot_longer(cols = "new_sp_m014":"newrel_f65",
                names_to = c("type", "sex-age"),
@@ -3712,6 +3725,7 @@ En la carpeta de datos tienes el dataset `breast-cancer-wisconsin-data.csv`. Cre
 1. Importa el archivo csv a un `tibble`. ¿Es tidydata? ¿Cuántos pacientes y variables tenemos?
 
 ```{r}
+#| code-fold: true
 datos <- read_csv(file = "./datos/breast-cancer-wisconsin-data.csv")
 datos
 ```
@@ -3724,6 +3738,7 @@ datos
 2. El dataset representa datos de cáncer de pecho (`id` identificador, `diagnosis` el diagnóstico maligno/benigno y el resto propiedades del tumor). Usando SOLO LO APRENDIDO, ¿qué % tenían un tumor maligno y qué % uno benigno?
 
 ```{r}
+#| code-fold: true
 100 * sum(datos$diagnosis == "M") / nrow(datos)
 100 * sum(datos$diagnosis == "B") / nrow(datos)
 ```
@@ -3733,6 +3748,7 @@ datos
 3. ¿Cuál de los dos tipos de tumores tienen, de media, un radio más elevado? 
 
 ```{r}
+#| code-fold: true
 mean_M <- mean(datos$radius_mean[datos$diagnosis == "M"], na.rm = TRUE)
 mean_B <- mean(datos$radius_mean[datos$diagnosis == "B"], na.rm = TRUE)
 ```
@@ -3745,6 +3761,7 @@ mean_B <- mean(datos$radius_mean[datos$diagnosis == "B"], na.rm = TRUE)
 4. Busca la ayuda de la función `t.test()`. Dicha función nos permite contrastar si la media de dos distribuciones son o no iguales. ¿Podemos rechazar la hipótesis nula de que la media del radio sea la misma, bajo una significancia de $\alpha = 0.05$?
 
 ```{r}
+#| code-fold: true
 datos_M <- datos$radius_mean[datos$diagnosis == "M"]
 datos_B <- datos$radius_mean[datos$diagnosis == "B"]
 t.test(datos_M, datos_B, conf.level = 0.95)
