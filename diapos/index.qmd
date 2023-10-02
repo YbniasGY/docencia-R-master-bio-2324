@@ -112,7 +112,8 @@ Actualmente, [**investigador y docente en la Facultad de Estadística de la UCM*
 |   [4](#clase-5-importexport-comunicar)   | S2     | 19 sep |                  Importar/exportar e intro a Quarto/rmd                  | [📝]()  |                [💻](#tu-turno-4)                |        [🐣](#caso-práctico-4a)  [🐣](#caso-práctico-4b)             |         |    
 |   [5](#clase-5-tidyverse-filas)   | S3     | 25 sep |                  Tidyverse (filas)                  | [📝]()  |                [💻](#tu-turno-7a) [💻](#tu-turno-7b)                |        [🐣](#caso-práctico-5)          |         | 
 |   [6](#entrega-i)   | S3 | 27 sep | Entrega I |  |  [💻](#entrega-i)   |  |  🎯 10%  |
-|   [7](#clase-7-tidyverse-columnas)   | S3     | 2 oct |                  Tidyverse (columnas)                  | [📝]()  |                [💻](#tu-turno-7d) [💻](#tu-turno-7e)                |   [🐣]{#caso-práctico-7} |
+|   [7](#clase-7-tidyverse-columnas)   | S3     | 2 oct |                  Tidyverse (columnas)                  | [📝]()  |                [💻](#tu-turno-7d) [💻](#tu-turno-7e)                |   [🐣]{#caso-7a} |
+|   [8](#clase-8-tidyverse-mutate)   | S4     | 4 oct |                  Tidyverse (crear/modificar variables)                  | [📝]()  |                [💻](#tu-turno-7d) [💻](#tu-turno-7e)                |   [🐣]{#caso-8} |
 :::
 :::
 
@@ -4686,7 +4687,73 @@ starwars |> slice_max(birth_year, n = 3)
 :::
 
 
+
+# Clase 6: entrega I {#entrega-i}
+
+[**Primera entrega individual en clase**]{style="color:#444442;"}
+
 ---
+
+## Ejercicios previos
+
+[**Ejercicios recomendables para practicar antes de la práctica**]{.hl-yellow} y conocer el dataset en cuestión.
+
+
+Realiza la importación de los [datos de covid del ISCIII](https://cnecovid.isciii.es/covid19/resources/casos_hosp_uci_def_sexo_edad_provres.csv) directamente desde la web (archivo `casos_hosp_uci_def_sexo_edad_provres.csv`) incluyendo todas las filas pero cargando solo las columnas `provincia_iso`, `sexo`, `grupo_edad`, `fecha` y `num_casos`.
+
+::: panel-tabset
+### [**Ejercicio 1**]{.hl-yellow}
+
+📝 Determina el tipo de dato es cada variable importada
+
+### [**Ejercicio 2**]{.hl-yellow}
+
+📝 ¿Cuántas observaciones tenemos?
+
+### [**Ejercicio 3**]{.hl-yellow}
+
+📝 Renombra el nombre de las variables al inglés
+
+### [**Ejercicio 4**]{.hl-yellow}
+
+📝 ¿Podemos convertir el dataset a una matriz? Argumenta e ilustra el por qué sí o no.
+
+### [**Ejercicio 5**]{.hl-yellow}
+
+📝 Crea una nueva variable (fuera de la base de datos) que nos diga el número de días que han pasado de cada registro respecto a hoy.
+
+:::
+
+---
+
+## Entrega I (27/09/2023)
+
+Se actualizará al inicio de la clase correspondiente.
+
+::: callout-important
+
+## Importante
+
+Esta [**entrega ponderará un 10% en la nota final**]{.hl-green}
+
+Podrás [**usar todo el material del curso e internet**]{.hl-yellow} salvo cualquier aplicación de mensajería o sistema de comunicación: en caso de tener alguna abierta a lo largo de la entrega, aunque no se esté usando, deberás [**abandonar la entrega y contará como un 0**]{.hl-red}.
+
+Contarás con aproximadamente 1 hora y 50 minutos, pero [**deberás realizar la entrega**]{.hl-yellow}, como tarde, a las [**18:00**]{.hl-yellow}. Será [**obligatorio subir tanto el `.qmd` como el `.html`**]{.hl-yellow}: una entrega que no haya podido ser renderizada (es decir, con errores graves) será [**penalizada contando solo un 65% de la nota obtenida**]{.hl-red} (si la entrega es perfecta, la nota máxima será un 6.5 sino se adjunta el `.html` generado).
+
+Te recomiendo practicar bastante y preguntar dudas en clase y/o tutoría ya que [**irás justo de tiempo**]{.hl-yellow}, así que necesitas fluidez en los ejercicios.
+
+Si usas un [**pc de la biblioteca**]{.hl-yellow} asegúrate de tomarlo con suficiente antelación para [**instalar todas las librerías necesarias antes de empezar**]{.hl-yellow} para no perder tiempo.
+
+:::
+
+
+
+# Clase 7: tidyverse (filas y columnas) {#clase-7-tidyverse-columnas}
+
+[**Operaciones con columnas**]{style="color:#444442;"}
+
+---
+
 
 ## Reordenar filas: arrange()
 
@@ -5089,72 +5156,6 @@ Puedes ver la documentación en <https://vincentarelbundock.github.io/Rdatasets/
 . . .
 
 7. Del dataset anterior obtén una [**muestra del 20% de los datos**]{.hl-yellow} (cada registro puede ser elegido con la misma probabilidad), y [**órdenalos**]{.hl-yellow} por de mayor a menor por la variable `V1` y, en caso de empate, de menor a mayor por la variable `V2`
-
-
-
-# Clase 6: entrega I {#entrega-i}
-
-[**Primera entrega individual en clase**]{style="color:#444442;"}
-
----
-
-## Ejercicios previos
-
-[**Ejercicios recomendables para practicar antes de la práctica**]{.hl-yellow} y conocer el dataset en cuestión.
-
-
-Realiza la importación de los [datos de covid del ISCIII](https://cnecovid.isciii.es/covid19/resources/casos_hosp_uci_def_sexo_edad_provres.csv) directamente desde la web (archivo `casos_hosp_uci_def_sexo_edad_provres.csv`) incluyendo todas las filas pero cargando solo las columnas `provincia_iso`, `sexo`, `grupo_edad`, `fecha` y `num_casos`.
-
-::: panel-tabset
-### [**Ejercicio 1**]{.hl-yellow}
-
-📝 Determina el tipo de dato es cada variable importada
-
-### [**Ejercicio 2**]{.hl-yellow}
-
-📝 ¿Cuántas observaciones tenemos?
-
-### [**Ejercicio 3**]{.hl-yellow}
-
-📝 Renombra el nombre de las variables al inglés
-
-### [**Ejercicio 4**]{.hl-yellow}
-
-📝 ¿Podemos convertir el dataset a una matriz? Argumenta e ilustra el por qué sí o no.
-
-### [**Ejercicio 5**]{.hl-yellow}
-
-📝 Crea una nueva variable (fuera de la base de datos) que nos diga el número de días que han pasado de cada registro respecto a hoy.
-
-:::
-
----
-
-## Entrega I (27/09/2023)
-
-Se actualizará al inicio de la clase correspondiente.
-
-::: callout-important
-
-## Importante
-
-Esta [**entrega ponderará un 10% en la nota final**]{.hl-green}
-
-Podrás [**usar todo el material del curso e internet**]{.hl-yellow} salvo cualquier aplicación de mensajería o sistema de comunicación: en caso de tener alguna abierta a lo largo de la entrega, aunque no se esté usando, deberás [**abandonar la entrega y contará como un 0**]{.hl-red}.
-
-Contarás con aproximadamente 1 hora y 50 minutos, pero [**deberás realizar la entrega**]{.hl-yellow}, como tarde, a las [**18:00**]{.hl-yellow}. Será [**obligatorio subir tanto el `.qmd` como el `.html`**]{.hl-yellow}: una entrega que no haya podido ser renderizada (es decir, con errores graves) será [**penalizada contando solo un 65% de la nota obtenida**]{.hl-red} (si la entrega es perfecta, la nota máxima será un 6.5 sino se adjunta el `.html` generado).
-
-Te recomiendo practicar bastante y preguntar dudas en clase y/o tutoría ya que [**irás justo de tiempo**]{.hl-yellow}, así que necesitas fluidez en los ejercicios.
-
-Si usas un [**pc de la biblioteca**]{.hl-yellow} asegúrate de tomarlo con suficiente antelación para [**instalar todas las librerías necesarias antes de empezar**]{.hl-yellow} para no perder tiempo.
-
-:::
-
-
-
-# Clase 7: tidyverse (columnas) {#clase-7-tidyverse-columnas}
-
-[**Operaciones con columnas**]{style="color:#444442;"}
 
 ---
 
@@ -5734,7 +5735,7 @@ starwars |>
 
 ---
 
-## 🐣 Caso práctico {#caso-práctico-7}
+## 🐣 Caso práctico {#caso-7a}
 
 Haciendo uso de todo lo aprendido, vamos a proceder a [**crear una tabla con datos de bebés**]{.hl-yellow} de tamaño `n = 20` en donde [**simulemos el sexo de los bebés y su peso**]{.hl-yellow}
 
@@ -5749,42 +5750,11 @@ Haciendo uso de todo lo aprendido, vamos a proceder a [**crear una tabla con dat
 
 # Clase 8: tidyverse (resúmenes) y estructuras {#clase-8-resumen-flow-control}
 
-[**Summarise y group_by(). Contar y resumir: estadísticas desagregadas por factores/grupos. Estructuras de control: for, while, if-else y repeat**]{style="color:#444442;"}
+[**Summarise y group_by(). Contar y resumir: estadísticas desagregadas por factores/grupos**]{style="color:#444442;"}
 
 
 ---
 
-## ...
-
-# Clase 9: funciones {#clase-9-funciones}
-
-[**¿Qué es una función? ¿Cómo se definen? Variables locales vs globales. Uso con mutate**]{style="color:#444442;"}
-
----
-
-## ...
-
-# Clase 10: depuración {#clase-10-debug}
-
-[**Tratamiento de ausentes y outliers. Dummificar variables**]{style="color:#444442;"}
-
-
-
-## Imputar ausentes
-
----
-
-## Detectar e imputar outliers
-
----
-
-## Dummificar variables
-
-# Clase 10: tidyverse (resúmenes)
-
-[**Contar y resumir: estadísticas desagregadas por factores/grupos**]{style="color:#444442;"}
-
----
 
 ## Contar: count()
 
@@ -5910,6 +5880,7 @@ Por ejemplo, imaginemos que queremos extraer el personaje más alto con `slice_m
 ```{r}
 starwars |> slice_max(height)
 ```
+
 
 ---
 
@@ -6243,6 +6214,37 @@ starwars |>
   count(birth_decade = round(birth_year, -1))
 ```
 :::
+
+# Clase 9: funciones {#clase-9-funciones}
+
+[**¿Qué es una función? ¿Cómo se definen? Variables locales vs globales. Uso con mutate**]{style="color:#444442;"}
+
+---
+
+## ...
+
+# Clase 10: depuración {#clase-10-debug}
+
+[**Tratamiento de ausentes y outliers. Dummificar variables**]{style="color:#444442;"}
+
+
+
+## Imputar ausentes
+
+---
+
+## Detectar e imputar outliers
+
+---
+
+## Dummificar variables
+
+# Clase 10: tidyverse (resúmenes)
+
+[**Contar y resumir: estadísticas desagregadas por factores/grupos**]{style="color:#444442;"}
+
+---
+
 
 # Clase X: entrega II
 
