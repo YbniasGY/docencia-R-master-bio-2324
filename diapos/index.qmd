@@ -113,7 +113,7 @@ Actualmente, [**investigador y docente en la Facultad de Estadística de la UCM*
 |   [5](#clase-5-tidyverse-filas)   | S3     | 25 sep |                  Tidyverse (filas)                  | [📝]()  |                [💻](#tu-turno-7a) [💻](#tu-turno-7b)                |        [🐣](#caso-práctico-5)          |         | 
 |   [6](#entrega-i)   | S3 | 27 sep | Entrega I |  |  [💻](#entrega-i)   |  |  🎯 10%  |
 |   [7](#clase-7-tidyverse-columnas)   | S3     | 2 oct |                  Tidyverse (columnas)                  | [📝]()  |                [💻](#tu-turno-7d) [💻](#tu-turno-7e)                |   [🐣]{#caso-7a} |
-|   [8](#clase-8-tidyverse-mutate)   | S4     | 4 oct |                  Tidyverse (crear/modificar variables)                  | [📝]()  |                [💻](#tu-turno-7d) [💻](#tu-turno-7e)                |   [🐣]{#caso-8} |
+|   [8](#clase-8)   | S4     | 4 oct |                  Tidyverse (crear/modificar variables)                  | [📝]()  |                [💻](#tu-turno-7d) [💻](#tu-turno-7e)                |   [🐣]{#caso8a} |
 :::
 :::
 
@@ -5601,6 +5601,10 @@ starwars |>
   mutate(constante = mean(mass, na.rm = TRUE), .before = name)
 ```
 
+# Clase 8: tidyverse (resúmenes) y recategorizar {#clase-8}
+
+[**Summarise y group_by(). Contar y resumir: estadísticas desagregadas por factores/grupos**]{style="color:#444442;"}
+
 ---
 
 ## Recategorizar: if_else()
@@ -5735,7 +5739,8 @@ starwars |>
 
 ---
 
-## 🐣 Caso práctico {#caso-7a}
+## 🐣 Caso práctico 8 {#caso8}
+
 
 Haciendo uso de todo lo aprendido, vamos a proceder a [**crear una tabla con datos de bebés**]{.hl-yellow} de tamaño `n = 20` en donde [**simulemos el sexo de los bebés y su peso**]{.hl-yellow}
 
@@ -5748,9 +5753,6 @@ Haciendo uso de todo lo aprendido, vamos a proceder a [**crear una tabla con dat
 2. Conocido el sexo, crea una tercera columna llamada `peso` en la que simules dicho valor. Supondremos que para los chicos el peso sigue una distribución $N(\mu = 3.266kg, \sigma = 0.514)$ y que para las chicas sigue una distribución $N(\mu = 3.155kg, \sigma = 0.495)$.
 
 
-# Clase 8: tidyverse (resúmenes) y estructuras {#clase-8-resumen-flow-control}
-
-[**Summarise y group_by(). Contar y resumir: estadísticas desagregadas por factores/grupos**]{style="color:#444442;"}
 
 
 ---
@@ -6219,9 +6221,402 @@ starwars |>
 
 [**¿Qué es una función? ¿Cómo se definen? Variables locales vs globales. Uso con mutate**]{style="color:#444442;"}
 
+
+## Creando funciones
+
+No solo podemos usar **funciones predeterminadas** que vienen ya cargadas en paquetes, además podemos [**crear nuestras propias funciones**]{.hl-yellow} para **automatizar tareas**.
+
+¿Cómo [**crear nuestra propia función**]{.hl-purple}? Veamos su **esquema básico**:
+
+. . .
+
+* [**Nombre**]{.hl-yellow}: por ejemplo `name_fun` (sin espacios ni caracteres extraños). Al nombre le [**asignamos la palabra reservada**]{.hl-yellow} `function()`.
+
+. . .
+
+* Definir [**argumentos de entrada**]{.hl-yellow} (dentro de `function()`).
+
+. . .
+
+```{r}
+#| eval: false
+name_fun <- function(arg1, arg2, ...) {
+  
+}
+```
+
 ---
 
-## ...
+## Creando funciones
+
+No solo podemos usar **funciones predeterminadas** que vienen ya cargadas en paquetes, además podemos [**crear nuestras propias funciones**]{.hl-yellow} para **automatizar tareas**.
+
+¿Cómo [**crear nuestra propia función**]{.hl-purple}? Veamos su **esquema básico**:
+
+
+* [**Cuerpo**]{.hl-yellow} de la función dentro de `{ }`.
+
+. . .
+
+* Finalizamos la función con los [**argumentos de salida**]{.hl-yellow} con `return()`.
+
+
+```{r}
+#| eval: false
+name_fun <- function(arg1, arg2, ...) {
+  
+  # Código que queramos ejecutar
+  código
+  
+  # Salida
+  return(var_salida)
+}
+```
+
+
+---
+
+## Creando funciones
+
+* `arg1, arg2, ...`: serán los [**argumentos de entrada**]{.hl-yellow}, los argumentos que toma la función para ejecutar el código que tiene dentro
+
+* `código`: líneas de código que queramos que [**ejecute la función**]{.hl-yellow}. 
+
+* `return(var_salida)`: se introducirán los [**argumentos de salida**]{.hl-yellow}.
+
+
+```{r}
+#| eval: false
+name_fun <- function(arg1, arg2, ...) {
+  
+  # Código que queramos ejecutar
+  código
+  
+  # Salida
+  return(var_salida)
+}
+```
+
+::: callout-important
+## Importante
+
+Todas las variables que definamos dentro de la función son [**variables locales: solo existirán dentro de la función**]{.hl-yellow} salvo que especifiquemos lo contrario.
+
+:::
+
+---
+
+## Creando funciones
+
+Veamos un ejemplo muy simple de función para [**calcular el área de un rectángulo**]{.hl-yellow}.
+
+. . .
+
+Dado que el área de un rectángulo se calcula como el **producto de sus lados**, necesitaremos precisamente eso, sus lados: esos serán los [**argumentos de entrada**]{.hl-yellow} y el [**valor a devolver**]{.hl-purple} será justo su **área** ($lado_1 * lado_2$).
+
+. . .
+
+```{r}
+# Definición del nombre de función y argumentos de entrada
+calcular_area <- function(lado_1, lado_2) {
+  
+  area <- lado_1 * lado_2
+  return(area)
+  
+}
+```
+
+---
+
+## Creando funciones
+
+
+También podemos hacer una definición directa, **sin almacenar variables por el camino**.
+
+```{r}
+# Definición del nombre de función y argumentos de entrada
+calcular_area <- function(lado_1, lado_2) {
+  
+  return(lado_1 * lado_2)
+  
+}
+```
+
+
+[**¿Cómo aplicar la función?**]{.hl-yellow}
+
+```{r}
+calcular_area(5, 3) # área de un rectángulo 5 x 3 
+calcular_area(1, 5) # área de un rectángulo 1 x 5
+```
+
+---
+
+## Argumentos por defecto
+
+Imagina ahora que nos damos cuenta que el 90% de las veces usamos dicha función para [**calcular por defecto el área de un cuadrado**]{.hl-yellow} (es decir, solo necesitamos un lado). Para ello, podemos definir [**argumentos por defecto**]{.hl-yellow} en la función: tomarán dicho valor salvo que le asignemos otro.
+
+¿Por qué no asignar `lado_2 = lado_1` por defecto, para ahorrar líneas de código y tiempo?
+
+. . .
+
+```{r}
+calcular_area <- function(lado_1, lado_2 = lado_1) {
+  
+  # Cuerpo de la función
+  area <- lado_1 * lado_2
+  
+  # Resultado que devolvemos
+  return(area)
+  
+}
+```
+
+---
+
+## Argumentos por defecto
+
+
+```{r}
+calcular_area <- function(lado_1, lado_2 = lado_1) {
+  
+  # Cuerpo de la función
+  area <- lado_1 * lado_2
+  
+  # Resultado que devolvemos
+  return(area)
+  
+}
+```
+
+
+Ahora [**por defecto**]{.hl-yellow} el segundo lado será igual al primero (si se lo añadimos usará ambos).
+
+
+```{r}
+calcular_area(lado_1 = 5) # cuadrado
+calcular_area(lado_1 = 5, lado_2 = 7) # rectángulo
+```
+
+---
+ 
+## Salida múltiple
+
+Compliquemos un poco la función y añadamos en la salida los valores de cada lado, etiquetados como `lado_1` y `lado_2`, [**empaquetando la salida en una lista**]{.hl-yellow}.
+
+```{r}
+# Definición del nombre de función y argumentos de entrada
+calcular_area <- function(lado_1, lado_2 = lado_1) {
+  
+  # Cuerpo de la función
+  area <- lado_1 * lado_2
+  
+  # Resultado
+  return(list("area" = area, "lado_1" = lado_1, "lado_2" = lado_2))
+  
+}
+```
+
+
+
+---
+
+## Salida múltiple
+
+```{r}
+salida <- calcular_area(5, 3)
+salida
+salida["area"]
+salida["lado_1"]
+```
+
+---
+
+## Introducción a listas
+
+Veamos un pequeño resumen de los datos que ya conocemos:
+
+* [**vectores**]{.hl-yellow}: colección de elementos de igual tipo. Pueden ser números, caracteres o valores lógicos, entre otros.
+
+* [**matrices**]{.hl-yellow}: colección BIDIMENSIONAL de elementos de igual tipo e igual longitud.
+
+* [**data.frame / tibble**]{.hl-yellow}: colección BIDIMENSIONAL de elementos de igual longitud pero de cualquier tipo.
+
+. . .
+
+Las [**listas**]{.hl-yellow} serán [**colecciones de variables de diferente tipo y diferente longitud**]{.hl-purple}, con estructuras totalmente heterógeneas (incluso una lista puede tener dentro a su vez otra lista).
+
+---
+
+## Introducción a listas
+
+
+Vamos a crear [**nuestra primera lista**]{.hl-yellow} con `list()` con tres elementos: el nombre de nuestros padres/madres, nuestro lugar de nacimiento y edades de nuestros hermanos.
+
+```{r}
+variable_1 <- c("Paloma", "Gregorio")
+variable_2 <- "Madrid"
+variable_3 <- c(25, 30, 26)
+
+lista <- list("progenitores" = variable_1, "lugar_nacimiento" = variable_2,
+              "edades_hermanos" = variable_3)
+lista
+```
+
+---
+
+## Introducción a listas
+
+```{r}
+length(lista)
+```
+
+Si observas el objeto que hemos definido como lista, su [**longitud**]{.hl-yellow} del es de 3 ya que tenemos **guardados tres elementos**: un vector de caracteres (de longitud 2), un caracter (vector de longitud 1), y un vector de números (de longitud 3)
+
+. . .
+
+Tenemos guardados elementos de [**distinto tipo**]{.hl-yellow} (algo que ya podíamos hacer) pero, además, de **longitudes dispares**.
+
+```{r}
+dim(lista) # devolverá NULL al no tener dos dimensiones
+class(lista) # de tipo lista
+```
+
+---
+
+## Introducción a listas
+
+Si los juntásemos con un `tibble()`, al tener distinta longitud, obtendríamos un [**error**]{.hl-red}.
+
+```{r}
+#| error: true
+library(tibble)
+tibble("progenitores" = variable_1,
+       "lugar_nacimiento" = variable_2,
+       "edades_hermanos" = variable_3)
+```
+
+---
+
+
+## Introducción a listas
+
+* [**Acceder por índice**]{.hl-yellow}: con el operador `[[i]]` accedemos al **elemento i-ésimo** de la lista.
+
+```{r}
+lista[[1]]
+```
+
+. . .
+
+* [**Acceder por nombre**]{.hl-yellow}: con el operador `$nombre_elemento` accedemos por su nombre.
+
+```{r}
+lista$progenitores
+```
+
+. . .
+
+En contraposición, el [**corchete simple**]{.hl-yellow} nos permite acceder a [**varios elementos**]{.hl-yellow} a la vez
+
+```{r}
+# Varios elementos
+lista[1:2]
+```
+
+---
+
+## Salida múltiple
+
+Antes nos daba igual el orden de los argumentos pero ahora el [**orden de los argumentos de entrada importa**]{.hl-yellow}, ya que en la salida incluimos `lado_1` y `lado_2`. 
+
+. . .
+
+::: callout-note
+## Recomendación
+
+Es altamente recomendable hacer la llamada a la función [**indicando explícitamente los argumentos**]{.hl-yellow} para mejorar la **legibilidad e interpretabilidad**.
+
+```{r}
+# Equivalente a calcular_area(5, 3)
+calcular_area(lado_1 = 5, lado_2 = 3)
+```
+
+:::
+
+---
+
+## Funciones: generando conocimiento
+
+Parece una tontería lo que hemos hecho pero hemos cruzado una frontera importante: hemos pasado de [**consumir conocimiento**]{.hl-yellow} (código de otros paquetes, elaborado por otros/as), a [**generar conocimiento**]{.hl-purple}, creando nuestras propias funciones.
+
+---
+
+## Variables locales vs globales
+
+Un aspecto importante sobre el que reflexionar con las funciones: ¿qué sucede si [**nombramos a una variable dentro**]{.hl-yellow} de una función a la que se nos ha **olvidado asignar** un valor dentro de la misma?
+
+. . .
+
+Debemos ser cautos al usar funciones en `R`, ya que debido a la [**«regla lexicográfica»**]{.hl-yellow}, si una variable no se define dentro de la función, `R` [**buscará dicha variable en el entorno**]{.hl-purple} de variables.
+
+```{r}
+x <- 1
+funcion_ejemplo <- function() {
+    
+  print(x) # No devuelve nada, solo realiza la acción 
+}
+funcion_ejemplo()
+```
+
+---
+
+## Variables locales vs globales
+
+Si una variable  [**ya está definida fuera de la función (entorno global)**]{.hl-yellow}, y además es usada dentro de cambiando su valor, el valor [**solo cambia dentro**]{.hl-yellow} pero [**no en el entorno global**]{.hl-red}.
+
+```{r}
+x <- 1
+funcion_ejemplo <- function() {
+    
+  x <- 2
+  print(x) # lo que vale dentro
+}
+```
+
+```{r}
+# lo que vale dentro
+funcion_ejemplo() #<<
+# lo que vale fuera
+print(x) #<<
+```
+
+---
+
+## Variables locales vs globales
+
+
+Si queremos que además de cambiar localmente lo haga [**globalmente**]{.hl-yellow} deberemos usar la [**doble asignación**]{.hl-yellow} (`<<-`).
+
+```{r}
+x <- 1
+y <- 2
+funcion_ejemplo <- function() {
+  
+  # no cambia globalmente, solo localmente
+  x <- 3 
+  # cambia globalmente
+  y <<- 0 #<<
+  
+  print(x)
+  print(y)
+}
+
+funcion_ejemplo() # lo que vale dentro
+x # lo que vale fuera
+y # lo que vale fuera
+```
+
 
 # Clase 10: depuración {#clase-10-debug}
 
@@ -6238,10 +6633,6 @@ starwars |>
 ---
 
 ## Dummificar variables
-
-# Clase 10: tidyverse (resúmenes)
-
-[**Contar y resumir: estadísticas desagregadas por factores/grupos**]{style="color:#444442;"}
 
 ---
 
@@ -7289,7 +7680,7 @@ Tras convertirlo a plotly se puede [**guardar automáticamente en html**]{.hl-ye
 
 ## Text mining
 
--   [**Manual de text mining**]{.hl-purple}: de Julia Silge y David Robinson. Recurso: <https://tidytextmining.com>
+-   [**Manual de text mining**]{.hl-purple}: d Julia Silge y David Robinson. Recurso: <https://tidytextmining.com>
 
 -   [**Descarga de textos libres**]{.hl-purple}: de David Robinson. Recurso: <https://github.com/ropensci/gutenbergr>
 
