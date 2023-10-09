@@ -108,12 +108,13 @@ Actualmente, [**investigador y docente en la Facultad de Estadística de la UCM*
 |:------:|:--------:|:--------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|
 |     [1](#clase-1-primeros-pasos)      | S1     | 11 sep |                  Primeros pasos en R                   | [📝](https://github.com/dadosdelaplace/docencia-R-master-bio-2324/tree/main/material/scripts)  |                 [💻](#tu-turno)                 |                        |         | 
 |     [2](#clase-2-primeros-datos)      | S1     | 13 sep |                 Tipos básicos de datos                 | [📝](https://github.com/dadosdelaplace/docencia-R-master-bio-2324/tree/main/material/scripts)  |       [💻](#tu-turno-1) [💻](#tu-turno-2)  [💻]{#tu-turno-matrices}     |  [🐣](#caso-práctico-2)  |         |     
-| [3](#clase-3-primeras-bases-de-datos) | S2     | 18 sep |                Primeras bases de datos. R base vs Tidyverse                   | [📝]()  | [💻](#tu-turno-tibble)  [💻](#tu-turno-3) | [🐣](#caso-práctico-3a) [🐣](#caso-práctico-3b)  |         |    
-|   [4](#clase-5-importexport-comunicar)   | S2     | 19 sep |                  Importar/exportar e intro a Quarto/rmd                  | [📝]()  |                [💻](#tu-turno-4)                |        [🐣](#caso-práctico-4a)  [🐣](#caso-práctico-4b)             |         |    
-|   [5](#clase-5-tidyverse-filas)   | S3     | 25 sep |                  Tidyverse (filas)                  | [📝]()  |                [💻](#tu-turno-7a) [💻](#tu-turno-7b)                |        [🐣](#caso-práctico-5)          |         | 
+| [3](#clase-3-primeras-bases-de-datos) | S2     | 18 sep |                Primeras bases de datos. R base vs Tidyverse                   | [📝](https://github.com/dadosdelaplace/docencia-R-master-bio-2324/tree/main/material/scripts)  | [💻](#tu-turno-tibble)  [💻](#tu-turno-3) | [🐣](#caso-práctico-3a) [🐣](#caso-práctico-3b)  |         |    
+|   [4](#clase-5-importexport-comunicar)   | S2     | 19 sep |                  Importar/exportar e intro a Quarto/rmd                  | [📝](https://github.com/dadosdelaplace/docencia-R-master-bio-2324/tree/main/material/scripts)  |                [💻](#tu-turno-4)                |        [🐣](#caso-práctico-4a)  [🐣](#caso-práctico-4b)             |         |    
+|   [5](#clase-5-tidyverse-filas)   | S3     | 25 sep |                  Tidyverse (filas)                  | [📝](https://github.com/dadosdelaplace/docencia-R-master-bio-2324/tree/main/material/scripts)  |                [💻](#tu-turno-7a) [💻](#tu-turno-7b)                |        [🐣](#caso-práctico-5)          |         | 
 |   [6](#entrega-i)   | S3 | 27 sep | Entrega I |  |  [💻](#entrega-i)   |  |  🎯 10%  |
-|   [7](#clase-7-tidyverse-columnas)   | S3     | 2 oct |                  Tidyverse (columnas)                  | [📝]()  |                [💻](#tu-turno-7d) [💻](#tu-turno-7e)                |   [🐣]{#caso-7a} |
-|   [8](#clase-8)   | S4     | 4 oct |                  Tidyverse (crear/modificar variables)                  | [📝]()  |                [💻](#tu-turno-7d) [💻](#tu-turno-7e)                |   [🐣]{#caso8a} |
+|   [7](#clase-7-tidyverse-columnas)   | S3     | 2 oct |                  Tidyverse (columnas)                  | [📝](https://github.com/dadosdelaplace/docencia-R-master-bio-2324/tree/main/material/scripts)  |                [💻](#tu-turno-7d) [💻](#tu-turno-7e)                |   [🐣]{#caso-7a} |
+|   [8](#clase-8)   | S4     | 4 oct |                  Tidyverse (crear/modificar variables)                  | [📝](https://github.com/dadosdelaplace/docencia-R-master-bio-2324/tree/main/material/scripts)  |                [💻](#tu-turno-8a)  [💻](#tu-turno-8b)               |   [🐣]{#caso8a} |
+|   [9](#clase-9-funciones)   | S5     | 9 oct |                  Funciones                 | [📝](https://github.com/dadosdelaplace/docencia-R-master-bio-2324/tree/main/material/scripts)  |                [💻](#tu-turno-9)         |   [🐣] [🐣]|
 :::
 :::
 
@@ -5636,7 +5637,7 @@ starwars |>
 
 ---
 
-## 💻 Tu turno {#tu-turno-7e}
+## 💻 Tu turno {#tu-turno-8a}
 
 [**Intenta realizar los siguientes ejercicios sin mirar las soluciones**]{style="color:#444442;"}
 
@@ -6154,7 +6155,7 @@ starwars |>
 
 ---
 
-## 💻 Tu turno {#tu-turno-7}
+## 💻 Tu turno {#tu-turno-8b}
 
 [**Intenta realizar los siguientes ejercicios sin mirar las soluciones**]{style="color:#444442;"}
 
@@ -6221,6 +6222,51 @@ starwars |>
 
 [**¿Qué es una función? ¿Cómo se definen? Variables locales vs globales. Uso con mutate**]{style="color:#444442;"}
 
+## 🐣 Caso práctico 9 {#caso9}
+
+Vamos antes a hacer un [**repaso de lo aprendido**]{.hl-yellow} en `{tidyverse}`
+
+1. Carga la tabla billboard del paquete `{tidyr}`.
+
+. . .
+
+2. Antes de nada, selecciona solo las [**primeras 52 semanas**]{.hl-yellow}. Tras ello convierte el dataset a [**tidydata**]{.hl-yellow} con los formatos y tipos adecuados para cada variable
+
+. . .
+
+3. Extrae la [**lista de artistas distintos**]{.hl-yellow} que aparecen en la tabla, incluyendo [**cuántas veces**]{.hl-yellow} aparece cada uno.
+
+. . .
+
+4. Determina las [**5 canciones que más semanas**]{.hl-yellow} aparecen en la lista de éxitos. 
+. . .
+
+5. Determina el [**artista con más canciones**]{.hl-yellow} en la lista
+
+. . .
+
+6. Calcula el [**número de canciones distintas**]{.hl-yellow} de cada artista
+
+---
+
+## 🐣 Caso práctico 9
+
+
+7. Calcula la [**posición más alta**]{.hl-yellow} en la que ha estado cada canción. Calcula la posición más alta en la que ha estado un artista
+
+. . .
+
+8. Calcula la [**primera semana que cada canción entró**]{.hl-yellow} en el top 100
+
+. . .
+
+9. Obtén una [**tabla resumen**]{.hl-yellow} con el ranking medio de cada artista (contando solo el ranking más alto alcanzado por sus canciones), así como el número de canciones (distintas) que ha colocado en el top 100.
+
+. . .
+
+10. Realiza un muestreo aleatorio estratificado, extrayendo el 50% de los datos pero manteniendo la proporción de datos entre los distintos cuatrimestres.
+
+---
 
 ## Creando funciones
 
@@ -6617,6 +6663,140 @@ x # lo que vale fuera
 y # lo que vale fuera
 ```
 
+---
+
+
+## 💻 Tu turno {#tu-turno-9}
+
+[**Intenta realizar los siguientes ejercicios sin mirar las soluciones**]{style="color:#444442;"}
+
+::: panel-tabset
+
+### [**Ejercicio 1**]{.hl-yellow}
+
+📝 Modifica el código inferior para definir una función llamada `funcion_suma`, de forma que dados dos elementos, devuelve su suma.
+
+```{r}
+#| eval: false
+nombre <- function(x, y) {
+  suma <- # código a ejecutar
+  return()
+}
+# Aplicamos la función
+suma(3, 7)
+```
+
+```{r}
+#| code-fold: true
+#| eval: false
+funcion_suma <- function(x, y) {
+  suma <- x + y
+  return(suma)
+}
+funcion_suma(3, 7)
+```
+
+### [**Ejercicio 2**]{.hl-yellow}
+
+📝 Modifica el código inferior para definir una función llamada `funcion_producto`, de forma que dados dos elementos, devuelve su producto, pero que por defecto calcule el cuadrado
+
+```{r}
+#| eval: false
+nombre <- function(x, y) {
+  producto <- # código de la multiplicación
+  return()
+}
+producto(3)
+producto(3, -7)
+```
+
+```{r}
+#| code-fold: true
+#| eval: false
+funcion_producto <- function(x, y = x) {
+  producto <- x * y
+  return(producto)
+}
+funcion_producto(3)
+funcion_producto(3, -7)
+```
+
+### [**Ejercicio 3**]{.hl-yellow}
+
+📝 Define una función llamada `igualdad_nombres` que, dados dos nombres, nos diga si son iguales o no. Hazlo considerando importantes las mayúsculas, y sin que importen las mayúsculas. Echa un vistazo al paquete `{stringr}`.
+
+```{r}
+#| code-fold: true
+#| eval: false
+# Distinguiendo mayúsculas
+igualdad_nombres <- function(persona_1, persona_2) {
+  return(persona_1 == persona_2)
+}
+igualdad_nombres("Javi", "javi")
+igualdad_nombres("Javi", "Lucía")
+
+# Sin importar mayúsculas
+igualdad_nombres <- function(persona_1, persona_2) {
+  return(toupper(persona_1) == toupper(persona_2))
+}
+igualdad_nombres("Javi", "javi")
+igualdad_nombres("Javi", "Lucía")
+```
+
+### [**Ejercicio 4**]{.hl-yellow}
+
+📝 Crea una función llamada `calculo_IMC` que, dados dos argumentos (peso y estatura en metros) y un nombre, devuelva una lista con el IMC y el nombre.
+
+```{r}
+#| code-fold: true
+#| eval: false
+calculo_IMC <- function(nombre, peso, estatura) {
+  
+  return(list("nombre" = nombre, "IMC" = peso/(estatura^2)))
+}
+```
+
+### [**Ejercicio 5**]{.hl-yellow}
+
+📝 Repite el ejercicio anterior pero con otro argumento opcional que se llame unidades (por defecto, `unidades = "metros"`). Desarrolla la función de forma que haga lo correcto si `unidades = "metros"` y si `unidades = "centímetros"`.
+
+```{r}
+#| code-fold: true
+#| eval: false
+calculo_IMC <- function(nombre, peso, estatura, unidades = "metros") {
+  
+  return(list("nombre" = nombre,
+              "IMC" = peso/(if_else(unidades == "metros", estatura, estatura/100)^2)))
+}
+```
+
+ 
+### [**Ejercicio 6**]{.hl-yellow}
+
+📝 Crea un tibble ficticio de 7 personas, con tres variables (inventa nombre, y simula peso, estatura en centímetros), y aplica la función definida de forma que obtengamos una cuarta columna con su IMC.
+
+```{r}
+#| code-fold: true
+#| eval: false
+datos <-
+  tibble("nombres" = c("javi", "sandra", "laura",
+                       "ana", "carlos", "leo", NA),
+         "peso" = rnorm(n = 7, mean = 70, sd = 1),
+         "estatura" = rnorm(n = 7, mean = 168, sd = 5))
+
+datos |> 
+  mutate(IMC = calculo_IMC(nombres, peso, estatura, unidades = "centímetros")$IMC)
+```
+
+
+:::
+
+
+---
+
+## 🐣 Caso práctico 9: funciones {#caso9a}
+
+Define una función llamada `conversor_temperatura` que, dada una temperatura en Fahrenheit, Celsius o Kelvin, la convierta a cualquiera de las otras (piensa que argumentos necesita el usuario). Aplica la función a la columna `Temp` del conjunto `airquality`, e incorpórala al fichero en una nueva columna `Temp_Celsius`.
 
 # Clase 10: depuración {#clase-10-debug}
 
