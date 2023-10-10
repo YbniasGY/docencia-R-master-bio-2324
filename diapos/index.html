@@ -1394,7 +1394,7 @@ Máster de Bioestadística • curso 2023-2024
 <div class="cell">
 <div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1"></a><span class="fu">today</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2023-10-09"</code></pre>
+<pre><code>[1] "2023-10-10"</code></pre>
 </div>
 </div>
 <div class="fragment">
@@ -1404,7 +1404,7 @@ Máster de Bioestadística • curso 2023-2024
 <div class="cell">
 <div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1"></a><span class="fu">now</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2023-10-09 15:55:39 CEST"</code></pre>
+<pre><code>[1] "2023-10-10 10:43:23 CEST"</code></pre>
 </div>
 </div>
 </div>
@@ -2165,8 +2165,8 @@ Máster de Bioestadística • curso 2023-2024
 <div class="cell-output cell-output-stdout">
 <pre><code>Unit: microseconds
         expr  min   lq    mean median   uq   max neval cld
-     sort(x) 47.2 49.2 52.2492   50.1 51.5 136.0   500  a 
- x[order(x)] 34.9 37.0 39.0726   37.7 39.0  66.3   500   b</code></pre>
+     sort(x) 46.7 49.1 51.5342   49.7 50.8  90.6   500  a 
+ x[order(x)] 35.3 37.2 39.8344   37.8 38.8 115.2   500   b</code></pre>
 </div>
 </div>
 </section>
@@ -5209,8 +5209,8 @@ mean of x mean of y
 <pre><code># A tibble: 2 × 14
   name      height  mass hair_color skin_color eye_color birth_year sex   gender
   &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
-1 Quarsh P…    183    NA black      dark       brown             62 &lt;NA&gt;  &lt;NA&gt;  
-2 Ayla Sec…    178    55 none       blue       hazel             48 fema… femin…
+1 Tion Med…    206    80 none       grey       black             NA male  mascu…
+2 Shmi Sky…    163    NA black      fair       brown             72 fema… femin…
 # ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
 #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 </div>
@@ -5255,10 +5255,10 @@ mean of x mean of y
 <pre><code># A tibble: 4 × 14
   name      height  mass hair_color skin_color eye_color birth_year sex   gender
   &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
-1 Plo Koon     188    80 none       orange     black             22 male  mascu…
-2 Shmi Sky…    163    NA black      fair       brown             72 fema… femin…
-3 Tion Med…    206    80 none       grey       black             NA male  mascu…
-4 Mon Moth…    150    NA auburn     fair       blue              48 fema… femin…
+1 Finis Va…    170    NA blond      fair       blue              91 male  mascu…
+2 BB8           NA    NA none       none       black             NA none  mascu…
+3 Mas Amed…    196    NA none       blue       blue              NA male  mascu…
+4 Lando Ca…    177    79 black      dark       brown             31 male  mascu…
 # ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
 #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 </div>
@@ -5287,8 +5287,8 @@ mean of x mean of y
 <pre><code># A tibble: 2 × 14
   name      height  mass hair_color skin_color eye_color birth_year sex   gender
   &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
-1 Luke Sky…    172    77 blond      fair       blue              19 male  mascu…
-2 C-3PO        167    75 &lt;NA&gt;       gold       yellow           112 none  mascu…
+1 C-3PO        167    75 &lt;NA&gt;       gold       yellow           112 none  mascu…
+2 Luke Sky…    172    77 blond      fair       blue              19 male  mascu…
 # ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
 #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 </div>
@@ -5322,7 +5322,7 @@ mean of x mean of y
 <div class="cell">
 <div class="sourceCode cell-code" id="cb461"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb461-1"><a href="#cb461-1"></a><span class="fu">sample</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">size =</span> <span class="dv">10</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 2 1 5 5 3 3 6 6 1 3</code></pre>
+<pre><code> [1] 3 5 6 4 2 6 4 3 1 4</code></pre>
 </div>
 </div>
 </div>
@@ -5334,8 +5334,8 @@ mean of x mean of y
 <div class="sourceCode cell-code" id="cb463"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb463-1"><a href="#cb463-1"></a><span class="fu">sample</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">size =</span> <span class="dv">50</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>,</span>
 <span id="cb463-2"><a href="#cb463-2"></a>       <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.2</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>, <span class="fl">0.05</span>, <span class="fl">0.05</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 1 1 1 5 1 4 5 2 4 1 1 2 1 2 4 4 1 1 3 5 5 5 5 1 2 3 1 3 6 6 2 1 5 2 6 3 1 1
-[39] 2 4 3 1 1 1 1 1 1 1 5 1</code></pre>
+<pre><code> [1] 3 1 1 1 1 6 1 2 1 1 1 3 5 2 1 5 3 2 1 4 6 4 2 2 5 1 1 2 1 2 2 1 4 3 4 1 2 1
+[39] 2 2 2 1 3 1 1 1 4 2 2 1</code></pre>
 </div>
 </div>
 </section>
@@ -7042,8 +7042,8 @@ dplyr 1.1.0.
 </section></section>
 <section>
 <section id="clase-9-funciones" class="title-slide slide level1 center">
-<h1>Clase 9: funciones</h1>
-<p><span style="color:#444442;"><strong>¿Qué es una función? ¿Cómo se definen? Variables locales vs globales. Uso con mutate</strong></span></p>
+<h1>Clase 9: repaso e intro a funciones</h1>
+<p><span style="color:#444442;"><strong>¿Qué es una función? ¿Cómo se definen?</strong></span></p>
 </section>
 <section id="caso9" class="slide level2">
 <h2>🐣 Caso práctico 9</h2>
@@ -7051,47 +7051,143 @@ dplyr 1.1.0.
 <ol type="1">
 <li>Carga la tabla billboard del paquete <code>{tidyr}</code>.</li>
 </ol>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb623"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb623-1"><a href="#cb623-1"></a>billboard</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 <div class="fragment">
 <ol start="2" type="1">
 <li>Antes de nada, selecciona solo las <span class="hl-yellow"><strong>primeras 52 semanas</strong></span>. Tras ello convierte el dataset a <span class="hl-yellow"><strong>tidydata</strong></span> con los formatos y tipos adecuados para cada variable</li>
 </ol>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb624"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb624-1"><a href="#cb624-1"></a>billboard_tidy <span class="ot">&lt;-</span></span>
+<span id="cb624-2"><a href="#cb624-2"></a>  billboard <span class="sc">|&gt;</span> </span>
+<span id="cb624-3"><a href="#cb624-3"></a>  <span class="fu">select</span>(artist<span class="sc">:</span>date.entered, wk1<span class="sc">:</span>wk52) <span class="sc">|&gt;</span> </span>
+<span id="cb624-4"><a href="#cb624-4"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> wk1<span class="sc">:</span>wk52,</span>
+<span id="cb624-5"><a href="#cb624-5"></a>               <span class="at">names_to =</span> <span class="st">"week"</span>,</span>
+<span id="cb624-6"><a href="#cb624-6"></a>               <span class="at">values_to =</span> <span class="st">"rank"</span>,</span>
+<span id="cb624-7"><a href="#cb624-7"></a>               <span class="at">values_drop_na =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb624-8"><a href="#cb624-8"></a>               <span class="at">names_prefix =</span> <span class="st">"wk"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb624-9"><a href="#cb624-9"></a>  <span class="fu">mutate</span>(<span class="at">week =</span> <span class="fu">as.numeric</span>(week))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 </div>
 <div class="fragment">
 <ol start="3" type="1">
 <li>Extrae la <span class="hl-yellow"><strong>lista de artistas distintos</strong></span> que aparecen en la tabla, incluyendo <span class="hl-yellow"><strong>cuántas veces</strong></span> aparece cada uno.</li>
 </ol>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb625"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb625-1"><a href="#cb625-1"></a>billboard_tidy <span class="sc">|&gt;</span> </span>
+<span id="cb625-2"><a href="#cb625-2"></a>  <span class="fu">count</span>(artist)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
-<div class="fragment">
-<ol start="4" type="1">
-<li><p>Determina las <span class="hl-yellow"><strong>5 canciones que más semanas</strong></span> aparecen en la lista de éxitos. . . .</p></li>
-<li><p>Determina el <span class="hl-yellow"><strong>artista con más canciones</strong></span> en la lista</p></li>
-</ol>
-</div>
-<div class="fragment">
-<ol start="6" type="1">
-<li>Calcula el <span class="hl-yellow"><strong>número de canciones distintas</strong></span> de cada artista</li>
-</ol>
 </div>
 </section>
 <section id="caso-práctico-9" class="slide level2">
 <h2>🐣 Caso práctico 9</h2>
-<ol start="7" type="1">
-<li>Calcula la <span class="hl-yellow"><strong>posición más alta</strong></span> en la que ha estado cada canción. Calcula la posición más alta en la que ha estado un artista</li>
+<ol start="4" type="1">
+<li>Determina <span class="hl-yellow"><strong>cuántas canciones tiene cada artistal</strong></span></li>
 </ol>
-<div class="fragment">
-<ol start="8" type="1">
-<li>Calcula la <span class="hl-yellow"><strong>primera semana que cada canción entró</strong></span> en el top 100</li>
-</ol>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb626"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb626-1"><a href="#cb626-1"></a>billboard_tidy <span class="sc">|&gt;</span> </span>
+<span id="cb626-2"><a href="#cb626-2"></a>  <span class="fu">distinct</span>(artist, track) <span class="sc">|&gt;</span> </span>
+<span id="cb626-3"><a href="#cb626-3"></a>  <span class="fu">count</span>(artist)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="fragment">
+<ol start="5" type="1">
+<li>Determina las <span class="hl-yellow"><strong>5 canciones que más semanas</strong></span> aparecen en la lista de éxitos.</li>
+</ol>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb627"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb627-1"><a href="#cb627-1"></a>billboard_tidy <span class="sc">|&gt;</span> </span>
+<span id="cb627-2"><a href="#cb627-2"></a>  <span class="fu">count</span>(track) <span class="sc">|&gt;</span> </span>
+<span id="cb627-3"><a href="#cb627-3"></a>  <span class="fu">slice_max</span>(<span class="at">n =</span> <span class="dv">5</span>, n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+<div class="fragment">
+<ol start="6" type="1">
+<li>Determina <span class="hl-yellow"><strong>para cada artista la canción que más semanas</strong></span> aparece en la lista de éxitos.</li>
+</ol>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb628"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb628-1"><a href="#cb628-1"></a>billboard_tidy <span class="sc">|&gt;</span> </span>
+<span id="cb628-2"><a href="#cb628-2"></a>  <span class="fu">count</span>(artist, track) <span class="sc">|&gt;</span> </span>
+<span id="cb628-3"><a href="#cb628-3"></a>  <span class="fu">slice_max</span>(<span class="at">n =</span> <span class="dv">1</span>, n, <span class="at">by =</span> artist)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+</section>
+<section id="caso-práctico-9-1" class="slide level2">
+<h2>🐣 Caso práctico 9</h2>
+<ol start="7" type="1">
+<li>Determina el <span class="hl-yellow"><strong>artista con más canciones</strong></span> en la lista</li>
+</ol>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb629"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb629-1"><a href="#cb629-1"></a>billboard_tidy <span class="sc">|&gt;</span> </span>
+<span id="cb629-2"><a href="#cb629-2"></a>  <span class="fu">distinct</span>(artist, track) <span class="sc">|&gt;</span> </span>
+<span id="cb629-3"><a href="#cb629-3"></a>  <span class="fu">count</span>(artist) <span class="sc">|&gt;</span> </span>
+<span id="cb629-4"><a href="#cb629-4"></a>  <span class="fu">slice_max</span>(<span class="at">n =</span> <span class="dv">1</span>, n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="fragment">
+<ol start="8" type="1">
+<li>Calcula la <span class="hl-yellow"><strong>posición más alta</strong></span> en la que ha estado cada canción. Calcula la posición más alta en la que ha estado un artista</li>
+</ol>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb630"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb630-1"><a href="#cb630-1"></a>billboard_tidy <span class="sc">|&gt;</span> </span>
+<span id="cb630-2"><a href="#cb630-2"></a>  <span class="fu">slice_min</span>(rank, <span class="at">n =</span> <span class="dv">1</span>, <span class="at">with_ties =</span> <span class="cn">FALSE</span>, <span class="at">by =</span> track)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb631"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb631-1"><a href="#cb631-1"></a>billboard_tidy <span class="sc">|&gt;</span> </span>
+<span id="cb631-2"><a href="#cb631-2"></a>  <span class="fu">slice_min</span>(rank, <span class="at">n =</span> <span class="dv">1</span>, <span class="at">with_ties =</span> <span class="cn">FALSE</span>, <span class="at">by =</span> artist)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+</section>
+<section id="caso-práctico-9-2" class="slide level2">
+<h2>🐣 Caso práctico 9</h2>
 <ol start="9" type="1">
 <li>Obtén una <span class="hl-yellow"><strong>tabla resumen</strong></span> con el ranking medio de cada artista (contando solo el ranking más alto alcanzado por sus canciones), así como el número de canciones (distintas) que ha colocado en el top 100.</li>
 </ol>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb632"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb632-1"><a href="#cb632-1"></a>billboard_tidy <span class="sc">|&gt;</span> </span>
+<span id="cb632-2"><a href="#cb632-2"></a>  <span class="fu">slice_min</span>(rank, <span class="at">n =</span> <span class="dv">1</span>, <span class="at">with_ties =</span> <span class="cn">FALSE</span>, <span class="at">by =</span> track) <span class="sc">|&gt;</span> </span>
+<span id="cb632-3"><a href="#cb632-3"></a>  <span class="fu">summarise</span>(<span class="at">avg_rank =</span> <span class="fu">mean</span>(rank), <span class="at">n_songs =</span> <span class="fu">n</span>(), <span class="at">.by =</span> artist)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="fragment">
 <ol start="10" type="1">
 <li>Realiza un muestreo aleatorio estratificado, extrayendo el 50% de los datos pero manteniendo la proporción de datos entre los distintos cuatrimestres.</li>
 </ol>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb633"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb633-1"><a href="#cb633-1"></a>billboard_tidy <span class="sc">|&gt;</span> </span>
+<span id="cb633-2"><a href="#cb633-2"></a>  <span class="fu">mutate</span>(<span class="at">quarter =</span> <span class="fu">quarter</span>(date.entered)) <span class="sc">|&gt;</span> </span>
+<span id="cb633-3"><a href="#cb633-3"></a>  <span class="fu">slice_sample</span>(<span class="at">prop =</span> <span class="fl">0.5</span>, <span class="at">by =</span> quarter)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 </div>
 </section>
 <section id="creando-funciones" class="slide level2">
@@ -7110,9 +7206,9 @@ dplyr 1.1.0.
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb623"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb623-1"><a href="#cb623-1"></a>name_fun <span class="ot">&lt;-</span> <span class="cf">function</span>(arg1, arg2, ...) {</span>
-<span id="cb623-2"><a href="#cb623-2"></a>  </span>
-<span id="cb623-3"><a href="#cb623-3"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb634"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb634-1"><a href="#cb634-1"></a>name_fun <span class="ot">&lt;-</span> <span class="cf">function</span>(arg1, arg2, ...) {</span>
+<span id="cb634-2"><a href="#cb634-2"></a>  </span>
+<span id="cb634-3"><a href="#cb634-3"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -7128,14 +7224,14 @@ dplyr 1.1.0.
 <li>Finalizamos la función con los <span class="hl-yellow"><strong>argumentos de salida</strong></span> con <code>return()</code>.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb624"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb624-1"><a href="#cb624-1"></a>name_fun <span class="ot">&lt;-</span> <span class="cf">function</span>(arg1, arg2, ...) {</span>
-<span id="cb624-2"><a href="#cb624-2"></a>  </span>
-<span id="cb624-3"><a href="#cb624-3"></a>  <span class="co"># Código que queramos ejecutar</span></span>
-<span id="cb624-4"><a href="#cb624-4"></a>  código</span>
-<span id="cb624-5"><a href="#cb624-5"></a>  </span>
-<span id="cb624-6"><a href="#cb624-6"></a>  <span class="co"># Salida</span></span>
-<span id="cb624-7"><a href="#cb624-7"></a>  <span class="fu">return</span>(var_salida)</span>
-<span id="cb624-8"><a href="#cb624-8"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb635"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb635-1"><a href="#cb635-1"></a>name_fun <span class="ot">&lt;-</span> <span class="cf">function</span>(arg1, arg2, ...) {</span>
+<span id="cb635-2"><a href="#cb635-2"></a>  </span>
+<span id="cb635-3"><a href="#cb635-3"></a>  <span class="co"># Código que queramos ejecutar</span></span>
+<span id="cb635-4"><a href="#cb635-4"></a>  código</span>
+<span id="cb635-5"><a href="#cb635-5"></a>  </span>
+<span id="cb635-6"><a href="#cb635-6"></a>  <span class="co"># Salida</span></span>
+<span id="cb635-7"><a href="#cb635-7"></a>  <span class="fu">return</span>(var_salida)</span>
+<span id="cb635-8"><a href="#cb635-8"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -7147,14 +7243,14 @@ dplyr 1.1.0.
 <li><p><code>return(var_salida)</code>: se introducirán los <span class="hl-yellow"><strong>argumentos de salida</strong></span>.</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb625"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb625-1"><a href="#cb625-1"></a>name_fun <span class="ot">&lt;-</span> <span class="cf">function</span>(arg1, arg2, ...) {</span>
-<span id="cb625-2"><a href="#cb625-2"></a>  </span>
-<span id="cb625-3"><a href="#cb625-3"></a>  <span class="co"># Código que queramos ejecutar</span></span>
-<span id="cb625-4"><a href="#cb625-4"></a>  código</span>
-<span id="cb625-5"><a href="#cb625-5"></a>  </span>
-<span id="cb625-6"><a href="#cb625-6"></a>  <span class="co"># Salida</span></span>
-<span id="cb625-7"><a href="#cb625-7"></a>  <span class="fu">return</span>(var_salida)</span>
-<span id="cb625-8"><a href="#cb625-8"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb636"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb636-1"><a href="#cb636-1"></a>name_fun <span class="ot">&lt;-</span> <span class="cf">function</span>(arg1, arg2, ...) {</span>
+<span id="cb636-2"><a href="#cb636-2"></a>  </span>
+<span id="cb636-3"><a href="#cb636-3"></a>  <span class="co"># Código que queramos ejecutar</span></span>
+<span id="cb636-4"><a href="#cb636-4"></a>  código</span>
+<span id="cb636-5"><a href="#cb636-5"></a>  </span>
+<span id="cb636-6"><a href="#cb636-6"></a>  <span class="co"># Salida</span></span>
+<span id="cb636-7"><a href="#cb636-7"></a>  <span class="fu">return</span>(var_salida)</span>
+<span id="cb636-8"><a href="#cb636-8"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-important callout-titled callout-style-default">
 <div class="callout-body">
@@ -7178,13 +7274,13 @@ dplyr 1.1.0.
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb626"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb626-1"><a href="#cb626-1"></a><span class="co"># Definición del nombre de función y argumentos de entrada</span></span>
-<span id="cb626-2"><a href="#cb626-2"></a>calcular_area <span class="ot">&lt;-</span> <span class="cf">function</span>(lado_1, lado_2) {</span>
-<span id="cb626-3"><a href="#cb626-3"></a>  </span>
-<span id="cb626-4"><a href="#cb626-4"></a>  area <span class="ot">&lt;-</span> lado_1 <span class="sc">*</span> lado_2</span>
-<span id="cb626-5"><a href="#cb626-5"></a>  <span class="fu">return</span>(area)</span>
-<span id="cb626-6"><a href="#cb626-6"></a>  </span>
-<span id="cb626-7"><a href="#cb626-7"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb637"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb637-1"><a href="#cb637-1"></a><span class="co"># Definición del nombre de función y argumentos de entrada</span></span>
+<span id="cb637-2"><a href="#cb637-2"></a>calcular_area <span class="ot">&lt;-</span> <span class="cf">function</span>(lado_1, lado_2) {</span>
+<span id="cb637-3"><a href="#cb637-3"></a>  </span>
+<span id="cb637-4"><a href="#cb637-4"></a>  area <span class="ot">&lt;-</span> lado_1 <span class="sc">*</span> lado_2</span>
+<span id="cb637-5"><a href="#cb637-5"></a>  <span class="fu">return</span>(area)</span>
+<span id="cb637-6"><a href="#cb637-6"></a>  </span>
+<span id="cb637-7"><a href="#cb637-7"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -7192,20 +7288,20 @@ dplyr 1.1.0.
 <h2>Creando funciones</h2>
 <p>También podemos hacer una definición directa, <strong>sin almacenar variables por el camino</strong>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb627"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb627-1"><a href="#cb627-1"></a><span class="co"># Definición del nombre de función y argumentos de entrada</span></span>
-<span id="cb627-2"><a href="#cb627-2"></a>calcular_area <span class="ot">&lt;-</span> <span class="cf">function</span>(lado_1, lado_2) {</span>
-<span id="cb627-3"><a href="#cb627-3"></a>  </span>
-<span id="cb627-4"><a href="#cb627-4"></a>  <span class="fu">return</span>(lado_1 <span class="sc">*</span> lado_2)</span>
-<span id="cb627-5"><a href="#cb627-5"></a>  </span>
-<span id="cb627-6"><a href="#cb627-6"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb638"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb638-1"><a href="#cb638-1"></a><span class="co"># Definición del nombre de función y argumentos de entrada</span></span>
+<span id="cb638-2"><a href="#cb638-2"></a>calcular_area <span class="ot">&lt;-</span> <span class="cf">function</span>(lado_1, lado_2) {</span>
+<span id="cb638-3"><a href="#cb638-3"></a>  </span>
+<span id="cb638-4"><a href="#cb638-4"></a>  <span class="fu">return</span>(lado_1 <span class="sc">*</span> lado_2)</span>
+<span id="cb638-5"><a href="#cb638-5"></a>  </span>
+<span id="cb638-6"><a href="#cb638-6"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><span class="hl-yellow"><strong>¿Cómo aplicar la función?</strong></span></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb628"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb628-1"><a href="#cb628-1"></a><span class="fu">calcular_area</span>(<span class="dv">5</span>, <span class="dv">3</span>) <span class="co"># área de un rectángulo 5 x 3 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb639"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb639-1"><a href="#cb639-1"></a><span class="fu">calcular_area</span>(<span class="dv">5</span>, <span class="dv">3</span>) <span class="co"># área de un rectángulo 5 x 3 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 15</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb630"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb630-1"><a href="#cb630-1"></a><span class="fu">calcular_area</span>(<span class="dv">1</span>, <span class="dv">5</span>) <span class="co"># área de un rectángulo 1 x 5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb641"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb641-1"><a href="#cb641-1"></a><span class="fu">calcular_area</span>(<span class="dv">1</span>, <span class="dv">5</span>) <span class="co"># área de un rectángulo 1 x 5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5</code></pre>
 </div>
@@ -7217,38 +7313,38 @@ dplyr 1.1.0.
 <p>¿Por qué no asignar <code>lado_2 = lado_1</code> por defecto, para ahorrar líneas de código y tiempo?</p>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb632"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb632-1"><a href="#cb632-1"></a>calcular_area <span class="ot">&lt;-</span> <span class="cf">function</span>(lado_1, <span class="at">lado_2 =</span> lado_1) {</span>
-<span id="cb632-2"><a href="#cb632-2"></a>  </span>
-<span id="cb632-3"><a href="#cb632-3"></a>  <span class="co"># Cuerpo de la función</span></span>
-<span id="cb632-4"><a href="#cb632-4"></a>  area <span class="ot">&lt;-</span> lado_1 <span class="sc">*</span> lado_2</span>
-<span id="cb632-5"><a href="#cb632-5"></a>  </span>
-<span id="cb632-6"><a href="#cb632-6"></a>  <span class="co"># Resultado que devolvemos</span></span>
-<span id="cb632-7"><a href="#cb632-7"></a>  <span class="fu">return</span>(area)</span>
-<span id="cb632-8"><a href="#cb632-8"></a>  </span>
-<span id="cb632-9"><a href="#cb632-9"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb643"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb643-1"><a href="#cb643-1"></a>calcular_area <span class="ot">&lt;-</span> <span class="cf">function</span>(lado_1, <span class="at">lado_2 =</span> lado_1) {</span>
+<span id="cb643-2"><a href="#cb643-2"></a>  </span>
+<span id="cb643-3"><a href="#cb643-3"></a>  <span class="co"># Cuerpo de la función</span></span>
+<span id="cb643-4"><a href="#cb643-4"></a>  area <span class="ot">&lt;-</span> lado_1 <span class="sc">*</span> lado_2</span>
+<span id="cb643-5"><a href="#cb643-5"></a>  </span>
+<span id="cb643-6"><a href="#cb643-6"></a>  <span class="co"># Resultado que devolvemos</span></span>
+<span id="cb643-7"><a href="#cb643-7"></a>  <span class="fu">return</span>(area)</span>
+<span id="cb643-8"><a href="#cb643-8"></a>  </span>
+<span id="cb643-9"><a href="#cb643-9"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
 <section id="argumentos-por-defecto-1" class="slide level2">
 <h2>Argumentos por defecto</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb633"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb633-1"><a href="#cb633-1"></a>calcular_area <span class="ot">&lt;-</span> <span class="cf">function</span>(lado_1, <span class="at">lado_2 =</span> lado_1) {</span>
-<span id="cb633-2"><a href="#cb633-2"></a>  </span>
-<span id="cb633-3"><a href="#cb633-3"></a>  <span class="co"># Cuerpo de la función</span></span>
-<span id="cb633-4"><a href="#cb633-4"></a>  area <span class="ot">&lt;-</span> lado_1 <span class="sc">*</span> lado_2</span>
-<span id="cb633-5"><a href="#cb633-5"></a>  </span>
-<span id="cb633-6"><a href="#cb633-6"></a>  <span class="co"># Resultado que devolvemos</span></span>
-<span id="cb633-7"><a href="#cb633-7"></a>  <span class="fu">return</span>(area)</span>
-<span id="cb633-8"><a href="#cb633-8"></a>  </span>
-<span id="cb633-9"><a href="#cb633-9"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb644"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb644-1"><a href="#cb644-1"></a>calcular_area <span class="ot">&lt;-</span> <span class="cf">function</span>(lado_1, <span class="at">lado_2 =</span> lado_1) {</span>
+<span id="cb644-2"><a href="#cb644-2"></a>  </span>
+<span id="cb644-3"><a href="#cb644-3"></a>  <span class="co"># Cuerpo de la función</span></span>
+<span id="cb644-4"><a href="#cb644-4"></a>  area <span class="ot">&lt;-</span> lado_1 <span class="sc">*</span> lado_2</span>
+<span id="cb644-5"><a href="#cb644-5"></a>  </span>
+<span id="cb644-6"><a href="#cb644-6"></a>  <span class="co"># Resultado que devolvemos</span></span>
+<span id="cb644-7"><a href="#cb644-7"></a>  <span class="fu">return</span>(area)</span>
+<span id="cb644-8"><a href="#cb644-8"></a>  </span>
+<span id="cb644-9"><a href="#cb644-9"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Ahora <span class="hl-yellow"><strong>por defecto</strong></span> el segundo lado será igual al primero (si se lo añadimos usará ambos).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb634"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb634-1"><a href="#cb634-1"></a><span class="fu">calcular_area</span>(<span class="at">lado_1 =</span> <span class="dv">5</span>) <span class="co"># cuadrado</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb645"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb645-1"><a href="#cb645-1"></a><span class="fu">calcular_area</span>(<span class="at">lado_1 =</span> <span class="dv">5</span>) <span class="co"># cuadrado</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 25</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb636"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb636-1"><a href="#cb636-1"></a><span class="fu">calcular_area</span>(<span class="at">lado_1 =</span> <span class="dv">5</span>, <span class="at">lado_2 =</span> <span class="dv">7</span>) <span class="co"># rectángulo</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb647"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb647-1"><a href="#cb647-1"></a><span class="fu">calcular_area</span>(<span class="at">lado_1 =</span> <span class="dv">5</span>, <span class="at">lado_2 =</span> <span class="dv">7</span>) <span class="co"># rectángulo</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 35</code></pre>
 </div>
@@ -7258,42 +7354,65 @@ dplyr 1.1.0.
 <h2>Salida múltiple</h2>
 <p>Compliquemos un poco la función y añadamos en la salida los valores de cada lado, etiquetados como <code>lado_1</code> y <code>lado_2</code>, <span class="hl-yellow"><strong>empaquetando la salida en una lista</strong></span>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb638"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb638-1"><a href="#cb638-1"></a><span class="co"># Definición del nombre de función y argumentos de entrada</span></span>
-<span id="cb638-2"><a href="#cb638-2"></a>calcular_area <span class="ot">&lt;-</span> <span class="cf">function</span>(lado_1, <span class="at">lado_2 =</span> lado_1) {</span>
-<span id="cb638-3"><a href="#cb638-3"></a>  </span>
-<span id="cb638-4"><a href="#cb638-4"></a>  <span class="co"># Cuerpo de la función</span></span>
-<span id="cb638-5"><a href="#cb638-5"></a>  area <span class="ot">&lt;-</span> lado_1 <span class="sc">*</span> lado_2</span>
-<span id="cb638-6"><a href="#cb638-6"></a>  </span>
-<span id="cb638-7"><a href="#cb638-7"></a>  <span class="co"># Resultado</span></span>
-<span id="cb638-8"><a href="#cb638-8"></a>  <span class="fu">return</span>(<span class="fu">list</span>(<span class="st">"area"</span> <span class="ot">=</span> area, <span class="st">"lado_1"</span> <span class="ot">=</span> lado_1, <span class="st">"lado_2"</span> <span class="ot">=</span> lado_2))</span>
-<span id="cb638-9"><a href="#cb638-9"></a>  </span>
-<span id="cb638-10"><a href="#cb638-10"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb649"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb649-1"><a href="#cb649-1"></a><span class="co"># Definición del nombre de función y argumentos de entrada</span></span>
+<span id="cb649-2"><a href="#cb649-2"></a>calcular_area <span class="ot">&lt;-</span> <span class="cf">function</span>(lado_1, <span class="at">lado_2 =</span> lado_1) {</span>
+<span id="cb649-3"><a href="#cb649-3"></a>  </span>
+<span id="cb649-4"><a href="#cb649-4"></a>  <span class="co"># Cuerpo de la función</span></span>
+<span id="cb649-5"><a href="#cb649-5"></a>  area <span class="ot">&lt;-</span> lado_1 <span class="sc">*</span> lado_2</span>
+<span id="cb649-6"><a href="#cb649-6"></a>  </span>
+<span id="cb649-7"><a href="#cb649-7"></a>  <span class="co"># Resultado</span></span>
+<span id="cb649-8"><a href="#cb649-8"></a>  <span class="fu">return</span>(<span class="fu">list</span>(<span class="st">"area"</span> <span class="ot">=</span> area, <span class="st">"lado_1"</span> <span class="ot">=</span> lado_1, <span class="st">"lado_2"</span> <span class="ot">=</span> lado_2))</span>
+<span id="cb649-9"><a href="#cb649-9"></a>  </span>
+<span id="cb649-10"><a href="#cb649-10"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section></section>
+<section>
+<section id="clase-10" class="title-slide slide level1 center">
+<h1>Clase 10: profundizando funciones</h1>
+<p><span style="color:#444442;"><strong>¿Qué es una función? ¿Cómo se definen? Variables locales vs globlales. Introducción a listas</strong></span></p>
 </section>
-<section id="salida-múltiple-1" class="slide level2">
-<h2>Salida múltiple</h2>
+<section id="funciones-en-r" class="slide level2">
+<h2>Funciones en R</h2>
+<p>Repasando el último día…</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb639"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb639-1"><a href="#cb639-1"></a>salida <span class="ot">&lt;-</span> <span class="fu">calcular_area</span>(<span class="dv">5</span>, <span class="dv">3</span>)</span>
-<span id="cb639-2"><a href="#cb639-2"></a>salida</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>$area
-[1] 15
-
-$lado_1
-[1] 5
-
-$lado_2
-[1] 3</code></pre>
+<div class="sourceCode cell-code" id="cb650"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb650-1"><a href="#cb650-1"></a>calcular_area <span class="ot">&lt;-</span> <span class="cf">function</span>(lado_1, <span class="at">lado_2 =</span> lado_1) {</span>
+<span id="cb650-2"><a href="#cb650-2"></a>  </span>
+<span id="cb650-3"><a href="#cb650-3"></a>  <span class="co"># Cuerpo de la función</span></span>
+<span id="cb650-4"><a href="#cb650-4"></a>  area <span class="ot">&lt;-</span> lado_1 <span class="sc">*</span> lado_2</span>
+<span id="cb650-5"><a href="#cb650-5"></a>  </span>
+<span id="cb650-6"><a href="#cb650-6"></a>  <span class="co"># Resultado</span></span>
+<span id="cb650-7"><a href="#cb650-7"></a>  <span class="fu">return</span>(<span class="fu">list</span>(<span class="st">"area"</span> <span class="ot">=</span> area, <span class="st">"lado_1"</span> <span class="ot">=</span> lado_1, <span class="st">"lado_2"</span> <span class="ot">=</span> lado_2))</span>
+<span id="cb650-8"><a href="#cb650-8"></a>  </span>
+<span id="cb650-9"><a href="#cb650-9"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="sourceCode cell-code" id="cb641"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb641-1"><a href="#cb641-1"></a>salida[<span class="st">"area"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb651"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb651-1"><a href="#cb651-1"></a>salida <span class="ot">&lt;-</span> <span class="fu">calcular_area</span>(<span class="dv">5</span>, <span class="dv">3</span>)</span>
+<span id="cb651-2"><a href="#cb651-2"></a>salida[<span class="st">"area"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$area
 [1] 15</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb643"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb643-1"><a href="#cb643-1"></a>salida[<span class="st">"lado_1"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb653"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb653-1"><a href="#cb653-1"></a>salida[<span class="st">"lado_1"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$lado_1
 [1] 5</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Importante</strong></p>
+</div>
+<div class="callout-content">
+<p>Todas las variables que definamos dentro de la función son <span class="hl-yellow"><strong>variables locales: solo existirán dentro</strong></span></p>
+</div>
+</div>
 </div>
 </div>
 </section>
@@ -7313,13 +7432,13 @@ $lado_2
 <h2>Introducción a listas</h2>
 <p>Vamos a crear <span class="hl-yellow"><strong>nuestra primera lista</strong></span> con <code>list()</code> con tres elementos: el nombre de nuestros padres/madres, nuestro lugar de nacimiento y edades de nuestros hermanos.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb645"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb645-1"><a href="#cb645-1"></a>variable_1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Paloma"</span>, <span class="st">"Gregorio"</span>)</span>
-<span id="cb645-2"><a href="#cb645-2"></a>variable_2 <span class="ot">&lt;-</span> <span class="st">"Madrid"</span></span>
-<span id="cb645-3"><a href="#cb645-3"></a>variable_3 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">25</span>, <span class="dv">30</span>, <span class="dv">26</span>)</span>
-<span id="cb645-4"><a href="#cb645-4"></a></span>
-<span id="cb645-5"><a href="#cb645-5"></a>lista <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">"progenitores"</span> <span class="ot">=</span> variable_1, <span class="st">"lugar_nacimiento"</span> <span class="ot">=</span> variable_2,</span>
-<span id="cb645-6"><a href="#cb645-6"></a>              <span class="st">"edades_hermanos"</span> <span class="ot">=</span> variable_3)</span>
-<span id="cb645-7"><a href="#cb645-7"></a>lista</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb655"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb655-1"><a href="#cb655-1"></a>variable_1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Paloma"</span>, <span class="st">"Gregorio"</span>)</span>
+<span id="cb655-2"><a href="#cb655-2"></a>variable_2 <span class="ot">&lt;-</span> <span class="st">"Madrid"</span></span>
+<span id="cb655-3"><a href="#cb655-3"></a>variable_3 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">25</span>, <span class="dv">30</span>, <span class="dv">26</span>)</span>
+<span id="cb655-4"><a href="#cb655-4"></a></span>
+<span id="cb655-5"><a href="#cb655-5"></a>lista <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">"progenitores"</span> <span class="ot">=</span> variable_1, <span class="st">"lugar_nacimiento"</span> <span class="ot">=</span> variable_2,</span>
+<span id="cb655-6"><a href="#cb655-6"></a>              <span class="st">"edades_hermanos"</span> <span class="ot">=</span> variable_3)</span>
+<span id="cb655-7"><a href="#cb655-7"></a>lista</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$progenitores
 [1] "Paloma"   "Gregorio"
@@ -7335,7 +7454,7 @@ $edades_hermanos
 <section id="introducción-a-listas-2" class="slide level2">
 <h2>Introducción a listas</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb647"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb647-1"><a href="#cb647-1"></a><span class="fu">length</span>(lista)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb657"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb657-1"><a href="#cb657-1"></a><span class="fu">length</span>(lista)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3</code></pre>
 </div>
@@ -7344,11 +7463,11 @@ $edades_hermanos
 <div class="fragment">
 <p>Tenemos guardados elementos de <span class="hl-yellow"><strong>distinto tipo</strong></span> (algo que ya podíamos hacer) pero, además, de <strong>longitudes dispares</strong>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb649"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb649-1"><a href="#cb649-1"></a><span class="fu">dim</span>(lista) <span class="co"># devolverá NULL al no tener dos dimensiones</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb659"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb659-1"><a href="#cb659-1"></a><span class="fu">dim</span>(lista) <span class="co"># devolverá NULL al no tener dos dimensiones</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>NULL</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb651"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb651-1"><a href="#cb651-1"></a><span class="fu">class</span>(lista) <span class="co"># de tipo lista</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb661"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb661-1"><a href="#cb661-1"></a><span class="fu">class</span>(lista) <span class="co"># de tipo lista</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "list"</code></pre>
 </div>
@@ -7359,10 +7478,10 @@ $edades_hermanos
 <h2>Introducción a listas</h2>
 <p>Si los juntásemos con un <code>tibble()</code>, al tener distinta longitud, obtendríamos un <span class="hl-red"><strong>error</strong></span>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb653"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb653-1"><a href="#cb653-1"></a><span class="fu">library</span>(tibble)</span>
-<span id="cb653-2"><a href="#cb653-2"></a><span class="fu">tibble</span>(<span class="st">"progenitores"</span> <span class="ot">=</span> variable_1,</span>
-<span id="cb653-3"><a href="#cb653-3"></a>       <span class="st">"lugar_nacimiento"</span> <span class="ot">=</span> variable_2,</span>
-<span id="cb653-4"><a href="#cb653-4"></a>       <span class="st">"edades_hermanos"</span> <span class="ot">=</span> variable_3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb663"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb663-1"><a href="#cb663-1"></a><span class="fu">library</span>(tibble)</span>
+<span id="cb663-2"><a href="#cb663-2"></a><span class="fu">tibble</span>(<span class="st">"progenitores"</span> <span class="ot">=</span> variable_1,</span>
+<span id="cb663-3"><a href="#cb663-3"></a>       <span class="st">"lugar_nacimiento"</span> <span class="ot">=</span> variable_2,</span>
+<span id="cb663-4"><a href="#cb663-4"></a>       <span class="st">"edades_hermanos"</span> <span class="ot">=</span> variable_3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>Error in `tibble()`:
 ! Tibble columns must have compatible sizes.
@@ -7378,7 +7497,7 @@ $edades_hermanos
 <li><span class="hl-yellow"><strong>Acceder por índice</strong></span>: con el operador <code>[[i]]</code> accedemos al <strong>elemento i-ésimo</strong> de la lista.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb655"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb655-1"><a href="#cb655-1"></a>lista[[<span class="dv">1</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb665"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb665-1"><a href="#cb665-1"></a>lista[[<span class="dv">1</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Paloma"   "Gregorio"</code></pre>
 </div>
@@ -7388,7 +7507,7 @@ $edades_hermanos
 <li><span class="hl-yellow"><strong>Acceder por nombre</strong></span>: con el operador <code>$nombre_elemento</code> accedemos por su nombre.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb657"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb657-1"><a href="#cb657-1"></a>lista<span class="sc">$</span>progenitores</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb667"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb667-1"><a href="#cb667-1"></a>lista<span class="sc">$</span>progenitores</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Paloma"   "Gregorio"</code></pre>
 </div>
@@ -7397,8 +7516,8 @@ $edades_hermanos
 <div class="fragment">
 <p>En contraposición, el <span class="hl-yellow"><strong>corchete simple</strong></span> nos permite acceder a <span class="hl-yellow"><strong>varios elementos</strong></span> a la vez</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb659"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb659-1"><a href="#cb659-1"></a><span class="co"># Varios elementos</span></span>
-<span id="cb659-2"><a href="#cb659-2"></a>lista[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb669"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb669-1"><a href="#cb669-1"></a><span class="co"># Varios elementos</span></span>
+<span id="cb669-2"><a href="#cb669-2"></a>lista[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$progenitores
 [1] "Paloma"   "Gregorio"
@@ -7409,7 +7528,7 @@ $lugar_nacimiento
 </div>
 </div>
 </section>
-<section id="salida-múltiple-2" class="slide level2">
+<section id="salida-múltiple-1" class="slide level2">
 <h2>Salida múltiple</h2>
 <p>Antes nos daba igual el orden de los argumentos pero ahora el <span class="hl-yellow"><strong>orden de los argumentos de entrada importa</strong></span>, ya que en la salida incluimos <code>lado_1</code> y <code>lado_2</code>.</p>
 <div class="fragment">
@@ -7424,8 +7543,8 @@ $lugar_nacimiento
 <div class="callout-content">
 <p>Es altamente recomendable hacer la llamada a la función <span class="hl-yellow"><strong>indicando explícitamente los argumentos</strong></span> para mejorar la <strong>legibilidad e interpretabilidad</strong>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb661"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb661-1"><a href="#cb661-1"></a><span class="co"># Equivalente a calcular_area(5, 3)</span></span>
-<span id="cb661-2"><a href="#cb661-2"></a><span class="fu">calcular_area</span>(<span class="at">lado_1 =</span> <span class="dv">5</span>, <span class="at">lado_2 =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb671"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb671-1"><a href="#cb671-1"></a><span class="co"># Equivalente a calcular_area(5, 3)</span></span>
+<span id="cb671-2"><a href="#cb671-2"></a><span class="fu">calcular_area</span>(<span class="at">lado_1 =</span> <span class="dv">5</span>, <span class="at">lado_2 =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$area
 [1] 15
@@ -7452,12 +7571,12 @@ $lado_2
 <div class="fragment">
 <p>Debemos ser cautos al usar funciones en <code>R</code>, ya que debido a la <span class="hl-yellow"><strong>«regla lexicográfica»</strong></span>, si una variable no se define dentro de la función, <code>R</code> <span class="hl-purple"><strong>buscará dicha variable en el entorno</strong></span> de variables.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb663"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb663-1"><a href="#cb663-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb663-2"><a href="#cb663-2"></a>funcion_ejemplo <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
-<span id="cb663-3"><a href="#cb663-3"></a>    </span>
-<span id="cb663-4"><a href="#cb663-4"></a>  <span class="fu">print</span>(x) <span class="co"># No devuelve nada, solo realiza la acción </span></span>
-<span id="cb663-5"><a href="#cb663-5"></a>}</span>
-<span id="cb663-6"><a href="#cb663-6"></a><span class="fu">funcion_ejemplo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb673"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb673-1"><a href="#cb673-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb673-2"><a href="#cb673-2"></a>funcion_ejemplo <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb673-3"><a href="#cb673-3"></a>    </span>
+<span id="cb673-4"><a href="#cb673-4"></a>  <span class="fu">print</span>(x) <span class="co"># No devuelve nada, solo realiza la acción </span></span>
+<span id="cb673-5"><a href="#cb673-5"></a>}</span>
+<span id="cb673-6"><a href="#cb673-6"></a><span class="fu">funcion_ejemplo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1</code></pre>
 </div>
@@ -7468,21 +7587,21 @@ $lado_2
 <h2>Variables locales vs globales</h2>
 <p>Si una variable <span class="hl-yellow"><strong>ya está definida fuera de la función (entorno global)</strong></span>, y además es usada dentro de cambiando su valor, el valor <span class="hl-yellow"><strong>solo cambia dentro</strong></span> pero <span class="hl-red"><strong>no en el entorno global</strong></span>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb665"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb665-1"><a href="#cb665-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb665-2"><a href="#cb665-2"></a>funcion_ejemplo <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
-<span id="cb665-3"><a href="#cb665-3"></a>    </span>
-<span id="cb665-4"><a href="#cb665-4"></a>  x <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb665-5"><a href="#cb665-5"></a>  <span class="fu">print</span>(x) <span class="co"># lo que vale dentro</span></span>
-<span id="cb665-6"><a href="#cb665-6"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb675"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb675-1"><a href="#cb675-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb675-2"><a href="#cb675-2"></a>funcion_ejemplo <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb675-3"><a href="#cb675-3"></a>    </span>
+<span id="cb675-4"><a href="#cb675-4"></a>  x <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb675-5"><a href="#cb675-5"></a>  <span class="fu">print</span>(x) <span class="co"># lo que vale dentro</span></span>
+<span id="cb675-6"><a href="#cb675-6"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb666"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb666-1"><a href="#cb666-1"></a><span class="co"># lo que vale dentro</span></span>
-<span id="cb666-2"><a href="#cb666-2"></a><span class="fu">funcion_ejemplo</span>() <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb676"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb676-1"><a href="#cb676-1"></a><span class="co"># lo que vale dentro</span></span>
+<span id="cb676-2"><a href="#cb676-2"></a><span class="fu">funcion_ejemplo</span>() <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb668"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb668-1"><a href="#cb668-1"></a><span class="co"># lo que vale fuera</span></span>
-<span id="cb668-2"><a href="#cb668-2"></a><span class="fu">print</span>(x) <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb678"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb678-1"><a href="#cb678-1"></a><span class="co"># lo que vale fuera</span></span>
+<span id="cb678-2"><a href="#cb678-2"></a><span class="fu">print</span>(x) <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1</code></pre>
 </div>
@@ -7492,29 +7611,29 @@ $lado_2
 <h2>Variables locales vs globales</h2>
 <p>Si queremos que además de cambiar localmente lo haga <span class="hl-yellow"><strong>globalmente</strong></span> deberemos usar la <span class="hl-yellow"><strong>doble asignación</strong></span> (<code>&lt;&lt;-</code>).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb670"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb670-1"><a href="#cb670-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb670-2"><a href="#cb670-2"></a>y <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb670-3"><a href="#cb670-3"></a>funcion_ejemplo <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
-<span id="cb670-4"><a href="#cb670-4"></a>  </span>
-<span id="cb670-5"><a href="#cb670-5"></a>  <span class="co"># no cambia globalmente, solo localmente</span></span>
-<span id="cb670-6"><a href="#cb670-6"></a>  x <span class="ot">&lt;-</span> <span class="dv">3</span> </span>
-<span id="cb670-7"><a href="#cb670-7"></a>  <span class="co"># cambia globalmente</span></span>
-<span id="cb670-8"><a href="#cb670-8"></a>  y <span class="ot">&lt;&lt;-</span> <span class="dv">0</span> <span class="co">#&lt;&lt;</span></span>
-<span id="cb670-9"><a href="#cb670-9"></a>  </span>
-<span id="cb670-10"><a href="#cb670-10"></a>  <span class="fu">print</span>(x)</span>
-<span id="cb670-11"><a href="#cb670-11"></a>  <span class="fu">print</span>(y)</span>
-<span id="cb670-12"><a href="#cb670-12"></a>}</span>
-<span id="cb670-13"><a href="#cb670-13"></a></span>
-<span id="cb670-14"><a href="#cb670-14"></a><span class="fu">funcion_ejemplo</span>() <span class="co"># lo que vale dentro</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb680"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb680-1"><a href="#cb680-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb680-2"><a href="#cb680-2"></a>y <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb680-3"><a href="#cb680-3"></a>funcion_ejemplo <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb680-4"><a href="#cb680-4"></a>  </span>
+<span id="cb680-5"><a href="#cb680-5"></a>  <span class="co"># no cambia globalmente, solo localmente</span></span>
+<span id="cb680-6"><a href="#cb680-6"></a>  x <span class="ot">&lt;-</span> <span class="dv">3</span> </span>
+<span id="cb680-7"><a href="#cb680-7"></a>  <span class="co"># cambia globalmente</span></span>
+<span id="cb680-8"><a href="#cb680-8"></a>  y <span class="ot">&lt;&lt;-</span> <span class="dv">0</span> <span class="co">#&lt;&lt;</span></span>
+<span id="cb680-9"><a href="#cb680-9"></a>  </span>
+<span id="cb680-10"><a href="#cb680-10"></a>  <span class="fu">print</span>(x)</span>
+<span id="cb680-11"><a href="#cb680-11"></a>  <span class="fu">print</span>(y)</span>
+<span id="cb680-12"><a href="#cb680-12"></a>}</span>
+<span id="cb680-13"><a href="#cb680-13"></a></span>
+<span id="cb680-14"><a href="#cb680-14"></a><span class="fu">funcion_ejemplo</span>() <span class="co"># lo que vale dentro</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3
 [1] 0</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb672"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb672-1"><a href="#cb672-1"></a>x <span class="co"># lo que vale fuera</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb682"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb682-1"><a href="#cb682-1"></a>x <span class="co"># lo que vale fuera</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb674"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb674-1"><a href="#cb674-1"></a>y <span class="co"># lo que vale fuera</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb684"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb684-1"><a href="#cb684-1"></a>y <span class="co"># lo que vale fuera</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0</code></pre>
 </div>
@@ -7529,43 +7648,43 @@ $lado_2
 <div id="tabset-15-1">
 <p>📝 Modifica el código inferior para definir una función llamada <code>funcion_suma</code>, de forma que dados dos elementos, devuelve su suma.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb676"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb676-1"><a href="#cb676-1"></a>nombre <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
-<span id="cb676-2"><a href="#cb676-2"></a>  suma <span class="ot">&lt;-</span> <span class="co"># código a ejecutar</span></span>
-<span id="cb676-3"><a href="#cb676-3"></a>  <span class="fu">return</span>()</span>
-<span id="cb676-4"><a href="#cb676-4"></a>}</span>
-<span id="cb676-5"><a href="#cb676-5"></a><span class="co"># Aplicamos la función</span></span>
-<span id="cb676-6"><a href="#cb676-6"></a><span class="fu">suma</span>(<span class="dv">3</span>, <span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb686"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb686-1"><a href="#cb686-1"></a>nombre <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
+<span id="cb686-2"><a href="#cb686-2"></a>  suma <span class="ot">&lt;-</span> <span class="co"># código a ejecutar</span></span>
+<span id="cb686-3"><a href="#cb686-3"></a>  <span class="fu">return</span>()</span>
+<span id="cb686-4"><a href="#cb686-4"></a>}</span>
+<span id="cb686-5"><a href="#cb686-5"></a><span class="co"># Aplicamos la función</span></span>
+<span id="cb686-6"><a href="#cb686-6"></a><span class="fu">suma</span>(<span class="dv">3</span>, <span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb677"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb677-1"><a href="#cb677-1"></a>funcion_suma <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
-<span id="cb677-2"><a href="#cb677-2"></a>  suma <span class="ot">&lt;-</span> x <span class="sc">+</span> y</span>
-<span id="cb677-3"><a href="#cb677-3"></a>  <span class="fu">return</span>(suma)</span>
-<span id="cb677-4"><a href="#cb677-4"></a>}</span>
-<span id="cb677-5"><a href="#cb677-5"></a><span class="fu">funcion_suma</span>(<span class="dv">3</span>, <span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb687"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb687-1"><a href="#cb687-1"></a>funcion_suma <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
+<span id="cb687-2"><a href="#cb687-2"></a>  suma <span class="ot">&lt;-</span> x <span class="sc">+</span> y</span>
+<span id="cb687-3"><a href="#cb687-3"></a>  <span class="fu">return</span>(suma)</span>
+<span id="cb687-4"><a href="#cb687-4"></a>}</span>
+<span id="cb687-5"><a href="#cb687-5"></a><span class="fu">funcion_suma</span>(<span class="dv">3</span>, <span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </div>
 <div id="tabset-15-2">
 <p>📝 Modifica el código inferior para definir una función llamada <code>funcion_producto</code>, de forma que dados dos elementos, devuelve su producto, pero que por defecto calcule el cuadrado</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb678"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb678-1"><a href="#cb678-1"></a>nombre <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
-<span id="cb678-2"><a href="#cb678-2"></a>  producto <span class="ot">&lt;-</span> <span class="co"># código de la multiplicación</span></span>
-<span id="cb678-3"><a href="#cb678-3"></a>  <span class="fu">return</span>()</span>
-<span id="cb678-4"><a href="#cb678-4"></a>}</span>
-<span id="cb678-5"><a href="#cb678-5"></a><span class="fu">producto</span>(<span class="dv">3</span>)</span>
-<span id="cb678-6"><a href="#cb678-6"></a><span class="fu">producto</span>(<span class="dv">3</span>, <span class="sc">-</span><span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb688"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb688-1"><a href="#cb688-1"></a>nombre <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
+<span id="cb688-2"><a href="#cb688-2"></a>  producto <span class="ot">&lt;-</span> <span class="co"># código de la multiplicación</span></span>
+<span id="cb688-3"><a href="#cb688-3"></a>  <span class="fu">return</span>()</span>
+<span id="cb688-4"><a href="#cb688-4"></a>}</span>
+<span id="cb688-5"><a href="#cb688-5"></a><span class="fu">producto</span>(<span class="dv">3</span>)</span>
+<span id="cb688-6"><a href="#cb688-6"></a><span class="fu">producto</span>(<span class="dv">3</span>, <span class="sc">-</span><span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb679"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb679-1"><a href="#cb679-1"></a>funcion_producto <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">y =</span> x) {</span>
-<span id="cb679-2"><a href="#cb679-2"></a>  producto <span class="ot">&lt;-</span> x <span class="sc">*</span> y</span>
-<span id="cb679-3"><a href="#cb679-3"></a>  <span class="fu">return</span>(producto)</span>
-<span id="cb679-4"><a href="#cb679-4"></a>}</span>
-<span id="cb679-5"><a href="#cb679-5"></a><span class="fu">funcion_producto</span>(<span class="dv">3</span>)</span>
-<span id="cb679-6"><a href="#cb679-6"></a><span class="fu">funcion_producto</span>(<span class="dv">3</span>, <span class="sc">-</span><span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb689"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb689-1"><a href="#cb689-1"></a>funcion_producto <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">y =</span> x) {</span>
+<span id="cb689-2"><a href="#cb689-2"></a>  producto <span class="ot">&lt;-</span> x <span class="sc">*</span> y</span>
+<span id="cb689-3"><a href="#cb689-3"></a>  <span class="fu">return</span>(producto)</span>
+<span id="cb689-4"><a href="#cb689-4"></a>}</span>
+<span id="cb689-5"><a href="#cb689-5"></a><span class="fu">funcion_producto</span>(<span class="dv">3</span>)</span>
+<span id="cb689-6"><a href="#cb689-6"></a><span class="fu">funcion_producto</span>(<span class="dv">3</span>, <span class="sc">-</span><span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </div>
@@ -7574,19 +7693,19 @@ $lado_2
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb680"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb680-1"><a href="#cb680-1"></a><span class="co"># Distinguiendo mayúsculas</span></span>
-<span id="cb680-2"><a href="#cb680-2"></a>igualdad_nombres <span class="ot">&lt;-</span> <span class="cf">function</span>(persona_1, persona_2) {</span>
-<span id="cb680-3"><a href="#cb680-3"></a>  <span class="fu">return</span>(persona_1 <span class="sc">==</span> persona_2)</span>
-<span id="cb680-4"><a href="#cb680-4"></a>}</span>
-<span id="cb680-5"><a href="#cb680-5"></a><span class="fu">igualdad_nombres</span>(<span class="st">"Javi"</span>, <span class="st">"javi"</span>)</span>
-<span id="cb680-6"><a href="#cb680-6"></a><span class="fu">igualdad_nombres</span>(<span class="st">"Javi"</span>, <span class="st">"Lucía"</span>)</span>
-<span id="cb680-7"><a href="#cb680-7"></a></span>
-<span id="cb680-8"><a href="#cb680-8"></a><span class="co"># Sin importar mayúsculas</span></span>
-<span id="cb680-9"><a href="#cb680-9"></a>igualdad_nombres <span class="ot">&lt;-</span> <span class="cf">function</span>(persona_1, persona_2) {</span>
-<span id="cb680-10"><a href="#cb680-10"></a>  <span class="fu">return</span>(<span class="fu">toupper</span>(persona_1) <span class="sc">==</span> <span class="fu">toupper</span>(persona_2))</span>
-<span id="cb680-11"><a href="#cb680-11"></a>}</span>
-<span id="cb680-12"><a href="#cb680-12"></a><span class="fu">igualdad_nombres</span>(<span class="st">"Javi"</span>, <span class="st">"javi"</span>)</span>
-<span id="cb680-13"><a href="#cb680-13"></a><span class="fu">igualdad_nombres</span>(<span class="st">"Javi"</span>, <span class="st">"Lucía"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb690"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb690-1"><a href="#cb690-1"></a><span class="co"># Distinguiendo mayúsculas</span></span>
+<span id="cb690-2"><a href="#cb690-2"></a>igualdad_nombres <span class="ot">&lt;-</span> <span class="cf">function</span>(persona_1, persona_2) {</span>
+<span id="cb690-3"><a href="#cb690-3"></a>  <span class="fu">return</span>(persona_1 <span class="sc">==</span> persona_2)</span>
+<span id="cb690-4"><a href="#cb690-4"></a>}</span>
+<span id="cb690-5"><a href="#cb690-5"></a><span class="fu">igualdad_nombres</span>(<span class="st">"Javi"</span>, <span class="st">"javi"</span>)</span>
+<span id="cb690-6"><a href="#cb690-6"></a><span class="fu">igualdad_nombres</span>(<span class="st">"Javi"</span>, <span class="st">"Lucía"</span>)</span>
+<span id="cb690-7"><a href="#cb690-7"></a></span>
+<span id="cb690-8"><a href="#cb690-8"></a><span class="co"># Sin importar mayúsculas</span></span>
+<span id="cb690-9"><a href="#cb690-9"></a>igualdad_nombres <span class="ot">&lt;-</span> <span class="cf">function</span>(persona_1, persona_2) {</span>
+<span id="cb690-10"><a href="#cb690-10"></a>  <span class="fu">return</span>(<span class="fu">toupper</span>(persona_1) <span class="sc">==</span> <span class="fu">toupper</span>(persona_2))</span>
+<span id="cb690-11"><a href="#cb690-11"></a>}</span>
+<span id="cb690-12"><a href="#cb690-12"></a><span class="fu">igualdad_nombres</span>(<span class="st">"Javi"</span>, <span class="st">"javi"</span>)</span>
+<span id="cb690-13"><a href="#cb690-13"></a><span class="fu">igualdad_nombres</span>(<span class="st">"Javi"</span>, <span class="st">"Lucía"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </div>
@@ -7595,10 +7714,10 @@ $lado_2
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb681"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb681-1"><a href="#cb681-1"></a>calculo_IMC <span class="ot">&lt;-</span> <span class="cf">function</span>(nombre, peso, estatura) {</span>
-<span id="cb681-2"><a href="#cb681-2"></a>  </span>
-<span id="cb681-3"><a href="#cb681-3"></a>  <span class="fu">return</span>(<span class="fu">list</span>(<span class="st">"nombre"</span> <span class="ot">=</span> nombre, <span class="st">"IMC"</span> <span class="ot">=</span> peso<span class="sc">/</span>(estatura<span class="sc">^</span><span class="dv">2</span>)))</span>
-<span id="cb681-4"><a href="#cb681-4"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb691"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb691-1"><a href="#cb691-1"></a>calculo_IMC <span class="ot">&lt;-</span> <span class="cf">function</span>(nombre, peso, estatura) {</span>
+<span id="cb691-2"><a href="#cb691-2"></a>  </span>
+<span id="cb691-3"><a href="#cb691-3"></a>  <span class="fu">return</span>(<span class="fu">list</span>(<span class="st">"nombre"</span> <span class="ot">=</span> nombre, <span class="st">"IMC"</span> <span class="ot">=</span> peso<span class="sc">/</span>(estatura<span class="sc">^</span><span class="dv">2</span>)))</span>
+<span id="cb691-4"><a href="#cb691-4"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </div>
@@ -7607,11 +7726,11 @@ $lado_2
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb682"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb682-1"><a href="#cb682-1"></a>calculo_IMC <span class="ot">&lt;-</span> <span class="cf">function</span>(nombre, peso, estatura, <span class="at">unidades =</span> <span class="st">"metros"</span>) {</span>
-<span id="cb682-2"><a href="#cb682-2"></a>  </span>
-<span id="cb682-3"><a href="#cb682-3"></a>  <span class="fu">return</span>(<span class="fu">list</span>(<span class="st">"nombre"</span> <span class="ot">=</span> nombre,</span>
-<span id="cb682-4"><a href="#cb682-4"></a>              <span class="st">"IMC"</span> <span class="ot">=</span> peso<span class="sc">/</span>(<span class="fu">if_else</span>(unidades <span class="sc">==</span> <span class="st">"metros"</span>, estatura, estatura<span class="sc">/</span><span class="dv">100</span>)<span class="sc">^</span><span class="dv">2</span>)))</span>
-<span id="cb682-5"><a href="#cb682-5"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb692"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb692-1"><a href="#cb692-1"></a>calculo_IMC <span class="ot">&lt;-</span> <span class="cf">function</span>(nombre, peso, estatura, <span class="at">unidades =</span> <span class="st">"metros"</span>) {</span>
+<span id="cb692-2"><a href="#cb692-2"></a>  </span>
+<span id="cb692-3"><a href="#cb692-3"></a>  <span class="fu">return</span>(<span class="fu">list</span>(<span class="st">"nombre"</span> <span class="ot">=</span> nombre,</span>
+<span id="cb692-4"><a href="#cb692-4"></a>              <span class="st">"IMC"</span> <span class="ot">=</span> peso<span class="sc">/</span>(<span class="fu">if_else</span>(unidades <span class="sc">==</span> <span class="st">"metros"</span>, estatura, estatura<span class="sc">/</span><span class="dv">100</span>)<span class="sc">^</span><span class="dv">2</span>)))</span>
+<span id="cb692-5"><a href="#cb692-5"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </div>
@@ -7620,49 +7739,65 @@ $lado_2
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb683"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb683-1"><a href="#cb683-1"></a>datos <span class="ot">&lt;-</span></span>
-<span id="cb683-2"><a href="#cb683-2"></a>  <span class="fu">tibble</span>(<span class="st">"nombres"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"javi"</span>, <span class="st">"sandra"</span>, <span class="st">"laura"</span>,</span>
-<span id="cb683-3"><a href="#cb683-3"></a>                       <span class="st">"ana"</span>, <span class="st">"carlos"</span>, <span class="st">"leo"</span>, <span class="cn">NA</span>),</span>
-<span id="cb683-4"><a href="#cb683-4"></a>         <span class="st">"peso"</span> <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">7</span>, <span class="at">mean =</span> <span class="dv">70</span>, <span class="at">sd =</span> <span class="dv">1</span>),</span>
-<span id="cb683-5"><a href="#cb683-5"></a>         <span class="st">"estatura"</span> <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">7</span>, <span class="at">mean =</span> <span class="dv">168</span>, <span class="at">sd =</span> <span class="dv">5</span>))</span>
-<span id="cb683-6"><a href="#cb683-6"></a></span>
-<span id="cb683-7"><a href="#cb683-7"></a>datos <span class="sc">|&gt;</span> </span>
-<span id="cb683-8"><a href="#cb683-8"></a>  <span class="fu">mutate</span>(<span class="at">IMC =</span> <span class="fu">calculo_IMC</span>(nombres, peso, estatura, <span class="at">unidades =</span> <span class="st">"centímetros"</span>)<span class="sc">$</span>IMC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb693"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb693-1"><a href="#cb693-1"></a>datos <span class="ot">&lt;-</span></span>
+<span id="cb693-2"><a href="#cb693-2"></a>  <span class="fu">tibble</span>(<span class="st">"nombres"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"javi"</span>, <span class="st">"sandra"</span>, <span class="st">"laura"</span>,</span>
+<span id="cb693-3"><a href="#cb693-3"></a>                       <span class="st">"ana"</span>, <span class="st">"carlos"</span>, <span class="st">"leo"</span>, <span class="cn">NA</span>),</span>
+<span id="cb693-4"><a href="#cb693-4"></a>         <span class="st">"peso"</span> <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">7</span>, <span class="at">mean =</span> <span class="dv">70</span>, <span class="at">sd =</span> <span class="dv">1</span>),</span>
+<span id="cb693-5"><a href="#cb693-5"></a>         <span class="st">"estatura"</span> <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">7</span>, <span class="at">mean =</span> <span class="dv">168</span>, <span class="at">sd =</span> <span class="dv">5</span>))</span>
+<span id="cb693-6"><a href="#cb693-6"></a></span>
+<span id="cb693-7"><a href="#cb693-7"></a>datos <span class="sc">|&gt;</span> </span>
+<span id="cb693-8"><a href="#cb693-8"></a>  <span class="fu">mutate</span>(<span class="at">IMC =</span> <span class="fu">calculo_IMC</span>(nombres, peso, estatura, <span class="at">unidades =</span> <span class="st">"centímetros"</span>)<span class="sc">$</span>IMC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="caso9a" class="slide level2">
-<h2>🐣 Caso práctico 9: funciones</h2>
+<section id="caso10a" class="slide level2">
+<h2>🐣 Caso práctico 10: funciones</h2>
 <p>Define una función llamada <code>conversor_temperatura</code> que, dada una temperatura en Fahrenheit, Celsius o Kelvin, la convierta a cualquiera de las otras (piensa que argumentos necesita el usuario). Aplica la función a la columna <code>Temp</code> del conjunto <code>airquality</code>, e incorpórala al fichero en una nueva columna <code>Temp_Celsius</code>.</p>
+</section>
+<section id="caso10b" class="slide level2">
+<h2>🐣 Caso práctico 10: tidyverse</h2>
+<p>Acude a <a href="https://cnecovid.isciii.es/covid19/#documentaci%C3%B3n-y-datos" class="uri">https://cnecovid.isciii.es/covid19/#documentaci%C3%B3n-y-datos</a> e importa <code>casos_hosp_uci_def_sexo_edad_provres.csv</code>. Documentación en <a href="https://cnecovid.isciii.es/covid19/resources/metadata_casos_hosp_uci_def_sexo_edad_provres.pdf" class="uri">https://cnecovid.isciii.es/covid19/resources/metadata_casos_hosp_uci_def_sexo_edad_provres.pdf</a></p>
+<div class="fragment">
+<ol type="1">
+<li>¿Cuántos casos hay notificados para edad desconocida? ¿Y desagregado por sexo? Recodifica adecuadamente las provincias</li>
+</ol>
+</div>
+<div class="fragment">
+<ol start="2" type="1">
+<li>Dado su escaso peso en el total, genera una nueva base de datos en la que borremos aquellos registros con franja de edad desconocida.</li>
+</ol>
+</div>
+<div class="fragment">
+<ol start="3" type="1">
+<li>Con la base de datos generada en el ejercicio anterior, calcula la proporción de casos con sexo desconocido. Haz lo mismo con provincia desconocida. Elimina dichos registros si el número de casos representa menos del 1% (para cada una).</li>
+</ol>
+</div>
+</section>
+<section id="caso-práctico-10-tidyverse" class="slide level2">
+<h2>🐣 Caso práctico 10: tidyverse</h2>
+<ol start="4" type="1">
+<li>Del dataset anterior, elimina la variables de hospitalizados y UCI. Tras ello renombra las columnas de casos y fallecidos por <code>casos_diarios</code> y <code>fallec_diarios</code>, respectivamente. Tras ello crea dos nuevas variables llamadas <code>casos_acum</code> y otra <code>fallec_acum</code>, que contengan los casos acumulados y fallecidos acumulados para cada fecha, desagregados por provincia, tramo etario y sexo.</li>
+</ol>
+<div class="fragment">
+<ol start="5" type="1">
+<li>¿Cuáles fueron las 7 provincias con más casos a lo largo de toda la pandemia? ¿Y las 5 provincias con menos fallecidos? ¿Y si lo desagregamos por sexo?</li>
+</ol>
+</div>
+</section>
+<section id="caso-práctico-10-tidyverse-1" class="slide level2">
+<h2>🐣 Caso práctico 10: tidyverse</h2>
+<ol start="6" type="1">
+<li>Define una función llamada <code>calculo_letalidad()</code> que, dados como argumentos un vector ordenado (por fecha) de casos y otro de fallecidos, devuelva el % de casos que han fallecido, de manera acumulada en cada fecha. Haz uso de dicha función y crea una nueva variable que represente la letalidad, en cada grupo de edad, sexo y provincia.</li>
+</ol>
+<p>Tras ello, determina las 5 provincias con mayor letalidad en mujeres mayores de 80 años a fecha 01 de marzo de 2022.</p>
 </section></section>
 <section>
-<section id="clase-10-debug" class="title-slide slide level1 center">
-<h1>Clase 10: depuración</h1>
-<p><span style="color:#444442;"><strong>Tratamiento de ausentes y outliers. Dummificar variables</strong></span></p>
-</section>
-<section id="imputar-ausentes" class="slide level2">
-<h2>Imputar ausentes</h2>
-</section>
-<section id="detectar-e-imputar-outliers" class="slide level2">
-<h2>Detectar e imputar outliers</h2>
-</section>
-<section id="dummificar-variables" class="slide level2">
-<h2>Dummificar variables</h2>
-</section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="clase-x-entrega-ii" class="title-slide slide level1 center">
-<h1>Clase X: entrega II</h1>
+<section id="clase-11-entrega-ii" class="title-slide slide level1 center">
+<h1>Clase 11: entrega II</h1>
 <p><span style="color:#444442;"><strong>Segunda entrega individual en clase</strong></span></p>
-</section>
-<section id="ejercicios-para-practicar" class="slide level2">
-<h2>Ejercicios para practicar</h2>
-<p>Se actualizarán al menos 14 días antes de la entrega.</p>
 </section>
 <section id="entrega-ii" class="slide level2">
 <h2>Entrega II</h2>
@@ -7687,6 +7822,23 @@ $lado_2
 </div>
 </section></section>
 <section>
+<section id="clase-12-debug" class="title-slide slide level1 center">
+<h1>Clase 12: depuración</h1>
+<p><span style="color:#444442;"><strong>Tratamiento de ausentes y outliers. Dummificar variables</strong></span></p>
+</section>
+<section id="imputar-ausentes" class="slide level2">
+<h2>Imputar ausentes</h2>
+</section>
+<section id="detectar-e-imputar-outliers" class="slide level2">
+<h2>Detectar e imputar outliers</h2>
+</section>
+<section id="dummificar-variables" class="slide level2">
+<h2>Dummificar variables</h2>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
 <section id="caso-real-datos-de-encuestas" class="title-slide slide level1 center">
 <h1>Caso real: datos de encuestas</h1>
 <p><span style="color:#444442;"><strong>Pongamos en práctica lo aprendido…</strong></span></p>
@@ -7695,8 +7847,8 @@ $lado_2
 <h2>Caso real: datos de encuestas</h2>
 <p>El paquete <code>{readr}</code> (ya en <code>{tidyverse}</code>) nos permite realizar una carga más ágil y más inteligente que el <code>read.csv()</code> de base (lo importa a un <code>tibble</code> e interpreta bien el tipo de cada variable, incluso fechas)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb684"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb684-1"><a href="#cb684-1"></a>encuestas <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"./datos/historical_surveys.csv"</span>)</span>
-<span id="cb684-2"><a href="#cb684-2"></a>encuestas</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb694"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb694-1"><a href="#cb694-1"></a>encuestas <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"./datos/historical_surveys.csv"</span>)</span>
+<span id="cb694-2"><a href="#cb694-2"></a>encuestas</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3,753 × 59
    type_survey date_elec  id_pollster pollster media    field_date_from
@@ -7731,12 +7883,12 @@ $lado_2
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb686"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb686-1"><a href="#cb686-1"></a>encuestas <span class="ot">&lt;-</span></span>
-<span id="cb686-2"><a href="#cb686-2"></a>  encuestas <span class="sc">|&gt;</span> </span>
-<span id="cb686-3"><a href="#cb686-3"></a>  <span class="co"># Creamos un id con type_survey-date_elec-id_pollster</span></span>
-<span id="cb686-4"><a href="#cb686-4"></a>  <span class="co"># con .before la ponemos delante de everything(), de todo (1ª col)</span></span>
-<span id="cb686-5"><a href="#cb686-5"></a>  <span class="fu">mutate</span>(<span class="at">id_survey =</span> <span class="fu">glue</span>(<span class="st">"{type_survey}-{date_elec}-{id_pollster}"</span>),</span>
-<span id="cb686-6"><a href="#cb686-6"></a>         <span class="at">.before =</span> <span class="fu">everything</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb696"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb696-1"><a href="#cb696-1"></a>encuestas <span class="ot">&lt;-</span></span>
+<span id="cb696-2"><a href="#cb696-2"></a>  encuestas <span class="sc">|&gt;</span> </span>
+<span id="cb696-3"><a href="#cb696-3"></a>  <span class="co"># Creamos un id con type_survey-date_elec-id_pollster</span></span>
+<span id="cb696-4"><a href="#cb696-4"></a>  <span class="co"># con .before la ponemos delante de everything(), de todo (1ª col)</span></span>
+<span id="cb696-5"><a href="#cb696-5"></a>  <span class="fu">mutate</span>(<span class="at">id_survey =</span> <span class="fu">glue</span>(<span class="st">"{type_survey}-{date_elec}-{id_pollster}"</span>),</span>
+<span id="cb696-6"><a href="#cb696-6"></a>         <span class="at">.before =</span> <span class="fu">everything</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </div>
@@ -7749,11 +7901,11 @@ $lado_2
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb687"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb687-1"><a href="#cb687-1"></a>encuestas <span class="ot">&lt;-</span></span>
-<span id="cb687-2"><a href="#cb687-2"></a>  encuestas <span class="sc">|&gt;</span></span>
-<span id="cb687-3"><a href="#cb687-3"></a>  <span class="co"># Eliminamos duplicados por id_survey, pero mantenemos todas las</span></span>
-<span id="cb687-4"><a href="#cb687-4"></a>  <span class="co"># columnas con .keep_all = TRUE</span></span>
-<span id="cb687-5"><a href="#cb687-5"></a>  <span class="fu">distinct</span>(id_survey, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb697"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb697-1"><a href="#cb697-1"></a>encuestas <span class="ot">&lt;-</span></span>
+<span id="cb697-2"><a href="#cb697-2"></a>  encuestas <span class="sc">|&gt;</span></span>
+<span id="cb697-3"><a href="#cb697-3"></a>  <span class="co"># Eliminamos duplicados por id_survey, pero mantenemos todas las</span></span>
+<span id="cb697-4"><a href="#cb697-4"></a>  <span class="co"># columnas con .keep_all = TRUE</span></span>
+<span id="cb697-5"><a href="#cb697-5"></a>  <span class="fu">distinct</span>(id_survey, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -7765,11 +7917,11 @@ $lado_2
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb688"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb688-1"><a href="#cb688-1"></a>encuestas <span class="ot">&lt;-</span></span>
-<span id="cb688-2"><a href="#cb688-2"></a>  encuestas <span class="sc">|&gt;</span> </span>
-<span id="cb688-3"><a href="#cb688-3"></a>  <span class="co"># Eliminamos las columnas pedidas con un -</span></span>
-<span id="cb688-4"><a href="#cb688-4"></a>  <span class="co"># las concateno para usar solo un - para todas</span></span>
-<span id="cb688-5"><a href="#cb688-5"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(type_survey, id_pollster, media))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb698"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb698-1"><a href="#cb698-1"></a>encuestas <span class="ot">&lt;-</span></span>
+<span id="cb698-2"><a href="#cb698-2"></a>  encuestas <span class="sc">|&gt;</span> </span>
+<span id="cb698-3"><a href="#cb698-3"></a>  <span class="co"># Eliminamos las columnas pedidas con un -</span></span>
+<span id="cb698-4"><a href="#cb698-4"></a>  <span class="co"># las concateno para usar solo un - para todas</span></span>
+<span id="cb698-5"><a href="#cb698-5"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(type_survey, id_pollster, media))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -7781,14 +7933,14 @@ $lado_2
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb689"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb689-1"><a href="#cb689-1"></a>encuestas <span class="ot">&lt;-</span></span>
-<span id="cb689-2"><a href="#cb689-2"></a>  encuestas <span class="sc">|&gt;</span> </span>
-<span id="cb689-3"><a href="#cb689-3"></a>  <span class="co"># eliminar ausentes</span></span>
-<span id="cb689-4"><a href="#cb689-4"></a>  <span class="fu">drop_na</span>(size) <span class="sc">|&gt;</span> </span>
-<span id="cb689-5"><a href="#cb689-5"></a>  <span class="co"># Filtramos encuestas (registros) a pie de urna (aquellas que exit_poll == FALSE)</span></span>
-<span id="cb689-6"><a href="#cb689-6"></a>  <span class="fu">filter</span>(<span class="sc">!</span>exit_poll) <span class="sc">|&gt;</span> </span>
-<span id="cb689-7"><a href="#cb689-7"></a>  <span class="co"># Quitamos la variable pie de urna</span></span>
-<span id="cb689-8"><a href="#cb689-8"></a>  <span class="fu">select</span>(<span class="sc">-</span>exit_poll)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb699"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb699-1"><a href="#cb699-1"></a>encuestas <span class="ot">&lt;-</span></span>
+<span id="cb699-2"><a href="#cb699-2"></a>  encuestas <span class="sc">|&gt;</span> </span>
+<span id="cb699-3"><a href="#cb699-3"></a>  <span class="co"># eliminar ausentes</span></span>
+<span id="cb699-4"><a href="#cb699-4"></a>  <span class="fu">drop_na</span>(size) <span class="sc">|&gt;</span> </span>
+<span id="cb699-5"><a href="#cb699-5"></a>  <span class="co"># Filtramos encuestas (registros) a pie de urna (aquellas que exit_poll == FALSE)</span></span>
+<span id="cb699-6"><a href="#cb699-6"></a>  <span class="fu">filter</span>(<span class="sc">!</span>exit_poll) <span class="sc">|&gt;</span> </span>
+<span id="cb699-7"><a href="#cb699-7"></a>  <span class="co"># Quitamos la variable pie de urna</span></span>
+<span id="cb699-8"><a href="#cb699-8"></a>  <span class="fu">select</span>(<span class="sc">-</span>exit_poll)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -7800,13 +7952,13 @@ $lado_2
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb690"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb690-1"><a href="#cb690-1"></a>encuestas <span class="ot">&lt;-</span></span>
-<span id="cb690-2"><a href="#cb690-2"></a>  encuestas <span class="sc">|&gt;</span> </span>
-<span id="cb690-3"><a href="#cb690-3"></a>  <span class="co"># Convertimos a tidydata</span></span>
-<span id="cb690-4"><a href="#cb690-4"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>(id_survey<span class="sc">:</span>turnout),</span>
-<span id="cb690-5"><a href="#cb690-5"></a>               <span class="at">names_to =</span> <span class="st">"partido"</span>,</span>
-<span id="cb690-6"><a href="#cb690-6"></a>               <span class="at">values_to =</span> <span class="st">"est_voto"</span>,</span>
-<span id="cb690-7"><a href="#cb690-7"></a>               <span class="at">values_drop_na =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb700"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb700-1"><a href="#cb700-1"></a>encuestas <span class="ot">&lt;-</span></span>
+<span id="cb700-2"><a href="#cb700-2"></a>  encuestas <span class="sc">|&gt;</span> </span>
+<span id="cb700-3"><a href="#cb700-3"></a>  <span class="co"># Convertimos a tidydata</span></span>
+<span id="cb700-4"><a href="#cb700-4"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>(id_survey<span class="sc">:</span>turnout),</span>
+<span id="cb700-5"><a href="#cb700-5"></a>               <span class="at">names_to =</span> <span class="st">"partido"</span>,</span>
+<span id="cb700-6"><a href="#cb700-6"></a>               <span class="at">values_to =</span> <span class="st">"est_voto"</span>,</span>
+<span id="cb700-7"><a href="#cb700-7"></a>               <span class="at">values_drop_na =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -7818,14 +7970,14 @@ $lado_2
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb691"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb691-1"><a href="#cb691-1"></a>encuestas <span class="ot">&lt;-</span></span>
-<span id="cb691-2"><a href="#cb691-2"></a>  encuestas <span class="sc">|&gt;</span> </span>
-<span id="cb691-3"><a href="#cb691-3"></a>  <span class="co"># Calculamos los días de campo como la diferencia de fechas </span></span>
-<span id="cb691-4"><a href="#cb691-4"></a>  <span class="co"># con as.numeric() convertimos la dif. de fechas a un número</span></span>
-<span id="cb691-5"><a href="#cb691-5"></a>  <span class="fu">mutate</span>(<span class="at">n_dias_campo =</span> <span class="fu">as.numeric</span>(field_date_to <span class="sc">-</span> field_date_from),</span>
-<span id="cb691-6"><a href="#cb691-6"></a>         <span class="at">.after =</span> pollster) <span class="sc">|&gt;</span> </span>
-<span id="cb691-7"><a href="#cb691-7"></a>  <span class="co"># Solo aquellas cuyo trabajo de campo haya durado 1 día o más</span></span>
-<span id="cb691-8"><a href="#cb691-8"></a>  <span class="fu">filter</span>(n_dias_campo <span class="sc">&gt;</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb701"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb701-1"><a href="#cb701-1"></a>encuestas <span class="ot">&lt;-</span></span>
+<span id="cb701-2"><a href="#cb701-2"></a>  encuestas <span class="sc">|&gt;</span> </span>
+<span id="cb701-3"><a href="#cb701-3"></a>  <span class="co"># Calculamos los días de campo como la diferencia de fechas </span></span>
+<span id="cb701-4"><a href="#cb701-4"></a>  <span class="co"># con as.numeric() convertimos la dif. de fechas a un número</span></span>
+<span id="cb701-5"><a href="#cb701-5"></a>  <span class="fu">mutate</span>(<span class="at">n_dias_campo =</span> <span class="fu">as.numeric</span>(field_date_to <span class="sc">-</span> field_date_from),</span>
+<span id="cb701-6"><a href="#cb701-6"></a>         <span class="at">.after =</span> pollster) <span class="sc">|&gt;</span> </span>
+<span id="cb701-7"><a href="#cb701-7"></a>  <span class="co"># Solo aquellas cuyo trabajo de campo haya durado 1 día o más</span></span>
+<span id="cb701-8"><a href="#cb701-8"></a>  <span class="fu">filter</span>(n_dias_campo <span class="sc">&gt;</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -7837,14 +7989,14 @@ $lado_2
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb692"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb692-1"><a href="#cb692-1"></a>encuestas <span class="ot">&lt;-</span></span>
-<span id="cb692-2"><a href="#cb692-2"></a>  encuestas <span class="sc">|&gt;</span> </span>
-<span id="cb692-3"><a href="#cb692-3"></a>  <span class="co"># Calculamos los días que faltan a las elecciones</span></span>
-<span id="cb692-4"><a href="#cb692-4"></a>  <span class="co"># con as.numeric() convertimos la dif. de fechas a un número</span></span>
-<span id="cb692-5"><a href="#cb692-5"></a>  <span class="fu">mutate</span>(<span class="at">n_dias_elec =</span> <span class="fu">as.numeric</span>(date_elec <span class="sc">-</span> field_date_to),</span>
-<span id="cb692-6"><a href="#cb692-6"></a>         <span class="at">.after =</span> n_dias_campo) <span class="sc">|&gt;</span> </span>
-<span id="cb692-7"><a href="#cb692-7"></a>  <span class="co"># Eliminamos ya las fechas de campo que no necesitamos</span></span>
-<span id="cb692-8"><a href="#cb692-8"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">contains</span>(<span class="st">"field"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb702"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb702-1"><a href="#cb702-1"></a>encuestas <span class="ot">&lt;-</span></span>
+<span id="cb702-2"><a href="#cb702-2"></a>  encuestas <span class="sc">|&gt;</span> </span>
+<span id="cb702-3"><a href="#cb702-3"></a>  <span class="co"># Calculamos los días que faltan a las elecciones</span></span>
+<span id="cb702-4"><a href="#cb702-4"></a>  <span class="co"># con as.numeric() convertimos la dif. de fechas a un número</span></span>
+<span id="cb702-5"><a href="#cb702-5"></a>  <span class="fu">mutate</span>(<span class="at">n_dias_elec =</span> <span class="fu">as.numeric</span>(date_elec <span class="sc">-</span> field_date_to),</span>
+<span id="cb702-6"><a href="#cb702-6"></a>         <span class="at">.after =</span> n_dias_campo) <span class="sc">|&gt;</span> </span>
+<span id="cb702-7"><a href="#cb702-7"></a>  <span class="co"># Eliminamos ya las fechas de campo que no necesitamos</span></span>
+<span id="cb702-8"><a href="#cb702-8"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">contains</span>(<span class="st">"field"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -7856,10 +8008,10 @@ $lado_2
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb693"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb693-1"><a href="#cb693-1"></a>encuestas <span class="ot">&lt;-</span></span>
-<span id="cb693-2"><a href="#cb693-2"></a>  encuestas <span class="sc">|&gt;</span></span>
-<span id="cb693-3"><a href="#cb693-3"></a>  <span class="co"># Solo con encuestas antes del baneo electoral</span></span>
-<span id="cb693-4"><a href="#cb693-4"></a>  <span class="fu">filter</span>(n_dias_elec <span class="sc">&gt;</span> <span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb703"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb703-1"><a href="#cb703-1"></a>encuestas <span class="ot">&lt;-</span></span>
+<span id="cb703-2"><a href="#cb703-2"></a>  encuestas <span class="sc">|&gt;</span></span>
+<span id="cb703-3"><a href="#cb703-3"></a>  <span class="co"># Solo con encuestas antes del baneo electoral</span></span>
+<span id="cb703-4"><a href="#cb703-4"></a>  <span class="fu">filter</span>(n_dias_elec <span class="sc">&gt;</span> <span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -7871,10 +8023,10 @@ $lado_2
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb694"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb694-1"><a href="#cb694-1"></a>encuestas <span class="sc">|&gt;</span></span>
-<span id="cb694-2"><a href="#cb694-2"></a>  <span class="co"># Resumen: media de voto por fecha y partido</span></span>
-<span id="cb694-3"><a href="#cb694-3"></a>  <span class="fu">summarise</span>(<span class="at">media_voto =</span> <span class="fu">mean</span>(est_voto),</span>
-<span id="cb694-4"><a href="#cb694-4"></a>            <span class="at">.by =</span> <span class="fu">c</span>(<span class="st">"date_elec"</span>, <span class="st">"partido"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb704"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb704-1"><a href="#cb704-1"></a>encuestas <span class="sc">|&gt;</span></span>
+<span id="cb704-2"><a href="#cb704-2"></a>  <span class="co"># Resumen: media de voto por fecha y partido</span></span>
+<span id="cb704-3"><a href="#cb704-3"></a>  <span class="fu">summarise</span>(<span class="at">media_voto =</span> <span class="fu">mean</span>(est_voto),</span>
+<span id="cb704-4"><a href="#cb704-4"></a>            <span class="at">.by =</span> <span class="fu">c</span>(<span class="st">"date_elec"</span>, <span class="st">"partido"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 137 × 3
@@ -7902,14 +8054,14 @@ $lado_2
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb696"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb696-1"><a href="#cb696-1"></a>encuestas <span class="sc">|&gt;</span></span>
-<span id="cb696-2"><a href="#cb696-2"></a>  <span class="co"># Filtramos ventana de 60 días</span></span>
-<span id="cb696-3"><a href="#cb696-3"></a>  <span class="fu">filter</span>(n_dias_elec <span class="sc">&lt;=</span> <span class="dv">60</span>) <span class="sc">|&gt;</span></span>
-<span id="cb696-4"><a href="#cb696-4"></a>  <span class="co"># Media de est_voto por fecha y partido</span></span>
-<span id="cb696-5"><a href="#cb696-5"></a>  <span class="fu">summarise</span>(<span class="at">media_voto =</span> <span class="fu">mean</span>(est_voto),</span>
-<span id="cb696-6"><a href="#cb696-6"></a>            <span class="at">.by =</span> <span class="fu">c</span>(<span class="st">"date_elec"</span>, <span class="st">"partido"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb696-7"><a href="#cb696-7"></a>  <span class="co"># Ordenar de mayor a menor</span></span>
-<span id="cb696-8"><a href="#cb696-8"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(date_elec))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb706"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb706-1"><a href="#cb706-1"></a>encuestas <span class="sc">|&gt;</span></span>
+<span id="cb706-2"><a href="#cb706-2"></a>  <span class="co"># Filtramos ventana de 60 días</span></span>
+<span id="cb706-3"><a href="#cb706-3"></a>  <span class="fu">filter</span>(n_dias_elec <span class="sc">&lt;=</span> <span class="dv">60</span>) <span class="sc">|&gt;</span></span>
+<span id="cb706-4"><a href="#cb706-4"></a>  <span class="co"># Media de est_voto por fecha y partido</span></span>
+<span id="cb706-5"><a href="#cb706-5"></a>  <span class="fu">summarise</span>(<span class="at">media_voto =</span> <span class="fu">mean</span>(est_voto),</span>
+<span id="cb706-6"><a href="#cb706-6"></a>            <span class="at">.by =</span> <span class="fu">c</span>(<span class="st">"date_elec"</span>, <span class="st">"partido"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb706-7"><a href="#cb706-7"></a>  <span class="co"># Ordenar de mayor a menor</span></span>
+<span id="cb706-8"><a href="#cb706-8"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(date_elec))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 122 × 3
@@ -7937,16 +8089,16 @@ $lado_2
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb698"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb698-1"><a href="#cb698-1"></a>encuestas <span class="sc">|&gt;</span> </span>
-<span id="cb698-2"><a href="#cb698-2"></a>  <span class="co"># Filtramos ventana de 60 días</span></span>
-<span id="cb698-3"><a href="#cb698-3"></a>  <span class="fu">filter</span>(n_dias_elec <span class="sc">&lt;=</span> <span class="dv">60</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb698-4"><a href="#cb698-4"></a>  <span class="co"># Media de est_voto por fecha y partido</span></span>
-<span id="cb698-5"><a href="#cb698-5"></a>  <span class="fu">summarise</span>(<span class="at">media_voto =</span> <span class="fu">mean</span>(est_voto),</span>
-<span id="cb698-6"><a href="#cb698-6"></a>            <span class="at">.by =</span> <span class="fu">c</span>(<span class="st">"date_elec"</span>, <span class="st">"partido"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb698-7"><a href="#cb698-7"></a>  <span class="co"># Ordenar de mayor a menor por fecha</span></span>
-<span id="cb698-8"><a href="#cb698-8"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(date_elec)) <span class="sc">|&gt;</span></span>
-<span id="cb698-9"><a href="#cb698-9"></a>  <span class="co"># extraemos los dos con más est de voto (por cada fecha)</span></span>
-<span id="cb698-10"><a href="#cb698-10"></a>  <span class="fu">slice_max</span>(media_voto, <span class="at">n =</span> <span class="dv">2</span>, <span class="at">by =</span> date_elec)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb708"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb708-1"><a href="#cb708-1"></a>encuestas <span class="sc">|&gt;</span> </span>
+<span id="cb708-2"><a href="#cb708-2"></a>  <span class="co"># Filtramos ventana de 60 días</span></span>
+<span id="cb708-3"><a href="#cb708-3"></a>  <span class="fu">filter</span>(n_dias_elec <span class="sc">&lt;=</span> <span class="dv">60</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb708-4"><a href="#cb708-4"></a>  <span class="co"># Media de est_voto por fecha y partido</span></span>
+<span id="cb708-5"><a href="#cb708-5"></a>  <span class="fu">summarise</span>(<span class="at">media_voto =</span> <span class="fu">mean</span>(est_voto),</span>
+<span id="cb708-6"><a href="#cb708-6"></a>            <span class="at">.by =</span> <span class="fu">c</span>(<span class="st">"date_elec"</span>, <span class="st">"partido"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb708-7"><a href="#cb708-7"></a>  <span class="co"># Ordenar de mayor a menor por fecha</span></span>
+<span id="cb708-8"><a href="#cb708-8"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(date_elec)) <span class="sc">|&gt;</span></span>
+<span id="cb708-9"><a href="#cb708-9"></a>  <span class="co"># extraemos los dos con más est de voto (por cada fecha)</span></span>
+<span id="cb708-10"><a href="#cb708-10"></a>  <span class="fu">slice_max</span>(media_voto, <span class="at">n =</span> <span class="dv">2</span>, <span class="at">by =</span> date_elec)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 22 × 3
@@ -8042,7 +8194,7 @@ $lado_2
 <div class="fragment">
 <p>Para ello antes tendremos que instalar un <span class="hl-yellow"><strong>conjunto de paquetes para desarrolladores</strong></span> llamado <code>{devtools}</code>, que nos permitirá la instalación desde Github</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb700"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb700-1"><a href="#cb700-1"></a><span class="fu">install.packages</span>(<span class="st">"devtools"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb710"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb710-1"><a href="#cb710-1"></a><span class="fu">install.packages</span>(<span class="st">"devtools"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -8059,7 +8211,7 @@ $lado_2
 <div class="fragment">
 <p>En la mayoría de casos bastará con la función <code>install_github()</code> (del paquete que acabamos de instalar), pasándole como argumento la <span class="hl-yellow"><strong>ruta del repositorio</strong></span> (sin “github.com/”).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb701"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb701-1"><a href="#cb701-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"jbgb13/peRReo"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb711"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb711-1"><a href="#cb711-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"jbgb13/peRReo"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Ya puedes perrear con ggplot ;)</p>
 </div>
@@ -8145,8 +8297,8 @@ $lado_2
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb702"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb702-1"><a href="#cb702-1"></a><span class="co"># Carga de datos desde ISCIII</span></span>
-<span id="cb702-2"><a href="#cb702-2"></a>datos_covid <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"https://cnecovid.isciii.es/covid19/resources/casos_hosp_uci_def_sexo_edad_provres.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb712"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb712-1"><a href="#cb712-1"></a><span class="co"># Carga de datos desde ISCIII</span></span>
+<span id="cb712-2"><a href="#cb712-2"></a>datos_covid <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"https://cnecovid.isciii.es/covid19/resources/casos_hosp_uci_def_sexo_edad_provres.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="fragment">
@@ -8156,15 +8308,15 @@ $lado_2
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb703"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb703-1"><a href="#cb703-1"></a><span class="co"># Depuración</span></span>
-<span id="cb703-2"><a href="#cb703-2"></a>datos_madrid <span class="ot">&lt;-</span></span>
-<span id="cb703-3"><a href="#cb703-3"></a>  datos_covid <span class="sc">|&gt;</span></span>
-<span id="cb703-4"><a href="#cb703-4"></a>  <span class="co"># Filtrado por Madrid y fecha</span></span>
-<span id="cb703-5"><a href="#cb703-5"></a>  <span class="fu">filter</span>(provincia_iso <span class="sc">==</span> <span class="st">"M"</span> <span class="sc">&amp;</span> fecha <span class="sc">&lt;=</span> <span class="st">"2020-12-31"</span> <span class="sc">&amp;</span> sexo <span class="sc">!=</span> <span class="st">"NC"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb703-6"><a href="#cb703-6"></a>  <span class="co"># Selección de columnas</span></span>
-<span id="cb703-7"><a href="#cb703-7"></a>  <span class="fu">select</span>(provincia_iso<span class="sc">:</span>fecha, num_casos) <span class="sc">|&gt;</span> </span>
-<span id="cb703-8"><a href="#cb703-8"></a>  <span class="co"># Resumen de casos diarios por fecha y sexo</span></span>
-<span id="cb703-9"><a href="#cb703-9"></a>  <span class="fu">summarise</span>(<span class="at">num_casos =</span> <span class="fu">sum</span>(num_casos), <span class="at">.by =</span> <span class="fu">c</span>(fecha, sexo))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb713"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb713-1"><a href="#cb713-1"></a><span class="co"># Depuración</span></span>
+<span id="cb713-2"><a href="#cb713-2"></a>datos_madrid <span class="ot">&lt;-</span></span>
+<span id="cb713-3"><a href="#cb713-3"></a>  datos_covid <span class="sc">|&gt;</span></span>
+<span id="cb713-4"><a href="#cb713-4"></a>  <span class="co"># Filtrado por Madrid y fecha</span></span>
+<span id="cb713-5"><a href="#cb713-5"></a>  <span class="fu">filter</span>(provincia_iso <span class="sc">==</span> <span class="st">"M"</span> <span class="sc">&amp;</span> fecha <span class="sc">&lt;=</span> <span class="st">"2020-12-31"</span> <span class="sc">&amp;</span> sexo <span class="sc">!=</span> <span class="st">"NC"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb713-6"><a href="#cb713-6"></a>  <span class="co"># Selección de columnas</span></span>
+<span id="cb713-7"><a href="#cb713-7"></a>  <span class="fu">select</span>(provincia_iso<span class="sc">:</span>fecha, num_casos) <span class="sc">|&gt;</span> </span>
+<span id="cb713-8"><a href="#cb713-8"></a>  <span class="co"># Resumen de casos diarios por fecha y sexo</span></span>
+<span id="cb713-9"><a href="#cb713-9"></a>  <span class="fu">summarise</span>(<span class="at">num_casos =</span> <span class="fu">sum</span>(num_casos), <span class="at">.by =</span> <span class="fu">c</span>(fecha, sexo))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </div>
@@ -8177,8 +8329,8 @@ $lado_2
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb704"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb704-1"><a href="#cb704-1"></a><span class="co"># Exportamos datos</span></span>
-<span id="cb704-2"><a href="#cb704-2"></a><span class="fu">write_csv</span>(datos_madrid, <span class="at">file =</span> <span class="st">"./exportado/datos_madrid.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb714"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb714-1"><a href="#cb714-1"></a><span class="co"># Exportamos datos</span></span>
+<span id="cb714-2"><a href="#cb714-2"></a><span class="fu">write_csv</span>(datos_madrid, <span class="at">file =</span> <span class="st">"./exportado/datos_madrid.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="fragment">
@@ -8190,14 +8342,14 @@ $lado_2
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb705"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb705-1"><a href="#cb705-1"></a><span class="co"># Gráfica</span></span>
-<span id="cb705-2"><a href="#cb705-2"></a><span class="fu">ggplot</span>(datos_madrid) <span class="sc">+</span></span>
-<span id="cb705-3"><a href="#cb705-3"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> fecha, <span class="at">y =</span> num_casos, <span class="at">color =</span> sexo),</span>
-<span id="cb705-4"><a href="#cb705-4"></a>            <span class="at">alpha =</span> <span class="fl">0.6</span>, <span class="at">linewidth =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
-<span id="cb705-5"><a href="#cb705-5"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#85519D"</span>, <span class="st">"#278862"</span>)) <span class="sc">+</span></span>
-<span id="cb705-6"><a href="#cb705-6"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>sexo) <span class="sc">+</span></span>
-<span id="cb705-7"><a href="#cb705-7"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb705-8"><a href="#cb705-8"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb715"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb715-1"><a href="#cb715-1"></a><span class="co"># Gráfica</span></span>
+<span id="cb715-2"><a href="#cb715-2"></a><span class="fu">ggplot</span>(datos_madrid) <span class="sc">+</span></span>
+<span id="cb715-3"><a href="#cb715-3"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> fecha, <span class="at">y =</span> num_casos, <span class="at">color =</span> sexo),</span>
+<span id="cb715-4"><a href="#cb715-4"></a>            <span class="at">alpha =</span> <span class="fl">0.6</span>, <span class="at">linewidth =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb715-5"><a href="#cb715-5"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#85519D"</span>, <span class="st">"#278862"</span>)) <span class="sc">+</span></span>
+<span id="cb715-6"><a href="#cb715-6"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>sexo) <span class="sc">+</span></span>
+<span id="cb715-7"><a href="#cb715-7"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb715-8"><a href="#cb715-8"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </div><div class="column" style="width:60%;">
@@ -8210,8 +8362,8 @@ $lado_2
 <li>Tras ello <span class="hl-yellow"><strong>exportamos la gráfica</strong></span></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb706"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb706-1"><a href="#cb706-1"></a><span class="fu">ggsave</span>(<span class="at">filename =</span> <span class="st">"./exportado/ggplot.png"</span>, <span class="at">plot =</span> <span class="fu">last_plot</span>(),</span>
-<span id="cb706-2"><a href="#cb706-2"></a>       <span class="at">bg =</span> <span class="st">"white"</span>, <span class="at">width =</span> <span class="dv">12</span>, <span class="at">height =</span> <span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb716"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb716-1"><a href="#cb716-1"></a><span class="fu">ggsave</span>(<span class="at">filename =</span> <span class="st">"./exportado/ggplot.png"</span>, <span class="at">plot =</span> <span class="fu">last_plot</span>(),</span>
+<span id="cb716-2"><a href="#cb716-2"></a>       <span class="at">bg =</span> <span class="st">"white"</span>, <span class="at">width =</span> <span class="dv">12</span>, <span class="at">height =</span> <span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -8255,11 +8407,11 @@ $lado_2
 <h2>Repo de código</h2>
 <p>Vamos a realizar un <span class="hl-yellow"><strong>cambio en nuestro código</strong></span>: en tu código local (local –&gt; tu ordenador), en lugar de filtrar por Madrid haz el <span class="hl-yellow"><strong>filtro por Barcelona</strong></span>, guarda el código y sube en el repositorio el nuevo archivo (con el mismo nombre, Github hará la sobrescritura)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb707" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb707-1"><a href="#cb707-1"></a>datos_bcn <span class="ot">&lt;-</span></span>
-<span id="cb707-2"><a href="#cb707-2"></a>  datos_covid <span class="sc">|&gt;</span></span>
-<span id="cb707-3"><a href="#cb707-3"></a>  <span class="fu">filter</span>(provincia_iso <span class="sc">==</span> <span class="st">"B"</span> <span class="sc">&amp;</span> fecha <span class="sc">&lt;=</span> <span class="st">"2020-12-31"</span> <span class="sc">&amp;</span> sexo <span class="sc">!=</span> <span class="st">"NC"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb707-4"><a href="#cb707-4"></a>  <span class="fu">select</span>(fecha, sexo, grupo_edad, num_casos) <span class="sc">|&gt;</span> </span>
-<span id="cb707-5"><a href="#cb707-5"></a>  <span class="fu">summarise</span>(<span class="at">num_casos =</span> <span class="fu">sum</span>(num_casos), <span class="at">.by =</span> <span class="fu">c</span>(fecha, sexo))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb717" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb717-1"><a href="#cb717-1"></a>datos_bcn <span class="ot">&lt;-</span></span>
+<span id="cb717-2"><a href="#cb717-2"></a>  datos_covid <span class="sc">|&gt;</span></span>
+<span id="cb717-3"><a href="#cb717-3"></a>  <span class="fu">filter</span>(provincia_iso <span class="sc">==</span> <span class="st">"B"</span> <span class="sc">&amp;</span> fecha <span class="sc">&lt;=</span> <span class="st">"2020-12-31"</span> <span class="sc">&amp;</span> sexo <span class="sc">!=</span> <span class="st">"NC"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb717-4"><a href="#cb717-4"></a>  <span class="fu">select</span>(fecha, sexo, grupo_edad, num_casos) <span class="sc">|&gt;</span> </span>
+<span id="cb717-5"><a href="#cb717-5"></a>  <span class="fu">summarise</span>(<span class="at">num_casos =</span> <span class="fu">sum</span>(num_casos), <span class="at">.by =</span> <span class="fu">c</span>(fecha, sexo))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="consulta-de-commits" class="slide level2">

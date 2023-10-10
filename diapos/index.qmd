@@ -6218,9 +6218,9 @@ starwars |>
 ```
 :::
 
-# Clase 9: funciones {#clase-9-funciones}
+# Clase 9: repaso e intro a funciones {#clase-9-funciones}
 
-[**¿Qué es una función? ¿Cómo se definen? Variables locales vs globales. Uso con mutate**]{style="color:#444442;"}
+[**¿Qué es una función? ¿Cómo se definen?**]{style="color:#444442;"}
 
 ## 🐣 Caso práctico 9 {#caso9}
 
@@ -6228,43 +6228,143 @@ Vamos antes a hacer un [**repaso de lo aprendido**]{.hl-yellow} en `{tidyverse}`
 
 1. Carga la tabla billboard del paquete `{tidyr}`.
 
+```{r}
+#| code-fold: true
+#| eval: false
+billboard
+```
+
 . . .
 
 2. Antes de nada, selecciona solo las [**primeras 52 semanas**]{.hl-yellow}. Tras ello convierte el dataset a [**tidydata**]{.hl-yellow} con los formatos y tipos adecuados para cada variable
+
+```{r}
+#| code-fold: true
+#| eval: false
+billboard_tidy <-
+  billboard |> 
+  select(artist:date.entered, wk1:wk52) |> 
+  pivot_longer(cols = wk1:wk52,
+               names_to = "week",
+               values_to = "rank",
+               values_drop_na = TRUE,
+               names_prefix = "wk") |> 
+  mutate(week = as.numeric(week))
+```
 
 . . .
 
 3. Extrae la [**lista de artistas distintos**]{.hl-yellow} que aparecen en la tabla, incluyendo [**cuántas veces**]{.hl-yellow} aparece cada uno.
 
-. . .
-
-4. Determina las [**5 canciones que más semanas**]{.hl-yellow} aparecen en la lista de éxitos. 
-. . .
-
-5. Determina el [**artista con más canciones**]{.hl-yellow} en la lista
-
-. . .
-
-6. Calcula el [**número de canciones distintas**]{.hl-yellow} de cada artista
+```{r}
+#| code-fold: true
+#| eval: false
+billboard_tidy |> 
+  count(artist)
+```
 
 ---
 
 ## 🐣 Caso práctico 9
 
 
-7. Calcula la [**posición más alta**]{.hl-yellow} en la que ha estado cada canción. Calcula la posición más alta en la que ha estado un artista
+4. Determina [**cuántas canciones tiene cada artistal**]{.hl-yellow}
+
+```{r}
+#| code-fold: true
+#| eval: false
+billboard_tidy |> 
+  distinct(artist, track) |> 
+  count(artist)
+```
 
 . . .
 
-8. Calcula la [**primera semana que cada canción entró**]{.hl-yellow} en el top 100
+5. Determina las [**5 canciones que más semanas**]{.hl-yellow} aparecen en la lista de éxitos. 
+```{r}
+#| code-fold: true
+#| eval: false
+billboard_tidy |> 
+  count(track) |> 
+  slice_max(n = 5, n)
+```
 
 . . .
+
+6. Determina [**para cada artista la canción que más semanas**]{.hl-yellow} aparece en la lista de éxitos. 
+
+```{r}
+#| code-fold: true
+#| eval: false
+billboard_tidy |> 
+  count(artist, track) |> 
+  slice_max(n = 1, n, by = artist)
+```
+
+
+---
+
+## 🐣 Caso práctico 9
+
+7. Determina el [**artista con más canciones**]{.hl-yellow} en la lista
+
+
+```{r}
+#| code-fold: true
+#| eval: false
+billboard_tidy |> 
+  distinct(artist, track) |> 
+  count(artist) |> 
+  slice_max(n = 1, n)
+```
+
+. . .
+
+8. Calcula la [**posición más alta**]{.hl-yellow} en la que ha estado cada canción. Calcula la posición más alta en la que ha estado un artista
+
+
+```{r}
+#| code-fold: true
+#| eval: false
+billboard_tidy |> 
+  slice_min(rank, n = 1, with_ties = FALSE, by = track)
+```
+
+```{r}
+#| code-fold: true
+#| eval: false
+billboard_tidy |> 
+  slice_min(rank, n = 1, with_ties = FALSE, by = artist)
+```
+
+---
+
+## 🐣 Caso práctico 9
 
 9. Obtén una [**tabla resumen**]{.hl-yellow} con el ranking medio de cada artista (contando solo el ranking más alto alcanzado por sus canciones), así como el número de canciones (distintas) que ha colocado en el top 100.
+
+
+```{r}
+#| code-fold: true
+#| eval: false
+billboard_tidy |> 
+  slice_min(rank, n = 1, with_ties = FALSE, by = track) |> 
+  summarise(avg_rank = mean(rank), n_songs = n(), .by = artist)
+```
 
 . . .
 
 10. Realiza un muestreo aleatorio estratificado, extrayendo el 50% de los datos pero manteniendo la proporción de datos entre los distintos cuatrimestres.
+
+
+```{r}
+#| code-fold: true
+#| eval: false
+billboard_tidy |> 
+  mutate(quarter = quarter(date.entered)) |> 
+  slice_sample(prop = 0.5, by = quarter)
+```
+
 
 ---
 
@@ -6464,17 +6564,45 @@ calcular_area <- function(lado_1, lado_2 = lado_1) {
 ```
 
 
+# Clase 10: profundizando funciones {#clase-10}
+
+[**¿Qué es una función? ¿Cómo se definen? Variables locales vs globlales. Introducción a listas**]{style="color:#444442;"}
+
 
 ---
 
-## Salida múltiple
+## Funciones en R
+
+Repasando el último día...
+
+```{r}
+calcular_area <- function(lado_1, lado_2 = lado_1) {
+  
+  # Cuerpo de la función
+  area <- lado_1 * lado_2
+  
+  # Resultado
+  return(list("area" = area, "lado_1" = lado_1, "lado_2" = lado_2))
+  
+}
+```
+
+. . .
 
 ```{r}
 salida <- calcular_area(5, 3)
-salida
 salida["area"]
 salida["lado_1"]
 ```
+
+. . .
+
+::: callout-important
+## Importante
+
+Todas las variables que definamos dentro de la función son [**variables locales: solo existirán dentro**]{.hl-yellow}
+
+:::
 
 ---
 
@@ -6794,38 +6922,54 @@ datos |>
 
 ---
 
-## 🐣 Caso práctico 9: funciones {#caso9a}
+## 🐣 Caso práctico 10: funciones {#caso10a}
 
 Define una función llamada `conversor_temperatura` que, dada una temperatura en Fahrenheit, Celsius o Kelvin, la convierta a cualquiera de las otras (piensa que argumentos necesita el usuario). Aplica la función a la columna `Temp` del conjunto `airquality`, e incorpórala al fichero en una nueva columna `Temp_Celsius`.
 
-# Clase 10: depuración {#clase-10-debug}
+---
 
-[**Tratamiento de ausentes y outliers. Dummificar variables**]{style="color:#444442;"}
+## 🐣 Caso práctico 10: tidyverse {#caso10b}
 
 
+Acude a <https://cnecovid.isciii.es/covid19/#documentaci%C3%B3n-y-datos> e importa  `casos_hosp_uci_def_sexo_edad_provres.csv`. Documentación en <https://cnecovid.isciii.es/covid19/resources/metadata_casos_hosp_uci_def_sexo_edad_provres.pdf>
 
-## Imputar ausentes
+. . .
+
+1. ¿Cuántos casos hay notificados para edad desconocida? ¿Y desagregado por sexo? Recodifica adecuadamente las provincias
+
+. . .
+
+2. Dado su escaso peso en el total, genera una nueva base de datos en la que borremos aquellos registros con franja de edad desconocida. 
+
+. . .
+
+
+3. Con la base de datos generada en el ejercicio anterior, calcula la proporción de casos con sexo desconocido. Haz lo mismo con provincia desconocida. Elimina dichos registros si el número de casos representa menos del 1% (para cada una).
+
 
 ---
 
-## Detectar e imputar outliers
+## 🐣 Caso práctico 10: tidyverse
+
+
+4. Del dataset anterior, elimina la variables de hospitalizados y UCI. Tras ello renombra las columnas de casos y fallecidos por `casos_diarios` y `fallec_diarios`, respectivamente. Tras ello crea dos nuevas variables llamadas `casos_acum` y otra `fallec_acum`, que contengan los casos acumulados y fallecidos acumulados para cada fecha, desagregados por provincia, tramo etario y sexo.
+
+. . .
+
+5. ¿Cuáles fueron las 7 provincias con más casos a lo largo de toda la pandemia? ¿Y las 5 provincias con menos fallecidos? ¿Y si lo desagregamos por sexo?
 
 ---
 
-## Dummificar variables
+## 🐣 Caso práctico 10: tidyverse
 
----
+6. Define una función llamada `calculo_letalidad()` que, dados como argumentos un vector ordenado (por fecha) de casos y otro de fallecidos, devuelva el % de casos que han fallecido, de manera acumulada en cada fecha. Haz uso de dicha función y crea una nueva variable que represente la letalidad, en cada grupo de edad, sexo y provincia.
+
+Tras ello, determina las 5 provincias con mayor letalidad en mujeres mayores de 80 años a fecha 01 de marzo de 2022.
 
 
-# Clase X: entrega II
+# Clase 11: entrega II
 
 [**Segunda entrega individual en clase**]{style="color:#444442;"}
-
----
-
-## Ejercicios para practicar
-
-Se actualizarán al menos 14 días antes de la entrega.
 
 ---
 
@@ -6850,6 +6994,24 @@ Si usas un [**pc de la biblioteca**]{.hl-yellow} asegúrate de tomarlo con sufic
 [**Evita copiar**]{.hl-red}: la IA detecta bastante bien el plagio :)
 
 :::
+
+# Clase 12: depuración {#clase-12-debug}
+
+[**Tratamiento de ausentes y outliers. Dummificar variables**]{style="color:#444442;"}
+
+
+
+## Imputar ausentes
+
+---
+
+## Detectar e imputar outliers
+
+---
+
+## Dummificar variables
+
+---
 
 
 # Caso real: datos de encuestas
