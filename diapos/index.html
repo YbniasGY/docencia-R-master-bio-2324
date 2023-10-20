@@ -1394,7 +1394,7 @@ Máster de Bioestadística • curso 2023-2024
 <div class="cell">
 <div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1"></a><span class="fu">today</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2023-10-10"</code></pre>
+<pre><code>[1] "2023-10-20"</code></pre>
 </div>
 </div>
 <div class="fragment">
@@ -1404,7 +1404,7 @@ Máster de Bioestadística • curso 2023-2024
 <div class="cell">
 <div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1"></a><span class="fu">now</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2023-10-10 10:43:23 CEST"</code></pre>
+<pre><code>[1] "2023-10-20 17:06:23 CEST"</code></pre>
 </div>
 </div>
 </div>
@@ -2164,9 +2164,9 @@ Máster de Bioestadística • curso 2023-2024
 <span id="cb193-3"><a href="#cb193-3"></a><span class="fu">microbenchmark</span>(<span class="fu">sort</span>(x), x[<span class="fu">order</span>(x)], <span class="at">times =</span> <span class="fl">5e2</span>) <span class="co"># 500 veces</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Unit: microseconds
-        expr  min   lq    mean median   uq   max neval cld
-     sort(x) 46.7 49.1 51.5342   49.7 50.8  90.6   500  a 
- x[order(x)] 35.3 37.2 39.8344   37.8 38.8 115.2   500   b</code></pre>
+        expr    min     lq    mean median     uq     max neval cld
+     sort(x) 47.601 50.901 53.4110 51.651 52.701 245.201   500  a 
+ x[order(x)] 35.601 38.402 40.7864 39.101 40.201  89.001   500   b</code></pre>
 </div>
 </div>
 </section>
@@ -5207,10 +5207,10 @@ mean of x mean of y
 <div class="sourceCode cell-code" id="cb449"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb449-1"><a href="#cb449-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">slice_sample</span>(<span class="at">n =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 14
-  name      height  mass hair_color skin_color eye_color birth_year sex   gender
-  &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
-1 Tion Med…    206    80 none       grey       black             NA male  mascu…
-2 Shmi Sky…    163    NA black      fair       brown             72 fema… femin…
+  name    height  mass hair_color skin_color  eye_color birth_year sex   gender 
+  &lt;chr&gt;    &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  
+1 Sebulba    112    40 none       grey, red   orange            NA male  mascul…
+2 Gasgano    122    NA none       white, blue black             NA male  mascul…
 # ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
 #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 </div>
@@ -5255,10 +5255,10 @@ mean of x mean of y
 <pre><code># A tibble: 4 × 14
   name      height  mass hair_color skin_color eye_color birth_year sex   gender
   &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
-1 Finis Va…    170    NA blond      fair       blue              91 male  mascu…
-2 BB8           NA    NA none       none       black             NA none  mascu…
-3 Mas Amed…    196    NA none       blue       blue              NA male  mascu…
-4 Lando Ca…    177    79 black      dark       brown             31 male  mascu…
+1 Owen Lars    178   120 brown, gr… light      blue              52 male  mascu…
+2 Jocasta …    167    NA white      fair       blue              NA fema… femin…
+3 Padmé Am…    165    45 brown      light      brown             46 fema… femin…
+4 Jek Tono…    180   110 brown      fair       blue              NA male  mascu…
 # ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
 #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 </div>
@@ -5287,8 +5287,8 @@ mean of x mean of y
 <pre><code># A tibble: 2 × 14
   name      height  mass hair_color skin_color eye_color birth_year sex   gender
   &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
-1 C-3PO        167    75 &lt;NA&gt;       gold       yellow           112 none  mascu…
-2 Luke Sky…    172    77 blond      fair       blue              19 male  mascu…
+1 Luke Sky…    172    77 blond      fair       blue              19 male  mascu…
+2 C-3PO        167    75 &lt;NA&gt;       gold       yellow           112 none  mascu…
 # ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
 #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 </div>
@@ -5322,7 +5322,7 @@ mean of x mean of y
 <div class="cell">
 <div class="sourceCode cell-code" id="cb461"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb461-1"><a href="#cb461-1"></a><span class="fu">sample</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">size =</span> <span class="dv">10</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 3 5 6 4 2 6 4 3 1 4</code></pre>
+<pre><code> [1] 3 3 1 5 4 2 5 3 5 1</code></pre>
 </div>
 </div>
 </div>
@@ -5334,8 +5334,8 @@ mean of x mean of y
 <div class="sourceCode cell-code" id="cb463"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb463-1"><a href="#cb463-1"></a><span class="fu">sample</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">size =</span> <span class="dv">50</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>,</span>
 <span id="cb463-2"><a href="#cb463-2"></a>       <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.2</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>, <span class="fl">0.05</span>, <span class="fl">0.05</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 3 1 1 1 1 6 1 2 1 1 1 3 5 2 1 5 3 2 1 4 6 4 2 2 5 1 1 2 1 2 2 1 4 3 4 1 2 1
-[39] 2 2 2 1 3 1 1 1 4 2 2 1</code></pre>
+<pre><code> [1] 4 3 2 1 2 5 1 4 1 1 2 2 1 3 2 1 6 1 3 1 1 3 1 1 4 1 4 6 1 4 1 1 4 2 4 2 3 1
+[39] 2 1 1 1 4 3 2 2 1 1 6 2</code></pre>
 </div>
 </div>
 </section>
@@ -7813,7 +7813,7 @@ $lado_2
 <div class="callout-content">
 <p>Esta <span class="hl-green"><strong>entrega ponderará un 15% en la nota final</strong></span></p>
 <p>Podrás <span class="hl-yellow"><strong>usar todo el material del curso e internet</strong></span> salvo cualquier aplicación de mensajería o sistema de comunicación: en caso de tener alguna abierta a lo largo de la entrega, aunque no se esté usando, deberás <span class="hl-red"><strong>abandonar la entrega y contará como un 0</strong></span>.</p>
-<p>Contarás en clase con aproximadamente 1 hora y 50 minutos, pero <span class="hl-yellow"><strong>podrás realizar la entrega</strong></span>, como tarde, hasta las <span class="hl-yellow"><strong>23:59</strong></span>. Será <span class="hl-yellow"><strong>obligatorio subir tanto el <code>.qmd</code> como el <code>.html</code></strong></span>: una entrega que no haya podido ser renderizada (es decir, con errores graves) será <span class="hl-red"><strong>penalizada contando solo un 65% de la nota obtenida</strong></span> (si la entrega es perfecta, la nota máxima será un 6.5 sino se adjunta el <code>.html</code> generado).</p>
+<p>Contarás en clase con aproximadamente 1 hora y 50 minutos, pero <span class="hl-yellow"><strong>podrás realizar la entrega</strong></span>, como tarde, hasta las <span class="hl-yellow"><strong>18:00</strong></span>. Será <span class="hl-yellow"><strong>obligatorio subir tanto el <code>.qmd</code> como el <code>.html</code></strong></span>: una entrega que no haya podido ser renderizada (es decir, con errores graves) será <span class="hl-red"><strong>penalizada contando solo un 65% de la nota obtenida</strong></span> (si la entrega es perfecta, la nota máxima será un 6.5 sino se adjunta el <code>.html</code> generado).</p>
 <p>Te recomiendo practicar bastante y preguntar dudas en clase y/o tutoría ya que <span class="hl-yellow"><strong>irás justo de tiempo</strong></span>, así que necesitas fluidez en los ejercicios.</p>
 <p>Si usas un <span class="hl-yellow"><strong>pc de la biblioteca</strong></span> asegúrate de tomarlo con suficiente antelación para <span class="hl-yellow"><strong>instalar todas las librerías necesarias antes de empezar</strong></span> para no perder tiempo.</p>
 <p><span class="hl-red"><strong>Evita copiar</strong></span>: la IA detecta bastante bien el plagio :)</p>
@@ -7822,8 +7822,1014 @@ $lado_2
 </div>
 </section></section>
 <section>
-<section id="clase-12-debug" class="title-slide slide level1 center">
-<h1>Clase 12: depuración</h1>
+<section id="clase-12-dataviz" class="title-slide slide level1 center">
+<h1>Clase 12: inicio a la visualización</h1>
+<p><span style="color:#444442;"><strong>Visualización de datos</strong></span></p>
+</section>
+<section id="dataviz-historia" class="slide level2">
+<h2>Dataviz: historia</h2>
+<p>La aparición de gráficos estadísticos es <span class="hl-yellow"><strong>relativamente reciente en la ciencia</strong></span> ya que hasta la Edad Media la única visualización estaba en los <span class="hl-yellow"><strong>mapas</strong></span>. <sup>1</sup> Las propias palabras <em>chart</em> y <em>cartography</em> derivan del mismo origen latino, <em>charta</em>, aunque el primer uso de coordenadas viene de los egipcios. <sup>2</sup> <sup>3</sup></p>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:55%;">
+<p>No es hasta la Edad Media, cuando la <span class="hl-yellow"><strong>navegación y la astronomía</strong></span> empezaban a tomar relevancia, cuando aparece la primera gráfica (no propiamente estadística), del <strong>movimiento cíclico de los planetas</strong> (siglos X y XI)</p>
+</div><div class="column" style="width:45%;">
+<p><img data-src="img/dataviz_historico_1.png" width="370"></p>
+</div>
+</div>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn1"><p><a href="http://academica-e.unavarra.es/bitstream/handle/2454/15785/Gram%C3%A1tica.pdf">«Gramática de las gráficas: pistas para mejorar las representaciones de datos» de Joaquín Sevilla</a></p></li><li id="fn2"><p><a href="https://www.cs.uic.edu/~wilkinson/Publications/iesbs.pdf">«Presentation Graphics» de Leland Wilkinson. International Encyclopedia of the Social &amp; Behavioral Sciences</a></p></li><li id="fn3"><p><a href="https://www.jstor.org/stable/2683467">«Quantitative Graphics in Statistics: A Brief History» de James R. Beniger y Dorothy L. Robyn. The American Statistician (1978)</a>]</p></li></ol></aside></section>
+<section id="navegación-y-astronomía" class="slide level2">
+<h2>Navegación y astronomía</h2>
+<p>Con una motivación similar, en torno a 1360 el matemático <strong>Nicole Oresme</strong> diseñó el <span class="hl-yellow"><strong>primer gráfico de barras</strong></span> (pero no estadístico), con la idea de visualizar a la vez dos <strong>magnitudes físicas teóricas</strong>. <sup>1</sup></p>
+<p><img data-src="img/dataviz_historico_2.jpeg" width="300"></p>
+<aside><ol class="aside-footnotes"><li id="fn4"><p><a href="https://www.researchgate.net/publication/227369016_The_First_Known_Statistical_Graph_Michael_Florent_van_Langren_and_the_Secret_of_Longitude">«The First (Known) Statistical Graph: Michael Florent van Langren and the ‘Secret’ of Longitude» de M. Friendly y P. M. Valero-Mora. The American Statistician (2010)</a></p></li></ol></aside></section>
+<section id="primer-gráfico-estadístico" class="slide level2">
+<h2>Primer gráfico estadístico</h2>
+<p>La mayoría de expertos, como Tufte <sup>1</sup> <sup>2</sup>, consideran este gráfico casi longitudinal como la <span class="hl-yellow"><strong>primera visualización de datos</strong></span> de la historia, hecha por <strong>Van Langren</strong> en 1644, representando la <span class="hl-yellow"><strong>distancia entre Toledo y Roma</strong></span>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="./img/longitud_dataviz.jpg" width="546"></p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="./img/dataviz_historico_3.jpeg" width="557"></p>
+</div>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn5"><p><a href="https://archive.org/details/visualexplanatio00tuft">«Visual explanations: images and quantities, evidence and narrative» de E. Tufte</a></p></li><li id="fn6"><p><a href="https://www.wired.com/2003/09/ppt2/">«PowerPoint is evil» de E. Tufte</a></p></li></ol></aside></section>
+<section id="qué-es-una-dataviz" class="slide level2">
+<h2>¿Qué es una dataviz?</h2>
+<p>¿Es una gráfica estadística? ¿Por qué sí o por qué no?</p>
+
+<img data-src="img/cuadro_dataviz.jpg" class="r-stretch"><div class="fragment">
+<p>No hay <span class="hl-red"><strong>ninguna INFORMACIÓN</strong></span> representada</p>
+</div>
+</section>
+<section id="qué-es-una-dataviz-1" class="slide level2">
+<h2>¿Qué es una dataviz?</h2>
+<p>¿Es una gráfica estadística? ¿Por qué sí o por qué no?</p>
+
+<img data-src="img/horoscopo_dataviz.jpg" class="r-stretch"><div class="fragment">
+<p>No hay <span class="hl-red"><strong>ningún PROCESO DE MEDIDA</strong></span> representado, no cuantifica nada (real).</p>
+</div>
+</section>
+<section id="qué-es-una-dataviz-2" class="slide level2">
+<h2>¿Qué es una dataviz?</h2>
+<p>¿Es una gráfica estadística? ¿Por qué sí o por qué no?</p>
+
+<img data-src="img/celsius_dataviz.jpg" class="r-stretch"><div class="fragment">
+<p>No hay <span class="hl-red"><strong>ningún DATO</strong></span> representado en él, es una magnitud física teórica, no un dato (medido empíricamente o simulado).</p>
+</div>
+</section>
+<section id="qué-es-una-dataviz-3" class="slide level2">
+<h2>¿Qué es una dataviz?</h2>
+<p>Esas mismas preguntas se hizo <strong>Joaquín Sevilla</strong> <sup>1</sup>, proporcionando <span class="hl-yellow"><strong>3 requisitos</strong></span>:</p>
+<div class="fragment">
+<ol type="1">
+<li>Que se base en el esquema de composición de <span class="hl-yellow"><strong>eje métrico</strong></span> (proceso de medida): debe <span class="hl-yellow"><strong>medir algo</strong></span>.</li>
+</ol>
+</div>
+<div class="fragment">
+<ol start="2" type="1">
+<li>Debe incluir <span class="hl-yellow"><strong>información estadística (datos)</strong></span></li>
+</ol>
+</div>
+<div class="fragment">
+<ol start="3" type="1">
+<li>La <span class="hl-yellow"><strong>relación de representatividad</strong></span> debe ser <span class="hl-purple"><strong>reversible</strong></span>: los datos deberían poder «recuperarse» a partir de la gráfica .</li>
+</ol>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn7"><p><a href="http://academica-e.unavarra.es/bitstream/handle/2454/15785/Gram%C3%A1tica.pdf">«Gramática de las gráficas: pistas para mejorar las representaciones de datos» de Joaquín Sevilla</a></p></li></ol></aside></section>
+<section id="abolición-de-tartas" class="slide level2">
+<h2>Abolición de tartas</h2>
+<p>Hay muchas formas de hacer una gráfica estadística, y no suele pasar por un <span class="hl-yellow"><strong>gráfico de tartas</strong></span> ya que tienen un grave <span class="hl-red"><strong>problema de reversibilidad</strong></span>:</p>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><p>Si hay <strong>muchas variables</strong>: salvo que tengas transportador de ángulos…</p></li>
+<li><p>Si hay <strong>pocas variables</strong>: ¿aporta algo distinto (y/o mejor) que una tabla?</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><img data-src="img/sectores_muchas_categorías.png"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="abolición-de-tartas-1" class="slide level2">
+<h2>Abolición de tartas</h2>
+<p>El principal problema de un diagrama de sectores es que la posible información está <span class="hl-yellow"><strong>contenida en los ángulos</strong></span>, pero nuestra interpretación la realizamos a través de la <span class="hl-yellow"><strong>comparación de áreas</strong></span> (nuestros ojos no miden bien ángulos), las cuales dependen no solo del ángulo sino del radio.</p>
+<p>&nbsp;</p>
+<p>Algo similar sucede con los mal llamados <span class="hl-yellow"><strong>gráficos tridimensionales</strong></span> (son bidimensionales con perspectiva en realidad): los valores más cercanos aparecen sobredimensionados, siendo prácticamente imposible la reversibilidad por la <span class="hl-yellow"><strong>distorsión</strong></span>.</p>
+</section>
+<section id="vizfails" class="slide level2">
+<h2>Vizfails</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p><img data-src="img/persona_dataviz.jpg"></p>
+</div><div class="column" style="width:45%;">
+<ul>
+<li><p>La figura elegida (persona caminando) sin relación con lo visualizado: <span class="hl-red"><strong>mala metáfora</strong></span>.</p></li>
+<li><p>Los <span class="hl-red"><strong>sectores señalados sin relación con el ítem</strong></span> a representar, lo que dificulta su interpretación.</p></li>
+<li><p>Los <span class="hl-red"><strong>colores sin codificar</strong></span>: no dan información de ningún tipo.</p></li>
+<li><p>Las <span class="hl-red"><strong>formas irregulares impiden la comparación</strong></span> de las áreas (amén de que la suma total supera el 100%).</p></li>
+<li><p><strong>Sin fuente</strong></p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="vizfails-1" class="slide level2">
+<h2>Vizfails</h2>
+
+<img data-src="img/viz_fail_covid.jpg" class="r-stretch"></section>
+<section id="vizfails-2" class="slide level2">
+<h2>Vizfails</h2>
+
+<img data-src="img/viz_fail_uk.jpg" class="r-stretch"></section>
+<section id="la-importancia-del-contexto" class="slide level2">
+<h2>La importancia del CONTEXTO</h2>
+<p>Una <strong>buena idea</strong> puede estar mal ejecutada: la forma de llevarla a cabo es importante</p>
+
+<img data-src="img/semaforos.jpg" class="r-stretch"></section>
+<section id="dataviz-historia-1" class="slide level2">
+<h2>Dataviz: historia</h2>
+<p>En el siglo XVII hubo un boom de la estadística al empezar a aplicarse en <span class="hl-yellow"><strong>demografía</strong></span>. Uno de los autores más importantes fue <span class="hl-purple"><strong>J. Graunt</strong></span>, autor de «Natural and Political Observations Made upon the Bills of Mortality» (1662), estimando la población de Londres con las <span class="hl-yellow"><strong>primeras tablas de natalidad y mortalidad</strong></span>.</p>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Son precisamente las tablas de Graunt las que usó <span class="hl-yellow"><strong>Christiaan Huygens</strong></span> para generar la <span class="hl-yellow"><strong>primera gráfica de densidad</strong></span> de una distribución continua (esperanza de vida vs edad).</p>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="./img/primera_densidad.jpg" style="width:100.0%"></p>
+<p></p><figcaption>Primera función de densidad, extraída de https://omeka.lehigh.edu/exhibits/show/data_visualization/vital_statistics/huygen</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="gráficos-de-playfair" class="slide level2">
+<h2>Gráficos de Playfair</h2>
+<p>La figura que cambió el dataviz fue, sin lugar a dudas, el economista y político <span class="hl-yellow"><strong>William Playfair (1759-1823)</strong></span>, publicando en 1786 el <strong>«Atlas político y comercial»</strong> <sup>1</sup> <sup>2</sup> con 44 gráficas (43 series temporales y el diagrama de barras más famoso de la historia).</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="./img/playfair_1.jpg" style="width:70.0%"></p>
+<p></p><figcaption>Extraídas de Funkhouser y Walker (1935)</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="./img/playfair_2.jpg" style="width:25.0%"></p>
+<p></p><figcaption>Extraídas de Funkhouser y Walker (1935)</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn8"><p><a href="https://www.jstor.org/stable/45366440">«Playfair and his charts» de H. Gray Funkhouser and Helen M. Walker (1935)</a></p></li><li id="fn9"><p><a href="http://onlinebooks.library.upenn.edu/webbin/book/lookupid?key=ha009726110">«A Letter on Our Agricultural Distresses, Their Causes and Remedies» de W. Playfair (1821)</a></p></li></ol></aside></section>
+<section id="gráficos-de-playfair-1" class="slide level2">
+<h2>Gráficos de Playfair</h2>
+<p>Playfair no solo fue el primero en usar el dataviz para entender (y no solo describir): fue el primero en usar <span class="hl-yellow"><strong>conceptos modernos</strong></span> como <em>grid</em>, tema o color</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="./img/playfair_3.jpg" style="width:90.0%"></p>
+<p></p><figcaption>Extraída de https://friendly.github.io/HistDataVis</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="./img/playfair_4.png" style="width:90.0%"></p>
+<p></p><figcaption>Extraída de la wikipedia.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="gráficos-de-playfair-2" class="slide level2">
+<h2>Gráficos de Playfair</h2>
+<p>Playfair es además el autor del <span class="hl-yellow"><strong>gráfico de barras más famoso</strong></span> (no fue el primero pero sí quien lo hizo <em>mainstream</em>).</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="./img/playfair_5.jpg" style="width:90.0%"></p>
+<p></p><figcaption>Gráficas de Playfair de importaciones (barras grises) y exportaciones (negras) de Escocia en 1781, extraídas de la wikipedia.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="./img/playfair_6.jpg" style="width:90.0%"></p>
+<p></p><figcaption>Primer diagrama de barras (P. Buache y G. de L’Isle), visualizando los niveles del Sena (1732 - 1766), extraída de https://friendly.github.io/HistDataVis</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="gráficos-de-playfair-3" class="slide level2">
+<h2>Gráficos de Playfair</h2>
+<p>Playfair además fue el primero en <span class="hl-yellow"><strong>combinar gráficos en la misma visualización</strong></span> <sup>1</sup> <sup>2</sup></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="./img/playfair_7.jpg" style="width:85.0%"></p>
+<p></p><figcaption>Visualiza 3 series temporales: precios (barras) del trigo, salarios (línea) y time-line con reinados, extraída de https://friendly.github.io/HistDataVis.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="./img/playfair_8.png" style="width:85.0%"></p>
+<p></p><figcaption>Time-line histórico, extraída de https://friendly.github.io/HistDataVis.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn10"><p><a href="http://onlinebooks.library.upenn.edu/webbin/book/lookupid?key=ha009726110">«A Letter on Our Agricultural Distresses, Their Causes and Remedies» de W. Playfair (1821)</a></p></li><li id="fn11"><p><a href="https://www.amazon.com/Permanent-Powerful-Nations-Prosperity-Prolonged/dp/140691830X">«An Inquiry Into the Permanent Causes of the Decline and Fall of Powerful and Wealthy Nations» de William Playfair (1821)</a></p></li></ol></aside></section>
+<section id="mapas-de-minard" class="slide level2">
+<h2>Mapas de Minard</h2>
+<p>Otro pionero en <span class="hl-yellow"><strong>combinar visualizaciones</strong></span> fue Minard, autor del famoso «Carte figurative des pertes successives en hommes de l’Armée Française dans la campagne de Russie 1812-1813», según Tufte <span class="hl-yellow"><strong>«el mejor gráfico estadístico jamás dibujado»</strong></span>, publicado en 1869 sobre la desastrosa campaña rusa de Napoleón en 1812 (3 variables en un gráfico bidimensional)</p>
+
+<img data-src="./img/minard_2.png" style="width:60.0%" class="r-stretch quarto-figure-center"><p class="caption">Extraída de https://friendly.github.io/HistDataVis.</p></section>
+<section id="primer-scatter-plot" class="slide level2">
+<h2>Primer scatter plot</h2>
+<p>Según J. Sevilla, se considera al astrónomo británico <strong>John Frederick William Herschel</strong> el autor del <span class="hl-yellow"><strong>primer diagrama de dispersión o scatterplot</strong></span> en 1833, visualizando el movimiento de la estrella doble Virginis (tiempo en el eje horizontal, posición angular en el eje vertical)</p>
+
+<img data-src="./img/herschel.jpg" style="width:35.0%" class="r-stretch quarto-figure-center"><p class="caption">Extraído de https://friendly.github.io/HistDataVis.</p></section>
+<section id="primera-pirámide-poblacional" class="slide level2">
+<h2>Primera pirámide poblacional</h2>
+<p>La <span class="hl-yellow"><strong>primera pirámide de población</strong></span> (doble histograma de población), fue publicada por <strong>Francis Amasa Walker</strong>, superintendente del censo de EE.UU., en 1874.</p>
+
+<img data-src="./img/walker_piramide.jpg" style="width:45.0%" class="r-stretch quarto-figure-center"><p class="caption">Extraída de https://www.depauw.edu/learn/dew/wpaper/workingpapers/DePauw2016-02-Barreto-DemographyEconomics.pdf</p></section>
+<section id="florence-nigthingale" class="slide level2">
+<h2>Florence Nigthingale</h2>
+<div class="columns">
+<div class="column" style="width:65%;">
+<ul>
+<li><p>El 21 de octubre de 1854 <span class="hl-yellow"><strong>Florence Nigthingale</strong></span> fue enviada para mejorar las <strong>condiciones sanitarias</strong> de los soldados británicos en la guerra de Crimea.</p></li>
+<li><p>A su regreso demostró que los <span class="hl-yellow"><strong>soldados fallecían por las condiciones sanitarias</strong></span>. Nigthingale es la creadora del famoso <span class="hl-yellow"><strong>diagrama de rosa</strong></span>, visualizando tres variables a la vez y su estacionalidad.</p></li>
+<li><p>El 8 de febrero de 1955, The Times la describió como la <strong>«ángel guardián» de los hospitales</strong>, y acabó siendo conocida como <span class="hl-yellow"><strong>«The Lady with the Lamp»</strong></span> tras un poema de H. W. Longfellow (1857).</p></li>
+<li><p>Años después se convirtió en la <span class="hl-yellow"><strong>primera mujer en la Royal Statistical Society</strong></span>.</p></li>
+</ul>
+</div><div class="column" style="width:35%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="./img/the_lady_with_the_lamp.png" style="width:95.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="diagrama-de-rosa" class="slide level2">
+<h2>Diagrama de rosa</h2>
+<p>Florence Nigthingale es la creadora del famoso <span class="hl-yellow"><strong>diagrama de rosa</strong></span>, permitiendo pintar <span class="hl-yellow"><strong>tres variables a la vez y su estacionalidad</strong></span>: <strong>tiempo</strong> (cada <strong>gajo</strong> es un mes), <strong>nº de muertes</strong> (<strong>área</strong> del gajo) y <strong>causa</strong> de la muerte (<strong>color</strong> del gajo: azules enfermedades infecciosas, rojas por heridas, negras otras causas).</p>
+
+<img data-src="./img/rosa_nightingale.jpg" style="width:75.0%" class="r-stretch quarto-figure-center"></section>
+<section id="recursos-de-dataviz" class="slide level2">
+<h2>Recursos de dataviz</h2>
+<p>📚 <a href="https://www.amazon.es/Functional-Art-Voices-That-Matter/dp/0321834739">«The Functional Art: an introduction to information graphics and visualization» de Alberto Cairo</a></p>
+<p>📚 <a href="https://academica-e.unavarra.es/bitstream/handle/2454/15785/Gram%C3%A1tica.pdf">«Gramática de las gráficas: pistas para mejorar las representaciones de datos» de Joaquín Sevilla</a></p>
+<p>📚 <a href="https://www.researchgate.net/publication/226400313_A_Brief_History_of_Data_Visualization">«A Brief History of Visualization» de Friendly et al.&nbsp;(2008)</a></p>
+<p>📚 <a href="https://www.jstor.org/stable/2683467">«Quantitative Graphics in Statistics: A Brief History» de James R. Beniger y Dorothy L. Robyn. The American Statistician (1978)</a>]</p>
+<p>📚 <a href="https://www.cs.uic.edu/~wilkinson/Publications/iesbs.pdf">«Presentation Graphics» de Leland Wilkinson. International Encyclopedia of the Social &amp; Behavioral Sciences</a></p>
+<p>📚 <a href="https://www.amazon.es/Grammar-Graphics-Statistics-Computing/dp/0387245448">«The Grammar of Graphics» de Leland Wilkinson</a></p>
+<p>📚 <a href="https://www.amazon.es/gp/product/1616896337/ref=sw_img_1?smid=A1AT7YVPFBWXBL&amp;psc=1">«The Minard System: The Graphical Works of Charles-Joseph Minard» de Sandra Rendgen</a></p>
+<p>📚 <a href="https://www.amazon.es/Visual-Display-Quantitative-Information/dp/0961392142">«The Visual Display of Quantitative Information» de E. W. Tufte</a></p>
+</section>
+<section id="dataviz-en-r-ggplot2" class="slide level2">
+<h2>Dataviz en R: ggplot2</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>El paquete <code>{ggplot2}</code> se basa en la idea de Wilkinson en <span class="hl-yellow"><strong>«Grammar of graphics»</strong></span>: dotar a los gráficos de una gramática propia. Una de las principales fortalezas de <code>R</code> es la <span class="hl-yellow"><strong>visualización</strong></span> con <code>{ggplot2}</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb694"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb694-1"><a href="#cb694-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>La <span class="hl-yellow"><strong>visualización de datos</strong></span> debería ser una parte fundamental de todo análisis de datos. No es solo una cuestión estética.</p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="img/telling_dataviz.jpg" width="400"></p>
+</div>
+</div>
+</section>
+<section id="dataviz-en-r-ggplot2-1" class="slide level2">
+<h2>Dataviz en R: ggplot2</h2>
+<p>La filosofía detrás de <code>{ggplot2}</code> es entender los <span class="hl-yellow"><strong>gráficos como parte del flujo</strong></span> de trabajo, dotándoles de una <span class="hl-yellow"><strong>gramática</strong></span>. El objetivo es empezar con un lienzo en blanco e ir <span class="hl-yellow"><strong>añadiendo capas a tu gráfico</strong></span>. La ventaja de <code>{ggplot2}</code> es poder <span class="hl-purple"><strong>mapear atributos estéticos</strong></span> (color, forma, tamaño) de objetos geométricos (puntos, barras, líneas) en función de los datos.</p>
+<p>&nbsp;</p>
+<p>La <strong>documentación</strong> del paquete puedes consultarla en <a href="https://ggplot2-book.org/introduction.html" class="uri">https://ggplot2-book.org/introduction.html</a></p>
+
+<img data-src="img/grammar_ggplot2.jpg" class="r-stretch"></section>
+<section id="dataviz-en-r-ggplot2-2" class="slide level2">
+<h2>Dataviz en R: ggplot2</h2>
+
+<img data-src="img/tarta_ggplot2.png" class="r-stretch"></section>
+<section id="dataviz-en-r-ggplot2-3" class="slide level2">
+<h2>Dataviz en R: ggplot2</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p><img data-src="img/tarta_recortada_ggplot2.jpg"></p>
+</div><div class="column" style="width:60%;">
+<p>Un gráfico se podrá componer de <span class="hl-yellow"><strong>capas</strong></span></p>
+<ul>
+<li><span class="hl-purple"><strong>Datos (data)</strong></span></li>
+<li><span class="hl-purple"><strong>Mapeado (aesthetics)</strong></span> de elementos estéticos: ejes, color, forma, etc (en función de los datos)</li>
+<li><span class="hl-purple"><strong>Geometría (geom)</strong></span>: puntos, líneas, barras, polígonos, etc.</li>
+<li><span class="hl-purple"><strong>Componer gráficas (facet)</strong></span></li>
+<li><span class="hl-purple"><strong>Transformaciones (stat)</strong></span>: ordenar, resumir, etc.</li>
+<li><span class="hl-purple"><strong>Coordenadas (coord)</strong></span>: coordenadas cartesianas, polares, grids, etc.</li>
+<li><span class="hl-purple"><strong>Temas (theme)</strong></span>: fuente, tamaño de letra, subtítulos, captions, leyenda, ejes, etc.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="primer-intento-scatter-plot" class="slide level2">
+<h2>Primer intento: scatter plot</h2>
+<p>Veamos un <strong>primer intento</strong> para entender la filosofía ggplot. Imagina que queremos dibujar un <span class="hl-yellow"><strong>scatter plot</strong></span> (diagrama de dispersión de puntos). Para ello vamos a usar el conjunto de datos <code>gapminder</code>, del paquete homónimo: un fichero con <strong>datos de esperanzas de vida, poblaciones y renta per cápita</strong> de distintos países en distintos momentos temporales.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb695"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb695-1"><a href="#cb695-1"></a><span class="fu">library</span>(gapminder)</span>
+<span id="cb695-2"><a href="#cb695-2"></a>gapminder</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,704 × 6
+   country     continent  year lifeExp      pop gdpPercap
+   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+ 1 Afghanistan Asia       1952    28.8  8425333      779.
+ 2 Afghanistan Asia       1957    30.3  9240934      821.
+ 3 Afghanistan Asia       1962    32.0 10267083      853.
+ 4 Afghanistan Asia       1967    34.0 11537966      836.
+ 5 Afghanistan Asia       1972    36.1 13079460      740.
+ 6 Afghanistan Asia       1977    38.4 14880372      786.
+ 7 Afghanistan Asia       1982    39.9 12881816      978.
+ 8 Afghanistan Asia       1987    40.8 13867957      852.
+ 9 Afghanistan Asia       1992    41.7 16317921      649.
+10 Afghanistan Asia       1997    41.8 22227415      635.
+# ℹ 1,694 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="primer-intento-scatter-plot-1" class="slide level2">
+<h2>Primer intento: scatter plot</h2>
+<p>El fichero consta de 1704 registros y 6 variables: <code>country</code>, <code>continent</code>, <code>year</code>, <code>lifeExp</code> (esperanza de vida), <code>pop</code> (población) y <code>gdpPercap</code> (renta per cápita).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb697"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb697-1"><a href="#cb697-1"></a><span class="fu">glimpse</span>(gapminder)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 1,704
+Columns: 6
+$ country   &lt;fct&gt; "Afghanistan", "Afghanistan", "Afghanistan", "Afghanistan", …
+$ continent &lt;fct&gt; Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, …
+$ year      &lt;int&gt; 1952, 1957, 1962, 1967, 1972, 1977, 1982, 1987, 1992, 1997, …
+$ lifeExp   &lt;dbl&gt; 28.801, 30.332, 31.997, 34.020, 36.088, 38.438, 39.854, 40.8…
+$ pop       &lt;int&gt; 8425333, 9240934, 10267083, 11537966, 13079460, 14880372, 12…
+$ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.1134, …</code></pre>
+</div>
+</div>
+<p>Para empezar con algo sencillo <span class="hl-yellow"><strong>filtraremos solo los datos de 1997</strong></span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb699"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb699-1"><a href="#cb699-1"></a>gapminder_1997 <span class="ot">&lt;-</span></span>
+<span id="cb699-2"><a href="#cb699-2"></a>  gapminder <span class="sc">|&gt;</span></span>
+<span id="cb699-3"><a href="#cb699-3"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">1997</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="ingredientes-x-y" class="slide level2">
+<h2>Ingredientes: (x, y)</h2>
+<p>¿Qué <span class="hl-yellow"><strong>elementos necesitamos</strong></span> para realizar un diagrama de puntos? Para <span class="hl-pùrple"><strong>iniciar el lienzo</strong></span> necesitamos una base de datos y dos variables a representar.</p>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:45%;">
+<ul>
+<li><p><span class="hl-yellow"><strong>Datos (data)</strong></span>: conjunto <code>gapminder_1997</code>.</p></li>
+<li><p><span class="hl-yellow"><strong>Mapeado</strong></span>: indicar dentro de <code>aes()</code> (aesthetics) las variables en cada coordenada. Todo <span class="hl-purple"><strong>dentro de aes() será mapeado de los datos</strong></span></p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb700"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb700-1"><a href="#cb700-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder_1997,</span>
+<span id="cb700-2"><a href="#cb700-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> pop))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:55%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-476-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="primera-geometría-geom_point" class="slide level2">
+<h2>Primera geometría: geom_point()</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<ul>
+<li><span class="hl-yellow"><strong>Geometría (geom)</strong></span>: optaremos por <strong>puntos</strong> usando <code>geom_point()</code>.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb701"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb701-1"><a href="#cb701-1"></a><span class="fu">ggplot</span>(gapminder_1997,</span>
+<span id="cb701-2"><a href="#cb701-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> pop)) <span class="sc">+</span></span>
+<span id="cb701-3"><a href="#cb701-3"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:55%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-478-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="rol-de-os-ejes-x-y" class="slide level2">
+<h2>Rol de os ejes: (x, y)</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p>Vamos a profundizar en ese mapeado: ¿cómo <span class="hl-yellow"><strong>cambiar el rol</strong></span> de los ejes (población en el eje X y renta per cápita en el eje Y)?</p>
+<ul>
+<li><strong>Eje X</strong>: población (variable <code>pop</code>)</li>
+<li><strong>Eje Y</strong>: renta per cápita (variable <code>gdpPercap</code>)</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb702"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb702-1"><a href="#cb702-1"></a><span class="fu">ggplot</span>(gapminder_1997,</span>
+<span id="cb702-2"><a href="#cb702-2"></a>       <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> pop)) <span class="sc">+</span></span>
+<span id="cb702-3"><a href="#cb702-3"></a>  <span class="fu">geom_point</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:55%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-480-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="rol-de-os-ejes-x-y-1" class="slide level2">
+<h2>Rol de os ejes: (x, y)</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p>¿Y un scatter plot con <strong>esperanza de vida</strong> en eje X frente a <strong>renta per cápita</strong>?</p>
+<ul>
+<li><strong>Eje X</strong>: esperanza de vida (variable <code>lifeExp</code>)</li>
+<li><strong>Eje Y</strong>: renta per cápita (variable <code>gdpPercap</code>)</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb703"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb703-1"><a href="#cb703-1"></a><span class="fu">ggplot</span>(gapminder_1997,</span>
+<span id="cb703-2"><a href="#cb703-2"></a>       <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> lifeExp)) <span class="sc">+</span></span>
+<span id="cb703-3"><a href="#cb703-3"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:55%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-482-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="color-size-shape-fijos" class="slide level2">
+<h2>Color, size, shape: fijos</h2>
+<p>Dentro de <code>geom_point()</code> tenemos varios argumentos a usar:</p>
+<ul>
+<li><p><code>na.rm = ...</code>: si queremos que nos quite ausentes.</p></li>
+<li><p><code>color = ...</code>: color (si tiene dimensión, color del contorno)</p></li>
+<li><p><code>fill = ...</code>: color del relleno.</p></li>
+</ul>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:45%;">
+<p>Empezaremos por un <span class="hl-yellow"><strong>color fijo</strong></span>, por ejemplo <code>"red"</code> (existen otros como <code>"blue"</code>, <code>"black"</code>, <code>"yellow"</code>, etc)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb704"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb704-1"><a href="#cb704-1"></a><span class="fu">ggplot</span>(gapminder_1997,</span>
+<span id="cb704-2"><a href="#cb704-2"></a>       <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> lifeExp)) <span class="sc">+</span></span>
+<span id="cb704-3"><a href="#cb704-3"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:55%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-484-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="color-size-shape-fijos-1" class="slide level2">
+<h2>Color, size, shape: fijos</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<ul>
+<li><code>size = ...</code>: tamaño de la geometría (en este caso el <span class="hl-yellow"><strong>tamaño de los puntos</strong></span>), cuanto mayor sea el número, mayor será el tamaño de la geometría.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb705"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb705-1"><a href="#cb705-1"></a><span class="fu">ggplot</span>(gapminder_1997,</span>
+<span id="cb705-2"><a href="#cb705-2"></a>       <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> lifeExp)) <span class="sc">+</span></span>
+<span id="cb705-3"><a href="#cb705-3"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">7</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:55%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-486-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="color-size-shape-fijos-2" class="slide level2">
+<h2>Color, size, shape: fijos</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<ul>
+<li><code>alpha = ...</code>: grado de opacidad del color (1 totalmente opaco, 0 totalmente transparente)</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb706"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb706-1"><a href="#cb706-1"></a><span class="fu">ggplot</span>(gapminder_1997,</span>
+<span id="cb706-2"><a href="#cb706-2"></a>       <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> lifeExp)) <span class="sc">+</span></span>
+<span id="cb706-3"><a href="#cb706-3"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">7</span>,</span>
+<span id="cb706-4"><a href="#cb706-4"></a>             <span class="at">alpha =</span> <span class="fl">0.4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:55%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-488-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="color-size-shape-fijos-3" class="slide level2">
+<h2>Color, size, shape: fijos</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<ul>
+<li><code>shape = ...</code>: forma de la geometría, en este caso del «punto» (ver todas las opciones en <code>vignette("ggplot2-specs")</code>)</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb707"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb707-1"><a href="#cb707-1"></a><span class="fu">ggplot</span>(gapminder_1997,</span>
+<span id="cb707-2"><a href="#cb707-2"></a>       <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> lifeExp)) <span class="sc">+</span></span>
+<span id="cb707-3"><a href="#cb707-3"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"red"</span>,</span>
+<span id="cb707-4"><a href="#cb707-4"></a>             <span class="at">fill =</span> <span class="st">"black"</span>,</span>
+<span id="cb707-5"><a href="#cb707-5"></a>             <span class="at">size =</span> <span class="dv">7</span>,</span>
+<span id="cb707-6"><a href="#cb707-6"></a>             <span class="at">alpha =</span> <span class="fl">0.4</span>,</span>
+<span id="cb707-7"><a href="#cb707-7"></a>             <span class="at">shape =</span> <span class="dv">23</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:55%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-490-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="color-size-shape-fijos-4" class="slide level2">
+<h2>Color, size, shape: fijos</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<ul>
+<li><code>stroke = ...</code>: tamaño del contorno</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb708"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb708-1"><a href="#cb708-1"></a><span class="fu">ggplot</span>(gapminder_1997,</span>
+<span id="cb708-2"><a href="#cb708-2"></a>       <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> lifeExp)) <span class="sc">+</span></span>
+<span id="cb708-3"><a href="#cb708-3"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">7</span>,</span>
+<span id="cb708-4"><a href="#cb708-4"></a>             <span class="at">alpha =</span> <span class="fl">0.4</span>, <span class="at">stroke =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:55%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-492-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="color-size-shape-fijos-5" class="slide level2">
+<h2>Color, size, shape: fijos</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p>Los colores también podemos asignárselos por su <strong>código hexadecimal</strong>, consultando en <a href="https://htmlcolorcodes.com/es/" class="uri">https://htmlcolorcodes.com/es/</a>, eligiendo el color que queramos. El código hexadecimal siempre comenzará con <code>#</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb709"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb709-1"><a href="#cb709-1"></a><span class="co"># Color en hexadecimal</span></span>
+<span id="cb709-2"><a href="#cb709-2"></a><span class="co"># https://htmlcolorcodes.com/es/</span></span>
+<span id="cb709-3"><a href="#cb709-3"></a><span class="fu">ggplot</span>(gapminder_1997,</span>
+<span id="cb709-4"><a href="#cb709-4"></a>       <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> lifeExp)) <span class="sc">+</span></span>
+<span id="cb709-5"><a href="#cb709-5"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"#A02B85"</span>,</span>
+<span id="cb709-6"><a href="#cb709-6"></a>             <span class="at">alpha =</span> <span class="fl">0.4</span>, <span class="at">size =</span> <span class="dv">7</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:55%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-494-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="mapeado-estético-aes" class="slide level2">
+<h2>Mapeado estético: aes()</h2>
+<p>Hasta ahora los <strong>atributos estéticos</strong> se los hemos pasado fijos y <span class="hl-yellow"><strong>constantes</strong></span>. Pero la verdadera potencia y versatilidad de <code>ggplot</code> es que podemos <span class="hl-yellow"><strong>mapear los atributos estéticos en función de los datos</strong></span> en <code>aes()</code> para que dependan de variables de los datos.</p>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:45%;">
+<p>Por ejemplo, vamos a asignar un <span class="hl-yellow"><strong>color a cada dato en función de su continente</strong></span> con <code>aes(color = continent)</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb710"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb710-1"><a href="#cb710-1"></a><span class="co"># Tamaño fijo</span></span>
+<span id="cb710-2"><a href="#cb710-2"></a><span class="co"># Color por continentes</span></span>
+<span id="cb710-3"><a href="#cb710-3"></a><span class="fu">ggplot</span>(gapminder_1997,</span>
+<span id="cb710-4"><a href="#cb710-4"></a>       <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> lifeExp,</span>
+<span id="cb710-5"><a href="#cb710-5"></a>           <span class="at">color =</span> continent)) <span class="sc">+</span></span>
+<span id="cb710-6"><a href="#cb710-6"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:55%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-496-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="mapeado-estético-aes-1" class="slide level2">
+<h2>Mapeado estético: aes()</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Podemos combinarlo con lo que hemos hecho anteriormente:</p>
+<ul>
+<li><p><span class="hl-yellow"><strong>color</strong></span> en función del <span class="hl-purple"><strong>continente</strong></span>.</p></li>
+<li><p><span class="hl-yellow"><strong>tamaño</strong></span> en función de la <span class="hl-purple"><strong>población</strong></span>.</p></li>
+<li><p><span class="hl-yellow"><strong>transparencia</strong></span> la fijamos <span class="hl-purple"><strong>constante</strong></span> del 50%.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb711"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb711-1"><a href="#cb711-1"></a><span class="fu">ggplot</span>(gapminder_1997,</span>
+<span id="cb711-2"><a href="#cb711-2"></a>       <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> lifeExp,</span>
+<span id="cb711-3"><a href="#cb711-3"></a>           <span class="at">color =</span> continent, <span class="at">size =</span> pop)) <span class="sc">+</span></span>
+<span id="cb711-4"><a href="#cb711-4"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>A este scatter plot particular se le conoce <strong>BUBBLE CHART</strong></p>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-498-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="visualización-multivariante" class="slide level2">
+<h2>Visualización multivariante</h2>
+<p>Reflexionemos sobre el gráfico anterior:</p>
+<ul>
+<li><strong>color</strong> en función del <strong>continente</strong>.</li>
+<li><strong>tamaño</strong> en función de la <strong>población</strong></li>
+<li><strong>transparencia</strong> fija del 50%</li>
+</ul>
+<p>&nbsp;</p>
+<p>Usando los datos hemos conseguido dibujar en un <span class="hl-yellow"><strong>gráfico bidimensional 4 variables</strong></span>: <code>lifeExp</code> y <code>gdpPercap</code> en los ejes , <code>continent</code> como color y <code>pop</code> como tamaño de la geometría, con muy pocas líneas de código.</p>
+</section>
+<section id="etiquetas-sencillas-labs" class="slide level2">
+<h2>Etiquetas sencillas: labs()</h2>
+<p>Podemos <span class="hl-yellow"><strong>personalizar de manera sencilla</strong></span> haciendo uso de la capa <code>labs()</code>:</p>
+<div class="columns">
+<div class="column" style="width:43%;">
+<ul>
+<li><code>title, subtitle</code>: título/subtítulo</li>
+<li><code>caption</code>: pie de gráfica</li>
+<li><code>x, y</code>: nombres de los ejes</li>
+<li><code>size, color, fill, ...</code>: nombre en la leyenda de las variables que codifiquen los distintos atributos</li>
+</ul>
+</div><div class="column" style="width:57%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-499-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb712"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb712-1"><a href="#cb712-1"></a><span class="fu">ggplot</span>(gapminder_1997,</span>
+<span id="cb712-2"><a href="#cb712-2"></a>       <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> lifeExp, <span class="at">color =</span> continent, <span class="at">size =</span> pop)) <span class="sc">+</span></span>
+<span id="cb712-3"><a href="#cb712-3"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb712-4"><a href="#cb712-4"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Esperanza de vida"</span>, <span class="at">y =</span> <span class="st">"Renta per cápita"</span>,</span>
+<span id="cb712-5"><a href="#cb712-5"></a>       <span class="at">title =</span> <span class="st">"Primer ggplot"</span>, <span class="at">subtitle =</span> <span class="st">"Datos de gapminder"</span>,</span>
+<span id="cb712-6"><a href="#cb712-6"></a>       <span class="at">caption =</span> <span class="st">"J. Álvarez Liébana"</span>, <span class="at">color =</span> <span class="st">"continente"</span>, <span class="at">size =</span> <span class="st">"población"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="eliminar-de-la-leyenda" class="slide level2">
+<h2>Eliminar de la leyenda</h2>
+<p>Podemos eliminar variables de la leyenda con <code>guides(atributo = "none")</code></p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb713"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb713-1"><a href="#cb713-1"></a><span class="fu">ggplot</span>(gapminder_1997,</span>
+<span id="cb713-2"><a href="#cb713-2"></a>       <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, </span>
+<span id="cb713-3"><a href="#cb713-3"></a>           <span class="at">x =</span> lifeExp,</span>
+<span id="cb713-4"><a href="#cb713-4"></a>           <span class="at">color =</span> continent, </span>
+<span id="cb713-5"><a href="#cb713-5"></a>           <span class="at">size =</span> pop)) <span class="sc">+</span></span>
+<span id="cb713-6"><a href="#cb713-6"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb713-7"><a href="#cb713-7"></a>  <span class="fu">guides</span>(<span class="at">size =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb713-8"><a href="#cb713-8"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Esperanza de vida"</span>,</span>
+<span id="cb713-9"><a href="#cb713-9"></a>       <span class="at">y =</span> <span class="st">"Renta per cápita"</span>,</span>
+<span id="cb713-10"><a href="#cb713-10"></a>       <span class="at">title =</span> <span class="st">"Primer ggplot"</span>,</span>
+<span id="cb713-11"><a href="#cb713-11"></a>       <span class="at">caption =</span> <span class="st">"J. Álvarez Liébana"</span>,</span>
+<span id="cb713-12"><a href="#cb713-12"></a>       <span class="at">color =</span> <span class="st">"continente"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:55%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-502-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="escalas-scale-ejes" class="slide level2">
+<h2>Escalas (scale): ejes</h2>
+<p>Una de las capas más importantes es la <span class="hl-yellow"><strong>capa de escalas</strong></span>: dentro de <code>aes()</code> solo le indicamos que variable mapeamos pero no sus ajustes.</p>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:47%;">
+<p>Vamos a configurar el eje x para tener marcas cada 10 unidades (<code>scale_x_continuous()</code>)</p>
+</div><div class="column" style="width:53%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-503-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb714"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb714-1"><a href="#cb714-1"></a><span class="fu">ggplot</span>(gapminder_1997,</span>
+<span id="cb714-2"><a href="#cb714-2"></a>       <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> lifeExp,</span>
+<span id="cb714-3"><a href="#cb714-3"></a>           <span class="at">color =</span> continent)) <span class="sc">+</span></span>
+<span id="cb714-4"><a href="#cb714-4"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb714-5"><a href="#cb714-5"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">35</span>, <span class="dv">85</span>, <span class="at">by =</span> <span class="dv">10</span>)) <span class="sc">+</span></span>
+<span id="cb714-6"><a href="#cb714-6"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Esperanza de vida"</span>, <span class="at">y =</span> <span class="st">"Renta per cápita"</span>,</span>
+<span id="cb714-7"><a href="#cb714-7"></a>       <span class="at">title =</span> <span class="st">"Primer ggplot"</span>, <span class="at">caption =</span> <span class="st">"J. Álvarez Liébana"</span>,</span>
+<span id="cb714-8"><a href="#cb714-8"></a>       <span class="at">color =</span> <span class="st">"continente"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="escalas-scale-colores" class="slide level2">
+<h2>Escalas (scale): colores</h2>
+<p>La misma idea la podemos aplicar a otro atríbuto como los <span class="hl-yellow"><strong>colores</strong></span> con <code>scale_color_...()</code> y <code>scale_fill_...()</code>: hemos indicado que mapeé dicho atributo por continente pero…¿qué colores usar?</p>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Con <code>scale_color_manual()</code> podemos indicar manualmente una <span class="hl-yellow"><strong>paleta</strong></span> (puedes buscar en <a href="https://htmlcolorcodes.com/" class="uri">https://htmlcolorcodes.com/</a>)</p>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-505-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb715"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb715-1"><a href="#cb715-1"></a>pal <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"#A02B85"</span>, <span class="st">"#2DE86B"</span>, <span class="st">"#4FB2CA"</span>, <span class="st">"#E8DA2D"</span>, <span class="st">"#E84C2D"</span>)</span>
+<span id="cb715-2"><a href="#cb715-2"></a><span class="fu">ggplot</span>(gapminder_1997, <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> lifeExp, <span class="at">color =</span> continent)) <span class="sc">+</span></span>
+<span id="cb715-3"><a href="#cb715-3"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb715-4"><a href="#cb715-4"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">35</span>, <span class="dv">85</span>, <span class="at">by =</span> <span class="dv">10</span>)) <span class="sc">+</span></span>
+<span id="cb715-5"><a href="#cb715-5"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> pal) <span class="sc">+</span></span>
+<span id="cb715-6"><a href="#cb715-6"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Esperanza de vida"</span>, <span class="at">y =</span> <span class="st">"Renta per cápita"</span>, <span class="at">title =</span> <span class="st">"Primer ggplot"</span>,</span>
+<span id="cb715-7"><a href="#cb715-7"></a>       <span class="at">caption =</span> <span class="st">"J. Álvarez Liébana"</span>, <span class="at">color =</span> <span class="st">"continente"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="escalas-scale-colores-1" class="slide level2">
+<h2>Escalas (scale): colores</h2>
+<p>Otra opción es elegir alguna de las <span class="hl-yellow"><strong>paletas de colores diseñadas</strong></span> en el paquete <code>{ggthemes}</code>:</p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<ul>
+<li><code>scale_color_economist()</code>: paleta de colores basada en los colores de <strong>The Economist</strong>.</li>
+</ul>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-507-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb716"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb716-1"><a href="#cb716-1"></a><span class="fu">ggplot</span>(gapminder_1997, <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> lifeExp, <span class="at">color =</span> continent, <span class="at">size =</span> pop)) <span class="sc">+</span></span>
+<span id="cb716-2"><a href="#cb716-2"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb716-3"><a href="#cb716-3"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">35</span>, <span class="dv">85</span>, <span class="at">by =</span> <span class="dv">10</span>)) <span class="sc">+</span></span>
+<span id="cb716-4"><a href="#cb716-4"></a>  ggthemes<span class="sc">::</span><span class="fu">scale_color_economist</span>() <span class="sc">+</span></span>
+<span id="cb716-5"><a href="#cb716-5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Esperanza de vida"</span>, <span class="at">y =</span> <span class="st">"Renta per cápita"</span>, <span class="at">title =</span> <span class="st">"Primer ggplot"</span>,</span>
+<span id="cb716-6"><a href="#cb716-6"></a>       <span class="at">caption =</span> <span class="st">"J. Álvarez Liébana"</span>, <span class="at">color =</span> <span class="st">"continente"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="escalas-scale-colores-2" class="slide level2">
+<h2>Escalas (scale): colores</h2>
+<p>Otra opción es elegir alguna de las <span class="hl-yellow"><strong>paletas de colores diseñadas</strong></span> en el paquete <code>{ggthemes}</code>:</p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<ul>
+<li><code>scale_color_colorblind()</code>: paleta de colores basada en los colores de <span class="hl-yellow"><strong>daltónicos/as</strong></span>.</li>
+</ul>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-509-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb717"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb717-1"><a href="#cb717-1"></a><span class="fu">ggplot</span>(gapminder_1997, <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> lifeExp, <span class="at">color =</span> continent, <span class="at">size =</span> pop)) <span class="sc">+</span></span>
+<span id="cb717-2"><a href="#cb717-2"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb717-3"><a href="#cb717-3"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">35</span>, <span class="dv">85</span>, <span class="at">by =</span> <span class="dv">10</span>)) <span class="sc">+</span></span>
+<span id="cb717-4"><a href="#cb717-4"></a>  ggthemes<span class="sc">::</span><span class="fu">scale_color_colorblind</span>() <span class="sc">+</span></span>
+<span id="cb717-5"><a href="#cb717-5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Esperanza de vida"</span>, <span class="at">y =</span> <span class="st">"Renta per cápita"</span>, <span class="at">title =</span> <span class="st">"Primer ggplot"</span>,</span>
+<span id="cb717-6"><a href="#cb717-6"></a>       <span class="at">caption =</span> <span class="st">"J. Álvarez Liébana"</span>, <span class="at">color =</span> <span class="st">"continente"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="escalas-scale-colores-3" class="slide level2">
+<h2>Escalas (scale): colores</h2>
+<p>Incluso cargar <span class="hl-yellow"><strong>paletas de colores diseñadas en base a películas o arte</strong></span></p>
+<div class="columns">
+<div class="column" style="width:44%;">
+<ul>
+<li><span class="hl-yellow"><strong>películas</strong></span>: paquete <code>{harrypotter}</code> (repositorio de Github <code>aljrico/harrypotter</code>) usando <code>scale_color_hp_d()</code>.</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://raw.githubusercontent.com/aljrico/harrypotter/master/readme_raw_files/palettes/ravenclaw.png" style="width:20.0%"></p>
+<p></p><figcaption>Paleta basada en la casa Ravenclaw</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:55%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-512-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb718"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb718-1"><a href="#cb718-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="at">repo =</span> <span class="st">"aljrico/harrypotter"</span>) </span>
+<span id="cb718-2"><a href="#cb718-2"></a><span class="fu">ggplot</span>(gapminder_1997, <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> lifeExp, <span class="at">color =</span> continent, <span class="at">size =</span> pop)) <span class="sc">+</span></span>
+<span id="cb718-3"><a href="#cb718-3"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb718-4"><a href="#cb718-4"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">35</span>, <span class="dv">85</span>, <span class="at">by =</span> <span class="dv">10</span>)) <span class="sc">+</span></span>
+<span id="cb718-5"><a href="#cb718-5"></a>  harrypotter<span class="sc">::</span><span class="fu">scale_color_hp_d</span>(<span class="at">option =</span> <span class="st">"ravenclaw"</span>)<span class="sc">+</span></span>
+<span id="cb718-6"><a href="#cb718-6"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Esperanza de vida"</span>, <span class="at">y =</span> <span class="st">"Renta per cápita"</span>, <span class="at">title =</span> <span class="st">"Primer ggplot"</span>,</span>
+<span id="cb718-7"><a href="#cb718-7"></a>       <span class="at">caption =</span> <span class="st">"J. Álvarez Liébana"</span>, <span class="at">color =</span> <span class="st">"continente"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="escalas-scale-colores-4" class="slide level2">
+<h2>Escalas (scale): colores</h2>
+<p>Incluso cargar <span class="hl-yellow"><strong>paletas de colores diseñadas en base a películas o arte</strong></span></p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<ul>
+<li><span class="hl-yellow"><strong>cuadros</strong></span>: paquete <code>{MetBrewer}</code> (repositorio de Github <code>BlakeRMills/MetBrewer</code>) usando <code>scale_colour_manual(values = met.brewer(...))</code>.</li>
+</ul>
+</div><div class="column" style="width:55%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-514-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb719"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb719-1"><a href="#cb719-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="at">repo =</span> <span class="st">"BlakeRMills/MetBrewer"</span>) </span>
+<span id="cb719-2"><a href="#cb719-2"></a><span class="fu">library</span>(MetBrewer)</span>
+<span id="cb719-3"><a href="#cb719-3"></a></span>
+<span id="cb719-4"><a href="#cb719-4"></a><span class="fu">ggplot</span>(gapminder_1997, <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> lifeExp, <span class="at">color =</span> continent, <span class="at">size =</span> pop)) <span class="sc">+</span></span>
+<span id="cb719-5"><a href="#cb719-5"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb719-6"><a href="#cb719-6"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">35</span>, <span class="dv">85</span>, <span class="at">by =</span> <span class="dv">10</span>)) <span class="sc">+</span></span>
+<span id="cb719-7"><a href="#cb719-7"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">met.brewer</span>(<span class="st">"Monet"</span>)) <span class="sc">+</span></span>
+<span id="cb719-8"><a href="#cb719-8"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Esperanza de vida"</span>, <span class="at">y =</span> <span class="st">"Renta per cápita"</span>, <span class="at">title =</span> <span class="st">"Primer ggplot"</span>,</span>
+<span id="cb719-9"><a href="#cb719-9"></a>       <span class="at">caption =</span> <span class="st">"J. Álvarez Liébana"</span>, <span class="at">color =</span> <span class="st">"continente"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="escalas-scale-colores-5" class="slide level2">
+<h2>Escalas (scale): colores</h2>
+<p>Incluso cargar <span class="hl-yellow"><strong>paletas de colores diseñadas en base a películas o arte</strong></span></p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<ul>
+<li><span class="hl-yellow"><strong>discos</strong></span>: paquete <code>{peRReo}</code> (repositorio de Github <code>jbgb13/peRReo</code>) usando <code>scale_colour_manual(values = latin_palette())</code>.</li>
+</ul>
+</div><div class="column" style="width:55%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-516-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb720"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb720-1"><a href="#cb720-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="at">repo =</span> <span class="st">"jbgb13/peRReo"</span>) </span>
+<span id="cb720-2"><a href="#cb720-2"></a><span class="fu">library</span>(peRReo)</span>
+<span id="cb720-3"><a href="#cb720-3"></a></span>
+<span id="cb720-4"><a href="#cb720-4"></a><span class="fu">ggplot</span>(gapminder_1997, <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> lifeExp, <span class="at">color =</span> continent, <span class="at">size =</span> pop)) <span class="sc">+</span></span>
+<span id="cb720-5"><a href="#cb720-5"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb720-6"><a href="#cb720-6"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">35</span>, <span class="dv">85</span>, <span class="at">by =</span> <span class="dv">10</span>)) <span class="sc">+</span></span>
+<span id="cb720-7"><a href="#cb720-7"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">latin_palette</span>(<span class="st">"rosalia"</span>)) <span class="sc">+</span></span>
+<span id="cb720-8"><a href="#cb720-8"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Esperanza de vida"</span>, <span class="at">y =</span> <span class="st">"Renta per cápita"</span>, <span class="at">title =</span> <span class="st">"Primer ggplot"</span>,</span>
+<span id="cb720-9"><a href="#cb720-9"></a>       <span class="at">caption =</span> <span class="st">"J. Álvarez Liébana"</span>, <span class="at">color =</span> <span class="st">"continente"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="escalas-otros-atributos" class="slide level2">
+<h2>Escalas : otros atributos</h2>
+<p>Lo mismo que hemos hecho para los ejes o colores podemos hacer para el <span class="hl-yellow"><strong>resto de atríbutos estéticos</strong></span></p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p>Por ejemplo, vamos a indicarle que mapeé el tamaño en función de población pero indicándole el <span class="hl-yellow"><strong>rango de valores</strong></span> (continuo en este caso) entre los que moverse con <code>scale_size_continuous()</code></p>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-518-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb721"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb721-1"><a href="#cb721-1"></a><span class="fu">ggplot</span>(gapminder_1997, <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> lifeExp, <span class="at">color =</span> continent, <span class="at">size =</span> pop)) <span class="sc">+</span></span>
+<span id="cb721-2"><a href="#cb721-2"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb721-3"><a href="#cb721-3"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">35</span>, <span class="dv">85</span>, <span class="at">by =</span> <span class="dv">10</span>)) <span class="sc">+</span></span>
+<span id="cb721-4"><a href="#cb721-4"></a>  ggthemes<span class="sc">::</span><span class="fu">scale_color_colorblind</span>() <span class="sc">+</span></span>
+<span id="cb721-5"><a href="#cb721-5"></a>  <span class="fu">scale_size_continuous</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">15</span>)) <span class="sc">+</span></span>
+<span id="cb721-6"><a href="#cb721-6"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Esperanza de vida"</span>, <span class="at">y =</span> <span class="st">"Renta per cápita"</span>, <span class="at">title =</span> <span class="st">"Primer ggplot"</span>,</span>
+<span id="cb721-7"><a href="#cb721-7"></a>       <span class="at">caption =</span> <span class="st">"J. Álvarez Liébana"</span>, <span class="at">color =</span> <span class="st">"continente"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>::: ::::</p>
+</section>
+<section id="tema-básico" class="slide level2">
+<h2>Tema (básico)</h2>
+<p>Por último en este primer gráfico, vamos personalizar el tema con alguna de las capas <code>theme_...()</code></p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p>Por ejemplo, vamos a usar <code>theme_minimal()</code> para tener un tema “austero” y minimalista (aprenderemos a definir cada detalle de nuestro tema).</p>
+</div><div class="column" style="width:55%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-520-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb722"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb722-1"><a href="#cb722-1"></a><span class="fu">ggplot</span>(gapminder_1997, <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> lifeExp, <span class="at">color =</span> continent, <span class="at">size =</span> pop)) <span class="sc">+</span></span>
+<span id="cb722-2"><a href="#cb722-2"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb722-3"><a href="#cb722-3"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">35</span>, <span class="dv">85</span>, <span class="at">by =</span> <span class="dv">10</span>)) <span class="sc">+</span></span>
+<span id="cb722-4"><a href="#cb722-4"></a>  ggthemes<span class="sc">::</span><span class="fu">scale_color_colorblind</span>() <span class="sc">+</span></span>
+<span id="cb722-5"><a href="#cb722-5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Esperanza de vida"</span>, <span class="at">y =</span> <span class="st">"Renta per cápita"</span>, <span class="at">title =</span> <span class="st">"Primer ggplot"</span>,</span>
+<span id="cb722-6"><a href="#cb722-6"></a>       <span class="at">caption =</span> <span class="st">"J. Álvarez Liébana"</span>, <span class="at">color =</span> <span class="st">"continente"</span>) <span class="sc">+</span></span>
+<span id="cb722-7"><a href="#cb722-7"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section>
+<section>
+<section id="clase-15-debug" class="title-slide slide level1 center">
+<h1>Clase 15: depuración</h1>
 <p><span style="color:#444442;"><strong>Tratamiento de ausentes y outliers. Dummificar variables</strong></span></p>
 </section>
 <section id="imputar-ausentes" class="slide level2">
@@ -7847,8 +8853,8 @@ $lado_2
 <h2>Caso real: datos de encuestas</h2>
 <p>El paquete <code>{readr}</code> (ya en <code>{tidyverse}</code>) nos permite realizar una carga más ágil y más inteligente que el <code>read.csv()</code> de base (lo importa a un <code>tibble</code> e interpreta bien el tipo de cada variable, incluso fechas)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb694"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb694-1"><a href="#cb694-1"></a>encuestas <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"./datos/historical_surveys.csv"</span>)</span>
-<span id="cb694-2"><a href="#cb694-2"></a>encuestas</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb723"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb723-1"><a href="#cb723-1"></a>encuestas <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"./datos/historical_surveys.csv"</span>)</span>
+<span id="cb723-2"><a href="#cb723-2"></a>encuestas</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3,753 × 59
    type_survey date_elec  id_pollster pollster media    field_date_from
@@ -7883,12 +8889,12 @@ $lado_2
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb696"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb696-1"><a href="#cb696-1"></a>encuestas <span class="ot">&lt;-</span></span>
-<span id="cb696-2"><a href="#cb696-2"></a>  encuestas <span class="sc">|&gt;</span> </span>
-<span id="cb696-3"><a href="#cb696-3"></a>  <span class="co"># Creamos un id con type_survey-date_elec-id_pollster</span></span>
-<span id="cb696-4"><a href="#cb696-4"></a>  <span class="co"># con .before la ponemos delante de everything(), de todo (1ª col)</span></span>
-<span id="cb696-5"><a href="#cb696-5"></a>  <span class="fu">mutate</span>(<span class="at">id_survey =</span> <span class="fu">glue</span>(<span class="st">"{type_survey}-{date_elec}-{id_pollster}"</span>),</span>
-<span id="cb696-6"><a href="#cb696-6"></a>         <span class="at">.before =</span> <span class="fu">everything</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb725"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb725-1"><a href="#cb725-1"></a>encuestas <span class="ot">&lt;-</span></span>
+<span id="cb725-2"><a href="#cb725-2"></a>  encuestas <span class="sc">|&gt;</span> </span>
+<span id="cb725-3"><a href="#cb725-3"></a>  <span class="co"># Creamos un id con type_survey-date_elec-id_pollster</span></span>
+<span id="cb725-4"><a href="#cb725-4"></a>  <span class="co"># con .before la ponemos delante de everything(), de todo (1ª col)</span></span>
+<span id="cb725-5"><a href="#cb725-5"></a>  <span class="fu">mutate</span>(<span class="at">id_survey =</span> <span class="fu">glue</span>(<span class="st">"{type_survey}-{date_elec}-{id_pollster}"</span>),</span>
+<span id="cb725-6"><a href="#cb725-6"></a>         <span class="at">.before =</span> <span class="fu">everything</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </div>
@@ -7901,11 +8907,11 @@ $lado_2
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb697"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb697-1"><a href="#cb697-1"></a>encuestas <span class="ot">&lt;-</span></span>
-<span id="cb697-2"><a href="#cb697-2"></a>  encuestas <span class="sc">|&gt;</span></span>
-<span id="cb697-3"><a href="#cb697-3"></a>  <span class="co"># Eliminamos duplicados por id_survey, pero mantenemos todas las</span></span>
-<span id="cb697-4"><a href="#cb697-4"></a>  <span class="co"># columnas con .keep_all = TRUE</span></span>
-<span id="cb697-5"><a href="#cb697-5"></a>  <span class="fu">distinct</span>(id_survey, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb726"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb726-1"><a href="#cb726-1"></a>encuestas <span class="ot">&lt;-</span></span>
+<span id="cb726-2"><a href="#cb726-2"></a>  encuestas <span class="sc">|&gt;</span></span>
+<span id="cb726-3"><a href="#cb726-3"></a>  <span class="co"># Eliminamos duplicados por id_survey, pero mantenemos todas las</span></span>
+<span id="cb726-4"><a href="#cb726-4"></a>  <span class="co"># columnas con .keep_all = TRUE</span></span>
+<span id="cb726-5"><a href="#cb726-5"></a>  <span class="fu">distinct</span>(id_survey, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -7917,11 +8923,11 @@ $lado_2
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb698"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb698-1"><a href="#cb698-1"></a>encuestas <span class="ot">&lt;-</span></span>
-<span id="cb698-2"><a href="#cb698-2"></a>  encuestas <span class="sc">|&gt;</span> </span>
-<span id="cb698-3"><a href="#cb698-3"></a>  <span class="co"># Eliminamos las columnas pedidas con un -</span></span>
-<span id="cb698-4"><a href="#cb698-4"></a>  <span class="co"># las concateno para usar solo un - para todas</span></span>
-<span id="cb698-5"><a href="#cb698-5"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(type_survey, id_pollster, media))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb727"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb727-1"><a href="#cb727-1"></a>encuestas <span class="ot">&lt;-</span></span>
+<span id="cb727-2"><a href="#cb727-2"></a>  encuestas <span class="sc">|&gt;</span> </span>
+<span id="cb727-3"><a href="#cb727-3"></a>  <span class="co"># Eliminamos las columnas pedidas con un -</span></span>
+<span id="cb727-4"><a href="#cb727-4"></a>  <span class="co"># las concateno para usar solo un - para todas</span></span>
+<span id="cb727-5"><a href="#cb727-5"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(type_survey, id_pollster, media))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -7933,14 +8939,14 @@ $lado_2
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb699"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb699-1"><a href="#cb699-1"></a>encuestas <span class="ot">&lt;-</span></span>
-<span id="cb699-2"><a href="#cb699-2"></a>  encuestas <span class="sc">|&gt;</span> </span>
-<span id="cb699-3"><a href="#cb699-3"></a>  <span class="co"># eliminar ausentes</span></span>
-<span id="cb699-4"><a href="#cb699-4"></a>  <span class="fu">drop_na</span>(size) <span class="sc">|&gt;</span> </span>
-<span id="cb699-5"><a href="#cb699-5"></a>  <span class="co"># Filtramos encuestas (registros) a pie de urna (aquellas que exit_poll == FALSE)</span></span>
-<span id="cb699-6"><a href="#cb699-6"></a>  <span class="fu">filter</span>(<span class="sc">!</span>exit_poll) <span class="sc">|&gt;</span> </span>
-<span id="cb699-7"><a href="#cb699-7"></a>  <span class="co"># Quitamos la variable pie de urna</span></span>
-<span id="cb699-8"><a href="#cb699-8"></a>  <span class="fu">select</span>(<span class="sc">-</span>exit_poll)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb728"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb728-1"><a href="#cb728-1"></a>encuestas <span class="ot">&lt;-</span></span>
+<span id="cb728-2"><a href="#cb728-2"></a>  encuestas <span class="sc">|&gt;</span> </span>
+<span id="cb728-3"><a href="#cb728-3"></a>  <span class="co"># eliminar ausentes</span></span>
+<span id="cb728-4"><a href="#cb728-4"></a>  <span class="fu">drop_na</span>(size) <span class="sc">|&gt;</span> </span>
+<span id="cb728-5"><a href="#cb728-5"></a>  <span class="co"># Filtramos encuestas (registros) a pie de urna (aquellas que exit_poll == FALSE)</span></span>
+<span id="cb728-6"><a href="#cb728-6"></a>  <span class="fu">filter</span>(<span class="sc">!</span>exit_poll) <span class="sc">|&gt;</span> </span>
+<span id="cb728-7"><a href="#cb728-7"></a>  <span class="co"># Quitamos la variable pie de urna</span></span>
+<span id="cb728-8"><a href="#cb728-8"></a>  <span class="fu">select</span>(<span class="sc">-</span>exit_poll)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -7952,13 +8958,13 @@ $lado_2
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb700"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb700-1"><a href="#cb700-1"></a>encuestas <span class="ot">&lt;-</span></span>
-<span id="cb700-2"><a href="#cb700-2"></a>  encuestas <span class="sc">|&gt;</span> </span>
-<span id="cb700-3"><a href="#cb700-3"></a>  <span class="co"># Convertimos a tidydata</span></span>
-<span id="cb700-4"><a href="#cb700-4"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>(id_survey<span class="sc">:</span>turnout),</span>
-<span id="cb700-5"><a href="#cb700-5"></a>               <span class="at">names_to =</span> <span class="st">"partido"</span>,</span>
-<span id="cb700-6"><a href="#cb700-6"></a>               <span class="at">values_to =</span> <span class="st">"est_voto"</span>,</span>
-<span id="cb700-7"><a href="#cb700-7"></a>               <span class="at">values_drop_na =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb729"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb729-1"><a href="#cb729-1"></a>encuestas <span class="ot">&lt;-</span></span>
+<span id="cb729-2"><a href="#cb729-2"></a>  encuestas <span class="sc">|&gt;</span> </span>
+<span id="cb729-3"><a href="#cb729-3"></a>  <span class="co"># Convertimos a tidydata</span></span>
+<span id="cb729-4"><a href="#cb729-4"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>(id_survey<span class="sc">:</span>turnout),</span>
+<span id="cb729-5"><a href="#cb729-5"></a>               <span class="at">names_to =</span> <span class="st">"partido"</span>,</span>
+<span id="cb729-6"><a href="#cb729-6"></a>               <span class="at">values_to =</span> <span class="st">"est_voto"</span>,</span>
+<span id="cb729-7"><a href="#cb729-7"></a>               <span class="at">values_drop_na =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -7970,14 +8976,14 @@ $lado_2
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb701"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb701-1"><a href="#cb701-1"></a>encuestas <span class="ot">&lt;-</span></span>
-<span id="cb701-2"><a href="#cb701-2"></a>  encuestas <span class="sc">|&gt;</span> </span>
-<span id="cb701-3"><a href="#cb701-3"></a>  <span class="co"># Calculamos los días de campo como la diferencia de fechas </span></span>
-<span id="cb701-4"><a href="#cb701-4"></a>  <span class="co"># con as.numeric() convertimos la dif. de fechas a un número</span></span>
-<span id="cb701-5"><a href="#cb701-5"></a>  <span class="fu">mutate</span>(<span class="at">n_dias_campo =</span> <span class="fu">as.numeric</span>(field_date_to <span class="sc">-</span> field_date_from),</span>
-<span id="cb701-6"><a href="#cb701-6"></a>         <span class="at">.after =</span> pollster) <span class="sc">|&gt;</span> </span>
-<span id="cb701-7"><a href="#cb701-7"></a>  <span class="co"># Solo aquellas cuyo trabajo de campo haya durado 1 día o más</span></span>
-<span id="cb701-8"><a href="#cb701-8"></a>  <span class="fu">filter</span>(n_dias_campo <span class="sc">&gt;</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb730"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb730-1"><a href="#cb730-1"></a>encuestas <span class="ot">&lt;-</span></span>
+<span id="cb730-2"><a href="#cb730-2"></a>  encuestas <span class="sc">|&gt;</span> </span>
+<span id="cb730-3"><a href="#cb730-3"></a>  <span class="co"># Calculamos los días de campo como la diferencia de fechas </span></span>
+<span id="cb730-4"><a href="#cb730-4"></a>  <span class="co"># con as.numeric() convertimos la dif. de fechas a un número</span></span>
+<span id="cb730-5"><a href="#cb730-5"></a>  <span class="fu">mutate</span>(<span class="at">n_dias_campo =</span> <span class="fu">as.numeric</span>(field_date_to <span class="sc">-</span> field_date_from),</span>
+<span id="cb730-6"><a href="#cb730-6"></a>         <span class="at">.after =</span> pollster) <span class="sc">|&gt;</span> </span>
+<span id="cb730-7"><a href="#cb730-7"></a>  <span class="co"># Solo aquellas cuyo trabajo de campo haya durado 1 día o más</span></span>
+<span id="cb730-8"><a href="#cb730-8"></a>  <span class="fu">filter</span>(n_dias_campo <span class="sc">&gt;</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -7989,14 +8995,14 @@ $lado_2
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb702"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb702-1"><a href="#cb702-1"></a>encuestas <span class="ot">&lt;-</span></span>
-<span id="cb702-2"><a href="#cb702-2"></a>  encuestas <span class="sc">|&gt;</span> </span>
-<span id="cb702-3"><a href="#cb702-3"></a>  <span class="co"># Calculamos los días que faltan a las elecciones</span></span>
-<span id="cb702-4"><a href="#cb702-4"></a>  <span class="co"># con as.numeric() convertimos la dif. de fechas a un número</span></span>
-<span id="cb702-5"><a href="#cb702-5"></a>  <span class="fu">mutate</span>(<span class="at">n_dias_elec =</span> <span class="fu">as.numeric</span>(date_elec <span class="sc">-</span> field_date_to),</span>
-<span id="cb702-6"><a href="#cb702-6"></a>         <span class="at">.after =</span> n_dias_campo) <span class="sc">|&gt;</span> </span>
-<span id="cb702-7"><a href="#cb702-7"></a>  <span class="co"># Eliminamos ya las fechas de campo que no necesitamos</span></span>
-<span id="cb702-8"><a href="#cb702-8"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">contains</span>(<span class="st">"field"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb731"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb731-1"><a href="#cb731-1"></a>encuestas <span class="ot">&lt;-</span></span>
+<span id="cb731-2"><a href="#cb731-2"></a>  encuestas <span class="sc">|&gt;</span> </span>
+<span id="cb731-3"><a href="#cb731-3"></a>  <span class="co"># Calculamos los días que faltan a las elecciones</span></span>
+<span id="cb731-4"><a href="#cb731-4"></a>  <span class="co"># con as.numeric() convertimos la dif. de fechas a un número</span></span>
+<span id="cb731-5"><a href="#cb731-5"></a>  <span class="fu">mutate</span>(<span class="at">n_dias_elec =</span> <span class="fu">as.numeric</span>(date_elec <span class="sc">-</span> field_date_to),</span>
+<span id="cb731-6"><a href="#cb731-6"></a>         <span class="at">.after =</span> n_dias_campo) <span class="sc">|&gt;</span> </span>
+<span id="cb731-7"><a href="#cb731-7"></a>  <span class="co"># Eliminamos ya las fechas de campo que no necesitamos</span></span>
+<span id="cb731-8"><a href="#cb731-8"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">contains</span>(<span class="st">"field"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -8008,10 +9014,10 @@ $lado_2
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb703"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb703-1"><a href="#cb703-1"></a>encuestas <span class="ot">&lt;-</span></span>
-<span id="cb703-2"><a href="#cb703-2"></a>  encuestas <span class="sc">|&gt;</span></span>
-<span id="cb703-3"><a href="#cb703-3"></a>  <span class="co"># Solo con encuestas antes del baneo electoral</span></span>
-<span id="cb703-4"><a href="#cb703-4"></a>  <span class="fu">filter</span>(n_dias_elec <span class="sc">&gt;</span> <span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb732"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb732-1"><a href="#cb732-1"></a>encuestas <span class="ot">&lt;-</span></span>
+<span id="cb732-2"><a href="#cb732-2"></a>  encuestas <span class="sc">|&gt;</span></span>
+<span id="cb732-3"><a href="#cb732-3"></a>  <span class="co"># Solo con encuestas antes del baneo electoral</span></span>
+<span id="cb732-4"><a href="#cb732-4"></a>  <span class="fu">filter</span>(n_dias_elec <span class="sc">&gt;</span> <span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -8023,10 +9029,10 @@ $lado_2
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb704"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb704-1"><a href="#cb704-1"></a>encuestas <span class="sc">|&gt;</span></span>
-<span id="cb704-2"><a href="#cb704-2"></a>  <span class="co"># Resumen: media de voto por fecha y partido</span></span>
-<span id="cb704-3"><a href="#cb704-3"></a>  <span class="fu">summarise</span>(<span class="at">media_voto =</span> <span class="fu">mean</span>(est_voto),</span>
-<span id="cb704-4"><a href="#cb704-4"></a>            <span class="at">.by =</span> <span class="fu">c</span>(<span class="st">"date_elec"</span>, <span class="st">"partido"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb733"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb733-1"><a href="#cb733-1"></a>encuestas <span class="sc">|&gt;</span></span>
+<span id="cb733-2"><a href="#cb733-2"></a>  <span class="co"># Resumen: media de voto por fecha y partido</span></span>
+<span id="cb733-3"><a href="#cb733-3"></a>  <span class="fu">summarise</span>(<span class="at">media_voto =</span> <span class="fu">mean</span>(est_voto),</span>
+<span id="cb733-4"><a href="#cb733-4"></a>            <span class="at">.by =</span> <span class="fu">c</span>(<span class="st">"date_elec"</span>, <span class="st">"partido"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 137 × 3
@@ -8054,14 +9060,14 @@ $lado_2
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb706"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb706-1"><a href="#cb706-1"></a>encuestas <span class="sc">|&gt;</span></span>
-<span id="cb706-2"><a href="#cb706-2"></a>  <span class="co"># Filtramos ventana de 60 días</span></span>
-<span id="cb706-3"><a href="#cb706-3"></a>  <span class="fu">filter</span>(n_dias_elec <span class="sc">&lt;=</span> <span class="dv">60</span>) <span class="sc">|&gt;</span></span>
-<span id="cb706-4"><a href="#cb706-4"></a>  <span class="co"># Media de est_voto por fecha y partido</span></span>
-<span id="cb706-5"><a href="#cb706-5"></a>  <span class="fu">summarise</span>(<span class="at">media_voto =</span> <span class="fu">mean</span>(est_voto),</span>
-<span id="cb706-6"><a href="#cb706-6"></a>            <span class="at">.by =</span> <span class="fu">c</span>(<span class="st">"date_elec"</span>, <span class="st">"partido"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb706-7"><a href="#cb706-7"></a>  <span class="co"># Ordenar de mayor a menor</span></span>
-<span id="cb706-8"><a href="#cb706-8"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(date_elec))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb735"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb735-1"><a href="#cb735-1"></a>encuestas <span class="sc">|&gt;</span></span>
+<span id="cb735-2"><a href="#cb735-2"></a>  <span class="co"># Filtramos ventana de 60 días</span></span>
+<span id="cb735-3"><a href="#cb735-3"></a>  <span class="fu">filter</span>(n_dias_elec <span class="sc">&lt;=</span> <span class="dv">60</span>) <span class="sc">|&gt;</span></span>
+<span id="cb735-4"><a href="#cb735-4"></a>  <span class="co"># Media de est_voto por fecha y partido</span></span>
+<span id="cb735-5"><a href="#cb735-5"></a>  <span class="fu">summarise</span>(<span class="at">media_voto =</span> <span class="fu">mean</span>(est_voto),</span>
+<span id="cb735-6"><a href="#cb735-6"></a>            <span class="at">.by =</span> <span class="fu">c</span>(<span class="st">"date_elec"</span>, <span class="st">"partido"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb735-7"><a href="#cb735-7"></a>  <span class="co"># Ordenar de mayor a menor</span></span>
+<span id="cb735-8"><a href="#cb735-8"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(date_elec))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 122 × 3
@@ -8089,16 +9095,16 @@ $lado_2
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb708"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb708-1"><a href="#cb708-1"></a>encuestas <span class="sc">|&gt;</span> </span>
-<span id="cb708-2"><a href="#cb708-2"></a>  <span class="co"># Filtramos ventana de 60 días</span></span>
-<span id="cb708-3"><a href="#cb708-3"></a>  <span class="fu">filter</span>(n_dias_elec <span class="sc">&lt;=</span> <span class="dv">60</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb708-4"><a href="#cb708-4"></a>  <span class="co"># Media de est_voto por fecha y partido</span></span>
-<span id="cb708-5"><a href="#cb708-5"></a>  <span class="fu">summarise</span>(<span class="at">media_voto =</span> <span class="fu">mean</span>(est_voto),</span>
-<span id="cb708-6"><a href="#cb708-6"></a>            <span class="at">.by =</span> <span class="fu">c</span>(<span class="st">"date_elec"</span>, <span class="st">"partido"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb708-7"><a href="#cb708-7"></a>  <span class="co"># Ordenar de mayor a menor por fecha</span></span>
-<span id="cb708-8"><a href="#cb708-8"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(date_elec)) <span class="sc">|&gt;</span></span>
-<span id="cb708-9"><a href="#cb708-9"></a>  <span class="co"># extraemos los dos con más est de voto (por cada fecha)</span></span>
-<span id="cb708-10"><a href="#cb708-10"></a>  <span class="fu">slice_max</span>(media_voto, <span class="at">n =</span> <span class="dv">2</span>, <span class="at">by =</span> date_elec)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb737"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb737-1"><a href="#cb737-1"></a>encuestas <span class="sc">|&gt;</span> </span>
+<span id="cb737-2"><a href="#cb737-2"></a>  <span class="co"># Filtramos ventana de 60 días</span></span>
+<span id="cb737-3"><a href="#cb737-3"></a>  <span class="fu">filter</span>(n_dias_elec <span class="sc">&lt;=</span> <span class="dv">60</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb737-4"><a href="#cb737-4"></a>  <span class="co"># Media de est_voto por fecha y partido</span></span>
+<span id="cb737-5"><a href="#cb737-5"></a>  <span class="fu">summarise</span>(<span class="at">media_voto =</span> <span class="fu">mean</span>(est_voto),</span>
+<span id="cb737-6"><a href="#cb737-6"></a>            <span class="at">.by =</span> <span class="fu">c</span>(<span class="st">"date_elec"</span>, <span class="st">"partido"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb737-7"><a href="#cb737-7"></a>  <span class="co"># Ordenar de mayor a menor por fecha</span></span>
+<span id="cb737-8"><a href="#cb737-8"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(date_elec)) <span class="sc">|&gt;</span></span>
+<span id="cb737-9"><a href="#cb737-9"></a>  <span class="co"># extraemos los dos con más est de voto (por cada fecha)</span></span>
+<span id="cb737-10"><a href="#cb737-10"></a>  <span class="fu">slice_max</span>(media_voto, <span class="at">n =</span> <span class="dv">2</span>, <span class="at">by =</span> date_elec)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 22 × 3
@@ -8194,7 +9200,7 @@ $lado_2
 <div class="fragment">
 <p>Para ello antes tendremos que instalar un <span class="hl-yellow"><strong>conjunto de paquetes para desarrolladores</strong></span> llamado <code>{devtools}</code>, que nos permitirá la instalación desde Github</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb710"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb710-1"><a href="#cb710-1"></a><span class="fu">install.packages</span>(<span class="st">"devtools"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb739"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb739-1"><a href="#cb739-1"></a><span class="fu">install.packages</span>(<span class="st">"devtools"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -8211,7 +9217,7 @@ $lado_2
 <div class="fragment">
 <p>En la mayoría de casos bastará con la función <code>install_github()</code> (del paquete que acabamos de instalar), pasándole como argumento la <span class="hl-yellow"><strong>ruta del repositorio</strong></span> (sin “github.com/”).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb711"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb711-1"><a href="#cb711-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"jbgb13/peRReo"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb740"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb740-1"><a href="#cb740-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"jbgb13/peRReo"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Ya puedes perrear con ggplot ;)</p>
 </div>
@@ -8297,8 +9303,8 @@ $lado_2
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb712"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb712-1"><a href="#cb712-1"></a><span class="co"># Carga de datos desde ISCIII</span></span>
-<span id="cb712-2"><a href="#cb712-2"></a>datos_covid <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"https://cnecovid.isciii.es/covid19/resources/casos_hosp_uci_def_sexo_edad_provres.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb741"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb741-1"><a href="#cb741-1"></a><span class="co"># Carga de datos desde ISCIII</span></span>
+<span id="cb741-2"><a href="#cb741-2"></a>datos_covid <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"https://cnecovid.isciii.es/covid19/resources/casos_hosp_uci_def_sexo_edad_provres.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="fragment">
@@ -8308,15 +9314,15 @@ $lado_2
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb713"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb713-1"><a href="#cb713-1"></a><span class="co"># Depuración</span></span>
-<span id="cb713-2"><a href="#cb713-2"></a>datos_madrid <span class="ot">&lt;-</span></span>
-<span id="cb713-3"><a href="#cb713-3"></a>  datos_covid <span class="sc">|&gt;</span></span>
-<span id="cb713-4"><a href="#cb713-4"></a>  <span class="co"># Filtrado por Madrid y fecha</span></span>
-<span id="cb713-5"><a href="#cb713-5"></a>  <span class="fu">filter</span>(provincia_iso <span class="sc">==</span> <span class="st">"M"</span> <span class="sc">&amp;</span> fecha <span class="sc">&lt;=</span> <span class="st">"2020-12-31"</span> <span class="sc">&amp;</span> sexo <span class="sc">!=</span> <span class="st">"NC"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb713-6"><a href="#cb713-6"></a>  <span class="co"># Selección de columnas</span></span>
-<span id="cb713-7"><a href="#cb713-7"></a>  <span class="fu">select</span>(provincia_iso<span class="sc">:</span>fecha, num_casos) <span class="sc">|&gt;</span> </span>
-<span id="cb713-8"><a href="#cb713-8"></a>  <span class="co"># Resumen de casos diarios por fecha y sexo</span></span>
-<span id="cb713-9"><a href="#cb713-9"></a>  <span class="fu">summarise</span>(<span class="at">num_casos =</span> <span class="fu">sum</span>(num_casos), <span class="at">.by =</span> <span class="fu">c</span>(fecha, sexo))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb742"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb742-1"><a href="#cb742-1"></a><span class="co"># Depuración</span></span>
+<span id="cb742-2"><a href="#cb742-2"></a>datos_madrid <span class="ot">&lt;-</span></span>
+<span id="cb742-3"><a href="#cb742-3"></a>  datos_covid <span class="sc">|&gt;</span></span>
+<span id="cb742-4"><a href="#cb742-4"></a>  <span class="co"># Filtrado por Madrid y fecha</span></span>
+<span id="cb742-5"><a href="#cb742-5"></a>  <span class="fu">filter</span>(provincia_iso <span class="sc">==</span> <span class="st">"M"</span> <span class="sc">&amp;</span> fecha <span class="sc">&lt;=</span> <span class="st">"2020-12-31"</span> <span class="sc">&amp;</span> sexo <span class="sc">!=</span> <span class="st">"NC"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb742-6"><a href="#cb742-6"></a>  <span class="co"># Selección de columnas</span></span>
+<span id="cb742-7"><a href="#cb742-7"></a>  <span class="fu">select</span>(provincia_iso<span class="sc">:</span>fecha, num_casos) <span class="sc">|&gt;</span> </span>
+<span id="cb742-8"><a href="#cb742-8"></a>  <span class="co"># Resumen de casos diarios por fecha y sexo</span></span>
+<span id="cb742-9"><a href="#cb742-9"></a>  <span class="fu">summarise</span>(<span class="at">num_casos =</span> <span class="fu">sum</span>(num_casos), <span class="at">.by =</span> <span class="fu">c</span>(fecha, sexo))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </div>
@@ -8329,8 +9335,8 @@ $lado_2
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb714"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb714-1"><a href="#cb714-1"></a><span class="co"># Exportamos datos</span></span>
-<span id="cb714-2"><a href="#cb714-2"></a><span class="fu">write_csv</span>(datos_madrid, <span class="at">file =</span> <span class="st">"./exportado/datos_madrid.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb743"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb743-1"><a href="#cb743-1"></a><span class="co"># Exportamos datos</span></span>
+<span id="cb743-2"><a href="#cb743-2"></a><span class="fu">write_csv</span>(datos_madrid, <span class="at">file =</span> <span class="st">"./exportado/datos_madrid.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="fragment">
@@ -8342,14 +9348,14 @@ $lado_2
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb715"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb715-1"><a href="#cb715-1"></a><span class="co"># Gráfica</span></span>
-<span id="cb715-2"><a href="#cb715-2"></a><span class="fu">ggplot</span>(datos_madrid) <span class="sc">+</span></span>
-<span id="cb715-3"><a href="#cb715-3"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> fecha, <span class="at">y =</span> num_casos, <span class="at">color =</span> sexo),</span>
-<span id="cb715-4"><a href="#cb715-4"></a>            <span class="at">alpha =</span> <span class="fl">0.6</span>, <span class="at">linewidth =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
-<span id="cb715-5"><a href="#cb715-5"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#85519D"</span>, <span class="st">"#278862"</span>)) <span class="sc">+</span></span>
-<span id="cb715-6"><a href="#cb715-6"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>sexo) <span class="sc">+</span></span>
-<span id="cb715-7"><a href="#cb715-7"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb715-8"><a href="#cb715-8"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb744"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb744-1"><a href="#cb744-1"></a><span class="co"># Gráfica</span></span>
+<span id="cb744-2"><a href="#cb744-2"></a><span class="fu">ggplot</span>(datos_madrid) <span class="sc">+</span></span>
+<span id="cb744-3"><a href="#cb744-3"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> fecha, <span class="at">y =</span> num_casos, <span class="at">color =</span> sexo),</span>
+<span id="cb744-4"><a href="#cb744-4"></a>            <span class="at">alpha =</span> <span class="fl">0.6</span>, <span class="at">linewidth =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb744-5"><a href="#cb744-5"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#85519D"</span>, <span class="st">"#278862"</span>)) <span class="sc">+</span></span>
+<span id="cb744-6"><a href="#cb744-6"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>sexo) <span class="sc">+</span></span>
+<span id="cb744-7"><a href="#cb744-7"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb744-8"><a href="#cb744-8"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </div><div class="column" style="width:60%;">
@@ -8362,8 +9368,8 @@ $lado_2
 <li>Tras ello <span class="hl-yellow"><strong>exportamos la gráfica</strong></span></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb716"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb716-1"><a href="#cb716-1"></a><span class="fu">ggsave</span>(<span class="at">filename =</span> <span class="st">"./exportado/ggplot.png"</span>, <span class="at">plot =</span> <span class="fu">last_plot</span>(),</span>
-<span id="cb716-2"><a href="#cb716-2"></a>       <span class="at">bg =</span> <span class="st">"white"</span>, <span class="at">width =</span> <span class="dv">12</span>, <span class="at">height =</span> <span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb745"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb745-1"><a href="#cb745-1"></a><span class="fu">ggsave</span>(<span class="at">filename =</span> <span class="st">"./exportado/ggplot.png"</span>, <span class="at">plot =</span> <span class="fu">last_plot</span>(),</span>
+<span id="cb745-2"><a href="#cb745-2"></a>       <span class="at">bg =</span> <span class="st">"white"</span>, <span class="at">width =</span> <span class="dv">12</span>, <span class="at">height =</span> <span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -8407,11 +9413,11 @@ $lado_2
 <h2>Repo de código</h2>
 <p>Vamos a realizar un <span class="hl-yellow"><strong>cambio en nuestro código</strong></span>: en tu código local (local –&gt; tu ordenador), en lugar de filtrar por Madrid haz el <span class="hl-yellow"><strong>filtro por Barcelona</strong></span>, guarda el código y sube en el repositorio el nuevo archivo (con el mismo nombre, Github hará la sobrescritura)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb717" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb717-1"><a href="#cb717-1"></a>datos_bcn <span class="ot">&lt;-</span></span>
-<span id="cb717-2"><a href="#cb717-2"></a>  datos_covid <span class="sc">|&gt;</span></span>
-<span id="cb717-3"><a href="#cb717-3"></a>  <span class="fu">filter</span>(provincia_iso <span class="sc">==</span> <span class="st">"B"</span> <span class="sc">&amp;</span> fecha <span class="sc">&lt;=</span> <span class="st">"2020-12-31"</span> <span class="sc">&amp;</span> sexo <span class="sc">!=</span> <span class="st">"NC"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb717-4"><a href="#cb717-4"></a>  <span class="fu">select</span>(fecha, sexo, grupo_edad, num_casos) <span class="sc">|&gt;</span> </span>
-<span id="cb717-5"><a href="#cb717-5"></a>  <span class="fu">summarise</span>(<span class="at">num_casos =</span> <span class="fu">sum</span>(num_casos), <span class="at">.by =</span> <span class="fu">c</span>(fecha, sexo))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb746" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb746-1"><a href="#cb746-1"></a>datos_bcn <span class="ot">&lt;-</span></span>
+<span id="cb746-2"><a href="#cb746-2"></a>  datos_covid <span class="sc">|&gt;</span></span>
+<span id="cb746-3"><a href="#cb746-3"></a>  <span class="fu">filter</span>(provincia_iso <span class="sc">==</span> <span class="st">"B"</span> <span class="sc">&amp;</span> fecha <span class="sc">&lt;=</span> <span class="st">"2020-12-31"</span> <span class="sc">&amp;</span> sexo <span class="sc">!=</span> <span class="st">"NC"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb746-4"><a href="#cb746-4"></a>  <span class="fu">select</span>(fecha, sexo, grupo_edad, num_casos) <span class="sc">|&gt;</span> </span>
+<span id="cb746-5"><a href="#cb746-5"></a>  <span class="fu">summarise</span>(<span class="at">num_casos =</span> <span class="fu">sum</span>(num_casos), <span class="at">.by =</span> <span class="fu">c</span>(fecha, sexo))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="consulta-de-commits" class="slide level2">
@@ -8758,6 +9764,8 @@ $lado_2
 <p><a href="..."><strong>Javier Álvarez Liébana</strong></a> • Máster de bioestadística (UCM) • curso 2023-2024</p>
 </div>
 </section>
+
+
     </div>
   </div>
 
