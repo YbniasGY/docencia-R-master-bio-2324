@@ -11178,9 +11178,194 @@ Solo haciendo uso de los gráficos aprendidos hasta ahora, ¿cómo visualizaría
 
 # Clase 15: dataviz
 
+[**Visualización de datos**]{style="color:#444442;"}
+
+---
+
+
+## Variables continuas
+
+> Solo haciendo uso de los gráficos aprendidos hasta ahora, ¿cómo visualizarías dicho dataset? Realiza las tranformaciones que consideres para una correcta preparación de los datos.
+
+```{r}
+datos <-
+  read_csv("https://raw.githubusercontent.com/zonination/perceptions/master/probly.csv")
+```
+
+. . .
+
+Lo primero que deberemos hacer es [**preparar nuestros datos**]{.hl-yellow} para la posterior visualización en formato tidy
+
+```{r}
+datos_tidy <-
+  datos |> 
+  pivot_longer(cols = everything(),
+               names_to = "termino", values_to = "prob")
+datos_tidy
+```
+
+---
+
+
+## Variables continuas
+
+¿Cómo podemos visualizar estos datos?
+
+. . .
+
+Tenemos dos variables:
+
+* `termino`: [**cualitativa ordinal**]{.hl-yellow}
+* `prob`: [**cuantitativa continua**]{.hl-yellow}
+
+Por lo que de momento no tenemos herramienta para visualizarlo ya que
+
+* [**scatter plot**]{.hl-purple}: dos variables continuas.
+* [**diagrama de barras**]{.hl-purple}: variables discretas o cualitativas
+
+. . .
+
+La única manera será [**realizar un resumen**]{.hl-yellow} de los datos visualizando, por ejemplo, la [**media de probabilidad**]{.hl-yellow} asignada
+
 ---
 
 ## Variables continuas
+
+La única manera será [**realizar un resumen**]{.hl-yellow} de los datos visualizando, por ejemplo, la [**media de probabilidad**]{.hl-yellow} asignada
+
+. . .
+
+```{r}
+resumen <- 
+  datos_tidy |>
+  summarise(mean_prob = mean(prob), .by = termino)
+resumen
+```
+
+---
+
+## Variables continuas
+
+::: columns
+::: {.column width="40%"}
+
+Con `scale_fill_gradient2()` vamos a crear un gradiente de color, y con `scale_y_continuous()` incorporamos % en el eje Y.
+
+:::
+
+::: {.column width="60%"}
+```{r}
+#| echo: false
+ggplot(resumen, aes(x = termino, y = mean_prob, fill = mean_prob)) +
+  geom_col(alpha = 0.8) +
+  scale_fill_gradient2(low = "#DA4A4A", mid = "#FEFADF", high = "#144F8D", midpoint = 50) +
+  scale_y_continuous(labels = scales::label_number(suffix = "%")) +
+  labs(fill = "Prob. media", x = "Términos", y = "Probabilidad media",
+       title = "Percepción de la probabilidad") +
+  theme_minimal()
+```
+
+:::
+::::
+
+```{r}
+#| eval: false
+ggplot(resumen, aes(x = termino, y = mean_prob, fill = mean_prob)) +
+  geom_col(alpha = 0.8) +
+  scale_fill_gradient2(low = "#DA4A4A", mid = "#FEFADF", high = "#144F8D", midpoint = 50) +
+  scale_y_continuous(labels = scales::label_number(suffix = "%")) +
+  labs(fill = "Prob. media", x = "Términos", y = "Probabilidad media",
+       title = "Percepción de la probabilidad") +
+  theme_minimal()
+```
+
+
+---
+
+## Variables continuas
+
+
+
+::: columns
+::: {.column width="40%"}
+
+Para mejorar la legibilidad vamos a reducir el tamaño de las etiquetas del eje X.
+
+:::
+
+::: {.column width="60%"}
+```{r}
+#| echo: false
+ggplot(resumen, aes(x = termino, y = mean_prob, fill = mean_prob)) +
+  geom_col(alpha = 0.8) +
+  scale_fill_gradient2(low = "#DA4A4A", mid = "#FEFADF", high = "#144F8D", midpoint = 50) +
+  scale_y_continuous(labels = scales::label_number(suffix = "%")) +
+  labs(fill = "Prob. media", x = "Términos", y = "Probabilidad media",
+       title = "Percepción de la probabilidad") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(size = 6, angle = 30))
+```
+
+:::
+::::
+
+```{r}
+#| eval: false
+ggplot(resumen, aes(x = termino, y = mean_prob, fill = mean_prob)) +
+  geom_col(alpha = 0.8) +
+  scale_fill_gradient2(low = "#DA4A4A", mid = "#FEFADF", high = "#144F8D", midpoint = 50) +
+  scale_y_continuous(labels = scales::label_number(suffix = "%")) +
+  labs(fill = "Prob. media", x = "Términos", y = "Probabilidad media",
+       title = "Percepción de la probabilidad") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(size = 6, angle = 30))
+```
+
+---
+
+## Variables continuas
+
+
+::: columns
+::: {.column width="40%"}
+
+Por último, vamos a ordenar las barras de más a menos
+
+:::
+
+::: {.column width="60%"}
+```{r}
+#| echo: false
+ggplot(resumen |> mutate(termino = fct_reorder(termino, mean_prob)), aes(x = termino, y = mean_prob, fill = mean_prob)) +
+  geom_col(alpha = 0.8) +
+  scale_fill_gradient2(low = "#DA4A4A", mid = "#FEFADF", high = "#144F8D", midpoint = 50) +
+  scale_y_continuous(labels = scales::label_number(suffix = "%")) +
+  labs(fill = "Prob. media", x = "Términos", y = "Probabilidad media",
+       title = "Percepción de la probabilidad") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(size = 6, angle = 30))
+```
+
+:::
+::::
+
+```{r}
+#| eval: false
+ggplot(resumen |> mutate(termino = fct_reorder(termino, mean_prob)), aes(x = termino, y = mean_prob, fill = mean_prob)) +
+  geom_col(alpha = 0.8) +
+  scale_fill_gradient2(low = "#DA4A4A", mid = "#FEFADF", high = "#144F8D", midpoint = 50) +
+  scale_y_continuous(labels = scales::label_number(suffix = "%")) +
+  labs(fill = "Prob. media", x = "Términos", y = "Probabilidad media",
+       title = "Percepción de la probabilidad") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(size = 6, angle = 30))
+```
+
+---
+
+## Variables continuas
+
+Aun así al haber sumarizado, estamos perdiendo información...
 
 ¿Qué otros gráficos se te ocurren para hacer con [**variables continuas**]{.hl-yellow}?
 
@@ -11188,40 +11373,1348 @@ Solo haciendo uso de los gráficos aprendidos hasta ahora, ¿cómo visualizaría
 
 Algunos de los más habituales son:
 
-* [**Evolución**]{.hl-purple}: gráficos de líneas, gráficos de área, series temporales, etc
-
-. . .
 
 * [**Distribuciones**]{.hl-purple}: histogramas, densidades (ridgeline), boxplot (alternativas: violín, raincloud plots)
 
 . . .
 
+* [**Evolución**]{.hl-purple}: gráficos de líneas, gráficos de área, series temporales, etc
+
+. . .
+
 * [**Correlaciones**]{.hl-purple}: mapas de calor, correlograma, grafos, etc
 
+---
+
+## Distribuciones: histogramas
+
+::: columns
+::: {.column width="40%"}
+
+Nuestra primera alternativa será el conocido como [**histograma**]{.hl-yellow} con `geom_histogram()`
+
+:::
+
+::: {.column width="60%"}
+
+```{r}
+#| echo: false
+ggplot(datos_tidy, aes(x = prob)) +
+  geom_histogram(alpha = 0.8, fill = "#144F8D") +
+  labs(x = "Probabilidad", y = "Frecuencia",
+       title = "Percepción de la probabilidad") +
+  theme_minimal()
+```
+
+:::
+::::
+
+Fíjate que está realizando el histograma de todo el dataset.
+
+```{r}
+#| eval: false
+ggplot(datos_tidy, aes(x = prob)) +
+  geom_histogram(alpha = 0.8, fill = "#144F8D") +
+  labs(x = "Probabilidad", y = "Frecuencia",
+       title = "Percepción de la probabilidad") +
+  theme_minimal()
+```
+
+---
+
+## Distribuciones: histogramas
+
+::: columns
+::: {.column width="40%"}
+
+
+El argumento `bins = ...` nos servirá para personalizar el nímero de barras que queremos. Fíjate que el gráfico es una [**proximación discreta**]{.hl-yellow} de un gráfico de densidad.
+:::
+
+::: {.column width="60%"}
+
+```{r}
+#| echo: false
+ggplot(datos_tidy, aes(x = prob)) +
+  geom_histogram(bins = 12, alpha = 0.8, fill = "#144F8D") +
+  labs(x = "Probabilidad", y = "Frecuencia",
+       title = "Percepción de la probabilidad") +
+  theme_minimal()
+```
+
+:::
+::::
+
+
+
+```{r}
+#| eval: false
+ggplot(datos_tidy, aes(x = prob)) +
+  geom_histogram(bins = 12, alpha = 0.8, fill = "#144F8D") +
+  labs(x = "Probabilidad", y = "Frecuencia",
+       title = "Percepción de la probabilidad") +
+  theme_minimal()
+```
+
+---
+
+## Distribuciones: histogramas
+
+::: columns
+::: {.column width="40%"}
+
+
+Si queremos hacer uno por término, basta con añadir a nuestro gráfico un `facet_wrap()` para componer
+
+:::
+
+::: {.column width="60%"}
+
+```{r}
+#| echo: false
+ggplot(datos_tidy, aes(x = prob, fill = termino)) +
+  geom_histogram(bins = 12, alpha = 0.8) +
+  facet_wrap(~termino, scale = "free_y", ncol = 4) +
+  labs(x = "Probabilidad", y = "Frecuencia",
+       title = "Percepción de la probabilidad") +
+  theme_minimal()
+```
+
+:::
+::::
+
+
+
+```{r}
+#| eval: false
+ggplot(datos_tidy, aes(x = prob, fill = termino)) +
+  geom_histogram(bins = 12, alpha = 0.8) +
+  facet_wrap(~termino, scale = "free_y", ncol = 4) +
+  labs(x = "Probabilidad", y = "Frecuencia",
+       title = "Percepción de la probabilidad") +
+  theme_minimal()
+```
+
+---
+
+
+## Distribuciones: histogramas
+
+::: columns
+::: {.column width="40%"}
+
+Vamos a filtrar solo algunos términos para poder usar la paleta `scale_fill_brewer()` 
+
+:::
+
+::: {.column width="60%"}
+
+```{r}
+#| echo: false
+datos_tidy <-
+  datos_tidy |> 
+  filter(!(termino %in% c("Chances Are Slight", "Improbable", "Probably Not", "Probable", "Likely", "Very Good Chance")))
+
+ggplot(datos_tidy, aes(x = prob, fill = termino)) +
+  geom_histogram(bins = 12, alpha = 0.8) +
+  scale_fill_brewer(palette = "RdBu") +
+  facet_wrap(~termino, scale = "free_y", ncol = 4) +
+  labs(x = "Probabilidad", y = "Frecuencia",
+       title = "Percepción de la probabilidad") +
+  theme_minimal()
+```
+
+:::
+::::
+
+
+
+```{r}
+#| eval: false
+datos_tidy <-
+  datos_tidy |> 
+  filter(!(termino %in% c("Chances Are Slight", "Improbable", "Probably Not", "Probable", "Likely", "Very Good Chance")))
+
+ggplot(datos_tidy, aes(x = prob, fill = termino)) +
+  geom_histogram(bins = 12, alpha = 0.8) +
+  scale_fill_brewer(palette = "RdBu") +
+  facet_wrap(~termino, scale = "free_y", ncol = 4) +
+  labs(x = "Probabilidad", y = "Frecuencia",
+       title = "Percepción de la probabilidad") +
+  theme_minimal()
+```
+
+---
+
+
+## Distribuciones: histogramas
+
+::: columns
+::: {.column width="40%"}
+
+Nos aparecen desordenadas así que de nuevo podemos hacer uso del paquete `{forcats}`
+
+
+:::
+
+::: {.column width="60%"}
+
+```{r}
+#| echo: false
+ggplot(datos_tidy |> 
+       mutate(termino = fct_reorder(termino, prob, .fun = mean)), aes(x = prob, fill = termino)) +
+  geom_histogram(bins = 12, alpha = 0.8) +
+  scale_fill_brewer(palette = "RdBu") +
+  facet_wrap(~termino, scale = "free_y", ncol = 4) +
+  labs(x = "Probabilidad", y = "Frecuencia",
+       title = "Percepción de la probabilidad") +
+  theme_minimal()
+```
+
+:::
+::::
+
+
+
+```{r}
+#| eval: false
+ggplot(datos_tidy |> 
+       mutate(termino = fct_reorder(termino, prob, .fun = mean)), aes(x = prob, fill = termino)) +
+  geom_histogram(bins = 12, alpha = 0.8) +
+  scale_fill_brewer(palette = "RdBu") +
+  facet_wrap(~termino, scale = "free_y", ncol = 4) +
+  labs(x = "Probabilidad", y = "Frecuencia",
+       title = "Percepción de la probabilidad") +
+  theme_minimal()
+```
+
+---
+
+## Paréntesis: tema y fuente
+
+Vamos a añadir una fuente personaliza al gráfico anterior.
+
+::: columns
+::: {.column width="40%"}
+
+Con el paquete `{showtext}` podemos cargar fuentes de <https://fonts.google.com/>: con `font_add_google()` añadimos la fuente y con `showtext_auto()` habilitamos su uso. 
+
+Con `theme_set()` podemos fijar un tema base (en nuestro caso `theme_minimal(base_family = ...)`) y con `theme_update()` añadimos el resto de personalizaciones
+
+
+:::
+
+::: {.column width="60%"}
+
+```{r}
+#| echo: false
+library(showtext)
+font_add_google(family = "Roboto", name = "Roboto")
+showtext_auto()
+theme_set(theme_minimal(base_family = "Roboto"))
+theme_update(
+  plot.title = element_text(color = "black", face = "bold", size = 27),
+  legend.position = "bottom")
+ggplot(datos_tidy |> 
+       mutate(termino = fct_reorder(termino, prob, .fun = mean)), aes(x = prob, fill = termino)) +
+  geom_histogram(bins = 12, alpha = 0.8) +
+  scale_fill_brewer(palette = "RdBu") +
+  facet_wrap(~termino, scale = "free_y", ncol = 4) +
+  labs(x = "Probabilidad", y = "Frecuencia",
+       title = "Percepción de la probabilidad") +
+  theme_minimal()
+```
+
+:::
+::::
+
+
+
+```{r}
+#| eval: false
+library(showtext)
+font_add_google(family = "Roboto", name = "Roboto")
+showtext_auto()
+
+theme_set(theme_minimal(base_family = "Roboto"))
+theme_update(
+  plot.title = element_text(color = "black", face = "bold", size = 27),
+  legend.position = "bottom")
+```
+
+
+---
+
+
+## Distribuciones: densidades
+
+Los histogramas en realidad son una [**aproximación discreta de los gráficos de densidad**]{.hl-yellow} (asumiendo que los intervalos se pudieran ir haciendo tan pequeños como queramos). 
+
+::: columns
+::: {.column width="40%"}
+
+Las densidades mejoran la robustez al histograma. Para ello usaremos `geom_density()`
+
+
+:::
+
+::: {.column width="60%"}
+
+```{r}
+#| echo: false
+ggplot(datos_tidy |> 
+       mutate(termino = fct_reorder(termino, prob, .fun = mean)), aes(x = prob, fill = termino)) +
+  geom_density(alpha = 0.8) +
+  scale_fill_brewer(palette = "RdBu") +
+  facet_wrap(~termino, scale = "free_y", ncol = 4) +
+  labs(x = "Probabilidad", y = "Frecuencia relativa",
+       title = "Percepción de la probabilidad") +
+  theme_minimal()
+```
+
+:::
+::::
+
+
+
+```{r}
+#| eval: false
+ggplot(datos_tidy |> 
+       mutate(termino = fct_reorder(termino, prob, .fun = mean)), aes(x = prob, fill = termino)) +
+  geom_density(alpha = 0.8) +
+  scale_fill_brewer(palette = "RdBu") +
+  facet_wrap(~termino, scale = "free_y", ncol = 4) +
+  labs(x = "Probabilidad", y = "Frecuencia relativa",
+       title = "Percepción de la probabilidad") +
+  theme_minimal()
+```
+
+
+---
+
+
+## Distribuciones: densidades
+
+::: columns
+::: {.column width="40%"}
+
+A veces puede ser interesante [**superponer las densidades**], lo cual lo podemos hacer con `geom_density_ridges()` del paquete `{ggridges}` (ahora sí necesitamos indicarle un `y = ...`)
+
+:::
+
+::: {.column width="60%"}
+
+```{r}
+#| echo: false
+library(ggridges)
+ggplot(datos_tidy |> 
+       mutate(termino = fct_reorder(termino, prob, .fun = mean)),
+       aes(x = prob, y = termino, fill = termino, color = termino)) +
+  geom_density_ridges(alpha = 0.5) +
+  scale_fill_brewer(palette = "RdBu") +
+  scale_color_brewer(palette = "RdBu") +
+  guides(color = "none") +
+  labs(x = "Probabilidad", y = "Términos",
+       title = "Percepción de la probabilidad") +
+  theme_minimal()
+```
+
+:::
+::::
+
+
+
+```{r}
+#| eval: false
+library(ggridges)
+ggplot(datos_tidy |> 
+       mutate(termino = fct_reorder(termino, prob, .fun = mean)),
+       aes(x = prob, y = termino, fill = termino, color = termino)) +
+  geom_density_ridges(alpha = 0.5) +
+  scale_fill_brewer(palette = "RdBu") +
+  scale_color_brewer(palette = "RdBu") +
+  guides(color = "none") +
+  labs(x = "Probabilidad", y = "Términos",
+       title = "Percepción de la probabilidad") +
+  theme_minimal()
+```
+
+
+---
+
+## Distribuciones: boxplot
+
+Una opción muy habitual en variables continuas son los [**gráficos de cajas y bigotes**]{.hl-yellow} o boxplots
+
+
+::: columns
+::: {.column width="40%"}
+
+Para realizar estos gráficos debemos usar la geometría `geom_boxplot()`
+
+:::
+
+::: {.column width="60%"}
+
+```{r}
+#| echo: false
+ggplot(datos_tidy |> 
+       mutate(termino = fct_reorder(termino, prob, .fun = mean)),
+       aes(x = termino, y = prob, fill = termino, color = termino)) +
+  geom_boxplot(alpha = 0.8) +
+  scale_fill_brewer(palette = "RdBu") +
+  scale_color_brewer(palette = "RdBu") +
+  guides(color = "none") +
+  labs(x = "Términos", y = "Probabilidad",
+       title = "Percepción de la probabilidad") +
+  theme_minimal()
+```
+
+:::
+::::
+
+
+
+```{r}
+#| eval: false
+ggplot(datos_tidy |> 
+       mutate(termino = fct_reorder(termino, prob, .fun = mean)),
+       aes(x = termino, y = prob, fill = termino, color = termino)) +
+  geom_boxplot(alpha = 0.8) +
+  scale_fill_brewer(palette = "RdBu") +
+  scale_color_brewer(palette = "RdBu") +
+  guides(color = "none") +
+  labs(x = "Términos", y = "Probabilidad",
+       title = "Percepción de la probabilidad") +
+  theme_minimal()
+```
+
+---
+
+## Distribuciones: jitter
+
+
+::: columns
+::: {.column width="40%"}
+
+Los boxplot a veces pueden ser insuficiente y podemos usar `geom_jitter()` que nos añadirá puntos como un [**«gotelé aleatorio»**]{.hl-yellow} (ver <https://hausetutorials.netlify.app/posts/2019-02-22-why-we-should-never-use-barplots-use-geomquasirandom-instead/>)
+
+:::
+
+::: {.column width="60%"}
+
+```{r}
+#| echo: false
+ggplot(datos_tidy |> 
+       mutate(termino = fct_reorder(termino, prob, .fun = mean)),
+       aes(x = termino, y = prob, fill = termino, color = termino)) +
+  geom_boxplot(alpha = 0.8) +
+  geom_jitter(alpha = 0.3, size = 2) +
+  scale_fill_brewer(palette = "RdBu") +
+  scale_color_brewer(palette = "RdBu") +
+  guides(color = "none") +
+  labs(x = "Términos", y = "Probabilidad",
+       title = "Percepción de la probabilidad") +
+  theme_minimal()
+```
+
+:::
+::::
+
+
+
+```{r}
+#| eval: false
+ggplot(datos_tidy |> 
+       mutate(termino = fct_reorder(termino, prob, .fun = mean)),
+       aes(x = termino, y = prob, fill = termino, color = termino)) +
+  geom_boxplot(alpha = 0.8) +
+  geom_jitter(alpha = 0.3, size = 2) +
+  scale_fill_brewer(palette = "RdBu") +
+  scale_color_brewer(palette = "RdBu") +
+  guides(color = "none") +
+  labs(x = "Términos", y = "Probabilidad",
+       title = "Percepción de la probabilidad") +
+  theme_minimal()
+```
+
+---
+
+## Distribuciones: jitter
+
+
+
+::: columns
+::: {.column width="40%"}
+
+Si te fijas los [**outliers**]{.hl-yellow} aparecen dos veces ya que el boxplot los marca. Dentro de `geom_boxplot()` podemos indicarle la forma, color y alpha de los atípicos.
+
+
+:::
+
+::: {.column width="60%"}
+
+```{r}
+#| echo: false
+ggplot(datos_tidy |> 
+       mutate(termino = fct_reorder(termino, prob, .fun = mean)),
+       aes(x = termino, y = prob, fill = termino, color = termino)) +
+  geom_boxplot(alpha = 0.8, outlier.shape = 23) +
+  geom_jitter(alpha = 0.3, size = 2) +
+  scale_fill_brewer(palette = "RdBu") +
+  scale_color_brewer(palette = "RdBu") +
+  guides(color = "none") +
+  labs(x = "Términos", y = "Probabilidad",
+       title = "Percepción de la probabilidad") +
+  theme_minimal()
+```
+
+:::
+::::
+
+
+
+```{r}
+#| eval: false
+ggplot(datos_tidy |> 
+       mutate(termino = fct_reorder(termino, prob, .fun = mean)),
+       aes(x = termino, y = prob, fill = termino, color = termino)) +
+  geom_boxplot(alpha = 0.8, outlier.shape = 23) +
+  geom_jitter(alpha = 0.3, size = 2) +
+  scale_fill_brewer(palette = "RdBu") +
+  scale_color_brewer(palette = "RdBu") +
+  guides(color = "none") +
+  labs(x = "Términos", y = "Probabilidad",
+       title = "Percepción de la probabilidad") +
+  theme_minimal()
+```
+
+---
+
+## Distribuciones: jitter
+
+
+
+::: columns
+::: {.column width="40%"}
+
+Si te fijas los [**outliers**]{.hl-yellow} aparecen dos veces ya que el boxplot los marca. Dentro de `geom_boxplot()` podemos indicarle la forma, color y alpha de los atípicos.
+
+
+:::
+
+::: {.column width="60%"}
+
+```{r}
+#| echo: false
+ggplot(datos_tidy |> 
+       mutate(termino = fct_reorder(termino, prob, .fun = mean)),
+       aes(x = termino, y = prob, fill = termino, color = termino)) +
+  geom_boxplot(alpha = 0.8, outlier.alpha = 0) +
+  geom_jitter(alpha = 0.3, size = 2) +
+  scale_fill_brewer(palette = "RdBu") +
+  scale_color_brewer(palette = "RdBu") +
+  guides(color = "none") +
+  labs(x = "Términos", y = "Probabilidad",
+       title = "Percepción de la probabilidad") +
+  theme_minimal()
+```
+
+:::
+::::
+
+
+
+```{r}
+#| eval: false
+ggplot(datos_tidy |> 
+       mutate(termino = fct_reorder(termino, prob, .fun = mean)),
+       aes(x = termino, y = prob, fill = termino, color = termino)) +
+  geom_boxplot(alpha = 0.8, outlier.alpha = 0) +
+  geom_jitter(alpha = 0.3, size = 2) +
+  scale_fill_brewer(palette = "RdBu") +
+  scale_color_brewer(palette = "RdBu") +
+  guides(color = "none") +
+  labs(x = "Términos", y = "Probabilidad",
+       title = "Percepción de la probabilidad") +
+  theme_minimal()
+```
+
+---
+
+## Distribuciones: geom_quasirandom
+
+
+
+::: columns
+::: {.column width="40%"}
+
+Podemos mejorar el [**«gotelé aleatorio»**]{.hl-yellow} con  `geom_quasirandom()` del paquete `{ggbeeswarm}` (con `width = ...` controlamos la anchura de lo aleatorio)
+
+
+:::
+
+::: {.column width="60%"}
+
+```{r}
+#| echo: false
+library(ggbeeswarm)
+ggplot(datos_tidy |> 
+       mutate(termino = fct_reorder(termino, prob, .fun = mean)),
+       aes(x = termino, y = prob, fill = termino, color = termino)) +
+  geom_boxplot(alpha = 0.8, outlier.alpha = 0) +
+  geom_quasirandom(size = 2, alpha = 0.4,  width = 0.7) +
+  scale_fill_brewer(palette = "RdBu") +
+  scale_color_brewer(palette = "RdBu") +
+  guides(color = "none") +
+  labs(x = "Términos", y = "Probabilidad",
+       title = "Percepción de la probabilidad") +
+  theme_minimal()
+```
+
+:::
+::::
+
+
+
+```{r}
+#| eval: false
+ggplot(datos_tidy |> 
+       mutate(termino = fct_reorder(termino, prob, .fun = mean)),
+       aes(x = termino, y = prob, fill = termino, color = termino)) +
+  geom_boxplot(alpha = 0.8, outlier.alpha = 0) +
+  geom_quasirandom(size = 2, alpha = 0.4,  width = 0.7) +
+  scale_fill_brewer(palette = "RdBu") +
+  scale_color_brewer(palette = "RdBu") +
+  guides(color = "none") +
+  labs(x = "Términos", y = "Probabilidad",
+       title = "Percepción de la probabilidad") +
+  theme_minimal()
+```
+
+
+
+---
+
+## Distribuciones: violin
+
+
+
+
+::: columns
+::: {.column width="40%"}
+
+
+Para solventar los problemas de los box-plots, una alternativa muy popular son los [**gráficos de violín**]{.hl-yellow} (en realidad es una densidad reflejada)
+
+:::
+
+::: {.column width="60%"}
+
+```{r}
+#| echo: false
+ggplot(datos_tidy |> 
+       mutate(termino = fct_reorder(termino, prob, .fun = mean)),
+       aes(x = termino, y = prob, fill = termino, color = termino)) +
+  geom_violin(alpha = 0.8) +
+  scale_fill_brewer(palette = "RdBu") +
+  scale_color_brewer(palette = "RdBu") +
+  guides(color = "none") +
+  labs(x = "Términos", y = "Probabilidad",
+       title = "Percepción de la probabilidad") +
+  theme_minimal()
+```
+
+:::
+::::
+
+
+
+```{r}
+#| eval: false
+ggplot(datos_tidy |> 
+       mutate(termino = fct_reorder(termino, prob, .fun = mean)),
+       aes(x = termino, y = prob, fill = termino, color = termino)) +
+  geom_violin(alpha = 0.8) +
+  scale_fill_brewer(palette = "RdBu") +
+  scale_color_brewer(palette = "RdBu") +
+  guides(color = "none") +
+  labs(x = "Términos", y = "Probabilidad",
+       title = "Percepción de la probabilidad") +
+  theme_minimal()
+```
+
+
+
+---
+
+
+## Distribuciones: violin
+
+
+
+
+::: columns
+::: {.column width="40%"}
+
+
+Con el argumento `scale = "count"` las àreas son proporcionales al número de observaciones en cada violín (por defecto `scale = "area"`, todos la misma área). Con `bw = ...` modulamos la suavidad del kernel usado (bandwidth).
+
+:::
+
+::: {.column width="60%"}
+
+```{r}
+#| echo: false
+ggplot(datos_tidy |> 
+       mutate(termino = fct_reorder(termino, prob, .fun = mean)),
+       aes(x = termino, y = prob, fill = termino, color = termino)) +
+  geom_violin(alpha = 0.8, scale = "count", bw = 1.5) +
+  scale_fill_brewer(palette = "RdBu") +
+  scale_color_brewer(palette = "RdBu") +
+  guides(color = "none") +
+  labs(x = "Términos", y = "Probabilidad",
+       title = "Percepción de la probabilidad") +
+  theme_minimal()
+```
+
+:::
+::::
+
+
+```{r}
+#| eval: false
+ggplot(datos_tidy |> 
+       mutate(termino = fct_reorder(termino, prob, .fun = mean)),
+       aes(x = termino, y = prob, fill = termino, color = termino)) +
+  geom_violin(alpha = 0.8, scale = "count", bw = 1.5) +
+  scale_fill_brewer(palette = "RdBu") +
+  scale_color_brewer(palette = "RdBu") +
+  guides(color = "none") +
+  labs(x = "Términos", y = "Probabilidad",
+       title = "Percepción de la probabilidad") +
+  theme_minimal()
+```
 
 ---
 
 
 ## Evolución: gráficos de líneas
 
-steps
+
+Otra categoría muy común de gráficos con variables continusa son los [**gráficos de evolución**]{.hl-yellow}
+
+::: columns
+::: {.column width="40%"}
+
+El más simple es el [**gráfico de líneas**]
+{.hl-yellow}, que podemos construir con `geom_line()`, y para el que ahora sí necesitamos un `x = ...`  y un `y = ...`
+
+:::
+
+::: {.column width="60%"}
+
+
+```{r}
+#| echo: false
+ggplot(gapminder |> summarise(mean_gdp = mean(gdpPercap), .by = c(continent, year)), aes(x = year, y = mean_gdp, color = continent)) +
+  geom_line(alpha = 0.8, linewidth = 2) +
+  scale_y_continuous(labels = scales::label_dollar()) +
+  scale_color_colorblind() +
+  labs(x = "Año", y = "Renta per cápita media",
+       title = "Evolución en gapminder") +
+  theme_minimal()
+```
+
+:::
+::::
+
+```{r}
+#| eval: false
+ggplot(gapminder |> summarise(mean_gdp = mean(gdpPercap), .by = c(continent, year)), aes(x = year, y = mean_gdp, color = continent)) +
+  geom_line(alpha = 0.8, linewidth = 2) +
+  scale_y_continuous(labels = scales::label_dollar()) +
+  scale_color_colorblind() +
+  labs(x = "Año", y = "Renta per cápita media",
+       title = "Evolución en gapminder") +
+  theme_minimal()
+```
 
 ---
 
-## Evolución: gráficos de área
+## Evolución: gráficos de líneas
 
-steps
+
+::: columns
+::: {.column width="40%"}
+
+Fíjate que dando `color = ...` nos hace solo una gráfica por variable de grupo. Si usamos `geom_step()` en su lugar obtenemos un [**gráfico de escalera**]{.hl-yellow}
+
+:::
+
+::: {.column width="60%"}
+
+
+```{r}
+#| echo: false
+ggplot(gapminder |> summarise(mean_gdp = mean(gdpPercap), .by = c(continent, year)), aes(x = year, y = mean_gdp, color = continent)) +
+  geom_step(alpha = 0.8, linewidth = 1.2) +
+  scale_y_continuous(labels = scales::label_dollar()) +
+  scale_color_colorblind() +
+  labs(x = "Año", y = "Renta per cápita media",
+       title = "Evolución en gapminder") +
+  theme_minimal()
+```
+
+:::
+::::
+
+```{r}
+#| eval: false
+ggplot(gapminder |> summarise(mean_gdp = mean(gdpPercap), .by = c(continent, year)), aes(x = year, y = mean_gdp, color = continent)) +
+  geom_step(alpha = 0.8, linewidth = 1.2) +
+  scale_y_continuous(labels = scales::label_dollar()) +
+  scale_color_colorblind() +
+  labs(x = "Año", y = "Renta per cápita media",
+       title = "Evolución en gapminder") +
+  theme_minimal()
+```
 
 ---
 
 ## Evolución: serie temporal
 
-steps
+Un gráfico de línea muy particular son las [**series temporales**]{.hl-yellow}, donde en el eje X hay una variable de [**fecha y/o hora**]{.hl-purple}
+
+. . .
+
+Por ejemplo, vamos a cargar el siguiente dataset de Github de la [**evolución del precio de bitcoins**]{.hl-yellow} cuyo separado es el espacio
+
+```{r}
+data <- read_table(file = "https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/3_TwoNumOrdered.csv")
+data
+```
+
+---
+
+## Evolución: serie temporal
+
+::: columns
+::: {.column width="40%"}
+
+La forma más sencilla es de nuevo usar `geom_line()`. Con `scale_x_date(date_breaks = ...)` podemos indicarle los saltos en las fechas de manera sencilla.
+
+:::
+
+::: {.column width="60%"}
+
+
+```{r}
+#| echo: false
+ggplot(data, aes(x = date, y = value)) +
+  geom_line(alpha = 0.8, color = "#145412", linewidth = 1.2) +
+  scale_x_date(date_breaks = "4 months") +
+  scale_y_continuous(labels = scales::label_dollar()) +
+  scale_color_colorblind() +
+  labs(x = "Fecha", y = "Precio del bitcoin",
+       title = "Evolución del precio del bitcoin") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 30))
+```
+
+:::
+::::
+
+```{r}
+#| eval: false
+ggplot(data, aes(x = date, y = value)) +
+  geom_line(alpha = 0.8, color = "#145412", linewidth = 1.2) +
+  scale_x_date(date_breaks = "4 months") +
+  scale_y_continuous(labels = scales::label_dollar()) +
+  scale_color_colorblind() +
+  labs(x = "Fecha", y = "Precio del bitcoin",
+       title = "Evolución del precio del bitcoin") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 30))
+```
 
 ---
 
 
-## Distribuciones: raincloud
+## Evolución: gráficos de área
+
+Una mejora de los gráficos de línea son los [**gráficos de área**]{.hl-yellow} (visualizando la curva con rellena)
+
+::: columns
+::: {.column width="40%"}
+
+La forma más sencilla es de nuevo usar `geom_line()` pero añadiendo la capa `geom_area()` (con `fill` en lugar de `color`)
+
+:::
+
+::: {.column width="60%"}
+
+
+```{r}
+#| echo: false
+ggplot(data, aes(x = date, y = value)) +
+  geom_line(color = "#145412", linewidth = 1) +
+  geom_area(alpha = 0.4, fill = "#145412") +
+  scale_x_date(date_breaks = "4 months") +
+  scale_y_continuous(labels = scales::label_dollar()) +
+  labs(x = "Fecha", y = "Precio del bitcoin",
+       title = "Evolución del precio del bitcoin") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 30))
+```
+
+:::
+::::
+
+```{r}
+#| eval: false
+ggplot(data, aes(x = date, y = value)) +
+  geom_line(color = "#145412", linewidth = 1) +
+  geom_area(alpha = 0.4, fill = "#145412") +
+  scale_x_date(date_breaks = "4 months") +
+  scale_y_continuous(labels = scales::label_dollar()) +
+  labs(x = "Fecha", y = "Precio del bitcoin",
+       title = "Evolución del precio del bitcoin") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 30))
+```
+
+
+---
+
+## Paréntesis: interactivos
+
+::: columns
+::: {.column width="40%"}
+
+Todo gráfico ggplot podemos hacerlo [**interactivo**]{.hl-yellow} guardándonos la gráfico y haciendo uso de `{plotly}`
+
+:::
+
+::: {.column width="60%"}
+
+
+```{r}
+#| echo: false
+gg <- 
+  ggplot(data, aes(x = date, y = value)) +
+  geom_line(color = "#145412", linewidth = 1) +
+  geom_area(alpha = 0.4, fill = "#145412") +
+  scale_x_date(date_breaks = "4 months") +
+  scale_y_continuous(labels = scales::label_dollar()) +
+  labs(x = "Fecha", y = "Precio del bitcoin",
+       title = "Evolución del precio del bitcoin") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 30))
+plotly::ggplotly(gg)
+```
+
+:::
+::::
+
+```{r}
+#| eval: false
+gg <-
+  ggplot(data, aes(x = date, y = value)) +
+  geom_line(color = "#145412", linewidth = 1) +
+  geom_area(alpha = 0.4, fill = "#145412") +
+  scale_x_date(date_breaks = "4 months") +
+  scale_y_continuous(labels = scales::label_dollar()) +
+  labs(x = "Fecha", y = "Precio del bitcoin",
+       title = "Evolución del precio del bitcoin") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 30))
+plotly::ggplotly(gg)
+```
+
+
+---
+
+## Evolución: áreas apiladas
+
+
+::: columns
+::: {.column width="40%"}
+
+Los gráficas de áreas, al igual que sucedía con los diagrmaas de barras, pueden ser de [**áreas apiladas**]{.hl-yellow}, haciendo que `fill()` sea mapeado por `aes()`
+
+:::
+
+::: {.column width="60%"}
+
+
+```{r}
+#| echo: false
+ggplot(gapminder |> summarise(mean_gdp = mean(gdpPercap), .by = c(continent, year)), aes(x = year, y = mean_gdp, fill = continent)) +
+  geom_area(alpha = 0.7) +
+  scale_y_continuous(labels = scales::label_dollar()) +
+  scale_fill_colorblind() +
+  labs(x = "Año", y = "Renta per cápita media",
+       title = "Evolución de gapminder") +
+  theme_minimal()
+```
+
+:::
+::::
+
+```{r}
+#| eval: false
+ggplot(gapminder |> summarise(mean_gdp = mean(gdpPercap), .by = c(continent, year)), aes(x = year, y = mean_gdp, fill = continent)) +
+  geom_area(alpha = 0.7) +
+  scale_y_continuous(labels = scales::label_dollar()) +
+  scale_fill_colorblind() +
+  labs(x = "Año", y = "Renta per cápita media",
+       title = "Evolución de gapminder") +
+  theme_minimal()
+```
+
+---
+
+## Evolución: áreas apiladas
+
+
+::: columns
+::: {.column width="40%"}
+
+Los gráficas de áreas, al igual que sucedía con los diagrmaas de barras, pueden ser de [**áreas apiladas**]{.hl-yellow}, haciendo que `fill()` sea mapeado por `aes()`
+
+:::
+
+::: {.column width="60%"}
+
+
+```{r}
+#| echo: false
+ggplot(gapminder |> summarise(mean_gdp = mean(gdpPercap), .by = c(continent, year)), aes(x = year, y = mean_gdp, fill = continent)) +
+  geom_area(alpha = 0.7) +
+  scale_y_continuous(labels = scales::label_dollar()) +
+  scale_fill_colorblind() +
+  labs(x = "Año", y = "Renta per cápita media",
+       title = "Evolución de gapminder") +
+  theme_minimal()
+```
+
+:::
+::::
+
+```{r}
+#| eval: false
+ggplot(gapminder |> summarise(mean_gdp = mean(gdpPercap), .by = c(continent, year)), aes(x = year, y = mean_gdp, fill = continent)) +
+  geom_area(alpha = 0.7) +
+  scale_y_continuous(labels = scales::label_dollar()) +
+  scale_fill_colorblind() +
+  labs(x = "Año", y = "Renta per cápita media",
+       title = "Evolución de gapminder") +
+  theme_minimal()
+```
+
+---
+
+## Evolución: áreas apiladas
+
+
+::: columns
+::: {.column width="40%"}
+
+Haciendo una modificación en el preprocesamiento podemos hacer un [**gráfico de áreas apiladas**]{.hl-yellow} en relativo
+
+:::
+
+::: {.column width="60%"}
+
+
+```{r}
+#| echo: false
+ggplot(gapminder |> summarise(mean_gdp = mean(gdpPercap), .by = c(continent, year)) |> mutate(porc = 100 * mean_gdp/sum(mean_gdp), .by = year),
+       aes(x = year, y = porc, fill = continent)) +
+  geom_area(alpha = 0.7) +
+  scale_y_continuous(labels = scales::label_number(suffix = "%")) +
+  scale_fill_colorblind() +
+  labs(x = "Año", y = "Renta per cápita mundial",
+       title = "Evolución de gapminder") +
+  theme_minimal()
+```
+
+:::
+::::
+
+```{r}
+#| eval: false
+ggplot(gapminder |> summarise(mean_gdp = mean(gdpPercap), .by = c(continent, year)) |> mutate(porc = 100 * mean_gdp/sum(mean_gdp), .by = year),
+       aes(x = year, y = porc, fill = continent)) +
+  geom_area(alpha = 0.7) +
+  scale_y_continuous(labels = scales::label_number(suffix = "%")) +
+  scale_fill_colorblind() +
+  labs(x = "Año", y = "Renta per cápita mundial",
+       title = "Evolución de gapminder") +
+  theme_minimal()
+```
+
+---
+
+
+## Evolución: streamcharts
+
+Una modificación de los gráficos de áreas apiladas son los conocidos como [**streamcharts**]{.hl-yellow}
+
+
+::: columns
+::: {.column width="40%"}
+
+En ellos las formas son más suaves que en un gráfico de área al uso, con el paquete `{ggstream}` (y usando `geom_stream()`)
+
+
+:::
+
+::: {.column width="60%"}
+
+
+```{r}
+#| echo: false
+library(ggstream)
+ggplot(gapminder |> summarise(mean_gdp = mean(gdpPercap), .by = c(continent, year)),  aes(x = year, y = mean_gdp, fill = continent)) +
+  geom_stream(alpha = 0.7) +
+  scale_y_continuous(labels = scales::label_dollar()) +
+  scale_fill_colorblind() +
+  labs(x = "Año", y = "Renta per cápita mundial",
+       title = "Evolución de gapminder") +
+  theme_minimal()
+```
+
+:::
+::::
+
+```{r}
+#| eval: false
+library(ggstream)
+ggplot(gapminder |> summarise(mean_gdp = mean(gdpPercap), .by = c(continent, year)),  aes(x = year, y = mean_gdp, fill = continent)) +
+  geom_stream(alpha = 0.7) +
+  scale_y_continuous(labels = scales::label_dollar()) +
+  scale_fill_colorblind() +
+  labs(x = "Año", y = "Renta per cápita mundial",
+       title = "Evolución de gapminder") +
+  theme_minimal()
+```
+
+---
+
+
+## Evolución: streamcharts
+
+::: columns
+::: {.column width="40%"}
+
+Fíjate que por defecto lo hace [**en espejo**]{.hl-yellow}, usando el eje y de manera reflejada. Con `type = "ridge"` lo haemos de manera apilada.
+
+:::
+
+::: {.column width="60%"}
+
+
+```{r}
+#| echo: false
+ggplot(gapminder |> summarise(mean_gdp = mean(gdpPercap), .by = c(continent, year)),  aes(x = year, y = mean_gdp, fill = continent, color = continent)) +
+  geom_stream(alpha = 0.7, type = "ridge") +
+  scale_fill_colorblind() +
+  scale_color_colorblind() +
+  scale_y_continuous(labels = scales::label_dollar()) +
+  labs(x = "Año", y = "Renta per cápita mundial",
+       title = "Evolución de gapminder") +
+  theme_minimal()
+```
+
+:::
+::::
+
+```{r}
+#| eval: false
+ggplot(gapminder |> summarise(mean_gdp = mean(gdpPercap), .by = c(continent, year)),  aes(x = year, y = mean_gdp, fill = continent, color = continent)) +
+  geom_stream(alpha = 0.75, type = "ridge") +
+  scale_fill_colorblind() +
+  scale_color_colorblind() +
+  scale_y_continuous(labels = scales::label_dollar()) +
+  labs(x = "Año", y = "Renta per cápita mundial",
+       title = "Evolución de gapminder") +
+  theme_minimal()
+```
+
+---
+
+## Evolución: streamcharts
+
+::: columns
+::: {.column width="40%"}
+
+ Con `type = "proportional"` lo haemos de manera relativa
+:::
+
+::: {.column width="60%"}
+
+
+```{r}
+#| echo: false
+ggplot(gapminder |> summarise(mean_gdp = mean(gdpPercap), .by = c(continent, year)),  aes(x = year, y = mean_gdp, fill = continent, color = continent)) +
+  geom_stream(alpha = 0.75, type = "proportional") +
+  scale_fill_colorblind() +
+  scale_color_colorblind() +
+  scale_y_continuous(labels = scales::label_dollar()) +
+  labs(x = "Año", y = "Renta per cápita mundial",
+       title = "Evolución de gapminder") +
+  theme_minimal()
+```
+
+:::
+::::
+
+```{r}
+#| eval: false
+ggplot(gapminder |> summarise(mean_gdp = mean(gdpPercap), .by = c(continent, year)),  aes(x = year, y = mean_gdp, fill = continent, color = continent)) +
+  geom_stream(alpha = 0.75, type = "proportional") +
+  scale_fill_colorblind() +
+  scale_color_colorblind() +
+  scale_y_continuous(labels = scales::label_dollar()) +
+  labs(x = "Año", y = "Renta per cápita mundial",
+       title = "Evolución de gapminder") +
+  theme_minimal()
+```
+
+---
+
+## 🐣 Caso práctico 15: visualizando Netflix
+
+Visualizaremos el número de películas y series de instituto que se han estrenado en Netflix en cada año. Los datos provienen originalmente de Kaggle, y contienen las películas y series de Netflix hasta enero de 2021. 
+
+```{r}
+netflix <-
+  read_csv('https://raw.githubusercontent.com/elartedeldato/datasets/main/netflix_titles.csv')
+netflix
+```
+
+---
+
+## 🐣 Caso práctico 15: visualizando Netflix
+
+* [**Paso 1**]{.hl-yellow}: piensa como filtrar las **películas y series que van sobre un instituto**.
+
+. . .
+
+* [**Paso 2**]{.hl-yellow}: tras dicho filtro, añade el año en el que se estrenó y elimina aquellas sin año conocido.
+
+. . .
+
+* [**Paso 3**]{.hl-yellow}: obtén el número de series por año
+
+---
+
+
+## 🐣 Caso práctico 15: visualizando Netflix
+
+* [**Paso 4**]{.hl-yellow}: replica el siguiente gráfico
+
+```{r}
+#| echo: false
+netflix_resumen <-
+  netflix |> 
+  filter(str_detect(toupper(description), "HIGH SCHOOL")) |> 
+  mutate(year_added = year(mdy(date_added))) |>
+  drop_na(year_added) |> 
+  group_by(year_added) |>
+  count() |> ungroup()
+
+ggplot(netflix_resumen, aes(x = year_added, y = n)) +
+  geom_col(fill = "red") +
+  scale_x_continuous(breaks = netflix_resumen$year_added) +
+  labs(title = "NETFLIX",
+       subtitle = "Películas y series de instituto",
+       x = "Año de estreno", y = "Cantidad")
+```
+
+---
+
+## 🐣 Caso práctico 15: visualizando Netflix
+
+* [**Paso 5**]{.hl-yellow}: replica el siguiente gráfico sabiendo que la fuente del título es "Bebas Neue" y la del subtítulo "Permanent Marker"
+
+```{r}
+#| echo: false
+library(sysfonts)
+library(showtext)
+font_add_google(family = "Bebas Neue",
+                name = "Bebas Neue")
+font_add_google(family = "Permanent Marker",
+                name = "Permanent Marker")
+showtext_auto()
+
+ggplot(netflix_resumen, aes(x = year_added, y = n)) +
+  geom_col(fill = "red") +
+  scale_x_continuous(breaks = netflix_resumen$year_added) +
+  labs(title = "NETFLIX",
+       subtitle = "Películas y series de instituto",
+       x = "Año de estreno", y = "Cantidad") +
+  theme_minimal() +
+  theme(legend.position = "none",
+        plot.title = element_text(family = "Bebas Neue",
+                                  color = "red", size = 80),
+        plot.subtitle = element_text(family = "Permanent Marker",
+                                     size = 21, color = "black"))
+```
+
+---
+
+
+## 🐣 Caso práctico 15: visualizando Netflix
+
+* [**Paso 6**]{.hl-yellow}: replica el siguiente gráfico sabiendo que la fuente de los ejes es "Permanent Marker" y busca la función `annotate()`
+
+```{r}
+#| echo: false
+ggplot(netflix_resumen, aes(x = year_added, y = n)) +
+  geom_col(fill = "red") +
+  scale_x_continuous(breaks = netflix_resumen$year_added) +
+  labs(title = "NETFLIX",
+       subtitle = "Películas y series de instituto",
+       x = "Año de estreno", y = "Cantidad") +
+  theme_void() +
+  theme(plot.margin = margin(t = 4, r = 4, b = 4, l = 8, "pt"),
+        legend.position = "none",
+        plot.title = element_text(family = "Bebas Neue",
+                                  color = "red", size = 80),
+        plot.subtitle = element_text(family = "Permanent Marker",
+                                     size = 21, color = "white"),
+        axis.text = 
+          element_text(size = 15, family = "Permanent Marker",
+                       color = "white"),
+        panel.background = element_rect(fill = "black"),
+        plot.background = element_rect(fill = "black", 
+                                       color = "black"),
+        panel.grid.major.y =
+          element_line(linewidth = 0.1, color = "white")) +
+  annotate("text", label = "(hasta enero)", 
+           x = 2021, y = 11, hjust = 0.3, vjust = 0, family = "Permanent Marker", size = 5, color='white', angle = 20) +
+  annotate("curve", x = 2021, y = 9, xend = 2021, yend = 5,
+           color = "white")
+```
+
+
+
+---
+
+## Correlaciones: heatmap
+
+
+---
+
+## Correlaciones: correlograma
+
+---
+
+## Correlaciones: grafo
+
 
 ---
 
@@ -11231,7 +12724,6 @@ steps
 * radar
 * treemap
 * dumbell
-* diagrama de rosa
 
 html, animacion, exportar, patchwork
 barras arriba y abajo
