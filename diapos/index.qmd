@@ -124,7 +124,7 @@ Actualmente, [**investigador y docente en la Facultad de Estadística de la UCM*
 
 * [**Diapositivas**]{.hl-yellow}: las diapositivas que usaremos en el aula a lo largo del curso, estructuradas por clases, estarán disponibles y actualizadas en **<https://javieralvarezliebana.es/docencia-R-master-bio-2324/diapos>** 
 
-En el menú de las diapositivas (abajo a la izquierda) tienes una [**opción para descargarlas en pdf**]{.hl-yellow} en `Tools` (consejo: no lo hagas hasta el final del curso ya que irán modificándose)
+En el menú de las diapositivas (abajo a la izquierda) tienes una [**opción para descargarlas en pdf**]{.hl-yellow} en `Tools` (consejo: hazlo el final del curso ya que irán modificándose)
   
 &nbsp;
 
@@ -132,6 +132,7 @@ En el menú de las diapositivas (abajo a la izquierda) tienes una [**opción par
 
 * [**Resúmenes de paquetes**]{.hl-yellow}: [**chuletas de los paquetes**](https://github.com/dadosdelaplace/docencia-R-master-bio-2324/tree/main/fichas%20paquetes) en formato .pdf
 
+* [**Datos**]{.hl-yellow}: <https://drive.google.com/drive/folders/1iH3UCMDBNS_TJYKm7wx3-_120_3wmBdQ?usp=sharing>
 
 # Clase 1: primeros pasos {#clase-1-primeros-pasos}
 
@@ -12096,7 +12097,10 @@ ggplot(datos_tidy |>
   theme_minimal()
 ```
 
----
+# Clase 16: dataviz
+
+[**Visualización de datos**]{style="color:#444442;"}
+
 
 
 ## Evolución: gráficos de líneas
@@ -12585,7 +12589,7 @@ ggplot(gapminder |> summarise(mean_gdp = mean(gdpPercap), .by = c(continent, yea
 
 ---
 
-## 🐣 Caso práctico 15: visualizando Netflix
+## 🐣 Caso práctico 16: visualizando Netflix
 
 Visualizaremos el número de películas y series de instituto que se han estrenado en Netflix en cada año. Los datos provienen originalmente de Kaggle, y contienen las películas y series de Netflix hasta enero de 2021. 
 
@@ -12597,7 +12601,7 @@ netflix
 
 ---
 
-## 🐣 Caso práctico 15: visualizando Netflix
+## 🐣 Caso práctico 16: visualizando Netflix
 
 * [**Paso 1**]{.hl-yellow}: piensa como filtrar las **películas y series que van sobre un instituto**.
 
@@ -12612,7 +12616,7 @@ netflix
 ---
 
 
-## 🐣 Caso práctico 15: visualizando Netflix
+## 🐣 Caso práctico 16: visualizando Netflix
 
 * [**Paso 4**]{.hl-yellow}: replica el siguiente gráfico
 
@@ -12636,7 +12640,7 @@ ggplot(netflix_resumen, aes(x = year_added, y = n)) +
 
 ---
 
-## 🐣 Caso práctico 15: visualizando Netflix
+## 🐣 Caso práctico 16: visualizando Netflix
 
 * [**Paso 5**]{.hl-yellow}: replica el siguiente gráfico sabiendo que la fuente del título es "Bebas Neue" y la del subtítulo "Permanent Marker"
 
@@ -12667,7 +12671,7 @@ ggplot(netflix_resumen, aes(x = year_added, y = n)) +
 ---
 
 
-## 🐣 Caso práctico 15: visualizando Netflix
+## 🐣 Caso práctico 16: visualizando Netflix
 
 * [**Paso 6**]{.hl-yellow}: replica el siguiente gráfico sabiendo que la fuente de los ejes es "Permanent Marker" y busca la función `annotate()`
 
@@ -12701,11 +12705,470 @@ ggplot(netflix_resumen, aes(x = year_added, y = n)) +
 ```
 
 
+---
+
+## Relacionando datos
+
+Al trabajar con datos [**no siempre tendremos la información en una sola tabla**]{.hl-yellow} y a veces nos interesará cruzar la información de distintas fuentes.
+
+. . .
+
+Para ello usaremos un clásico de todo lenguaje que maneja datos: los famosos [**join**]{.hl-yellow}, una herramienta que nos va a permitir [**cruzar una o variables tablas**]{.hl-yellow}, haciendo uso de una [**columna identificadora**]{.hl-yellow} de cada una de ellas (por ejemplo, imagina que cruzamos datos de hacienda y de antecedentes penales, haciendo _join_ por la columna `DNI`).
+
+---
+
+## Relacionando datos
+
+
+```{r}
+#| eval: false
+tabla_1 |>
+  xxx_join(tabla_2, by = id)
+```
+
+* `inner_join()`: solo sobreviven los [**registros con id en ambas**]{.hl-yellow} tablas.
+
+* `full_join()`: mantiene [**todos los registros de ambas**]{.hl-yellow} tablas.
+
+* `left_join()`: mantiene [**todos los registros de la primera tabla**]{.hl-yellow}, y busca cuales tienen id también en la segunda (en caso de [**no tenerlo se rellena con NA**]{.hl-yellow} los campos de la 2ª tabla).
+
+* `right_join()`: mantiene [**todos los registros de la segunda tabla**]{.hl-yellow}, y busca cuales tienen id también en la primera.
+
+![](img/sql-joins.jpg)
+
+
+---
+
+## Relacionando datos
+
+Vamos a probar los distintos joins con un ejemplo sencillo
+
+```{r}
+tb_1 <- tibble("key" = 1:3, "val_x" = c("x1", "x2", "x3"))
+tb_2 <- tibble("key" = c(1, 2, 4), "val_y" = c("y1", "y2", "y3"))
+```
+
+:::: columns
+::: {.column width="50%"}
+
+```{r}
+tb_1
+```
+
+:::
+
+::: {.column width="50%"}
+
+```{r}
+tb_2
+```
+
+:::
+::::
+
+---
+
+## Left join
+
+Imagina que queremos [**incorporar**]{.hl-yellow} a `tb_1` la [**información de la tabla_2**]{.hl-yellow}, identificando los registros por la columna key (indicando con `by = "key"` la columna por la que tiene que cruzar): queremos mantener todos los registros de la primera tabla y buscar cuales tienen id (mismo valor en `key`) también en la segunda tabla.
+
+:::: columns
+::: {.column width="50%"}
+
+
+```{r}
+tb_1  |> 
+  left_join(tb_2, by = "key")
+```
+
+:::
+::: {.column width="50%"}
+
+
+![](img/left_join.jpg)
+
+
+:::
+::::
+
+---
+
+## Left join
+
+```{r}
+tb_1 |> 
+  left_join(tb_2, by = "key")
+```
+
+Fíjate que los [**registros de la primera cuya key no ha encontrado en la segunda**]{.hl-yellow} les ha dado el valor de [**ausente**]{.hl-yellow}.
+
+---
+
+## Right join
+
+El `right_join()` realizará la operación contraria: vamos ahora a [**incorporar**]{.hl-yellow} a `tb_2` la [**información de la tabla_2**]{.hl-yellow}, identificando los registros por la columna key (indicando con `by = "key"` la columna por la que tiene que cruzar): queremos mantener todos los registros de la segunda y buscar cuales tienen id (mismo valor en `key`) también en la primera tabla.
+
+:::: columns
+::: {.column width="50%"}
+
+
+```{r}
+tb_1 |> 
+  right_join(tb_2, by = "key")
+```
+
+:::
+
+::: {.column width="50%"}
+
+![](img/right_join.jpg)
+
+:::
+::::
+
+
+---
+
+## Right join
+
+
+```{r}
+tb_1 |> 
+  right_join(tb_2, by = "key")
+```
+
+Fíjate que ahora los [**registros de la segunda cuya key no ha encontrado en la primera**]{.hl-yellow} son los que les ha dado el valor de [**ausente**]{.hl-yellow}.
+
+---
+
+
+## Claves y sufijos
+
+Las columnas clave que usaremos para el cruce [**no siempre se llamarán igual**]{.hl-yellow}.
+
+```{r}
+tb_1 <- tibble("key_1" = 1:3, "val_x" = c("x1", "x2", "x3"))
+tb_2 <- tibble("key_2" = c(1, 2, 4), "val_y" = c("y1", "y2", "y3"))
+```
+
+. . .
+
+* `by = c("key_2" = "key_2")`: le indicaremos en qué columna de cada tabla están las claves por las que vamos a cruzar.
+
+:::: columns
+::: {.column width="50%"}
+
+```{r}
+# Left
+tb_1 |> 
+  left_join(tb_2, by = c("key_1" = "key_2"))
+```
+
+:::
+
+
+::: {.column width="50%"}
+
+```{r}
+# Right
+tb_1  |> 
+  right_join(tb_2, by = c("key_1" = "key_2"))
+```
+
+:::
+::::
+
+---
+
+## Claves y sufijos
+
+Además podemos [**cruzar por varias columnas a la vez**]{.hl-yellow} (interpretará como igual registro aquel que tenga el conjunto de claves igual), con `by = c("var1_t1" = "var1_t2", "var2_t1" = "var2_t2", ...)`. Modifiquemos el ejemplo anterior
+
+```{r}
+tb_1 <- tibble("k_11" = 1:3, "k_12" = c("a", "b", "c"),  "val_x" = c("x1", "x2", "x3"))
+tb_2 <- tibble("k_21" = c(1, 2, 4), "k_22" = c("a", "b", "e"), "val_y" = c("y1", "y2", "y3"))
+```
+
+. . .
+
+```{r}
+# Left
+tb_1 |> 
+  left_join(tb_2,
+            by = c("k_11" = "k_21", "k_12" = "k_22"))
+```
+
+
+---
+
+## Claves y sufijos
+
+También podría suceder que al cruzar dos tablas, haya [**columnas de valores que se llamen igual**]{.hl-yellow}
+
+
+```{r}
+tb_1 <- tibble("key_1" = 1:3, "val" = c("x1", "x2", "x3"))
+tb_2 <- tibble("key_2" = c(1, 2, 4), "val" = c("y1", "y2", "y3"))
+```
+
+. . .
+
+```{r}
+# Left
+tb_1 |> 
+  left_join(tb_2, by = c("key_1" = "key_2"))
+```
+
+Fíjate que [**por defecto nos añade los sufijos**]{.hl-yellow} `.x` y `.y` para indicarnos de que tabla vienen.
+
+---
+
+## Claves y sufijos
+
+
+Dicho [**sufijo podemos especificárselo**]{.hl-yellow} en el argumento opcional `suffix = ...`, que nos permita [**distinguir las variables**]{.hl-yellow} de una tabla y de otra.
+
+
+```{r}
+# Left
+tb_1 |>
+  left_join(tb_2, by = c("key_1" = "key_2"), suffix = c("_tabla1", "_tabla2"))
+```
+
+---
+
+## Full join
+
+Los dos anteriores casos forman lo que se conoce como [**outer joins**]{.hl-yellow}: cruces donde se mantienen observaciones que salgan en al menos una tabla. El tercer outer join es el conocido como `full_join()` que nos [**mantendrá las observaciones de ambas**]{.hl-yellow} tablas, [**añadiendo las filas**]{.hl-yellow} que no casen con la otra tabla.
+
+:::: columns
+::: {.column width="50%"}
+
+
+```{r}
+tb_1 |> 
+  full_join(tb_2, by = c("key_1" = "key_2"))
+```
+
+:::
+
+
+::: {.column width="50%"}
+
+![](img/full_join.jpg)
+
+:::
+::::
+
+
+---
+
+## Inner join
+
+Frente a los outer join está lo que se conoce como [**inner join**]{.hl-yellow}, con `inner_join()`: un cruce en el que solo se mantienen las [**observaciones que salgan en ambas tablas**]{.hl-yellow}, solo mantiene aquellos registros matcheados.
+
+:::: columns
+::: {.column width="50%"}
+
+
+```{r}
+tb_1 |> 
+  inner_join(tb_2, by = c("key_1" = "key_2"))
+```
+
+:::
+
+
+::: {.column width="50%"}
+
+![](img/inner_join.png)
+
+
+:::
+::::
+
+---
+
+## Inner join
+
+Fíjate que en términos de registros, `inner_join` si es conmutativa, **nos da igual el orden de las tablas**: lo único que cambia es el orden de las columnas que añade.
+
+:::: columns
+::: {.column width="50%"}
+
+
+```{r}
+tb_1 |> 
+  inner_join(tb_2, by = c("key_1" = "key_2"))
+```
+
+:::
+
+::: {.column width="50%"}
+
+
+```{r}
+tb_2 |> 
+  inner_join(tb_1, by = c("key_2" = "key_1"))
+```
+
+:::
+::::
+
+---
+
+## Anti/semi join
+
+Por último tenemos dos herramientas interesantes para [**filtrar (no cruzar) registros**]{.hl-yellow}: `semi_join()` y `anti_join()`. El [**semi join**]{.hl-yellow} nos deja en la [**primera tabla los registros que cuya clave está también en la segunda**]{.hl-yellow} (como un inner join pero sin añadir la info de la segunda tabla). Y el segundo, los anti join, hace justo lo contrario (aquellos que no están).
+
+
+:::: columns
+::: {.column width="50%"}
+
+```{r}
+# semijoin
+tb_1 |> 
+  semi_join(tb_2, by = c("key_1" = "key_2"))
+```
+
+:::
+
+::: {.column width="50%"}
+
+```{r}
+# antijoin
+tb_1 |> 
+  anti_join(tb_2, by = c("key_1" = "key_2"))
+```
+
+:::
+::::
+
+
+---
+
+
+## 💻 Tu turno {#tu-turno-16}
+
+[**Intenta realizar los siguientes ejercicios sin mirar las soluciones**]{style="color:#444442;"}
+
+Para los ejercicios usaremos las tablas disponibles en el paquete `{nycflights13}` (echa un vistazo antes)
+
+```{r}
+library(nycflights13)
+```
+
+* [**airlines**]{.hl-yellow}: nombre de aerolíneas (con su abreviatura).
+* [**airports**]{.hl-yellow}: datos de aeropuertos (nombres, longitud, latitud, altitud, etc).
+* [**flights**]{.hl-yellow}: datos de vuelos.
+* [**planes**]{.hl-yellow}: datos de los aviones.
+* [**weather**]{.hl-yellow}: datos meteorológicos horarios de las estaciones LGA, JFK y EWR.
+
+---
+
+## 💻 Tu turno {#tu-turno-16}
+
+[**Intenta realizar los siguientes ejercicios sin mirar las soluciones**]{style="color:#444442;"}
+
+
+::: panel-tabset
+
+### [**Ejercicio 1**]{.hl-yellow}
+
+📝 Del paquete `{nycflights13}` cruza la tabla `flights` con `airlines`. Queremos mantener todos los registros de vuelos, añadiendo la información de las aerolíneas a la tabla de aviones.
+
+```{r}
+#| eval: false
+#| code-fold: true
+flights_airlines <-
+  flights |> 
+  left_join(airlines, by = "carrier")
+flights_airlines
+```
+
+### [**Ejercicio 2**]{.hl-yellow}
+
+📝 A la tabla obtenida del cruce del apartado anterior, cruza después con los datos de los aviones en `planes`, pero incluyendo solo aquellos vuelos de los que tengamos información de sus aviones (y viceversa). 
+
+
+```{r}
+#| eval: false
+#| code-fold: true
+flights_airlines_planes <- 
+  flights_airlines |> 
+  inner_join(planes, by = "tailnum")
+flights_airlines_planes
+```
+
+
+### [**Ejercicio 3**]{.hl-yellow}
+
+📝 Repite el ejercicio anterior pero conservando ambas variables `year` (en una es el año del vuelo, en la otra es el año de construcción del avión), y distinguiéndolas entre sí
+
+
+
+```{r}
+#| eval: false
+#| code-fold: true
+flights_airlines_planes <- 
+  flights_airlines |> 
+  inner_join(planes, by = "tailnum",
+             suffix = c("_flight", "_build_aircraft"))
+flights_airlines_planes
+```
+
+### [**Ejercicio 4**]{.hl-yellow}
+
+📝 Al cruce obtenido del ejercicio anterior incluye la longitud y latitud de los aeropuertos en `airports`, distinguiendo entre la latitud/longitud del aeropuerto en destino y en origen.
+
+```{r}
+#| eval: false
+#| code-fold: true
+flights_airlines_planes %>%
+  left_join(airports %>% select(faa, lat, lon),
+            by = c("origin" = "faa")) |> 
+  rename(lat_origin = lat, lon_origin = lon) |> 
+  left_join(airports %>% select(faa, lat, lon),
+            by = c("dest" = "faa")) |> 
+  rename(lat_dest = lat, lon_dest = lon)
+```
+
+### [**Ejercicio 5**]{.hl-yellow}
+
+📝 Filtra de `airports` solo aquellos aeropuertos de los que salgan vuelos. Repite el proceso filtrado solo aquellos a los que lleguen vuelos
+
+```{r}
+#| eval: false
+#| code-fold: true
+airports |> 
+  semi_join(flights, by = c("faa" = "origin"))
+airports |> 
+  semi_join(flights, by = c("faa" = "dest"))
+```
+
+
+### [**Ejercicio 6**]{.hl-yellow}
+
+📝 ¿De cuántos vuelos no disponemos información del avión? Elimina antes los vuelos que no tengan identificar (diferente a NA) del avión
+
+
+```{r}
+#| eval: false
+#| code-fold: true
+flights |> 
+  drop_na(tailnum) |>
+  anti_join(planes, by = "tailnum") |>
+  count(tailnum, sort = TRUE) # de mayor a menor ya de paso
+```
+
+:::
 
 ---
 
 ## Correlaciones: heatmap
 
+
+* geom_tile
 
 ---
 
@@ -12720,7 +13183,6 @@ ggplot(netflix_resumen, aes(x = year_added, y = n)) +
 
 ## Discretas
 
-* geom_tile
 * radar
 * treemap
 * dumbell
@@ -12728,12 +13190,6 @@ ggplot(netflix_resumen, aes(x = year_added, y = n)) +
 html, animacion, exportar, patchwork
 barras arriba y abajo
 
-
-# Clase 16: entrega 
-
----
-
-## ....
 
 
 # Clase 17: depuración {#clase-17-debug}
