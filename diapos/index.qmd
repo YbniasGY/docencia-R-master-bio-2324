@@ -12705,7 +12705,11 @@ ggplot(netflix_resumen, aes(x = year_added, y = n)) +
 ```
 
 
----
+
+# Clase n + 1: joins, expresiones de control, listas y depuración
+
+[**Cruzando datos. Bucles. Mapeando listas. Depurando datos**]{style="color:#444442;"}
+
 
 ## Relacionando datos
 
@@ -12935,6 +12939,7 @@ tb_1 |>
   left_join(tb_2, by = c("key_1" = "key_2"), suffix = c("_tabla1", "_tabla2"))
 ```
 
+
 ---
 
 ## Full join
@@ -13163,275 +13168,923 @@ flights |>
 
 :::
 
----
-
-## Correlaciones: heatmap
-
-
-* geom_tile
 
 ---
 
-## Correlaciones: correlograma
+## Estructuras de control
 
----
+Una [**estructura de control**]{.hl-yellow} se compone de una serie de comandos orientados a  [**decidir el camino**]{.hl-yellow} que tu código debe recorrer
 
-## Correlaciones: grafo
+* Si se cumple la condición A, ¿qué sucede?
 
+* ¿Y si sucede B?
 
----
-
-## Discretas
-
-* radar
-* treemap
-* dumbell
-
-html, animacion, exportar, patchwork
-barras arriba y abajo
-
-
-
-# Clase 17: depuración {#clase-17-debug}
-
-[**Tratamiento de ausentes y outliers. Dummificar variables**]{style="color:#444442;"}
-
-
-
-## Imputar ausentes
-
----
-
-## Detectar e imputar outliers
-
----
-
-## Dummificar variables
-
-
-# Clase 18: estructuras de control {#clase-18}
-
-[**Estructuras condicionales. Bucles**]{style="color:#444442;"}
-
-
-
-
-# Caso real: datos de encuestas
-
-[**Pongamos en práctica lo aprendido...**]{style="color:#444442;"}
-
----
-
-## Caso real: datos de encuestas
-
-El paquete `{readr}` (ya en `{tidyverse}`) nos permite realizar una carga más ágil y más inteligente que el `read.csv()` de base (lo importa a un `tibble` e interpreta bien el tipo de cada variable, incluso fechas)
-
-```{r}
-#| echo: false
-#| eval: false
-encuestas <- read_csv(file = "./datos/historical_surveys.csv")
-encuestas <-
-  encuestas |>
-  mutate(cod_elec = "02") |> 
-  select(type_survey, date_elec, id_pollster, pollster,
-         media, field_date_from, field_date_to, exit_poll,
-         size, turnout, abbrev_candidacies, est_vote) |> 
-  pivot_wider(names_from = "abbrev_candidacies",
-              values_from = "est_vote")
-write_csv(encuestas, file = "./datos/historical_surveys.csv")
-```
-
-```{r}
-encuestas <- read_csv(file = "./datos/historical_surveys.csv")
-encuestas
-```
-
----
-
-## Caso real: datos de encuestas
-
-Lo [**primero que debes hacer**]{.hl-yellow} es visualizar con `View()` la tabla para entenderla
+* ¿Cómo puedo repetir una misma expresión (dependiendo de una variable)?
 
 . . .
 
--   [**Primera tarea**]{.hl-purple}: crea una variable llamada `id_survey` que nos permita identificar a cada encuesta. ¿Qué podríamos concatenar?
+Si has programado antes, quizás te sea familiar las conocidas como [**estructuras condicionales**]{.hl-yellow} tales como `if (blabla) {...} else {...}`  o [**bucles**]{.hl-yellow} `for/while` (a evitar siempre que podamos).
+
+---
+
+## Estructura If
+
+Una de las estructuras de control más famosas son las conocidas como [**estructuras condicionales**]{.hl-yellow} `if`.
+
+> SI (IF) un conjunto de condiciones se cumple (TRUE), entonces ejecuta lo que haya dentro de las llaves
+
+Por ejemplo, la estructura `if (x == 1) { código A }` lo que hará será [**ejecutar el código A entre llaves**]{.hl-yellow} pero [**SOLO SI**]{.hl-purple} la [**condición entre paréntesis es cierta**]{.hl-purple} (solo si `x` es 1). En cualquier otro caso, no hará nada.
+
+. . .
+
+Por ejemplo, definamos un vector de edades de 8 personas
 
 ```{r}
-#| code-fold: true
-encuestas <-
-  encuestas |> 
-  # Creamos un id con type_survey-date_elec-id_pollster
-  # con .before la ponemos delante de everything(), de todo (1ª col)
-  mutate(id_survey = glue("{type_survey}-{date_elec}-{id_pollster}"),
-         .before = everything())
+edad <- c(14, 17, 24, 56, 31, 20, 87, 73)
+edad < 18
 ```
 
 ---
 
-## Caso real: datos de encuestas
+## Estructura If
 
--   [**Segunda tarea**]{.hl-purple}: usando la variable `id_survey` creada elimina duplicados.
+
+Nuestra estructura condicional hará lo siguiente: [**si existe algún menor de edad, imprimirá**]{.hl-yellow} por pantalla un mensaje.
 
 ```{r}
-#| code-fold: true
-encuestas <-
-  encuestas |>
-  # Eliminamos duplicados por id_survey, pero mantenemos todas las
-  # columnas con .keep_all = TRUE
-  distinct(id_survey, .keep_all = TRUE)
+if (any(edad < 18)) { 
+  
+  print("Existe alguna persona menor de edad")
+  
+}
 ```
 
 ---
 
-## Caso real: datos de encuestas
-
--   [**Tercera tarea**]{.hl-purple}: tenemos una variable `media` que representa el medio en el que se publicó o encargo la encuesta. Elimina dicha variable, así como el tipo de encuesta y el id de la encuestadora
+## Estructura If
 
 ```{r}
-#| code-fold: true
-encuestas <-
-  encuestas |> 
-  # Eliminamos las columnas pedidas con un -
-  # las concateno para usar solo un - para todas
-  select(-c(type_survey, id_pollster, media))
+#| eval: false
+if (any(edad < 18)) { 
+  
+  print("Existe alguna persona menor de edad")
+  
+}
+```
+
+
+En caso de que las [**condiciones no sean ciertas**]{.hl-yellow} dentro de `if()` (`FALSE`), no sucede nada
+
+
+```{r}
+if (all(edad >= 18)) { 
+  
+  print("Todos son mayores de edad")
+  
+}
+```
+
+**No obtenemos ningún mensaje** porque la condición `all(edad >= 18)` no es `TRUE`, así que bno ejecuta nada.
+
+---
+
+## Estructura If-else
+
+La estructura `if (condicion) { código A }` puede combinarse con un `else { código B }`: cuando la [**condición no está verificada**]{.hl-yellow}, se [**ejecutará el código alternativo B**]{.hl-yellow} dentro de `else { }`, permitiéndonos decidir que sucede cuando se cumple y cuando no.
+. . .
+
+Por ejemplo, `if (x == 1) { código A } else { código B }` ejecutará A si `x` es igual a 1 y B en cualquier otro caso.
+
+```{r}
+if (all(edad >= 18)) { 
+  
+  print("Todos son mayores de edad")
+  
+} else {
+  
+  print("Existe alguna persona menor de edad")
+}
 ```
 
 ---
 
-## Caso real: datos de encuestas
+## Estructura If-else
 
--   [**Cuarta tarea**]{.hl-purple}: quédate solo con las encuestas cuyo tamaño muestral conozcamos y que no sean encuestas a pie de urna. Elimina esta última variable.
+Esta estructura `if - else` puede ser [**anidada**]{.hl-yellow}: imagina que queremos ejecutar un código si todos son menores; si no sucede, pero todos son mayores de 16, hacer otra cosa; en cualquier otra cosa, otra acción.
 
 ```{r}
-#| code-fold: true
-encuestas <-
-  encuestas |> 
-  # eliminar ausentes
-  drop_na(size) |> 
-  # Filtramos encuestas (registros) a pie de urna (aquellas que exit_poll == FALSE)
-  filter(!exit_poll) |> 
-  # Quitamos la variable pie de urna
-  select(-exit_poll)
+if (all(edad >= 18)) { 
+  
+  print("Todos son mayores de edad")
+  
+} else if (all(edad >= 16)) {
+  
+  print("Hay algún menor de edad pero todos con 16 años o más")
+  
+} else { print("Hay alguna persona con menos de 16 años") }
+```
+
+::: callout-note
+## Truco
+
+Puedes **colapsar las estructuras** haciendo click en la flecha a la izquierda que aparece en tu script.
+
+:::
+
+
+---
+
+## If-else vectorizado
+
+
+Esta estructura condicional se puede [**vectorizar**]{.hl-yellow} (en una sola línea) con `if_else()` (del paquete `{dplyr}`), cuyos argumentos son
+
+* la condición a evaluar
+* lo que sucede cuando se cumple
+* lo que sucede cuando no
+* un argumento opcional para cuando la condición a evaluar es `NA`
+
+Por ejemplo, vamos a etiquetar sin son mayores/menores de edad y un "desconocido" cuando no conocemos la edad
+
+```{r}
+library(dplyr)
+edad <- c(NA, edad)
+if_else(edad >= 18, "mayor", "menor", missing = "desconocido")
+```
+
+
+
+---
+
+## Bucles
+
+Aunque en la mayoría de ocasiones se pueden reemplazar por otras estructuras más eficientes y legibles, es importante conocer una de las expresiones de control más famosas: los [**bucles**]{.hl-yellow}.
+
+* `for { }`: permite [**repetir el mismo código**]{.hl-yellow} en un [**número prefijado y conocido**]{.hl-purple} de veces.
+
+* `while { }`: permite [**repetir el mismo código**]{.hl-yellow} pero en un [**número indeterminado de veces**]{.hl-purple} (hasta que una **condición** deje de cumplirse).
+
+---
+
+## Bucles for
+
+Un bucle [**for**]{.hl-yellow} es una estructura que permite [**repetir**]{.hl-yellow} un conjunto de órdenes un número [**finito, prefijado y conocido de veces**]{.hl-purple} dado un conjunto de índices.
+
+. . .
+
+Por ejemplo, vamos a definir un vector `x` y vamos a imprimir sus elementos al cuadrado: definireos un índice `i` para imprimir, en cada paso, el valor i-ésimo `x[i]^2`. Esos índices irán dentro de `for (indice in conjunto) { code }` (por ejemplo, `i in 1:4`)
+
+```{r}
+x <- c(0, -7, 1, 4)
+for (i in 1:4) {
+  
+  print(x[i]^2)
+  
+}
 ```
 
 ---
 
-## Caso real: datos de encuestas
-
--   [**Quinta tarea**]{.hl-purple}: convierte el dataset en tidydata. ¿Qué falla? ¿Cómo arreglarlo? Reminder: no quremos ausentes.
+## Bucles for
 
 ```{r}
-#| code-fold: true
-encuestas <-
-  encuestas |> 
-  # Convertimos a tidydata
-  pivot_longer(cols = -(id_survey:turnout),
-               names_to = "partido",
-               values_to = "est_voto",
-               values_drop_na = TRUE)
+#| eval: false
+for (i in 1:4) { 
+  print(x[i]^2) 
+}
+```
+
+Dentro del paréntesis del `for ()` debemos tener una  [**secuencia de índices**]{.hl-yellow} (en este caso, números). Si queremos hacer lo mismo pero excluyendo el segundo elemento simplemente definimos el conjunto de valores `c(1, 3, 4)` entre los que `i` puede moverse.
+
+```{r}
+for (i in c(1, 3, 4)) {
+  
+  print(x[i]^2)
+  
+}
 ```
 
 ---
 
-## Caso real: datos de encuestas
+## Bucles for
 
--   [**Sexta tarea**]{.hl-purple}: calcula el número de días que la encuesta ha hecho trabajo de campo, y coloca dicha columna tras el nombre de la encuestadora. Tras ello elimina aquellas encuestas que tengan 0 días de trabajo de campo.
+Otra forma de usar un bucle es definir de cero un vector: primer inicializamos en ceros `y <- rep(0, 4)` para después modificar cada [**elemento i-ésimo**]{.hl-yellow} definidos como `x[i]^2`.
 
 ```{r}
-#| code-fold: true
-encuestas <-
-  encuestas |> 
-  # Calculamos los días de campo como la diferencia de fechas 
-  # con as.numeric() convertimos la dif. de fechas a un número
-  mutate(n_dias_campo = as.numeric(field_date_to - field_date_from),
-         .after = pollster) |> 
-  # Solo aquellas cuyo trabajo de campo haya durado 1 día o más
-  filter(n_dias_campo > 0)
+y <- rep(0, 4)
+for (i in 1:4) {
+  
+  y[i] <- x[i]^2
+  
+}
+y
+```
+
+. . .
+
+Lo anterior es equivalente vectorialmente a
+
+```{r}
+y <- x^2
+y
 ```
 
 ---
 
-## Caso real: datos de encuestas
+## Evitando bucles
 
--   [**Séptima tarea**]{.hl-purple}: calcula el número de días que faltan hasta las elecciones desde que la encuesta cerro el trabajo de campo y coloca dicha variable tras `n_dias_campo`. Tras ello elimina las fechas de inicio y fin de trabajo de campo de la manera más eficiente posible
+
+Como ya hemos aprendido con el paquete`{microbenchmark}` podemos chequear como [**los bucles suelen ser muy ineficientes**]{.hl-yellow} (de ahí que debamos evitarlos en la mayoría de ocasiones
 
 ```{r}
-#| code-fold: true
-encuestas <-
-  encuestas |> 
-  # Calculamos los días que faltan a las elecciones
-  # con as.numeric() convertimos la dif. de fechas a un número
-  mutate(n_dias_elec = as.numeric(date_elec - field_date_to),
-         .after = n_dias_campo) |> 
-  # Eliminamos ya las fechas de campo que no necesitamos
-  select(-contains("field"))
+library(microbenchmark)
+x <- 1:1000
+microbenchmark(y <- x^2, 
+               for (i in 1:100) { y[i] <- x[i]^2 },
+               times = 500)
+```
+
+---
+ 
+## Bucles for
+
+
+Podemos ver otro ejemplo  [**combinando números y textos**]{.hl-yellow}: definimos un vector de edades y de nombres, e imprimimos el nomber y edad i-ésima.
+
+```{r}
+nombres <- c("Javi", "Sandra", "Carlos", "Marcos", "Marta")
+edades <- c(33, 27, 18, 43, 29)
+
+for (i in 1:5) { 
+  
+  print(glue("{nombres[i]} tiene {edades[i]} años")) 
+  
+}
 ```
 
 ---
 
-## Caso real: datos de encuestas
+## Bucles for
 
--   [**Octava tarea**]{.hl-purple}: elimina encuestas que se hayan cerrado dentro de la ventana temporal en la que está prohibido la publicación de encuestas (no se deberían usar para predecir ya que «no se conocen»)
+
+Fíjate que [**si no queremos estar pendientes de cuantos valores**]{.hl-yellow} tenemos, podemos hacer uso de `length()` para acceder a la [**última posición**]{.hl-yellow} (sea cual sea).
 
 ```{r}
-#| code-fold: true
-encuestas <-
-  encuestas |>
-  # Solo con encuestas antes del baneo electoral
-  filter(n_dias_elec > 15)
+for (i in 1:length(nombres)) { 
+  
+  print(glue("{nombres[i]} tiene {edades[i]} años")) 
+  
+}
 ```
 
 ---
 
-## Caso real: datos de encuestas
+## Bucles for
 
--   [**Novena tarea**]{.hl-purple}: obtén, por cada elección, la media de las encuestas de cada partido
+Aunque normalmente se suelen indexar con vectors numéricos, los bucles pueden ser [**indexados sobre cualquier estructura vectorial**]{.hl-yellow}
 
 ```{r}
-#| code-fold: true
-encuestas |>
-  # Resumen: media de voto por fecha y partido
-  summarise(media_voto = mean(est_voto),
-            .by = c("date_elec", "partido"))
+library(stringr)
+week_days <- c("monday", "tuesday", "wednesday", "thursday",
+               "friday", "saturday", "sunday")
+
+for (days in week_days) {
+  
+  print(str_to_upper(days))
+}
 ```
 
 ---
 
-## Caso real: datos de encuestas
+## Bucles for
 
--   [**Décima tarea**]{.hl-purple}: realiza lo mismo que la tarea anterior pero solo para las encuestas de los 60 días previos a las elecciones. Ordena la salida de reciente a antiguo
+Vamos a combinar las estructuras condicionales y los bucles: usando el conjunto `swiss` del paquete `{datasets}`, vamos a asignar `NA`  si los valores de fertilidad son mayores de 80.
 
 ```{r}
-#| code-fold: true
-encuestas |>
-  # Filtramos ventana de 60 días
-  filter(n_dias_elec <= 60) |>
-  # Media de est_voto por fecha y partido
-  summarise(media_voto = mean(est_voto),
-            .by = c("date_elec", "partido")) |>
-  # Ordenar de mayor a menor
-  arrange(desc(date_elec))
+for (i in 1:nrow(swiss)) {
+  
+  if (swiss$Fertility[i] > 80) { 
+    
+    swiss$Fertility[i] <- NA
+    
+  }
+}
+```
+
+. . .
+
+Esto es exactamente igual a un `if_else()` vectorizado
+
+```{r}
+data("swiss")
+swiss$Fertility <- if_else(swiss$Fertility > 80, NA, swiss$Fertility)
+```
+
+
+---
+
+## Bucles while
+
+Otra forma de crear un bucle es con la estructura `while { }`, que nos ejecutará un bucle [**un número desconocido de veces**]{.hl-yellow}, hasta que una condición [**deje de cumplirse**]{.hl-yellow} (de hecho puede que nunca termine). Por ejemplo, vamos a inializar una variable `ciclos <- 1`, que incrementaremos en cada paso, y no saldremos del bucle hasta que `ciclos > 4`.
+
+```{r}
+ciclos <- 1
+while(ciclos <= 4) {
+  
+  print(glue("No todavía, vamos por el ciclo {ciclos}")) 
+  ciclos <- ciclos + 1
+  
+}
+```
+
+
+---
+  
+## Bucles while
+
+
+¿Qué sucede cuando la [**condición nunca es FALSE**]{.hl-yellow}? Pruébalo tu mismo
+
+```{r}
+#| eval: false
+while (1 > 0) {
+  
+  print("Presiona ESC para salir del bucle")
+  
+}
+```
+
+&nbsp;
+
+::: callout-warning
+## Cuidado
+
+Un bucle `while { }` puede ser bastante «peligroso» sino controlamos bien cómo pararlo.
+
+:::
+
+---
+
+## Bucles while
+
+Contamos con dos palabras reservadas para [**abortar un bucle o forzar su avance**]{.hl-yellow}:
+
+* `break`: permite [**abortar un bucle**]{.hl-yellow} incluso si no se ha llegado a su final
+
+```{r}
+for(i in 1:10) {
+  if (i == 3) {
+    
+    break # si i = 3, abortamos bucle
+    
+  }
+  print(i)
+}
 ```
 
 ---
 
-## Caso real: datos de encuestas
+## Bucles while
 
--   [**Undécima tarea**]{.hl-purple}: del dataset generado en el anterior ejercicio, obtén el primer y el segundo con mayor estimación de voto (en promedio)
+Contamos con dos palabras reservadas para [**abortar un bucle o forzar su avance**]{.hl-yellow}:
+
+* `next`: [**fuerza un bucle a avanzar a la siguiente iteración**]{.hl-yellow} 
+
+```{r}
+for(i in 1:5) {
+  if (i == 3) {
+    
+    next # si i = 3, la obvia y continua al siguiente
+    
+  }
+  print(i)
+}
+```
+
+---
+
+## Bucles repeat
+
+Aunque no es tan usado como las opciones anteriores, también contamos con `repeat { }` que ejecuta un [**bucle de manera infinita hasta que se indique abortar**]{.hl-yellow} con un break
+
+```{r}
+count <- 0
+repeat { 
+  
+  count <- count + 1
+  if (count >= 100) { break }
+  
+}
+count
+```
+
+
+---
+
+## Replicate
+
+Por último, otra forma de [**repetir código un número de veces**]{.hl-yellow} es hacer uso de `replicate()`: simplemente permite repetir lo mismo [**n veces**]{.hl-yellow}
+
+```{r}
+x <- 1:3
+replicate(n = 3, x^2)
+```
+
+---
+
+## 💻 Tu turno {#tu-turno-n-1}
+
+::: panel-tabset
+
+### [**Ejercicio 1**]{.hl-yellow}
+
+📝 Modifica el código inferior para que se imprima un mensaje por pantalla si y solo si todos los datos de `airquality` son con mes distinto a enero
+
+```{r}
+#| eval: false
+library(datasets)
+months <- airquality$Month
+
+if (months == 2) {
+  print("No hay datos de enero")
+}
+```
 
 ```{r}
 #| code-fold: true
-encuestas |> 
-  # Filtramos ventana de 60 días
-  filter(n_dias_elec <= 60) |> 
-  # Media de est_voto por fecha y partido
-  summarise(media_voto = mean(est_voto),
-            .by = c("date_elec", "partido")) |>
-  # Ordenar de mayor a menor por fecha
-  arrange(desc(date_elec)) |>
-  # extraemos los dos con más est de voto (por cada fecha)
-  slice_max(media_voto, n = 2, by = date_elec)
+#| eval: false
+library(datasets)
+months <- airquality$Month
+
+if (all(months != 1)) {
+  print("No hay datos de enero")
+}
 ```
+
+
+### [**Ejercicio 2**]{.hl-yellow}
+
+📝 Modifica el código inferior para guardar en una variable llamada `temp_alta` un `TRUE` si alguno de los registros tiene una temperatura superior a 90 grados Farenheit y `FALSE` en cualquier otro caso
+ 
+```{r}
+#| eval: false
+temp <- airquality$Temp
+
+if (temp == 100) {
+  print("Algunos de los registros tienen temperaturas superiores a 90 grados Farenheit")
+}
+```
+
+ 
+```{r}
+#| eval: false
+#| code-fold: true
+# Option 1
+temp <- airquality$Temp
+temp_alta <- FALSE
+if (any(temp > 90)) {
+   temp_alta <- TRUE
+}
+
+# Option 2
+temp_alta <- any(airquality$Temp > 90)
+```
+
+### [**Ejercicio 3**]{.hl-yellow}
+
+📝 Modifica el código inferior para diseñar un bucle `for` de 5 iteraciones que solo recorra los primeros 5 impares (y en cada paso del bucle los imprima)
+
+```{r}
+#| eval: false
+for (i in 1:5) {
+  
+  print(i)
+}
+```
+
+```{r}
+#| eval: false
+#| code-fold: true
+for (i in c(1, 3, 5, 7, 9)) {
+  
+  print(i)
+}
+```
+
+### [**Ejercicio 4**]{.hl-yellow}
+
+📝 Modifica el código inferior para diseñar un bucle `while` que empiece con un contador `count <- 1` y pare cuando llegue a 6
+
+```{r}
+#| eval: false
+count <- 1
+while (count == 2) {
+  
+  print(count)
+}
+```
+
+```{r}
+#| eval: false
+#| code-fold: true
+count <- 1
+while (count < 6) {
+  
+  print(count)
+  count <- count + 1
+  
+}
+```
+
+
+:::
+
+
+# Depuración
+
+[**¿Cómo depurar/explorar nuestros datos antes de modelizar?**]{style="color:#444442;"}
+
+---
+
+## Depuración
+
+En la bioestadística, como en cualquier otro ámbito de aplicación, [**no siempre los datos los tendremos en el formato deseado**]{.hl-yellow}.
+
+Ya hemos aprendido como pivotar nuestros datos para tenerlos en [**formato tidydata**]{.hl-yellow}, algo indispensable para una correcta depuración y visualización. También hemos aprendido algunas operaciones básicas de [**filtrado**]{.hl-yellow}, [**muestreo**]{.hl-yellow}, [**selección de variables**]{.hl-yellow} y [**recategorización**]{.hl-yellow}
+
+. . .
+
+Veamos un nuevo paquete llamado `{skimr}`, cuya función `skim()` nos permitirá tener un [**primer análisis exploratorio**]{.hl-yellow} de nuestros datos
+
+
+```{r}
+#| echo: false
+library(skimr)
+```
+
+```{r}
+#| eval: false
+install.packages("skimr")
+library(skimr)
+iris |> skim()
+```
+
+
+---
+
+## Depuración
+
+Con dicha función podemos [**comprobar de manera rápida**]{.hl-yellow} si nuestros datos presentan [**alguno de los siguientes problemas**]{.hl-red}
+
+* [**Problemas de codificación o rango**]{.hl-red}: los valores parecen valores permitidos según lo que representa la variable (por ejemplo, no hay edades negativas)
+
+* [**No tenemos datos ausentes**]{.hl-red}: no hace falta decidir, de momento, que hacemos con ellos, ya que `complete_rate` sale en todas 1 (`n_missing` está a cero).
+
+* [**No parece que tengamos excesivos valores atípicos**]{.hl-red}: a la vista de los pequeños histogramas y los percentiles, no parece que tengamos excesivos outliers (al menos muy evidentes)
+
+* [**Todas las salvo Species son numéricas**]{.hl-red}: si tuviésemos que montar un modelo predictivo todas las variables predictoras son numéricas.
+
+
+* [**Casi todas parecen simétricas**]{.hl-red}: salvo `Petal.Length` las variables parecen más o menos simétricas (media se parece a mediana).
+
+---
+
+## Depuración
+
+En general dado un dataset desde un punto de vista predictivo debemos preguntarnos
+
+* [**Tipología**]{.hl-yellow} de las variables. ¿Todas mis variables predictoras son numéricas o debo? ¿Mi variable objetivo es categórica?
+
+. . .
+
+* [**Codificación/rango**]{.hl-yellow} de las variables. ¿Todas mis variables tienen un rango coherente (por ejemplo, que una variable de peso no sea negativa)? ¿Están bien codificadas?
+
+. . .
+
+* [**Atípicos y ausentes**]{.hl-yellow}. ¿Tengo valores atípicos (outliers)? En caso afirmativo, ¿cómo tratarlos? Tras tratar atípicos, ¿tengo datos ausentes?
+
+---
+
+## Depuración
+
+
+* [**Selección de variables**]{.hl-yellow}. ¿Necesito seleccionar variables? ¿Tengo alguna de **varianza cero** (es decir, sin información)? ¿Tengo problemas de **dependencia o colinealidad**? ¿Puedo resumir mi info con un conjunto nuevo de variables incorreladas (componentes principales)?
+
+. . .
+
+* [**Variables dummy**]{.hl-yellow}. ¿Debo recategorizar variables que no sean numéricas? 
+
+. . .
+
+* [**Añadir info**]{.hl-yellow}. ¿Debo crear nuevas variables que nos aporte info extra?
+
+. . .
+
+* [**Normalizar variables**]{.hl-yellow}. ¿Tengo ya mis variables preparadas (tras tratar lo anterior) para el algoritmo que vaya usar (estandarizadas por rango o tipificadas por media-varianza, por ejemplo)?
+
+
+---
+
+
+## Depuración
+
+Vamos a realizar un ejemplo sobre el dataset `starwars` del paquete `{dplyr}` dentro de tidyverse
+
+```{r}
+#| warning: false
+#| message: false
+library(tidyverse)
+starwars
+```
+
+. . .
+
+El objetivo será [**predecir el peso**]{.hl-yellow} (variable objetivo continua) mediante una regresión.
+
+---
+
+## Depuración
+
+Para simplificarlo vamos primero a [**seleccionar las columnas**]{.hl-yellow} de estatura, peso, edad y sexo.
+
+```{r}
+starwars_lm <- 
+  starwars |>
+  select(height:mass, birth_year:sex)
+starwars_lm
+```
+
+---
+
+## Depuración
+
+* [**Tipología**]{.hl-yellow} de las variables. ¿Todas mis variables predictoras son numéricas o debo? ¿Mi variable objetivo es categórica?
+
+. . .
+
+En este caso [**no todas las predictoras son numéricas**]{.hl-red} ya que tenemos una variable categórica como `sex` que de momento [**vamos a eliminar**]{.hl-yellow}
+
+```{r}
+starwars_lm <- 
+  starwars_lm |>
+  select(where(is.numeric))
+starwars_lm
+```
+
+---
+
+## Depuración
+
+
+* [**Codificación/rango**]{.hl-yellow} de las variables. ¿Todas mis variables tienen un rango coherente (por ejemplo, que una variable de peso no sea negativa)? ¿Están bien codificadas?
+
+. . .
+
+En este caso [**todas tienen rangos permitidos**]{.hl-green}
+
+```{r}
+#| eval: false
+starwars_lm |> skim()
+```
+
+---
+
+## Depuración
+
+* [**Atípicos y ausentes**]{.hl-yellow}. ¿Tengo valores atípicos (outliers)? En caso afirmativo, ¿cómo tratarlos? Tras tratar atípicos, ¿tengo datos ausentes?
+
+. . .
+
+
+```{r}
+#| eval: false
+starwars_lm |> skim()
+```
+
+En este caso parece obvio que debemos [**tratar ausentes y atípicos**]{.hl-red}
+
+---
+
+## Depuración: atípicos
+
+
+Una de las partes más importantes de la fase de exploración y modificación es la [**detección de outliers**]{.hl-yellow}, pudiendo tener **diferentes definiciones de valor atípico**:
+
+* [**Atípico respecto a media**]{.hl-yellow}: será un dato muy alejado de la media de la variable. [**¿Cuánto de alejado?**]{.hl-purple} Una definición habitual es definir un [**dato atípico**]{.hl-yellow} como aquel que se [**aleja de la media  $k$ veces la desviación típica**]{.hl-yellow} (un valor habitual es $k = 2.5$)
+
+$$\left| x_i - \overline{x} \right| > k*s_{x}$$
+
+. . .
+
+Dicha definición de atípico [**solo tendrá sentido cuando la media sea representativa**]{.hl-yellow} de tu distribución, es decir, siempre y cuando tengamos [**cierta simetría**]{.hl-yellow} (en caos contrario la media, al ser poco robusta, se perturbará fácilmente).
+
+---
+
+## Depuración: atípicos
+
+Para detectarlos usaremos el paquete `{outliers}` y su función `scores()`, que nos dará en cada caso una [**"puntuación" de cada observación**]{.hl-yellow} (lo que se aleja). En caso de que queramos detectarlos **respecto a la media**, le indicaremos que `type = "z"` y nos devolverá precisamente el valor  $k$
+
+```{r}
+# install.packages("outliers")
+library(outliers)
+abs(scores(c(1, -1, 0, 5, 2, 1.5, 0.5, -0.3, 0, 2, 1.7, 0.2, -0.8), type = "z"))
+```
+
+. . .
+
+De esta forma podemos detectar muy fácil los outliers en función de los estrictos que queramos ser con ese  $k$ (si supera un umbral, outlier). El tipo `type = "chisq"` nos hace algo parecido pero elevando las desviaciones al cuadrado y diviendo por la varianza.
+
+---
+
+## Depuración: atípicos
+
+Vamos a aplicarlo a nuestro dataset de starwars (de momento quitando ausentes)
+
+```{r}
+library(outliers)
+k <- 2.5
+starwars_outliers_mean <-
+  starwars_lm |>
+  drop_na() |> 
+  mutate(across(everything(),
+                function(x) {
+                  if_else(abs(scores(x, type = "z")) > k, NA, x) }))
+starwars_outliers_mean
+```
+
+---
+
+## Depuración: atípicos
+
+Con `if_any()` dentro del `filter()` podemos mostrar todo los registros detectados como outlier en alguna variable.
+
+```{r}
+starwars_outliers_mean |>
+  filter(if_any(everything(), is.na))
+```
+
+
+
+---
+
+## Depuración: atípicos
+
+Tras marcarlos como ausente tendremos dos opciones: 
+
+* [**eliminar dichas observaciones**]{.hl-yellow} con `drop_na()` de nuevo (problema: eliminas TODA la fila)
+
+* [**imputar por la media**]{.hl-yellow} (sin contar con los ausentes)
+
+. . .
+
+Para lo segundo podemos usar el paquete `{mice}` (ver <https://amices.org/mice/>) destinado a [**imputar ausentes**]{.hl-yellow}
+
+```{r}
+# install.packages("mice")
+library(mice)
+```
+
+---
+
+## Depuración: atípicos
+
+Con la función `md.pattern()` (de dicho paquete) podemos [**visualizar la distribución de los ausentes**]{.hl-yellow}
+
+```{r}
+md.pattern(starwars_lm)
+```
+
+
+
+---
+
+## Depuración: atípicos
+
+
+* [**Atípico respecto a mediana**]{.hl-yellow}: será un dato muy alejado de la mediana de la variable. [**¿Cuánto de alejado?**]{.hl-purple} Una definición habitual (conocido como **filtro de Hampel**) es definir un dato atípico como aquel que se [**aleja de la mediana $k$ veces la mediana de las desviaciones absolutas**]{.hl-yellow} (un valor habitual es $k=3$), conocida como $MAD = Me \left(|x_i - Me_x| \right)$
+
+$$\left| x_i - Me_x \right| > k*MAD$$
+
+. . .
+
+
+Para ello nos bastará usar `scores()` con `type = "mad"` (y nos devolverá de nuevo ese $k$).
+
+```{r}
+abs(scores(c(1, -1, 0, 5, 2, 1.5, 0.5, -0.3, 0, 2, 1.7, 0.2, -0.8), type = "mad"))
+```
+
+
+El [**valor a imputar sería la mediana**]{.hl-yellow}
+
+
+
+---
+
+## Depuración: atípicos
+
+
+* [**Atípico respecto a percentiles**]{.hl-yellow}: será un dato muy alejado de los cuartiles de la variable. [**¿Cuánto de alejado?**]{.hl-purple}. Una definición habitual es definir un [**dato atípico como aquel que se aleja de cuartiles 1 y 3 (percentiles 25 y 75)  $k$ veces el rango intercuartílico**]{.hl-yellow} ($IQR = Q_3 - Q_1$). Un valor habitual es $k=1.5$
+
+$$x_i > Q_3 + k*IQR \quad \text{ o bien } \quad x_i < Q_1 - k*IQR$$
+
+. . .
+
+Para ello nos bastará usar `scores()` con `type = "iqr"` (y nos devolverá de nuevo ese $k$, siendo $k = 0$ para lo que esté dentro del IQR).
+
+```{r}
+
+abs(scores(c(1, -1, 0, 5, 2, 1.5, 0.5, -0.3, 0, 2, 1.7, 0.2, -0.8), type = "iqr"))
+```
+
+El [**valor a imputar sería la mediana**]{.hl-yellow}
+
+---
+
+## Depuración: atípicos
+
+Existen otros [**procedimientos basados en inferencia estadística**]{.hl-yellow}  (muchos de ellos en el paquete  `{outliers}`)
+
+* [**Tests de Grubbs y Dixon**]{.hl-yellow}: ambos test nos permiten detectar si el valor más alto (o bajo) de una variable es un outlier, pudiendo detectar [**un solo outlier en cada iteración**]{.hl-yellow} (en caso de detectarlo, deberíamos tratarlo y volver a ejecutar el test)
+
+$\mathcal{H}_0$: valor más alto/bajo no es outlier
+
+$\mathcal{H}_1$: valor más alto/bajo sí es outlier
+ 
+. . .
+
+El [**test de Dixon**]{.hl-yellow} (basado en una ordenación) suele funcionar mejor cuando tenemos poca muestra que el test de Grubbs (basado en la media).
+
+Ver más documentación de su funcionamiento en <https://www.itl.nist.gov/div898/handbook/eda/section3/eda35h1.htm> y <https://www.statisticshowto.com/dixons-q-test/>
+
+---
+
+
+## Depuración: atípicos
+
+```{r}
+x <- c(1, -1, 0, 5, 2, 1.5, 0.5, -0.3, 0, 2, 1.7, 0.2, -0.8)
+dixon.test(x, opposite = TRUE) # valor más bajo
+x <- c(1, -1, 0, 5, 2, 1.5, 0.5, -0.3, 0, 2, 1.7, 0.2, -0.8)
+dixon.test(x, opposite = FALSE) # valor más alto
+```
+
+---
+
+## Depuración: atípicos
+
+* [**Test de Rosner**]{.hl-yellow}: al contrario que los anteriores, nos permite detectar varios outliers a la vez, especialmente diseñado para evitar que un valor atípico nos perturbe tanto que nos enmascare otro (basado en la media). Podemos ejecutarlo con la función `rosnerTest()` del paquete `{EnvStats}`.
+ 
+
+. . .
+
+Aprenderemos en la siguiente clase como imputar atípicos, de momento [**vamos a eliminarlos imputados según la media**]{.hl-yellow}
+
+
+```{r}
+starwars_sin_outliers <- 
+  starwars_outliers_mean |> 
+  drop_na()
+starwars_sin_outliers
+```
+
+---
+
+## Depuración
+
+* [**Selección de variables**]{.hl-yellow}. ¿Necesito seleccionar variables? ¿Tengo alguna de **varianza cero** (es decir, sin información)? ¿Tengo problemas de **dependencia o colinealidad**? ¿Puedo resumir mi info con un conjunto nuevo de variables incorreladas (componentes principales)?
+
+. . .
+
+En este caso [**no tenemos altas correlaciones**]{.hl-yellow} entre las variables: nos interesa predictoras lo más incorreladas posibles entre sí y lo más correladas con la objetivo
+
+```{r}
+starwars_sin_outliers |> corrr::correlate()
+```
+
+---
+
+## Depuración
+
+* [**Variables dummy**]{.hl-yellow}. ¿Debo recategorizar variables que no sean numéricas? (ver `{fastDummies}`)
+
+* [**Añadir info**]{.hl-yellow}. ¿Debo crear nuevas variables que nos aporte info extra?
+
+* [**Normalizar variables**]{.hl-yellow}. ¿Tengo ya mis variables preparadas (tras tratar lo anterior) para el algoritmo que vaya usar (estandarizadas por rango o tipificadas por media-varianza, por ejemplo)?
+
+
+
+En este caso [**no es necesario dummificar**]{.hl-green} ya que hemos considerado solo las numéricas. Al no tener que seleccionar variables y aplicar una regresión lineal [**tampoco es indispensable normalizar**]{.hl-green} y [**no vamos añadir info nueva**]{.hl-green}
+
+---
+
+
+## Depuración: recategorizar 
+
+---
+
+## Listas
+
 
 # El mundo Github
 
