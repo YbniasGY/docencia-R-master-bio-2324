@@ -678,7 +678,7 @@ nombre <- "javi"
 -   A la pregunta «¿está usted soltero/a?» la respuesta será lo que llamamos una [**variable lógica**]{.hl-yellow} (`TRUE` si está soltero/a o `FALSE` en otro caso).
 
 ```{r}
-soltero <- TRUE
+soltero <- FALSE
 ```
 :::
 
@@ -839,7 +839,7 @@ Otro tipo fundamental serán las [**variables lógicas o binarias**]{.hl-yellow}
 -   `FALSE`: [**falso**]{.hl-yellow} guardado internamente como un 0.
 
 ```{r}
-soltero <- TRUE # ¿Es soltero? --> SÍ
+soltero <- FALSE # ¿Está soltero? --> NO
 class(soltero)
 ```
 
@@ -1783,9 +1783,9 @@ Las matrices tienen el mismo problema que los vectores: si juntamos datos de dis
 
 ```{r}
 #| code-line-numbers: "4-5"
-edades <- c(14, 24, NA)
-soltero <- c(TRUE, NA, FALSE)
-nombres <- c("javi", "laura", "lucía")
+edades <- c(34, 24, NA)
+soltero <- c(FALSE, NA, TRUE)
+nombres <- c("javi", "carlos", "lucía")
 matriz <- cbind(edades, soltero, nombres)
 matriz
 ```
@@ -12708,7 +12708,7 @@ ggplot(netflix_resumen, aes(x = year_added, y = n)) +
 
 # Clase n + 1: joins, expresiones de control, listas y depuración
 
-[**Cruzando datos. Bucles. Mapeando listas. Depurando datos**]{style="color:#444442;"}
+[**Cruzando datos. Bucles**]{style="color:#444442;"}
 
 
 ## Relacionando datos
@@ -13699,10 +13699,9 @@ while (count < 6) {
 
 :::
 
+# Clase n + 2:  depuración y Github
 
-# Depuración
-
-[**¿Cómo depurar/explorar nuestros datos antes de modelizar?**]{style="color:#444442;"}
+[**Depurando datos. Manejo de listas. Github**]{style="color:#444442;"}
 
 ---
 
@@ -13753,34 +13752,34 @@ Con dicha función podemos [**comprobar de manera rápida**]{.hl-yellow} si nues
 
 En general dado un dataset desde un punto de vista predictivo debemos preguntarnos
 
-* [**Tipología**]{.hl-yellow} de las variables. ¿Todas mis variables predictoras son numéricas o debo? ¿Mi variable objetivo es categórica?
+* [**1. Tipología**]{.hl-yellow} de las variables. ¿Todas mis variables predictoras son numéricas o debo? ¿Mi variable objetivo es categórica? ¿Tienen la tipología adecuada para mi metodología?
 
 . . .
 
-* [**Codificación/rango**]{.hl-yellow} de las variables. ¿Todas mis variables tienen un rango coherente (por ejemplo, que una variable de peso no sea negativa)? ¿Están bien codificadas?
+* [**2. Codificación/rango**]{.hl-yellow} de las variables. ¿Todas mis variables tienen un rango coherente (por ejemplo, que una variable de peso no sea negativa)? ¿Están bien codificadas?
 
 . . .
 
-* [**Atípicos y ausentes**]{.hl-yellow}. ¿Tengo valores atípicos (outliers)? En caso afirmativo, ¿cómo tratarlos? Tras tratar atípicos, ¿tengo datos ausentes?
+* [**3. Atípicos y ausentes**]{.hl-yellow}. ¿Tengo valores atípicos (outliers)? En caso afirmativo, ¿cómo tratarlos? Tras tratar atípicos, ¿tengo datos ausentes?
 
 ---
 
 ## Depuración
 
 
-* [**Selección de variables**]{.hl-yellow}. ¿Necesito seleccionar variables? ¿Tengo alguna de **varianza cero** (es decir, sin información)? ¿Tengo problemas de **dependencia o colinealidad**? ¿Puedo resumir mi info con un conjunto nuevo de variables incorreladas (componentes principales)?
+* [**4. Selección de variables**]{.hl-yellow}. ¿Necesito seleccionar variables? ¿Tengo alguna de **varianza cero** (es decir, sin información)? ¿Tengo problemas de **dependencia o colinealidad**? ¿Puedo resumir mi info con un conjunto nuevo de variables incorreladas (componentes principales)?
 
 . . .
 
-* [**Variables dummy**]{.hl-yellow}. ¿Debo recategorizar variables que no sean numéricas? 
+* [**5. Variables dummy**]{.hl-yellow}. ¿Debo recategorizar variables que no sean numéricas? 
 
 . . .
 
-* [**Añadir info**]{.hl-yellow}. ¿Debo crear nuevas variables que nos aporte info extra?
+* [**6. Añadir info**]{.hl-yellow}. ¿Debo crear nuevas variables que nos aporte info extra?
 
 . . .
 
-* [**Normalizar variables**]{.hl-yellow}. ¿Tengo ya mis variables preparadas (tras tratar lo anterior) para el algoritmo que vaya usar (estandarizadas por rango o tipificadas por media-varianza, por ejemplo)?
+* [**7. Normalizar variables**]{.hl-yellow}. ¿Tengo ya mis variables preparadas (tras tratar lo anterior) para el algoritmo que vaya usar (estandarizadas por rango o tipificadas por media-varianza, por ejemplo)?
 
 
 ---
@@ -13799,13 +13798,13 @@ starwars
 
 . . .
 
-El objetivo será [**predecir el peso**]{.hl-yellow} (variable objetivo continua) mediante una regresión.
+El objetivo será [**predecir el peso**]{.hl-yellow} (variable objetivo continua) mediante una [**regresión lineal**]{.hl-yellow}.
 
 ---
 
 ## Depuración
 
-Para simplificarlo vamos primero a [**seleccionar las columnas**]{.hl-yellow} de estatura, peso, edad y sexo.
+Para simplificarlo vamos primero a [**seleccionar solo las columnas**]{.hl-yellow} de estatura, peso, edad y sexo.
 
 ```{r}
 starwars_lm <- 
@@ -13816,13 +13815,13 @@ starwars_lm
 
 ---
 
-## Depuración
+## 1. Tipología
 
-* [**Tipología**]{.hl-yellow} de las variables. ¿Todas mis variables predictoras son numéricas o debo? ¿Mi variable objetivo es categórica?
+* [**Tipología**]{.hl-yellow} de las variables. Al ser una regresión, ¿todas mis variables predictoras y objetivo son numéricas?
 
 . . .
 
-En este caso [**no todas las predictoras son numéricas**]{.hl-red} ya que tenemos una variable categórica como `sex` que de momento [**vamos a eliminar**]{.hl-yellow}
+En este caso [**no todas las predictoras son numéricas**]{.hl-red} ya que tenemos una variable categórica como `sex` que, de momento, [**vamos a eliminar**]{.hl-yellow}
 
 ```{r}
 starwars_lm <- 
@@ -13833,14 +13832,14 @@ starwars_lm
 
 ---
 
-## Depuración
+## 2. Codificación/rango
 
 
 * [**Codificación/rango**]{.hl-yellow} de las variables. ¿Todas mis variables tienen un rango coherente (por ejemplo, que una variable de peso no sea negativa)? ¿Están bien codificadas?
 
 . . .
 
-En este caso [**todas tienen rangos permitidos**]{.hl-green}
+En este caso [**todas tienen rangos permitidos**]{.hl-green} (eso no significa que no tengamos outliers)
 
 ```{r}
 #| eval: false
@@ -13849,9 +13848,9 @@ starwars_lm |> skim()
 
 ---
 
-## Depuración
+## 3. Atípicos/ausentes
 
-* [**Atípicos y ausentes**]{.hl-yellow}. ¿Tengo valores atípicos (outliers)? En caso afirmativo, ¿cómo tratarlos? Tras tratar atípicos, ¿tengo datos ausentes?
+* [**Atípicos y ausentes**]{.hl-yellow}. ¿Tengo valores atípicos (outliers)? En caso afirmativo, ¿cómo tratarlos? Tras tratar atípicos, ¿tengo datos ausentes? (puedes probar distintos métodos en <https://odds.cs.stonybrook.edu/#table1>)
 
 . . .
 
@@ -13865,8 +13864,7 @@ En este caso parece obvio que debemos [**tratar ausentes y atípicos**]{.hl-red}
 
 ---
 
-## Depuración: atípicos
-
+## 3. Atípicos (media)
 
 Una de las partes más importantes de la fase de exploración y modificación es la [**detección de outliers**]{.hl-yellow}, pudiendo tener **diferentes definiciones de valor atípico**:
 
@@ -13880,7 +13878,7 @@ Dicha definición de atípico [**solo tendrá sentido cuando la media sea repres
 
 ---
 
-## Depuración: atípicos
+## 3. Atípicos (media)
 
 Para detectarlos usaremos el paquete `{outliers}` y su función `scores()`, que nos dará en cada caso una [**"puntuación" de cada observación**]{.hl-yellow} (lo que se aleja). En caso de que queramos detectarlos **respecto a la media**, le indicaremos que `type = "z"` y nos devolverá precisamente el valor  $k$
 
@@ -13896,7 +13894,7 @@ De esta forma podemos detectar muy fácil los outliers en función de los estric
 
 ---
 
-## Depuración: atípicos
+## 3. Atípicos (media)
 
 Vamos a aplicarlo a nuestro dataset de starwars (de momento quitando ausentes)
 
@@ -13914,7 +13912,7 @@ starwars_outliers_mean
 
 ---
 
-## Depuración: atípicos
+## 3. Atípicos (media)
 
 Con `if_any()` dentro del `filter()` podemos mostrar todo los registros detectados como outlier en alguna variable.
 
@@ -13924,41 +13922,9 @@ starwars_outliers_mean |>
 ```
 
 
-
 ---
 
-## Depuración: atípicos
-
-Tras marcarlos como ausente tendremos dos opciones: 
-
-* [**eliminar dichas observaciones**]{.hl-yellow} con `drop_na()` de nuevo (problema: eliminas TODA la fila)
-
-* [**imputar por la media**]{.hl-yellow} (sin contar con los ausentes)
-
-. . .
-
-Para lo segundo podemos usar el paquete `{mice}` (ver <https://amices.org/mice/>) destinado a [**imputar ausentes**]{.hl-yellow}
-
-```{r}
-# install.packages("mice")
-library(mice)
-```
-
----
-
-## Depuración: atípicos
-
-Con la función `md.pattern()` (de dicho paquete) podemos [**visualizar la distribución de los ausentes**]{.hl-yellow}
-
-```{r}
-md.pattern(starwars_lm)
-```
-
-
-
----
-
-## Depuración: atípicos
+## 3. Atípicos (mediana)
 
 
 * [**Atípico respecto a mediana**]{.hl-yellow}: será un dato muy alejado de la mediana de la variable. [**¿Cuánto de alejado?**]{.hl-purple} Una definición habitual (conocido como **filtro de Hampel**) es definir un dato atípico como aquel que se [**aleja de la mediana $k$ veces la mediana de las desviaciones absolutas**]{.hl-yellow} (un valor habitual es $k=3$), conocida como $MAD = Me \left(|x_i - Me_x| \right)$
@@ -13981,7 +13947,7 @@ El [**valor a imputar sería la mediana**]{.hl-yellow}
 
 ---
 
-## Depuración: atípicos
+## 3. Atípicos (percentiles)
 
 
 * [**Atípico respecto a percentiles**]{.hl-yellow}: será un dato muy alejado de los cuartiles de la variable. [**¿Cuánto de alejado?**]{.hl-purple}. Una definición habitual es definir un [**dato atípico como aquel que se aleja de cuartiles 1 y 3 (percentiles 25 y 75)  $k$ veces el rango intercuartílico**]{.hl-yellow} ($IQR = Q_3 - Q_1$). Un valor habitual es $k=1.5$
@@ -14001,15 +13967,15 @@ El [**valor a imputar sería la mediana**]{.hl-yellow}
 
 ---
 
-## Depuración: atípicos
+## 3. Atípicos (inferencia)
 
 Existen otros [**procedimientos basados en inferencia estadística**]{.hl-yellow}  (muchos de ellos en el paquete  `{outliers}`)
 
 * [**Tests de Grubbs y Dixon**]{.hl-yellow}: ambos test nos permiten detectar si el valor más alto (o bajo) de una variable es un outlier, pudiendo detectar [**un solo outlier en cada iteración**]{.hl-yellow} (en caso de detectarlo, deberíamos tratarlo y volver a ejecutar el test)
 
-$\mathcal{H}_0$: valor más alto/bajo no es outlier
+$H_0$: valor más alto/bajo no es outlier
 
-$\mathcal{H}_1$: valor más alto/bajo sí es outlier
+$H_1$: valor más alto/bajo sí es outlier
  
 . . .
 
@@ -14020,7 +13986,7 @@ Ver más documentación de su funcionamiento en <https://www.itl.nist.gov/div898
 ---
 
 
-## Depuración: atípicos
+## 3. Atípicos (inferencia)
 
 ```{r}
 x <- c(1, -1, 0, 5, 2, 1.5, 0.5, -0.3, 0, 2, 1.7, 0.2, -0.8)
@@ -14031,40 +13997,336 @@ dixon.test(x, opposite = FALSE) # valor más alto
 
 ---
 
-## Depuración: atípicos
+## 3. Atípicos (inferencia)
 
 * [**Test de Rosner**]{.hl-yellow}: al contrario que los anteriores, nos permite detectar varios outliers a la vez, especialmente diseñado para evitar que un valor atípico nos perturbe tanto que nos enmascare otro (basado en la media). Podemos ejecutarlo con la función `rosnerTest()` del paquete `{EnvStats}`.
  
 
+---
+
+## 3. Atípicos (isolation trees)
+
+
+También existen [**técnicas de Machine Learning**]{.hl-yellow} para la identificación de outliers, como los conocidos como [**Isolation Forest**]{.hl-yellow}.
+
 . . .
 
-Aprenderemos en la siguiente clase como imputar atípicos, de momento [**vamos a eliminarlos imputados según la media**]{.hl-yellow}
+La idea es un poco similar a la de un [**Random Forest**]{.hl-yellow}, mediante la [**combinación de muchos árboles**]{.hl-yellow} de clasificación/regresión conocidos como **isolation trees**, aunque en este caso los puntos de corte se hace de manera totalmente aleatoria.
 
+. . .
+
+De esta manera, aquellos individuos con características diferentes al resto quedarán aislados rápidamente, de manera que los [**outliers serán aquellos aislados a los que se llega más rápido**]{.hl-yellow} que al resto
+
+---
+
+
+## 3. Atípicos (isolation trees)
+
+El algoritmo se puede resumir con sigue:
+
+1. Se crea un [**nodo raíz**]{.hl-yellow} con una submuestra de N observaciones.
+
+2. Se [**selecciona una variable aleatoriamente**]{.hl-yellow} y un [**corte (valor) aleatorio a**]{.hl-yellow} dentro de su rango
+
+3. Se crean [**dos nodos nuevos**]{.hl-yellow} separando los observaciones ($x_i \leq a$ vs $x_i > a$)
+
+4. Se [**repiten los pasos 2 y 3**]{.hl-yellow} hasta que 
+[**todas las observaciones quedan aisladas**]{.hl-yellow} de forma individual.
+
+5. Se repite el proceso tomando otra submuestra (bootstrap), de manera que el output de cada observación será el [**promedio de divisiones necesarias para aislarla**]{.hl-yellow}: cuanto más pequeño sea, más anómalo será.
+
+---
+
+## 3. Atípicos (isolation trees)
+
+Es un [**algoritmo no supervisado**]{.hl-yellow}, lo que significa que [**no hay un criterio óptimo objetivo**]{.hl-yellow} para decidir que a partir de dicho valor una observación es un outlier (idea: usar percentiles de dicha distancia, por ejemplo el 5-10% con menor distancia)
+
+. . .
+
+En casos donde el tamaño muestral sea elevado, aislar cada observación puede ser [**costoso computacionalmente**]{.hl-red} por lo que a veces se asume una [**profundidad máxima**]{.hl-yellow} hasta donde puede crecer: las observaciones que sigan sin dividirse se les [**añade el número de divisiones teóricas promedio**]{.hl-yellow} $c(r)$
+ que se necesitarían para aislarlos mediante un [**árbol binario de búsqueda (BST)**]{.hl-yellow} (con $r$ observaciones).
+ 
+$$c(r) = 2H(r-1)-{\frac {2(r-1)}{r}}, \quad H(i) = \ln(i) + \gamma, \quad \gamma = 0.577216$$
+ 
+---
+
+
+## 3. Atípicos (isolation trees)
+
+Es importante que el dataset haya sido ya tratado por ausentes.
 
 ```{r}
-starwars_sin_outliers <- 
-  starwars_outliers_mean |> 
-  drop_na()
-starwars_sin_outliers
+library(solitude)
+# Modelo isolation forest
+m <- as.integer(nrow(starwars_lm |> drop_na())/2)
+isoforest <-
+  isolationForest$new(sample_size = m, num_trees = 500,
+                      replace = TRUE, seed = 1234567,
+                      max_depth = 7)
+isoforest$fit(dataset = starwars_lm |> drop_na())
+
 ```
 
 ---
 
-## Depuración
+## 3. Atípicos (isolation trees)
+
+Con el modelo entrenado, se predicen las distancias de aislamiento promedio de cada observación. Los resultados que calcula `isoforest$predict()` son la [**distancia promedio `average_depth`**]{.hl-yellow} y una métrica que mide el [**grado de anomalía**]{.hl-yellow} `anomaly_score` (valores próximos a 1 para outliers)
+
+```{r}
+predicciones <-
+  isoforest$predict(data =
+                      starwars_lm |> drop_na())
+predicciones |> arrange(average_depth)
+```
+
+---
+
+## 3. Atípicos (isolation trees)
+
+```{r}
+#| code-fold: true
+ggplot(data = predicciones, aes(x = average_depth)) +
+  geom_density(fill = "#6D98ED", alpha = 0.5) +
+  geom_vline(xintercept =
+               quantile(predicciones$average_depth,
+                        seq(0, 1, 0.1)),
+             color = "#DC5B49", linetype = "dashed") +
+  labs(title = "Distribución de distancias medias del Isolation Forest",
+    subtitle = "Deciles marcados en rojo") +
+  theme_minimal()
+```
+
+
+---
+
+
+## 3. Ausentes
+
+Tras marcar los outliers tenemos dos opciones
+
+* [**eliminar dichas observaciones**]{.hl-yellow} (pasamos a NA y luego con `drop_na()`; problema: eliminas TODA la fila)
+
+* [**imputar**]{.hl-yellow} (sin contar con los ausentes)
+
+---
+
+## 3. Ausentes
+
+Antes de decidir podemos hacer uso del paquete `{naniar}` (ver <https://naniar.njtierney.com/>)
+
+. . .
+
+:::: columns
+::: {.column width="50%"}
+
+Por ejemplo con `geom_miss_point()` nos permite visualizar los valores ausentes (que por defecto ggplot los retira)
+
+```{r}
+#| eval: false
+library(naniar)
+ggplot(starwars_lm, 
+       aes(x = height, y = mass)) + 
+  geom_miss_point()
+```
+:::
+
+::: {.column width="50%"}
+
+```{r}
+#| echo: false
+library(naniar)
+ggplot(starwars_lm, 
+       aes(x = height, y = mass)) + 
+  geom_miss_point()
+```
+:::
+
+::::
+
+---
+
+## 3. Ausentes
+
+También podemos hacer uso de `gg_miss_var` para [**visualizar la cantidad de ausentes para cada variable**]{.hl-yellow}.
+
+```{r}
+gg_miss_var(starwars)
+```
+
+---
+
+## 3. Ausentes
+
+En `gg_miss_var` tenemos un argumento para facetar por una cualitativa.
+
+```{r}
+gg_miss_var(starwars, facet = sex)
+```
+
+
+
+---
+
+## 3. Ausentes
+
+Una forma de [**representar los ausentes**]{.hl-yellow} en un formato tidy es con la conocida como [**shadow matrix**]{.hl-purple}: una tabla con la misma dimensión que los datos pero con [**indicadores binarios**]{.hl-yellow} sobre si tenemos (`NA`) o no missing (`!NA`), cuyas variables tiene de sufijo `_NA`
+
+. . .
+
+Esto lo podemos hacer con `as_shadow()`
+
+```{r}
+as_shadow(starwars_lm)
+```
+
+---
+
+## 3. Ausentes
+
+Con `bind_shadow()` podemos [**añadir la shadow matrix**]{.hl-yellow} al dataset original.
+
+```{r}
+bind_shadow(starwars_lm)
+```
+
+--- 
+
+## 3. Ausentes
+
+Lo anterior es equivalente a  construirlo con `nabular()` (tabular + NA)
+
+```{r}
+nabular(starwars) |> 
+  summarise(media_peso = mean(mass, na.rm = ), .by = sex_NA)
+```
+
+---
+
+
+## 3. Ausentes
+
+También podemos hacer uso de `add_prop_miss()` para añadir la [**proporción de ausentes en cada registro**]{.hl-yellow}
+
+```{r}
+starwars_lm |>
+  add_prop_miss()
+```
+
+---
+
+## 3. Ausentes
+
+Para [**imputar datos ausentes**]{.hl-yellow} podemos hacer uso de diferentes paquetes, entre ellos `{simpute}` y `{mice}` (ver <https://amices.org/mice/>)
+
+. . .
+
+Por ejemplo en el segundo paquete contamos con la función `md.pattern()` podemos [**visualizar la distribución de los ausentes**]{.hl-yellow}
+
+```{r}
+mice::md.pattern(starwars_lm)
+```
+
+---
+
+## 3. Ausentes/atípicos
+
+En el caso de starwars vamos a [**imputar ausentes iniciales**]{.hl-yellow} con Random Forest (`mice::mice.impute.rf()`)...
+
+```{r}
+#| code-fold: true
+#| message: false
+starwars_lm_NA_init <-
+  starwars_lm |> 
+  # Imputamos NA iniciales
+  mice::mice(ntree = 100, meth = "rf") |> 
+  # Completamos NA
+  complete()
+```
+
+---
+
+## 3. Ausentes/atípicos
+
+... después [**detectar outliers**]{.hl-yellow} con isolation tree (por ejemplo el 5% con distancia más baja)...
+
+```{r}
+#| code-fold: true
+#| message: false
+m <- as.integer(nrow(starwars_lm_NA_init)/2)
+isoforest <-
+    isolationForest$new(sample_size = m, num_trees = 500,
+                        replace = TRUE, seed = 1234567,
+                        max_depth = 9)
+isoforest$fit(dataset = starwars_lm_NA_init)
+
+predicciones <-
+    isoforest$predict(data = starwars_lm_NA_init)
+
+id_outliers <- 
+  predicciones |>
+  slice_min(average_depth, prop = 0.05) |> 
+  pull(id)
+
+starwars_lm_sin_outliers <-
+  starwars_lm_NA_init |> 
+  rowid_to_column() |> 
+  mutate(across(-rowid,
+                function(x, y, z) {
+                  if_else(y %in% z, NA, x) }, rowid, id_outliers)) |> 
+  select(-rowid)
+```
+
+---
+
+## 3. Ausentes/atípicos
+
+... y luego de nuevo [**imputar outliers (pasados a ausentes)**]{.hl-yellow} con Random Forest (`mice::mice.impute.rf()`).
+
+```{r}
+#| code-fold: true
+#| message: false
+starwars_lm_depurado <-
+  starwars_lm_sin_outliers |> 
+  # Imputamos NA iniciales
+  mice::mice(ntree = 100, meth = "rf") |> 
+  # Completamos NA
+  complete()
+starwars_lm_depurado
+```
+
+
+
+
+---
+
+## 4. Selección de variables
 
 * [**Selección de variables**]{.hl-yellow}. ¿Necesito seleccionar variables? ¿Tengo alguna de **varianza cero** (es decir, sin información)? ¿Tengo problemas de **dependencia o colinealidad**? ¿Puedo resumir mi info con un conjunto nuevo de variables incorreladas (componentes principales)?
 
 . . .
 
-En este caso [**no tenemos altas correlaciones**]{.hl-yellow} entre las variables: nos interesa predictoras lo más incorreladas posibles entre sí y lo más correladas con la objetivo
+En este caso [**no tenemos altas correlaciones entre las variables predictoras**]{.hl-yellow}: nos interesa predictoras lo más incorreladas posibles entre sí y lo más correladas con la objetivo (por ejemplo, altura alta correlación con peso)
 
 ```{r}
-starwars_sin_outliers |> corrr::correlate()
+starwars_lm_depurado |> corrr::correlate()
 ```
 
 ---
 
-## Depuración
+
+## 4. Selección de variables
+
+El paquete `{corrr}` y `{corrrplot`} nos permite visualizar dichas correlaciones
+
+
+```{r}
+corrplot::corrplot(starwars_lm_depurado |> cor())
+```
+
+---
+
+## 5.6.7. Depuración
 
 * [**Variables dummy**]{.hl-yellow}. ¿Debo recategorizar variables que no sean numéricas? (ver `{fastDummies}`)
 
@@ -14079,11 +14341,118 @@ En este caso [**no es necesario dummificar**]{.hl-green} ya que hemos considerad
 ---
 
 
-## Depuración: recategorizar 
+## Regresión lineal
+
+Vamos a comparar 3 modelos de regresión: [**sin tratar nada**]{.hl-yellow}, eliminando ausentes, y el tratamiento de ausentes/atípicos realizados.
+
+```{r}
+starwars_lm |> lm(formula = mass ~ .) |> summary()
+```
 
 ---
 
-## Listas
+## Regresión lineal
+
+Vamos a comparar 3 modelos de regresión: sin tratar nada, [**eliminando ausentes**]{.hl-yellow}, y el tratamiento de ausentes/atípicos realizados.
+
+
+```{r}
+starwars_lm |> drop_na() |> lm(formula = mass ~ .) |> summary()
+```
+
+
+---
+
+## Regresión lineal
+
+Vamos a comparar 3 modelos de regresión: sin tratar nada, eliminando ausentes, y el [**tratamiento de ausentes/atípicos realizados**]{.hl-yellow}.
+
+```{r}
+starwars_lm_depurado |> lm(formula = mass ~ .) |> summary()
+```
+
+---
+
+## Regresión lineal
+
+Vamos a comparar 3 modelos de regresión: sin tratar nada, eliminando ausentes, y el tratamiento de ausentes/atípicos realizados.
+
+* [**sin tratar nada**]{.hl-yellow}: obtenemos $R^2 = 0.3367$ con el intercepto no significativo
+
+* [**eliminando ausentes**]{.hl-yellow}: obtenemos lo mismo (por defecto `lm()` se carga los ausentes)
+
+* [**tratamiento de ausentes/atípicos**]{.hl-yellow}: obtenemos $R^2 = 0.5551$ con edad no significativa
+
+---
+
+## 5. Variables dummies
+
+Otra opción a veces es añadir información extra de manera los outliers nos ayuden mejor a predecir, y en este caso añadiremos la variable sexo haciéndola dummy (**one-hot encoding**): creamos $k-1$ variables binarias con `dummy_cols()` del paquete `fastDummies`
+
+Obtenemos un $R^2 = 0.5498$ (similar a haber tratado de outliers)
+
+```{r}
+#| code-fold: true
+#| message: false
+library(fastDummies)
+starwars_lm_sex <- 
+  starwars |>
+  select(height:mass, birth_year:sex) |> 
+  drop_na(sex) |> 
+  # Imputamos NA iniciales
+  mice::mice(ntree = 100, meth = "rf") |> 
+  # Completamos NA
+  complete()
+
+starwars_lm_sex_depurado <-
+  starwars_lm_sex |>
+  dummy_cols(select_columns = "sex", remove_first_dummy = TRUE,
+             remove_selected_columns = TRUE)
+
+starwars_lm_sex_depurado |> lm(formula = mass ~ .) |> summary()
+```
+
+---
+
+## La imputación importa
+
+El método de imputación será crucial, de hecho si imputamos los ausentes de las variables numéricas por la media, esto es lo que obtenemos
+
+```{r}
+#| code-fold: true
+#| message: false
+library(fastDummies)
+starwars_lm_sex <- 
+  starwars |>
+  select(height:mass, birth_year:sex) |> 
+  drop_na(sex) |> 
+  # Imputamos NA iniciales
+  mice::mice(meth = "mean") |> 
+  # Completamos NA
+  complete()
+
+starwars_lm_sex_depurado <-
+  starwars_lm_sex |>
+  dummy_cols(select_columns = "sex", remove_first_dummy = TRUE,
+             remove_selected_columns = TRUE)
+
+starwars_lm_sex_depurado |>
+  lm(formula = mass ~ height + birth_year) |>
+  summary()
+```
+
+---
+
+## La imputación importa
+
+El método de imputación será crucial, de hecho si imputamos los ausentes de las variables numéricas por la media, esto es lo que obtenemos (provocado por un sobreajuste).
+
+```{r}
+#| code-fold: true
+starwars_lm_sex_depurado |>
+  lm(formula = mass ~ .) |>
+  summary()
+```
 
 
 # El mundo Github
