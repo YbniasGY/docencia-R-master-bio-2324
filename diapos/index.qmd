@@ -14389,7 +14389,6 @@ Vamos a comparar 3 modelos de regresión: sin tratar nada, eliminando ausentes, 
 
 Otra opción a veces es añadir información extra de manera los outliers nos ayuden mejor a predecir, y en este caso añadiremos la variable sexo haciéndola dummy (**one-hot encoding**): creamos $k-1$ variables binarias con `dummy_cols()` del paquete `fastDummies`
 
-Obtenemos un $R^2 = 0.5498$ (similar a haber tratado de outliers)
 
 ```{r}
 #| code-fold: true
@@ -14403,7 +14402,17 @@ starwars_lm_sex <-
   mice::mice(ntree = 100, meth = "rf") |> 
   # Completamos NA
   complete()
+```
 
+---
+
+## 5. Variables dummies
+
+Otra opción a veces es añadir información extra de manera los outliers nos ayuden mejor a predecir, y en este caso añadiremos la variable sexo haciéndola dummy (**one-hot encoding**): creamos $k-1$ variables binarias con `dummy_cols()` del paquete `fastDummies`
+
+Obtenemos un $R^2 = 0.5498$ (similar a haber tratado de outliers)
+
+```{r}
 starwars_lm_sex_depurado <-
   starwars_lm_sex |>
   dummy_cols(select_columns = "sex", remove_first_dummy = TRUE,
